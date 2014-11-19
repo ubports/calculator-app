@@ -20,7 +20,9 @@ import Ubuntu.Components 1.1
 import "ui"
 
 MainView {
-    objectName: "mainView"
+    id: mainView
+    // objectName for functional testing purposes (autopilot-qt5)
+    objectName: "calculator"
     applicationName: "com.ubuntu.calculator"
 
     // Removes the old toolbar and enables new features of the new header.
@@ -29,8 +31,12 @@ MainView {
     width: units.gu(40)
     height: units.gu(70)
 
-    // Screen {}
+    Storage{
+        id: storage
+    }
 
-    // Keyboard {}
+    SimplePage {
+        title: i18n.tr("Calculator")
+    }
 }
 
