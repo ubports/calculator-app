@@ -19,6 +19,7 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import "../formula.js" as F
+import "../components/math.js" as MathJs
 
 Page {
     property var formula: new F.Formula()
@@ -57,8 +58,19 @@ Page {
     }
 
     function calculate() {
-        screenFormula[screenFormula.length - 1]._number += "=";
-        screenFormula.push({_text:'', _operation: '=', _number: "0"});
+        console.log("Formula: " + screenFormula[screenFormula.length - 1]._number)
+        var result = MathJs.eval(screenFormula[screenFormula.length - 1]._number);
+        result = result.toString();
+        if (result === "NaN") {
+            // TRANSLATORS: Not a Number. For example, 0/0 is undefined as a real number, and so is represented by NaN
+            result = i18n.tr("NaN");
+        } else if (result === "Infinity") {
+            result = "+∞";
+        } else if (result === "-Infinity") {
+            result = "-∞";
+        }
+        screenFormula[screenFormula.length - 1]._number += "=" + result;
+        screenFormula.push({_text:'', _operation: "", _number: result});
         formulaView.currentOperatorsChanged();
     }
 
@@ -84,7 +96,6 @@ Page {
             (screenFormula[screenFormula.length - 1]._number.length > 0)) {
 
             screenFormula[screenFormula.length - 1]._number = screenFormula[screenFormula.length - 1]._number.slice(0, -1);
-            formula.numeralPop();
             formulaView.currentOperatorsChanged();
             formulaView.forceActiveFocus();
             return;

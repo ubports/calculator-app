@@ -58,7 +58,7 @@ Rectangle {
             onPressed: buttonRect.clicked()
             onReleased: buttonRect.released()
             onPressAndHold: buttonRect.pressAndHold();
-            onCanceled: buttonRect.released()
+            onCanceled: rectangle.color = buttonColor;
         }
     }
 }
