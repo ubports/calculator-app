@@ -42,7 +42,7 @@ MainView {
 
     function calculate() {
         console.log("Formula: " + formula)
-        var result = MathJs.eval(formula);
+        var result = mathJs.eval(formula);
         result = result.toString();
         console.log("Result: " + result);
         formula = '';
