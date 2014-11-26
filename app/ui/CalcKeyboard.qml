@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Canonical Ltd.
+ * Copyright 2014 Canonical Ltd.
  *
  * This file is part of ubuntu-calculator-app.
  *
@@ -22,7 +22,7 @@ import Ubuntu.Components 1.1
 Item {
     id: virtualKeyboard
     width: parent.width
-    height: grid.height+units.gu(2)
+    height: parent.height / 2
 
     property int calcGridUnit: width / 50
     property variant keyboardButtons: {'0': zeroButton,
@@ -51,33 +51,6 @@ Item {
                                        'clear': clearButton,
                                        'backspace': backspaceButton }
 
-    Text {
-        visible: formulaView.__wasAtYBegining && formulaView.__displaceDist > units.gu(2)
-        font.pixelSize: units.gu(2)
-        text: formulaView.__toBeRefresh ? i18n.tr("Release to start new calculation") : i18n.tr("Pull to start new calculation")
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: '#757373'
-    }
-
-    Flickable {
-        id: flickableKeyboard
-        anchors.fill: parent
-        flickableDirection: Flickable.HorizontalFlick
-        contentWidth: virtualKeyboard.width * 2
-        contentHeight: grid.height + units.gu(4)
-        boundsBehavior: Flickable.DragOverBounds
-
-        onMovementEnded: {
-            // if we are not on the border of the virtual calculator keyboard
-            // then trigger flick
-            if (!flickableKeyboard.atXBeginning && !flickableKeyboard.atXEnd) {
-                if (contentX < virtualKeyboard.width / 2) {
-                    flickableKeyboard.flick( units.gu(200), 0);
-                } else {
-                    flickableKeyboard.flick( -units.gu(200), 0);
-                }
-            }
-        }
     Rectangle {
         width: virtualKeyboard.width * 2
         height: grid.height + units.gu(2)
@@ -110,7 +83,7 @@ Item {
                 text: i18n.tr("←")
                 onReleased: {
                     numeralPop();
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -133,7 +106,7 @@ Item {
                 text: "÷"
                 onReleased: {
                     formulaPush('/');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -145,7 +118,7 @@ Item {
                 text: "×"
                 onReleased: {
                     formulaPush('*');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -157,7 +130,6 @@ Item {
                 text: "xⁿ"
                 onReleased: {
                     formulaPush('^');
-                    hasToAddDot = true;
                 }
             }
 
@@ -243,7 +215,7 @@ Item {
                 text: "−"
                 onReleased: {
                     formulaPush('-');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -256,7 +228,7 @@ Item {
                 text: "e"
                 onReleased: {
                     formulaPush('E');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -268,7 +240,7 @@ Item {
                 text: "π"
                 onReleased: {
                     formulaPush('pi');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -281,7 +253,7 @@ Item {
                 text: i18n.tr("mod")
                 onReleased: {
                     formulaPush('%');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -293,10 +265,10 @@ Item {
                 text: "!"
                 onReleased: {
                     formulaPush('!');
-                    hasToAddDot = false;
+
                 }
             }
-  
+
             KeyboardButton {
                 objectName: "fourButton"
                 id: fourButton
@@ -338,7 +310,7 @@ Item {
                 text: "+"
                 onReleased: {
                     formulaPush(text);
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -350,7 +322,7 @@ Item {
                 text: "("
                 onReleased: {
                     formulaPush('(');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -362,7 +334,7 @@ Item {
                 text: ")"
                 onReleased: {
                     formulaPush(')');
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -425,7 +397,7 @@ Item {
                 y: (calcGridUnit*10)*3
                 text: Number(3).toLocaleString(Qt.locale(), "f", 0)
                 onReleased: {
-                    formulaPush(text);                    
+                    formulaPush(text);
                 }
             }
 
@@ -438,7 +410,7 @@ Item {
                 text: "="
                 onReleased: {
                     calculate();
-                    hasToAddDot = false;
+
                 }
             }
 
@@ -507,12 +479,7 @@ Item {
                 id: pointButton
                 x: (calcGridUnit*13)*2
                 y: (calcGridUnit*10)*4
-                text: separator
-                onReleased: {
-                    if (!hasToAddDot) { // To avoid multiple dots
-                        hasToAddDot = formulaPush('.'); // Engine uses dot, but on screen there is local separator
-                    }
-                }
+                text: '.'
             }
 
             KeyboardButton {
@@ -523,7 +490,6 @@ Item {
                 text: "sin"
                 onReleased: {
                     formulaPush('sin(')
-                    hasToAddDot = true
                 }
             }
 
@@ -535,7 +501,6 @@ Item {
                 text: "cos"
                 onReleased: {
                     formulaPush('cos(')
-                    hasToAddDot = true
                 }
             }
 
@@ -547,7 +512,6 @@ Item {
                 text: "tan"
                 onReleased: {
                     formulaPush('tan(')
-                    hasToAddDot = true
                 }
             }
 
@@ -559,12 +523,8 @@ Item {
                 text: "ctg"
                 onReleased: {
                     formulaPush('atan(')
-                    hasToAddDot = true
                 }
             }
         }
     }
-    }
-
-    Component.onCompleted: page.keyboardButtons = keyboardButtons
 }

@@ -17,7 +17,9 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+
 import "ui"
+import "js/math.js" as MathJs
 
 MainView {
     id: mainView
@@ -31,12 +33,48 @@ MainView {
     width: units.gu(40)
     height: units.gu(70)
 
-    Storage{
-        id: storage
+    property var mathJs: MathJs.mathJs
+    property var formula: ""
+
+    function formulaPush(visual) {
+        formula += visual.toString();
     }
 
-    SimplePage {
-        title: i18n.tr("Calculator")
+    function calculate() {
+        console.log("Formula: " + formula)
+        var result = MathJs.eval(formula);
+        result = result.toString();
+        console.log("Result: " + result);
+        formula = '';
+
+        historyModel.append({"result":result});
+    }
+
+    ListModel {
+        // TODO: create a separate component with storage management
+        id: historyModel
+    }
+
+    ListView {
+        id: formulaView
+        anchors.fill: parent
+        clip: true
+
+        model: historyModel
+
+        delegate: Screen {
+            width: parent.width
+        }
+
+        footer: Column {
+            width: parent.width
+
+            // TODO: insert here actual screen
+
+            CalcKeyboard {
+                id: calcKeyboard
+            }
+        }
     }
 }
 
