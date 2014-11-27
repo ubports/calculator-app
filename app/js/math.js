@@ -1,3 +1,4 @@
+var mathJs;
 /**
  * math.js
  * https://github.com/josdejong/mathjs
@@ -26,14 +27,7 @@
  */
 
 (function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define(factory);
-	else if(typeof exports === 'object')
-		exports["math"] = factory();
-	else
-		root["math"] = factory();
+	mathJs = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -1062,7 +1056,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          this.im = construct.im;
 	          break;
 	        }
-	      } 
+	      }
 	      throw new SyntaxError('Object with the re and im or r and phi properties expected.');
 
 	    case 2:
@@ -8265,7 +8259,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var util = __webpack_require__(147),
 
 	    array = __webpack_require__(140),
-	          
+
 	    BigNumber = math.type.BigNumber,
 	    Complex = __webpack_require__(6),
 	    Matrix = __webpack_require__(9),
@@ -11356,7 +11350,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          } else if ('r' in arg && 'phi' in arg) {
 	            return Complex.fromPolar(arg.r, arg.phi);
 	          }
-	        } 
+	        }
 
 	        throw new TypeError('Two numbers, single string or an fitting object expected in function complex');
 
@@ -14136,12 +14130,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (!isInteger(n) || n < 0) {
 	        throw new TypeError('Positive integer value expected in function permutations');
 	      }
-	      
+
 	      // Permute n objects
 	      if (arity == 1) {
 	        return math.factorial(n);
 	      }
-	      
+
 	      // Permute n objects, k at a time
 	      if (arity == 2) {
 	        if (isNumber(k)) {
@@ -15880,7 +15874,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      Unit = __webpack_require__(10),
 	      collection = __webpack_require__(13),
 	      number = util.number,
-	      
+
 	      isNumber = util.number.isNumber,
 	      isBoolean = util['boolean'].isBoolean,
 	      isComplex = Complex.isComplex,
