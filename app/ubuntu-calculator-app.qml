@@ -24,58 +24,57 @@ import "engine/math.js" as MathJs
 MainView {
     id: mainView
     // objectName for functional testing purposes (autopilot-qt5)
-    objectName: "calculator"
-    applicationName: "com.ubuntu.calculator"
+    objectName: "calculator";
+    applicationName: "com.ubuntu.calculator";
 
     // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false
+    useDeprecatedToolbar: false;
 
-    width: units.gu(40)
-    height: units.gu(70)
+    width: units.gu(40);
+    height: units.gu(70);
 
     // This is our engine
-    property var mathJs: MathJs.mathJs
+    property var mathJs: MathJs.mathJs;
 
-    // The formula we will give to calculation engine, save in the storage
-    // This string needs to be converted to be displayed in history
-    property string engineFormula: ""
+    // Long form of formula, which are saved in the storage/history
+    property string longFormula: "";
 
-    // The formula or temporary reuslty which will be displayed in text input field
-    property string displayedInputText: ""
+    // Engine's short form of formula. It is displayed in TextInput field
+    property string shortFormula: "";
 
-    // The formula/result which we show while user is typing
-    property string tempResult: ""
+    // The formula converted to human eye, which will be displayed in text input field
+    property string displayedInputText: "";
 
     // If this is true we calculate a temporary result to show in the bottom label
-    property bool isFormulaIsValidToCalculate: false
+    property bool isFormulaIsValidToCalculate: false;
 
     // Last immission
-    property var previousVisual
+    property var previousVisual;
 
     // Becomes true after an user presses the "="
-    property bool isLastCalculate: false
+    property bool isLastCalculate: false;
 
-    property int numberOfOpenedBrackets: 0
+    property int numberOfOpenedBrackets: 0;
 
     // Property needed to
-    property bool isAllowedToAddDot: true
+    property bool isAllowedToAddDot: true;
 
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
     function deleteLastFormulaElement() {
         if (isLastCalculate === true) {
-            engineFormula = "";
+            longFormula = "";
         }
 
-        if (engineFormula.length > 0) {
+        if (longFormula.length > 0) {
             var removeSize = 1;
-            if (engineFormula[engineFormula.length - 1] === ".") {
+            if (longFormula[longFormula.length - 1] === ".") {
                 isAllowedToAddDot = true;
             }
-            engineFormula = engineFormula.substring(0, engineFormula.length - removeSize);
+            longFormula = longFormula.substring(0, longFormula.length - removeSize);
         }
-        tempResult = engineFormula;
-        displayedInputText = returnFormulaToDisplay(engineFormula);
+        shortFormula = longFormula;
+        displayedInputText = returnFormulaToDisplay(longFormula);
     }
 
     // Check if the given digit is one of the valid operators or not.
@@ -95,7 +94,7 @@ MainView {
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
         if (isOperator(stringToAddToFormula)) {
-            if ((engineFormula.length === 0) && (stringToAddToFormula !== '-')) {
+            if ((longFormula.length === 0) && (stringToAddToFormula !== '-')) {
                 // Do not add operator at beginning
                 return false;
             }
@@ -105,19 +104,19 @@ MainView {
                 return false;
             }
         }
-        // Check if the value is valid
+
         if (isNaN(stringToAddToFormula)) {
             if (stringToAddToFormula !== ".") {
                 isAllowedToAddDot = true
             }
         }
 
-        // Do not allow adding too much closing brackets
         if (stringToAddToFormula[stringToAddToFormula.length - 1] === "(") {
             numberOfOpenedBrackets = numberOfOpenedBrackets + 1
         } else if (stringToAddToFormula === ")") {
             // Do not allow closing brackets after opening bracket
-            if ((previousVisual ==="(") || (numberOfOpenedBrackets < 1)) {
+            // and do not allow adding too much closing brackets
+            if ((previousVisual === "(") || (numberOfOpenedBrackets < 1)) {
                 return false;
             }
             numberOfOpenedBrackets = numberOfOpenedBrackets - 1
@@ -153,7 +152,7 @@ MainView {
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
-            engineFormula = displayedInputText = tempResult = "";
+            longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
 
@@ -174,20 +173,20 @@ MainView {
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
-                tempResult = mathJs.eval(tempResult);
+                shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: math.js" + exception.toString() + " engine formula:" + tempResult);
+                console.log("Error: math.js" + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
         }
 
         // Adding the new operator to the formula
-        engineFormula += visual.toString();
-        tempResult += visual.toString();
+        longFormula += visual.toString();
+        shortFormula += visual.toString();
 
         try {
-            displayedInputText = returnFormulaToDisplay(tempResult);
+            displayedInputText = returnFormulaToDisplay(shortFormula);
         } catch(exception) {
             console.log("Error: " + exception.toString());
             return;
@@ -200,14 +199,14 @@ MainView {
     }
 
     function calculate() {
-        if (engineFormula.length === 0) {
+        if (longFormula.length === 0) {
             return;
         }
 
         try {
-            var result = mathJs.eval(engineFormula);
+            var result = mathJs.eval(longFormula);
         } catch(exception) {
-            console.log("Error: math.js" + exception.toString() + " engine formula:" + engineFormula);
+            console.log("Error: math.js" + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
 
@@ -222,9 +221,9 @@ MainView {
             return;
         }
 
-        historyModel.append({"formulaToDisplay":returnFormulaToDisplay(engineFormula), "result":displayedInputText});
-        engineFormula = result;
-        tempResult = result;
+        historyModel.append({"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
+        longFormula = result;
+        shortFormula = result;
         numberOfOpenedBrackets = 0;
         isAllowedToAddDot = false;
     }
