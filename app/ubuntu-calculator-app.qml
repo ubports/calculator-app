@@ -63,10 +63,10 @@ MainView {
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
     function deleteLastFormulaElement() {
         if (isLastCalculate === true) {
-            longFormula = "";
+            longFormula = '';
         }
 
-        if (longFormula.length > 0) {
+        if (longFormula !== '') {
             var removeSize = 1;
             if (longFormula[longFormula.length - 1] === ".") {
                 isAllowedToAddDot = true;
@@ -94,7 +94,7 @@ MainView {
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
         if (isOperator(stringToAddToFormula)) {
-            if ((longFormula.length === 0) && (stringToAddToFormula !== '-')) {
+            if ((longFormula === '') && (stringToAddToFormula !== '-')) {
                 // Do not add operator at beginning
                 return false;
             }
@@ -199,7 +199,7 @@ MainView {
     }
 
     function calculate() {
-        if (longFormula.length === 0) {
+        if (longFormula === '') {
             return;
         }
 
