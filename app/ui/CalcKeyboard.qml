@@ -48,7 +48,7 @@ Item {
                                        'pi': piNumberButton,
                                        'square': squareButton,
                                        'clear': clearButton,
-                                       'backspace': backspaceButton }
+                                       'logarithm': logarithmButton }
 
     Flickable {
         id: flickableKeyboard
@@ -141,11 +141,7 @@ Item {
                     x: (calcGridUnit*13)*5 + calcGridUnit
                     y: 0
                     text: "x²"
-                    onReleased: {
-                        if (formulaPush('^') === true) {
-                            formulaPush('2')
-                        }
-                    }
+                    onReleased: formulaPush('^2');
                 }
 
                 KeyboardButton {
@@ -154,21 +150,16 @@ Item {
                     x: (calcGridUnit*13)*6 + calcGridUnit
                     y: 0
                     text: "x³"
-                    onReleased: {
-                        if (formulaPush('^') === true) {
-                            formulaPush('3')
-                        }
-                    }
+                    onReleased: formulaPush('^3');
                 }
 
                 KeyboardButton {
-                    objectName: "backspaceButton"
-                    id: backspaceButton
+                    objectName: "logarithmButton"
+                    id: logarithmButton
                     x: (calcGridUnit*13)*7 + calcGridUnit
                     y: 0
-                    text: "←"
-                    // TODO: implement function to delete last char
-                    // onReleased: numeralPop();
+                    text: "log"
+                    onReleased: formulaPush('log(');
                 }
 
                 KeyboardButton {
@@ -304,11 +295,7 @@ Item {
                     x: (calcGridUnit*13)*6 + calcGridUnit
                     y: (calcGridUnit*10)*2
                     text: "1/x"
-                    onReleased: {
-                        if (formulaPush('^') === true) {
-                            formulaPush('-1')
-                        }
-                    }
+                    onReleased: formulaPush('^-1');
                 }
 
                 KeyboardButton {
@@ -317,11 +304,7 @@ Item {
                     x: (calcGridUnit*13)*7 + calcGridUnit
                     y: (calcGridUnit*10)*2
                     text: "1/x²"
-                    onReleased: {
-                        if (formulaPush('^') === true) {
-                            formulaPush('-2')
-                        }
-                    }
+                    onReleased: formulaPush('^-2');
                 }
 
                 KeyboardButton {
@@ -413,7 +396,6 @@ Item {
                     x: (calcGridUnit*13)*2
                     y: (calcGridUnit*10)*4
                     text: "."
-                    // TODO: check if there isn't already a dot in the calc
                     onReleased: formulaPush('.');
                 }
 
@@ -449,7 +431,7 @@ Item {
                     id: cotangensButton
                     x: (calcGridUnit*13)*7 + calcGridUnit
                     y: (calcGridUnit*10)*4
-                    text: "ctg"
+                    text: "atan"
                     onReleased: formulaPush('atan(')
                 }
             }
