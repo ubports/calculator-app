@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-28 12:13+0100\n"
+"POT-Creation-Date: 2014-11-28 16:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,14 @@ msgstr ""
 msgid "mod"
 msgstr ""
 
-#: /tmp/tmp.3HkSfFZhOa/po/ubuntu-calculator-app.desktop.in.h:1
-msgid "ubuntu-calculator-app"
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:1
+msgid "Calculator"
+msgstr ""
+
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr ""
+
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
