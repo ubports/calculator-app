@@ -63,45 +63,72 @@ MainView {
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
     function deleteLastFormulaElement() {
+        if (isLastCalculate === true) {
+            engineFormula = "";
+        }
+
         if (engineFormula.length > 0) {
             var removeSize = 1;
+            if (engineFormula[engineFormula.length - 1] === ".") {
+                isAllowedToAddDot = true;
+            }
             engineFormula = engineFormula.substring(0, engineFormula.length - removeSize);
         }
         tempResult = engineFormula;
-        displayedInputText = returnFormulaToDisplay(engineFormula)
+        displayedInputText = returnFormulaToDisplay(engineFormula);
+    }
+
+    // Check if the given digit is one of the valid operators or not.
+    function isOperator(digit) {
+        switch(digit) {
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+        case "%":
+        case "^":
+            return true;
+        default:
+            return false;
+        }
     }
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
+        if (isOperator(stringToAddToFormula)) {
+            if ((engineFormula.length === 0) && (stringToAddToFormula !== '-')) {
+                // Do not add operator at beginning
+                return false;
+            }
 
+            if ((isOperator(previousVisual) && previousVisual !== ")")) {
+                // Not two operator one after other
+                return false;
+            }
+        }
         // Check if the value is valid
         if (isNaN(stringToAddToFormula)) {
             if (stringToAddToFormula !== ".") {
                 isAllowedToAddDot = true
             }
-            if ((isNaN(previousVisual) &&  previousVisual !== ")")) {
-                // Not two operator one after other
-                return false;
-            }
         }
 
         // Do not allow adding too much closing brackets
-        if (stringToAddToFormula === "(") {
+        if (stringToAddToFormula[stringToAddToFormula.length - 1] === "(") {
             numberOfOpenedBrackets = numberOfOpenedBrackets + 1
         } else if (stringToAddToFormula === ")") {
             // Do not allow closing brackets after opening bracket
             if ((previousVisual ==="(") || (numberOfOpenedBrackets < 1)) {
-                return false
+                return false;
             }
             numberOfOpenedBrackets = numberOfOpenedBrackets - 1
         } else if (stringToAddToFormula === ".") {
             //Do not allow to have two decimal separators in the same number
             if (isAllowedToAddDot === false) {
-                return false
+                return false;
             }
 
-            isAllowedToAddDot = false
+            isAllowedToAddDot = false;
         }
-
         return true;
     }
 
@@ -110,8 +137,11 @@ MainView {
             '-': '−',
             '/': '÷',
             '*': '×',
-            '.': Qt.locale().decimalPoint
-        };
+            '.': Qt.locale().decimalPoint,
+            'NaN': i18n.tr("NaN"),
+            'Infinity': '∞'
+        }
+
         for (var engineElement in engineToVisualMap) {
             //FIXME need to add 'g' flag, but "new RegExp(engineElement, 'g');" is not working for me
             engineFormulaToDisplay = engineFormulaToDisplay.replace(engineElement, engineToVisualMap[engineElement]);
@@ -129,13 +159,12 @@ MainView {
 
         try {
             if (validateStringForAddingToFormula(visual) === false) {
-                return
+                return;
             }
         } catch(exception) {
             console.log("Error: " + exception.toString());
-            return
+            return;
         }
-
 
         // We save the value until next value is pushed
         previousVisual = visual;
@@ -158,10 +187,10 @@ MainView {
         tempResult += visual.toString();
 
         try {
-            displayedInputText = returnFormulaToDisplay(tempResult)
+            displayedInputText = returnFormulaToDisplay(tempResult);
         } catch(exception) {
             console.log("Error: " + exception.toString());
-            return
+            return;
         }
 
         // Add here operators that have always priority
@@ -171,6 +200,10 @@ MainView {
     }
 
     function calculate() {
+        if (engineFormula.length === 0) {
+            return;
+        }
+
         try {
             var result = mathJs.eval(engineFormula);
         } catch(exception) {
@@ -186,7 +219,7 @@ MainView {
             displayedInputText = returnFormulaToDisplay(result)
         } catch(exception) {
             console.log("Error: " + exception.toString());
-            return
+            return;
         }
 
         historyModel.append({"formulaToDisplay":returnFormulaToDisplay(engineFormula), "result":displayedInputText});
