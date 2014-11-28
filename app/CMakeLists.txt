@@ -12,7 +12,7 @@ configure_file(${DESKTOP_FILE_NAME}.in ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FIL
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DESKTOP_DIR})
 install(FILES ${QML_JS_FILES} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR})
 
-add_subdirectory(components)
+add_subdirectory(engine)
 add_subdirectory(ui)
 
 # Make the autpilot files visible in qtcreator

@@ -23,8 +23,17 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 
 ListItem.Standard {
     id: root
-
-    Text {
-        text: result;
+    Row {
+        id: row
+        Text {
+            text: formulaToDisplay;
+        }
+        Text {
+            text: "=";
+        }
+        Text {
+            text: result;
+            font.bold: true
+        }
     }
 }
