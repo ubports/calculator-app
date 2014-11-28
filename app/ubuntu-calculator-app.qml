@@ -57,6 +57,17 @@ MainView {
 
     property var numberOfOpenedBrackets: 0
 
+    //Function which will delete last formula element.
+    // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
+    function deleteLastFormulaElement() {
+        if (engineFormula.length > 0) {
+            var removeSize = 1;
+            engineFormula = engineFormula.substring(0, engineFormula.length - removeSize);
+        }
+        tempResult = engineFormula;
+        displayedInputText = returnFormulaToDisplay(engineFormula)
+    }
+
     function validateStringForAddingToFormula(stringToAddToFormula) {
         // Check if the value is valid
         if (isNaN(stringToAddToFormula) && (isNaN(previousVisual) &&
@@ -69,7 +80,8 @@ MainView {
         if (stringToAddToFormula === "(") {
             numberOfOpenedBrackets = numberOfOpenedBrackets + 1
         } else if (stringToAddToFormula === ")") {
-            if (numberOfOpenedBrackets < 1) {
+            // Do not allow closing brackets after opening bracket
+            if ((previousVisual ==="(") || (numberOfOpenedBrackets < 1)) {
                 return false
             }
             numberOfOpenedBrackets = numberOfOpenedBrackets - 1
@@ -90,8 +102,6 @@ MainView {
         }
         return engineFormulaToDisplay;
     }
-
-
 
     function formulaPush(visual) {
         // If the user press a number after the press of "=" we start a new
@@ -114,8 +124,7 @@ MainView {
         // We save the value until next value is pushed
         previousVisual = visual;
 
-        // Adding the new operator to the formula
-        engineFormula += visual.toString();
+
 
         // If we add an operator after an operator we know has priority,
         // we display a temporary result instead the all operation
@@ -129,6 +138,8 @@ MainView {
             isFormulaIsValidToCalculate = false;
         }
 
+        // Adding the new operator to the formula
+        engineFormula += visual.toString();
         tempResult += visual.toString();
 
         try {

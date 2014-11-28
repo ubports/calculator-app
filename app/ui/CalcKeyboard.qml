@@ -93,10 +93,8 @@ Item {
                     id: clearButton
                     x: 0
                     y: 0
-                    // TRANSLATORS: Refers to Clear, keep the translation to 2 characters
-                    text: i18n.tr("←")
-                    // TODO: implement function to remove last char
-                    // onReleased: numeralPop();
+                    text: "←"
+                    onReleased: deleteLastFormulaElement();
                 }
 
                 KeyboardButton {
