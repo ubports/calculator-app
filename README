@@ -5,3 +5,34 @@ Default Calculator application for Ubuntu devices.
 - Project page: https://launchpad.net/ubuntu-calculator-app
 - Design page:
   https://docs.google.com/presentation/d/1EiIELGizPHrd0TY7JdNwULbiqPYfOyEEI5CS87n7QlY/edit
+
+
+# How to develop
+
+## Style guide
+
+General idea above style guide is:
+"All code in any code-base should look like a single person typed it, no matter how many people contributed."
+
+More information about style guides, and why we need it:
+    http://addyosmani.com/blog/javascript-style-guides-and-beautifiers/
+
+Curent style guide for ubuntu-calculator-app is:
+    https://github.com/rwaldron/idiomatic.js
+
+When you creating code, every function/variable name should be meaningful and has easy to understand form. The names should reveal intent of creator. With good names you even do not need an comments. The code is documentting itself. We should avoid comments if it is not necessary.
+If someone during review, ask you to add comment then you should check if names are reveal your intent.
+
+More information about clean/beautiful code is available in books:
+ * Clean Code: A Handbook of Agile Software Craftsmanship Paperback, by Robert C. Martin
+ * Beautiful Code: Leading Programmers Explain How They Think, by Andy Oram
+
+## Run the autopilot tests
+
+Prerequisites:
+    sudo apt-get install ubuntu-ui-toolkit-autopilot
+
+Once the app has been built, you can go to the build directory and run:
+
+    cd tests/autopilot
+    autopilot run filemanager
