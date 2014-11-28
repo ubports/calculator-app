@@ -38,13 +38,13 @@ MainView {
 
     // The formula we will give to calculation engine, save in the storage
     // This string needs to be converted to be displayed in history
-    property var engineFormula: ""
+    property string engineFormula: ""
 
     // The formula or temporary reuslty which will be displayed in text input field
-    property var displayedInputText: ""
+    property string displayedInputText: ""
 
-    // The result which we show while user is typing
-    property var tempResult: ""
+    // The formula/result which we show while user is typing
+    property string tempResult: ""
 
     // If this is true we calculate a temporary result to show in the bottom label
     property bool isFormulaIsValidToCalculate: false
@@ -55,7 +55,10 @@ MainView {
     // Becomes true after an user presses the "="
     property bool isLastCalculate: false
 
-    property var numberOfOpenedBrackets: 0
+    property int numberOfOpenedBrackets: 0
+
+    // Property needed to
+    property bool isAllowedToAddDot: true
 
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
@@ -69,11 +72,16 @@ MainView {
     }
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
+
         // Check if the value is valid
-        if (isNaN(stringToAddToFormula) && (isNaN(previousVisual) &&
-            previousVisual !== ")")) {
-            // Not two operator one after other
-            return false;
+        if (isNaN(stringToAddToFormula)) {
+            if (stringToAddToFormula !== ".") {
+                isAllowedToAddDot = true
+            }
+            if ((isNaN(previousVisual) &&  previousVisual !== ")")) {
+                // Not two operator one after other
+                return false;
+            }
         }
 
         // Do not allow adding too much closing brackets
@@ -85,7 +93,15 @@ MainView {
                 return false
             }
             numberOfOpenedBrackets = numberOfOpenedBrackets - 1
+        } else if (stringToAddToFormula === ".") {
+            //Do not allow to have two decimal separators in the same number
+            if (isAllowedToAddDot === false) {
+                return false
+            }
+
+            isAllowedToAddDot = false
         }
+
         return true;
     }
 
@@ -125,10 +141,9 @@ MainView {
         previousVisual = visual;
 
 
-
         // If we add an operator after an operator we know has priority,
         // we display a temporary result instead the all operation
-        if (isNaN(visual) && isFormulaIsValidToCalculate) {
+        if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
                 tempResult = mathJs.eval(tempResult);
             } catch(exception) {
@@ -178,6 +193,7 @@ MainView {
         engineFormula = result;
         tempResult = result;
         numberOfOpenedBrackets = 0;
+        isAllowedToAddDot = false;
     }
 
     ListModel {
