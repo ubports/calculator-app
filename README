@@ -9,6 +9,14 @@ Default Calculator application for Ubuntu devices.
 
 # How to develop
 
+## Calculation engine.
+
+Current calculation engine is math.js version 1.1.0. 
+You could download latest version from webpage:
+    http://mathjs.org
+
+The engine was sligtly modified to properly work with Ubuntu-Calculator-App.
+
 ## Style guide
 
 General idea above style guide is:
@@ -41,4 +49,4 @@ Prerequisites:
 Once the app has been built, you can go to the build directory and run:
 
     cd tests/autopilot
-    autopilot run filemanager
+    autopilot run ubuntu_calculator_app
