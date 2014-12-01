@@ -247,10 +247,18 @@ MainView {
         footer: Column {
             width: parent.width
 
-            Text {
-                width: parent.width
-                height: units.gu(5)
+            TextInput {
+                height: units.gu(7)
+                width: parent.width - units.gu(4)
+                anchors.horizontalCenter: parent.horizontalCenter
+
                 text: displayedInputText
+                font.pixelSize: units.gu(5)
+                horizontalAlignment: TextInput.AlignRight
+                verticalAlignment: TextInput.AlignVCenter
+
+                readOnly: true
+                selectByMouse: true
             }
 
             // TODO: insert here actual screen
