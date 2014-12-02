@@ -22,8 +22,8 @@ Item {
     id: virtualKeyboard
     width: parent.width
     height: grid.height+units.gu(2)
-
-    property int calcGridUnit: width / 50
+    property bool panoramicView: (mainView.width > mainView.height) ? true : false;
+    property int calcGridUnit: panoramicView ? width / 100 : width / 50
     property variant keyboardButtons: {'0': zeroButton,
                                        '1': oneButton,
                                        '2': twoButton,
@@ -54,7 +54,7 @@ Item {
         id: flickableKeyboard
         anchors.fill: parent
         flickableDirection: Flickable.HorizontalFlick
-        contentWidth: virtualKeyboard.width * 2
+        contentWidth: panoramicView ? virtualKeyboard.width : virtualKeyboard.width * 2
         contentHeight: grid.height + units.gu(4)
         boundsBehavior: Flickable.DragOverBounds
 
@@ -71,7 +71,7 @@ Item {
         }
 
         Rectangle {
-            width: virtualKeyboard.width * 2
+            width: panoramicView ? virtualKeyboard.width : virtualKeyboard.width * 2
             height: grid.height + units.gu(2)
             color: "#ffffff"
 
@@ -82,7 +82,7 @@ Item {
                 width: (calcGridUnit*12)*8 + (calcGridUnit)*7 + calcGridUnit
                 height: (calcGridUnit*9)*5 + (calcGridUnit)*4
 
-                anchors{
+                anchors {
                     horizontalCenter: parent.horizontalCenter
                     top: parent.top
                     topMargin: units.gu(1)

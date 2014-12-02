@@ -24,7 +24,7 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 ListItem.Standard {
     id: root
     Row {
-        id: row
+        id: row;
         Text {
             text: formulaToDisplay;
         }
