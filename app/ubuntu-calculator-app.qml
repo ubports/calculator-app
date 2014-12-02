@@ -221,7 +221,7 @@ MainView {
             return;
         }
 
-        historyModel.append({"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
+        historyModel.insert(0, {"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
@@ -236,7 +236,14 @@ MainView {
     ListView {
         id: formulaView
         anchors.fill: parent
+        boundsBehavior: Flickable.StopAtBounds
         clip: true
+        currentIndex: -1;
+        focus: true
+        snapMode: ListView.SnapToItem
+        // We need to set a bottomToTop direction because we want the listview starts from bottom on load
+        // and we set the position of the keyboard to bottom
+        verticalLayoutDirection: ListView.BottomToTop
 
         model: historyModel
 
@@ -244,7 +251,7 @@ MainView {
             width: parent.width
         }
 
-        footer: Column {
+        header: Column {
             width: parent.width
 
             Text {
