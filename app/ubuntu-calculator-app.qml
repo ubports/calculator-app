@@ -17,6 +17,7 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+import Ubuntu.Components.Themes.Ambiance 0.1
 
 import "ui"
 import "engine/math.js" as MathJs
@@ -221,26 +222,32 @@ MainView {
             return;
         }
 
-        historyModel.append({"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
+        historyModel.createCalc(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
         isAllowedToAddDot = false;
     }
 
-    ListModel {
-        // TODO: create a separate component with storage management
+    HistoryModel {
         id: historyModel
     }
 
     ListView {
         id: formulaView
         anchors.fill: parent
+        boundsBehavior: Flickable.StopAtBounds
         clip: true
+        currentIndex: -1;
+        focus: true
+        snapMode: ListView.SnapToItem
+        // We need to set a bottomToTop direction because we want the listview starts from bottom on load
+        // and we set the position of the keyboard to bottom
+        verticalLayoutDirection: ListView.BottomToTop
 
         property var _currentSwipedItem: null
 
-        model: historyModel
+        model: historyModel.getContents()
 
         delegate: Screen {
             id: screenDelegate
@@ -323,16 +330,35 @@ MainView {
             }
         }
 
-        footer: Column {
-            width: parent.width
+        header: Column {
+            width: parent ? parent.width : 0
 
-            Text {
-                width: parent.width
-                height: units.gu(5)
+            TextField {
+                height: units.gu(6)
+                // Workaround to align text to right due bug #1320885
+                // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+                //width: parent.width - units.gu(2)
+                width: contentWidth + units.gu(3)
+                //anchors.horizontalCenter: parent.horizontalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: units.gu(1)
+
+                // remove ubuntu shape
+                style: TextFieldStyle {
+                    background: Item {
+                    }
+                }
+
                 text: displayedInputText
-            }
+                font.pixelSize: units.gu(4)
 
-            // TODO: insert here actual screen
+                // Decomment that when upstream bug is fixed
+                //verticalAlignment: TextInput.AlignVCenter
+                //horizontalAlignment: TextInput.AlignRight
+
+                readOnly: true
+                selectByMouse: true
+            }
 
             CalcKeyboard {
                 id: calcKeyboard

@@ -18,7 +18,6 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import Ubuntu.Components.Themes.Ambiance 0.1
 
 ListItemWithActions {
     id: root
@@ -27,7 +26,7 @@ ListItemWithActions {
         id: row
         anchors.right: parent.right
         Text {
-            text: formulaToDisplay
+            text: contents.calc
             font.pixelSize: units.gu(3)
 
             //verticalAlignment: Text.AlignBottom
@@ -41,7 +40,8 @@ ListItemWithActions {
             anchors.bottom: parent.bottom
         }
         Text {
-            text: result
+            text: contents.result
+
             font.bold: true
             font.pixelSize: units.gu(4)
 
