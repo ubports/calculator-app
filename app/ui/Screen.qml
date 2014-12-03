@@ -18,7 +18,6 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import Ubuntu.Components.Themes.Ambiance 0.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
 ListItem.Standard {
@@ -26,13 +25,13 @@ ListItem.Standard {
     Row {
         id: row
         Text {
-            text: formulaToDisplay;
+            text: contents.calc != undefined ? contents.calc : ""
         }
         Text {
             text: "=";
         }
         Text {
-            text: result;
+            text: contents.result != undefined ? contents.result : ""
             font.bold: true
         }
     }

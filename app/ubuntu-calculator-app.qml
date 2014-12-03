@@ -222,15 +222,14 @@ MainView {
             return;
         }
 
-        historyModel.insert(0, {"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
+        historyModel.createCalc(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
         isAllowedToAddDot = false;
     }
 
-    ListModel {
-        // TODO: create a separate component with storage management
+    HistoryModel {
         id: historyModel
     }
 
@@ -246,14 +245,22 @@ MainView {
         // and we set the position of the keyboard to bottom
         verticalLayoutDirection: ListView.BottomToTop
 
-        model: historyModel
+        model: historyModel.getContents()
 
         delegate: Screen {
+            visible: contents.calc != undefined
+            height: visible ? units.gu(5) : 0
             width: parent.width
+
+            MouseArea {
+                anchors.fill: parent;
+
+                onClicked: historyModel.deleteCalc(docId)
+            }
         }
 
         header: Column {
-            width: parent.width
+            width: parent ? parent.width : 0
 
             TextField {
                 height: units.gu(6)
@@ -281,8 +288,6 @@ MainView {
                 readOnly: true
                 selectByMouse: true
             }
-
-            // TODO: insert here actual screen
 
             CalcKeyboard {
                 id: calcKeyboard
