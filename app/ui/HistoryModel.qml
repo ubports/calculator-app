@@ -20,31 +20,44 @@ import U1db 1.0 as U1db
 Item {
     U1db.Database {
         id: calcDatabase
-        path: "com.ubuntu.calculator93"
+        path: "com.ubuntu.calculator"
+    }
+
+    U1db.Document {
+        id: exampleCalc
+        database: calcDatabase
+    }
+
+    U1db.Index {
+        id: index
+        database: calcDatabase
+        name: "byDocId"
+        expression: ["calc", "result"]
+    }
+
+    U1db.Query {
+        id: query
+        index: index
     }
 
     SortFilterModel {
         id: sortedHistory
-        model: calcDatabase
+        model: query
         sort.property: "docId"
         sort.order: Qt.DescendingOrder
     }
 
     function createCalc(calc, result) {
-        var docId = sortedHistory.count;
+        var docId = calcDatabase.listDocs().length;
+        var newDocument = exampleCalc;
 
-        var qmlString = "import QtQuick 2.3; import U1db 1.0 as U1db;
-            U1db.Document {
-                database: calcDatabase;
-                docId: '" + docId + "';
-                create: true;
-                contents: {
-                    'calc': '" + calc + "',
-                    'result': '" + result + "'
-                };
-            }";
+        newDocument.docId = docId;
+        newDocument.contents = {
+            'calc': calc,
+            'result': result
+        };
 
-        Qt.createQmlObject(qmlString, calcDatabase);
+        newDocument.create = true;
     }
 
     function getContents() {

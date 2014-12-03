@@ -248,15 +248,7 @@ MainView {
         model: historyModel.getContents()
 
         delegate: Screen {
-            visible: contents.calc != undefined
-            height: visible ? units.gu(5) : 0
             width: parent.width
-
-            MouseArea {
-                anchors.fill: parent;
-
-                onClicked: historyModel.deleteCalc(docId)
-            }
         }
 
         header: Column {

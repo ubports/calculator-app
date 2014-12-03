@@ -25,13 +25,13 @@ ListItem.Standard {
     Row {
         id: row
         Text {
-            text: contents.calc != undefined ? contents.calc : ""
+            text: contents.calc
         }
         Text {
             text: "=";
         }
         Text {
-            text: contents.result != undefined ? contents.result : ""
+            text: contents.result
             font.bold: true
         }
     }
