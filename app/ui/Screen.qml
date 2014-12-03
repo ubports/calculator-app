@@ -19,21 +19,34 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
 
-ListItem.Standard {
+ListItemWithActions {
     id: root
+    color: "white"
     Row {
         id: row
+        anchors.right: parent.right
         Text {
-            text: formulaToDisplay;
+            text: formulaToDisplay
+            font.pixelSize: units.gu(3)
+
+            //verticalAlignment: Text.AlignBottom
+            anchors.bottom: parent.bottom
         }
         Text {
-            text: "=";
+            text: " = "
+            font.pixelSize: units.gu(4)
+
+            //verticalAlignment: Text.AlignBottom
+            anchors.bottom: parent.bottom
         }
         Text {
-            text: result;
+            text: result
             font.bold: true
+            font.pixelSize: units.gu(4)
+
+            verticalAlignment: Text.AlignBottom
+            anchors.bottom: parent.bottom
         }
     }
 }

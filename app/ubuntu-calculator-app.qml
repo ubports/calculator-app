@@ -238,10 +238,89 @@ MainView {
         anchors.fill: parent
         clip: true
 
+        property var _currentSwipedItem: null
+
         model: historyModel
 
         delegate: Screen {
+            id: screenDelegate
             width: parent.width
+
+            property var removalAnimation
+            function remove() {
+                removalAnimation.start();
+            }
+
+            onSwippingChanged: {
+                formulaView._updateSwipeState(screenDelegate);
+            }
+
+            onSwipeStateChanged: {
+                formulaView._updateSwipeState(screenDelegate);
+            }
+
+            leftSideAction: Action {
+                iconName: "delete"
+                text: i18n.tr("Delete")
+                onTriggered: {
+                    screenDelegate.remove();
+                }
+            }
+
+            ListView.onRemove: ScriptAction {
+               script: {
+                    if (formulaView._currentSwipedItem === screenDelegate) {
+                        formulaView._currentSwipedItem = null;
+                    }
+                }
+            }
+
+            removalAnimation: SequentialAnimation {
+                alwaysRunToEnd: true
+
+                PropertyAction {
+                    target: screenDelegate
+                    property: "ListView.delayRemove"
+                    value: true
+                }
+
+                UbuntuNumberAnimation {
+                    target: screenDelegate
+                    property: "height"
+                    to: 0
+                }
+
+                PropertyAction {
+                    target: screenDelegate
+                    property: "ListView.delayRemove"
+                    value: false
+                }
+
+                ScriptAction {
+                    script: {
+                        // TODO: remove calc from history
+                        console.log("Removing calc...");
+                    }
+                }
+            }
+        }
+
+        function _updateSwipeState(item) {
+            if (item.swipping) {
+                return
+            }
+
+            if (item.swipeState !== "Normal") {
+                if (formulaView._currentSwipedItem !== item) {
+                    if (formulaView._currentSwipedItem) {
+                        formulaView._currentSwipedItem.resetSwipe()
+                    }
+                    formulaView._currentSwipedItem = item
+                } else if (item.swipeState !== "Normal"
+                    && formulaView._currentSwipedItem === item) {
+                    formulaView._currentSwipedItem = null
+                }
+            }
         }
 
         footer: Column {
