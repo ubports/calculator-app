@@ -20,6 +20,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
 
 import "ui"
+import "engine"
 import "engine/math.js" as MathJs
 
 MainView {
@@ -222,15 +223,15 @@ MainView {
             return;
         }
 
-        historyModel.createCalc(returnFormulaToDisplay(longFormula), displayedInputText);
+        calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
         isAllowedToAddDot = false;
     }
 
-    HistoryModel {
-        id: historyModel
+    CalculationHistory {
+        id: calculationHistory
     }
 
     ListView {
@@ -245,7 +246,7 @@ MainView {
         // and we set the position of the keyboard to bottom
         verticalLayoutDirection: ListView.BottomToTop
 
-        model: historyModel.getContents()
+        model: calculationHistory.getContents()
 
         delegate: Screen {
             width: parent.width

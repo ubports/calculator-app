@@ -25,7 +25,7 @@ ListItem.Standard {
     Row {
         id: row
         Text {
-            text: contents.calc
+            text: contents.formula
         }
         Text {
             text: "=";
