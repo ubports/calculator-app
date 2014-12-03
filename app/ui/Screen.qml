@@ -21,6 +21,7 @@ import Ubuntu.Components 1.1
 
 ListItemWithActions {
     id: root
+
     color: "white"
     Row {
         id: row

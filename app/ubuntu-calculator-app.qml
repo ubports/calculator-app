@@ -305,8 +305,7 @@ MainView {
 
                 ScriptAction {
                     script: {
-                        // TODO: remove calc from history
-                        console.log("Removing calc...");
+                        historyModel.deleteCalc(docId);
                     }
                 }
             }
