@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+
+import "../upstreamcomponents"
 
 ListItemWithActions {
     id: root
@@ -26,28 +27,24 @@ ListItemWithActions {
     Row {
         id: row
         anchors.right: parent.right
-        Text {
-            text: contents.calc
-            font.pixelSize: units.gu(3)
+        width: parent.width
 
-            //verticalAlignment: Text.AlignBottom
-            anchors.bottom: parent.bottom
+        Text {
+            text: model.contents.calc
+            font.pixelSize: units.gu(3)
+            elide: Text.ElideLeft
+            width: parent.width - equal.width - result.width
+            horizontalAlignment: Text.AlignRight
         }
         Text {
+            id: equal
             text: " = "
             font.pixelSize: units.gu(4)
-
-            //verticalAlignment: Text.AlignBottom
-            anchors.bottom: parent.bottom
         }
         Text {
-            text: contents.result
-
-            font.bold: true
+            id: result
+            text: model.contents.result
             font.pixelSize: units.gu(4)
-
-            verticalAlignment: Text.AlignBottom
-            anchors.bottom: parent.bottom
         }
     }
 }
