@@ -22,6 +22,7 @@ import Ubuntu.Components 1.1
 AbstractButton {
     id: buttonRect
 
+    property real baseSize: 1
     property alias text: buttonText.text
     property string buttonColor: "#babbbc"
     property string pressedColor: "#E2E1E4"
@@ -38,7 +39,7 @@ AbstractButton {
         id: buttonText
         anchors.centerIn: parent
         color: "#5a5a5c"
-        font.pixelSize: buttonRect.height * 0.8
+        font.pixelSize: buttonRect.baseSize * 0.8
         font.bold: true
     }
 

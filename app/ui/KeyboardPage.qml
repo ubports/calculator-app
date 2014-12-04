@@ -3,6 +3,11 @@ import Ubuntu.Components 1.1
 
 Grid {
     id: root
+
+    /*
+      You can change the columns. Better not touching the rows property.
+      The keyboard will resize itelf in height depending on how many buttons you add
+    */
     columns: 4
 
     /* Set a model which describes the keys. For example:
@@ -26,7 +31,14 @@ Grid {
     */
     property var model: null
 
+    /*
+      Defines the Width/Height ratio of the buttons.
+      1 means square buttons
+      0.5 means the button's height will be half the button's width
+    */
     property real buttonRatio: 1
+
+    spacing: units.gu(1)
 
     Component.onCompleted: {
         buildModel();
@@ -81,6 +93,7 @@ Grid {
         model: ListModel {
             id: generatedModel
         }
+        property real baseSize: root.width / root.columns - root.spacing
 
         Loader {
             sourceComponent: model.text ? buttonComponent : undefined
@@ -93,10 +106,11 @@ Grid {
 
                 Item {
                     KeyboardButton {
-                        height: keyboardsRow.baseSize * root.buttonRatio * model.hFactor + (root.spacing * (model.hFactor - 1))
-                        width: keyboardsRow.baseSize * model.wFactor + (root.spacing * (model.wFactor - 1))
+                        height: repeater.baseSize * root.buttonRatio * model.hFactor + (root.spacing * (model.hFactor - 1))
+                        width: repeater.baseSize * model.wFactor + (root.spacing * (model.wFactor - 1))
                         text: model.text
                         objectName: model.objectName
+                        baseSize: repeater.height
                         onClicked: {
                             print("invoking:")
                             switch (model.action) {
