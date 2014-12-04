@@ -18,7 +18,6 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
-import QtQuick.Layouts 1.1
 
 import "ui"
 import "engine/math.js" as MathJs
