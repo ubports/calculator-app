@@ -19,46 +19,33 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-Rectangle {
+AbstractButton {
     id: buttonRect
-    width: (calcGridUnit*12)
-    height: (calcGridUnit*9)
-    color: "#bdbec0"
 
+    property real baseSize: 1
     property alias text: buttonText.text
     property string buttonColor: "#babbbc"
     property string pressedColor: "#E2E1E4"
     property alias textColor: buttonText.color
 
-    signal clicked()
-    signal pressAndHold()
-    signal released()
-
-    onClicked: rectangle.color = pressedColor;
-    onReleased: rectangle.color = buttonColor;
-
     Rectangle {
-        id: rectangle
-        width: parent.width-2
-        height: parent.height-2
+        anchors.fill: parent
+        border.color: "#bdbec0"
+        border.width: units.dp(2)
+        color: buttonMA.pressed ? pressedColor : buttonColor
+    }
+
+    Text {
+        id: buttonText
         anchors.centerIn: parent
-        color: buttonColor
+        color: "#5a5a5c"
+        font.pixelSize: buttonRect.baseSize * 0.8
+        font.bold: true
+    }
 
-        Text {
-            id: buttonText
-            anchors.centerIn: parent
-            color: "#5a5a5c"
-            font.pixelSize: (calcGridUnit*4)
-            font.bold: true
-        }
-
-        MouseArea {
-            id: buttonMA
-            anchors.fill: parent
-            onPressed: buttonRect.clicked()
-            onReleased: buttonRect.released()
-            onPressAndHold: buttonRect.pressAndHold();
-            onCanceled: rectangle.color = buttonColor;
-        }
+    MouseArea {
+        id: buttonMA
+        anchors.fill: parent
+        onClicked: buttonRect.clicked();
     }
 }

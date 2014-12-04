@@ -23,16 +23,18 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 ListItem.Standard {
     id: root
     Row {
-        id: row;
+        id: row
+        layoutDirection: Qt.RightToLeft
+        spacing: units.gu(1)
         Text {
-            text: contents.formula
+            text: contents.result
+            font.bold: true
         }
         Text {
             text: "=";
         }
         Text {
-            text: contents.result
-            font.bold: true
+            text: contents.formula
         }
     }
 }

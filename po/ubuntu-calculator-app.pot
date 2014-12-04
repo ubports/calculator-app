@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-28 16:33+0100\n"
+"POT-Creation-Date: 2014-12-04 23:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. TRANSLATORS: Refers to Modulo - operation that finds the remainder of division of one number by another.
-#: ../app/ui/CalcKeyboard.qml:234
+#: ../app/ubuntu-calculator-app.qml:145
+msgid "NaN"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
+msgid "log"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
 msgid "mod"
 msgstr ""
 
-#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:1
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:2
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:3
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

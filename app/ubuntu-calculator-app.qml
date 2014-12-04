@@ -31,6 +31,7 @@ MainView {
 
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false;
+    automaticOrientation: true
 
     width: units.gu(40);
     height: units.gu(70);
@@ -60,6 +61,8 @@ MainView {
 
     // Property needed to
     property bool isAllowedToAddDot: true;
+
+    property var decimalPoint: Qt.locale().decimalPoint
 
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
@@ -102,7 +105,7 @@ MainView {
             }
 
             if ((isOperator(previousVisual) && previousVisual !== ")")) {
-                // Not two operator one after other
+                // Not two operator one after otQt.locale().decimalPointher
                 return false;
             }
         }
@@ -138,7 +141,7 @@ MainView {
             '-': '−',
             '/': '÷',
             '*': '×',
-            '.': Qt.locale().decimalPoint,
+            '.': decimalPoint,
             'NaN': i18n.tr("NaN"),
             'Infinity': '∞'
         }
@@ -222,8 +225,8 @@ MainView {
             console.log("Error: " + exception.toString());
             return;
         }
-
-        calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
+        calculationHistory
+        //calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
@@ -234,58 +237,55 @@ MainView {
         id: calculationHistory
     }
 
-    ListView {
-        id: formulaView
-        anchors.fill: parent
-        boundsBehavior: Flickable.StopAtBounds
-        clip: true
-        currentIndex: -1;
-        focus: true
-        snapMode: ListView.SnapToItem
-        // We need to set a bottomToTop direction because we want the listview starts from bottom on load
-        // and we set the position of the keyboard to bottom
-        verticalLayoutDirection: ListView.BottomToTop
+    VisualItemModel {
+        id: calculatorVisualModel
 
-        model: calculationHistory.getContents()
-
-        delegate: Screen {
+        Loader {
             width: parent.width
+            source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
         }
 
-        header: Column {
-            width: parent ? parent.width : 0
+        TextField {
+            width: contentWidth + units.gu(3)
+            // TODO: Make sure this bug gets fixed in SDK:
+            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+            //width: parent.width
+            height: units.gu(6)
 
-            TextField {
-                height: units.gu(6)
-                // Workaround to align text to right due bug #1320885
-                // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-                //width: parent.width - units.gu(2)
-                width: contentWidth + units.gu(3)
-                //anchors.horizontalCenter: parent.horizontalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: units.gu(1)
-
-                // remove ubuntu shape
-                style: TextFieldStyle {
-                    background: Item {
-                    }
+            // remove ubuntu shape
+            style: TextFieldStyle {
+                background: Item {
                 }
-
-                text: displayedInputText
-                font.pixelSize: units.gu(4)
-
-                // Decomment that when upstream bug is fixed
-                //verticalAlignment: TextInput.AlignVCenter
-                //horizontalAlignment: TextInput.AlignRight
-
-                readOnly: true
-                selectByMouse: true
             }
 
-            CalcKeyboard {
-                id: calcKeyboard
+            text: displayedInputText
+            font.pixelSize: height * 0.8
+            //horizontalAlignment: TextInput.AlignRight
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            readOnly: true
+            selectByMouse: true
+        }
+
+        ListView {
+            id: formulaView
+            width: parent.width
+            height: contentHeight
+            model: calculationHistory.getContents()
+            interactive: false
+
+            delegate: Screen {
+                width: parent.width
             }
         }
+    }
+
+    ListView {
+        id: mainListView
+        anchors.fill: parent
+        model: calculatorVisualModel
+        verticalLayoutDirection: ListView.BottomToTop
+        snapMode: ListView.SnapToItem
     }
 }
 
