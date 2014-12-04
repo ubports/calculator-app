@@ -26,25 +26,43 @@ ListItemWithActions {
     color: "white"
     Row {
         id: row
-        anchors.right: parent.right
+
         width: parent.width
+        anchors.right: parent.right
 
         Text {
-            text: model.contents.calc
-            font.pixelSize: units.gu(3)
-            elide: Text.ElideLeft
+            id: formula
+
             width: parent.width - equal.width - result.width
+            anchors.bottom: parent.bottom
+
+            text: model.contents.formula
+            font.pixelSize: units.gu(3)
+            lineHeight: units.gu(1) + 1
+            lineHeightMode: Text.FixedHeight
+
+            elide: Text.ElideLeft
             horizontalAlignment: Text.AlignRight
         }
         Text {
             id: equal
+
+            anchors.bottom: formula.bottom
+
             text: " = "
             font.pixelSize: units.gu(4)
+            lineHeight: units.gu(2)
+            lineHeightMode: Text.FixedHeight
         }
         Text {
             id: result
+
+            anchors.bottom: formula.bottom
+
             text: model.contents.result
             font.pixelSize: units.gu(4)
+            lineHeight: units.gu(2)
+            lineHeightMode: Text.FixedHeight
         }
     }
 }

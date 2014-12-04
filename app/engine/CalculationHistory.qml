@@ -19,20 +19,20 @@ import U1db 1.0 as U1db
 
 Item {
     U1db.Database {
-        id: calcDatabase
+        id: calculationHistoryDatabase
         path: "com.ubuntu.calculator"
     }
 
     U1db.Document {
-        id: exampleCalc
-        database: calcDatabase
+        id: calculationDocument
+        database: calculationHistoryDatabase
     }
 
     U1db.Index {
         id: index
-        database: calcDatabase
+        database: calculationHistoryDatabase
         name: "byDocId"
-        expression: ["calc", "result"]
+        expression: ["formula", "result"]
     }
 
     U1db.Query {
@@ -47,17 +47,17 @@ Item {
         sort.order: Qt.DescendingOrder
     }
 
-    function createCalc(calc, result) {
-        var docId = calcDatabase.listDocs().length;
-        var newDocument = exampleCalc;
+    function addCalculationToDatabase(formula, result) {
+        var docId = calculationHistoryDatabase.listDocs().length;
+        var calculationToAdd = calculationDocument;
 
-        newDocument.docId = docId;
-        newDocument.contents = {
-            'calc': calc,
+        calculationToAdd.docId = docId;
+        calculationToAdd.contents = {
+            'formula': formula,
             'result': result
         };
 
-        newDocument.create = true;
+        calculationToAdd.create = true;
     }
 
     function getContents() {
@@ -65,6 +65,6 @@ Item {
     }
 
     function deleteCalc(docId) {
-        calcDatabase.deleteDoc(docId);
+        calculationHistoryDatabase.deleteDoc(docId);
     }
 }
