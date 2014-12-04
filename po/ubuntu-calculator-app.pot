@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 00:13+0100\n"
+"POT-Creation-Date: 2014-11-28 16:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ubuntu-calculator-app.qml:142
-msgid "NaN"
-msgstr ""
-
 #. TRANSLATORS: Refers to Modulo - operation that finds the remainder of division of one number by another.
-#: ../app/ui/CalcKeyboard.qml:225
+#: ../app/ui/CalcKeyboard.qml:234
 msgid "mod"
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView2-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:1
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView2-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:2
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView2-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:3
+#: /tmp/tmp.DKqRkPPLop/po/ubuntu-calculator-app.desktop.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
