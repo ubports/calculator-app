@@ -5,7 +5,7 @@ CalcKeyboard {
     id: calcKeyboard
 
     KeyboardPage {
-       buttonRatio: mainListView.height > mainListView.width ? 0.5 : 0.4
+       buttonRatio: 1
 
        model: new Array(
             { text: "dummy", wFactor: 3},
