@@ -2,7 +2,7 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 
 Grid {
-    id: root
+    id: keyboardRoot
 
     /*
       You can change the columns. Better not touching the rows property.
@@ -29,21 +29,22 @@ Grid {
       * action: The action to execute on button press. Can be "push", "delete", "changeSign" or "calculate". Default is "push".
       * pushText: The text that will be pushed to the formula when the button is pressed and the action is "push"
     */
-    property var model: null
+    property var keyboardModel: null
 
     /*
       Defines the Width/Height ratio of the buttons.
       1 means square buttons
       0.5 means the button's height will be half the button's width
     */
-    property real buttonRatio: 1
+    property real buttonRatio: 0.7
 
     spacing: units.gu(1)
 
     Component.onCompleted: {
         buildModel();
     }
-    onModelChanged: {
+
+    onKeyboardModelChanged: {
         buildModel();
     }
 
@@ -52,8 +53,8 @@ Grid {
 
         var emptyPlaces = new Array();
 
-        for (var i = 0; i < root.model.length; i++) {
-            var entry = root.model[i];
+        for (var i = 0; i < keyboardRoot.keyboardModel.length; i++) {
+            var entry = keyboardRoot.keyboardModel[i];
             var text = entry.number || entry.forceNumber ? Number(entry.number).toLocaleString(Qt.locale(), "f", 0) : entry.text ? entry.text : "";
             generatedModel.append(
                         {
@@ -80,7 +81,7 @@ Grid {
                     emptyPlaces.push(i + columns * j);
                 }
             }
-            if (i+1 === emptyPlaces[0]) {
+            if (i + 1 === emptyPlaces[0]) {
                 generatedModel.append({text: ""})
                 emptyPlaces = emptyPlaces.splice(1, emptyPlaces.length);
             }
@@ -93,26 +94,25 @@ Grid {
         model: ListModel {
             id: generatedModel
         }
-        property real baseSize: root.width / root.columns - root.spacing
+        property real baseSize: keyboardRoot.width / keyboardRoot.columns - keyboardRoot.spacing
 
         Loader {
             sourceComponent: model.text ? buttonComponent : undefined
 
-            height: width * root.buttonRatio
-            width: root.width / root.columns - root.spacing
+            height: width * keyboardRoot.buttonRatio
+            width: keyboardRoot.width / keyboardRoot.columns - keyboardRoot.spacing
 
             Component {
                 id: buttonComponent
 
                 Item {
                     KeyboardButton {
-                        height: repeater.baseSize * root.buttonRatio * model.hFactor + (root.spacing * (model.hFactor - 1))
-                        width: repeater.baseSize * model.wFactor + (root.spacing * (model.wFactor - 1))
+                        height: repeater.baseSize * keyboardRoot.buttonRatio * model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
+                        width: repeater.baseSize * model.wFactor + (keyboardRoot.spacing * (model.wFactor - 1))
                         text: model.text
                         objectName: model.objectName
                         baseSize: repeater.height
                         onClicked: {
-                            print("invoking:")
                             switch (model.action) {
                             case "push":
                                 formulaPush(model.pushText);

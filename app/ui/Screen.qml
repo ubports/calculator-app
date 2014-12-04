@@ -25,15 +25,17 @@ ListItem.Standard {
     id: root
     Row {
         id: row
+        layoutDirection: Qt.RightToLeft
+        spacing: units.gu(1)
         Text {
-            text: formulaToDisplay;
+            text: result
+            font.bold: true
         }
         Text {
             text: "=";
         }
         Text {
-            text: result;
-            font.bold: true
+            text: formulaToDisplay
         }
     }
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 11:54+0100\n"
+"POT-Creation-Date: 2014-12-04 22:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ubuntu-calculator-app.qml:142
+#: ../app/ubuntu-calculator-app.qml:144
 msgid "NaN"
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:1
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
+msgid "log"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
+msgid "mod"
+msgstr ""
+
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:2
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /home/mzanetti/Develop/reviews/build-horizontalView-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:3
+#: /home/a/dev/core/build-refactor-some-bits-Desktop-Default/po/ubuntu-calculator-app.desktop.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

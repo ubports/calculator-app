@@ -5,27 +5,48 @@ CalcKeyboard {
     id: calcKeyboard
 
     KeyboardPage {
-       buttonRatio: 1
-       columns: 6
+        buttonRatio: 0.7
+        columns: 8
 
-       model: new Array(
-            { text: "dummy", wFactor: 3},
-            { text: "dummy2", hFactor: 2 },
-            { text: "a" },
-            { text: "b" },
-            { text: "c" },
-            { text: "d" },
-            { text: "e" },
-            { text: "f" },
-            { text: "x" },
-            { text: "dummy3", wFactor: 3},
-            { text: "y" },
-            { text: "dummy4", hFactor: 2 },
-            { text: "x" },
-            { text: "a" },
-            { text: "b" },
-            { text: "dummy5", wFactor: 2 },
-            { text: "foo" }
+        keyboardModel: new Array(
+            { text: "←", name: "clear", action: "delete" },
+            { text: "+/-", name: "sign", action: "changeSign" },
+            { text: "÷", name: "divide", pushText: "/" },
+            { text: "×", name: "multiply", pushText: "*" },
+            { text: "xⁿ", name: "power", pushText: "^" },
+            { text: "x²", name: "square", pushText: "^2" },
+            { text: "x³", name: "cube", pushText: "^3" },
+            { text: i18n.tr("log"), name: "logarithm", pushText: "log(" },
+            { number: 7, name: "seven" },
+            { number: 8, name: "eight" },
+            { number: 9, name: "nine" },
+            { text: "−", name: "minus", pushText: "-" },
+            { text: "e", name: "eNumber", pushText: "E" },
+            { text: "π", name: "piNumber", pushText: "pi" },
+            { text: i18n.tr("mod"), name: "modulo", pushText: "%" },
+            { text: "!", name: "factorialNumber" },
+            { number: 4, name: "four" },
+            { number: 5, name: "five" },
+            { number: 6, name: "six" },
+            { text: "+", name: "plus" },
+            { text: "(", name: "openBracket" },
+            { text: ")", name: "closeBracket" },
+            { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
+            { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
+            { number: 1, name: "one" },
+            { number: 2, name: "two" },
+            { number: 3, name: "three" },
+            { text: "=", name: "equals", hFactor: 2, action: "calculate" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "sin", name: "sinus", pushText: "sin(" },
+            { text: "cos", name: "cos", pushText: "cos(" },
+            { text: "tan", name: "tangens", pushText: "tan(" },
+            { number: 0, name: "zero", wFactor: 2, forceNumber: true },
+            { text: decimalPoint, name: "point" },
+            { text: "abs", name: "abs", pushText: "abs("},
+            { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
+            { text: "cos⁻¹", name: "arccos", pushText: "acos(" },
+            { text: "tan⁻¹", name: "arctangens", pushText: "atan(" }
         )
     }
 }

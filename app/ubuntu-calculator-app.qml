@@ -61,6 +61,8 @@ MainView {
     // Property needed to
     property bool isAllowedToAddDot: true;
 
+    property var decimalPoint: Qt.locale().decimalPoint
+
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
     function deleteLastFormulaElement() {
@@ -102,7 +104,7 @@ MainView {
             }
 
             if ((isOperator(previousVisual) && previousVisual !== ")")) {
-                // Not two operator one after other
+                // Not two operator one after otQt.locale().decimalPointher
                 return false;
             }
         }
@@ -138,7 +140,7 @@ MainView {
             '-': '−',
             '/': '÷',
             '*': '×',
-            '.': Qt.locale().decimalPoint,
+            '.': decimalPoint,
             'NaN': i18n.tr("NaN"),
             'Infinity': '∞'
         }
@@ -244,10 +246,11 @@ MainView {
         }
 
         TextField {
-            width: parent.width
-            height: units.gu(6)
+            width: contentWidth + units.gu(3)
             // TODO: Make sure this bug gets fixed in SDK:
             // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+            //width: parent.width
+            height: units.gu(6)
 
             // remove ubuntu shape
             style: TextFieldStyle {
@@ -257,7 +260,9 @@ MainView {
 
             text: displayedInputText
             font.pixelSize: height * 0.8
-            horizontalAlignment: TextInput.AlignRight
+            //horizontalAlignment: TextInput.AlignRight
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
             readOnly: true
             selectByMouse: true
         }
@@ -270,7 +275,6 @@ MainView {
             interactive: false
 
             delegate: Screen {
-                width: calcKeyboard.width
             }
         }
     }
