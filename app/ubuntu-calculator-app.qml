@@ -225,8 +225,8 @@ MainView {
             console.log("Error: " + exception.toString());
             return;
         }
-        calculationHistory
-        //calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
+
+        calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
