@@ -5,6 +5,25 @@ Grid {
     id: root
     columns: 4
 
+    /* Set a model which describes the keys. For example:
+      model: new Array(
+                 { number: 1 },
+                 { number: 2, wFactor: 2 },
+                 { text: "cos" }
+             )
+
+      This would add 3 keys to the keyboard, 1, 2 and a cos button. The button 2 is stretched over 2 columns.
+
+      There can be more properties:
+      * number: A number to be displayed on the key (integer)
+      * text: A text to be displayed on the key (string)
+      * name: Used for the key's objectName for testing. (e.g. name: "foo" -> objectName: "fooButton") (string)
+      * forceNumber: If you assign a text and a number, or the number 0 you can force the number to be displayed over text. (bool)
+      * wFactor: The width factor to stretch the button over multiple columns (int)
+      * hFactor: the height factor to stretch the button over multiple rows (int)
+      * action: The action to execute on button press. Can be "push", "delete", "changeSign" or "calculate". Default is "push".
+      * pushText: The text that will be pushed to the formula when the button is pressed and the action is "push"
+    */
     property var model: null
 
     property real buttonRatio: 1
@@ -30,7 +49,7 @@ Grid {
                             wFactor: entry.wFactor ? entry.wFactor : 1,
                             hFactor: entry.hFactor ? entry.hFactor : 1,
                             action: entry.action ? entry.action : "push",
-                            objectName: entry.objectName ? entry.objectName: "",
+                            objectName: entry.name ? entry.name + "Button" : "",
                             pushText: entry.pushText ? entry.pushText : text
                         }
                     )
