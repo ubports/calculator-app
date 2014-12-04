@@ -18,7 +18,6 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import Ubuntu.Components.Themes.Ambiance 0.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
 ListItem.Standard {
@@ -28,14 +27,14 @@ ListItem.Standard {
         layoutDirection: Qt.RightToLeft
         spacing: units.gu(1)
         Text {
-            text: result
+            text: contents.result
             font.bold: true
         }
         Text {
             text: "=";
         }
         Text {
-            text: formulaToDisplay
+            text: contents.formula
         }
     }
 }

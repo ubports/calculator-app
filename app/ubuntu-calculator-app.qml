@@ -20,6 +20,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
 
 import "ui"
+import "engine"
 import "engine/math.js" as MathJs
 
 MainView {
@@ -224,17 +225,16 @@ MainView {
             console.log("Error: " + exception.toString());
             return;
         }
-
-        historyModel.insert(0, {"formulaToDisplay":returnFormulaToDisplay(longFormula), "result":displayedInputText});
+        calculationHistory
+        //calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
         isAllowedToAddDot = false;
     }
 
-    ListModel {
-        // TODO: create a separate component with storage management
-        id: historyModel
+    CalculationHistory {
+        id: calculationHistory
     }
 
     VisualItemModel {
@@ -271,10 +271,11 @@ MainView {
             id: formulaView
             width: parent.width
             height: contentHeight
-            model: historyModel
+            model: calculationHistory.getContents()
             interactive: false
 
             delegate: Screen {
+                width: parent.width
             }
         }
     }
