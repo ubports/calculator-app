@@ -18,6 +18,7 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
+import QtQuick.Layouts 1.1
 
 import "ui"
 import "engine/math.js" as MathJs
@@ -30,6 +31,7 @@ MainView {
 
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false;
+    automaticOrientation: true
 
     width: units.gu(40);
     height: units.gu(70);
@@ -234,60 +236,54 @@ MainView {
         id: historyModel
     }
 
-    ListView {
-        id: formulaView
-        anchors.fill: parent
-        boundsBehavior: Flickable.StopAtBounds
-        clip: true
-        currentIndex: -1;
-        focus: true
-        snapMode: ListView.SnapToItem
-        // We need to set a bottomToTop direction because we want the listview starts from bottom on load
-        // and we set the position of the keyboard to bottom
-        verticalLayoutDirection: ListView.BottomToTop
+    VisualItemModel {
+        id: calculatorVisualModel
 
-        model: historyModel
-
-        delegate: Screen {
+        CalcKeyboard {
+            id: calcKeyboard
             width: parent.width
+            buttonRatio: mainListView.height > mainListView.width ? 0.5 : 0.4
         }
 
-        header: Column {
+
+        TextField {
             width: parent.width
+            height: units.gu(6)
+            // TODO: Make sure this bug gets fixed in SDK:
+            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
 
-            TextField {
-                height: units.gu(6)
-                // Workaround to align text to right due bug #1320885
-                // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-                //width: parent.width - units.gu(2)
-                width: contentWidth + units.gu(3)
-                //anchors.horizontalCenter: parent.horizontalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: units.gu(1)
-
-                // remove ubuntu shape
-                style: TextFieldStyle {
-                    background: Item {
-                    }
+            // remove ubuntu shape
+            style: TextFieldStyle {
+                background: Item {
                 }
-
-                text: displayedInputText
-                font.pixelSize: units.gu(4)
-
-                // Decomment that when upstream bug is fixed
-                //verticalAlignment: TextInput.AlignVCenter
-                //horizontalAlignment: TextInput.AlignRight
-
-                readOnly: true
-                selectByMouse: true
             }
 
-            // TODO: insert here actual screen
+            text: displayedInputText
+            font.pixelSize: height * 0.8
+            horizontalAlignment: TextInput.AlignRight
+            readOnly: true
+            selectByMouse: true
+        }
 
-            CalcKeyboard {
-                id: calcKeyboard
+        ListView {
+            id: formulaView
+            width: parent.width
+            height: contentHeight
+            model: historyModel
+            interactive: false
+
+            delegate: Screen {
+                width: calcKeyboard.width
             }
         }
+    }
+
+    ListView {
+        id: mainListView
+        anchors.fill: parent
+        model: calculatorVisualModel
+        verticalLayoutDirection: ListView.BottomToTop
+        snapMode: ListView.SnapToItem
     }
 }
 

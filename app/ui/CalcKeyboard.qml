@@ -18,422 +18,99 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-Item {
+Rectangle {
     id: virtualKeyboard
-    width: parent.width
-    height: grid.height+units.gu(2)
-    property bool panoramicView: (mainView.width > mainView.height) ? true : false;
-    property int calcGridUnit: panoramicView ? width / 100 : width / 50
-    property variant keyboardButtons: {'0': zeroButton,
-                                       '1': oneButton,
-                                       '2': twoButton,
-                                       '3': threeButton,
-                                       '4': fourButton,
-                                       '5': fiveButton,
-                                       '6': sixButton,
-                                       '7': sevenButton,
-                                       '8': eightButton,
-                                       '9': nineButton,
-                                       '+': plusButton,
-                                       '-': minusButton,
-                                       '*': multiplyButton,
-                                       '/': divideButton,
-                                       '=': equalsButton,
-                                       '.': pointButton,
-                                       '%': moduloButton,
-                                       '^': powerButton,
-                                       '(': openBracketButton,
-                                       ')': closeBracketButton,
-                                       'E': eNumberButton,
-                                       'pi': piNumberButton,
-                                       'square': squareButton,
-                                       'clear': clearButton,
-                                       'logarithm': logarithmButton }
+    height: flickableKeyboard.height + units.gu(1)
+    property real buttonRatio: 1
 
     Flickable {
         id: flickableKeyboard
-        anchors.fill: parent
+        anchors { left: parent.left; bottom: parent.bottom; right: parent.right }
         flickableDirection: Flickable.HorizontalFlick
-        contentWidth: panoramicView ? virtualKeyboard.width : virtualKeyboard.width * 2
-        contentHeight: grid.height + units.gu(4)
+        contentWidth: virtualKeyboard.width * keyboardsRow.children.length
+        contentHeight: keyboardsRow.height + units.gu(1)
+        height: contentHeight
         boundsBehavior: Flickable.DragOverBounds
 
-        onMovementEnded: {
-            // if we are not on the border of the virtual calculator keyboard
-            // then trigger flick
-            if (!flickableKeyboard.atXBeginning && !flickableKeyboard.atXEnd) {
-                if (contentX < virtualKeyboard.width / 2) {
-                    flickableKeyboard.flick( units.gu(200), 0);
-                } else {
-                    flickableKeyboard.flick( -units.gu(200), 0);
-                }
+        onDragEnded: {
+            if (horizontalVelocity > units.gu(50)) {
+                snapAnimation.to = width
+            } else if (horizontalVelocity < -units.gu(50)) {
+                snapAnimation.to = 0
+            } else {
+                snapAnimation.to = contentX < width / 2 ? 0 : width
             }
+            snapAnimation.start()
         }
 
-        Rectangle {
-            width: panoramicView ? virtualKeyboard.width : virtualKeyboard.width * 2
-            height: grid.height + units.gu(2)
-            color: "#ffffff"
+        UbuntuNumberAnimation {
+            id: snapAnimation
+            target: flickableKeyboard
+            to: 0
+            property: "contentX"
+            duration: UbuntuAnimation.BriskDuration
+        }
 
-            Item {
-                id: grid
+        Row {
+            id: keyboardsRow
+            anchors { left: parent.left; right: parent.right; margins: units.gu(1) }
+            spacing: units.gu(1)
+            property real baseSize: ((width - spacing) / 8) - spacing
 
-                // 8 keys and 7 space between and border
-                width: (calcGridUnit*12)*8 + (calcGridUnit)*7 + calcGridUnit
-                height: (calcGridUnit*9)*5 + (calcGridUnit)*4
+            KeyboardPage {
+                width: parent.width / 2
+                spacing: parent.spacing
+                buttonRatio: virtualKeyboard.buttonRatio
 
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    top: parent.top
-                    topMargin: units.gu(1)
-                }
+                model: new Array(
+                    { text: "←",   name: "clear", action: "delete" },
+                    { text: "+/-", name: "sign", action: "changeSign" },
+                    { text: "÷",   name: "divide", pushText: "/" },
+                    { text: "*",   name: "multiply" },
+                    { number: 7,   name: "seven" },
+                    { number: 8,   name: "eight" },
+                    { number: 9,   name: "nine" },
+                    { text: "-",   name: "minus" },
+                    { number: 4,   name: "four" },
+                    { number: 5,   name: "five" },
+                    { number: 6,   name: "six" },
+                    { text: "+",   name: "plus" },
+                    { number: 1,   name: "one" },
+                    { number: 2,   name: "two" },
+                    { number: 3,   name: "three" },
+                    { text: "=",   name: "equals", hFactor: 2, action: "calculate" },
+                    { number: 0,   name: "zero", wFactor: 2, forceNumber: true },
+                    { text: ".",   name: "point" }
+                )
+            }
 
-                KeyboardButton {
-                    objectName: "clearButton"
-                    id: clearButton
-                    x: 0
-                    y: 0
-                    text: "←"
-                    onReleased: deleteLastFormulaElement();
-                }
+            KeyboardPage {
+                width: parent.width / 2
+                spacing: parent.spacing
+                buttonRatio: virtualKeyboard.buttonRatio
 
-                KeyboardButton {
-                    objectName: "signButton"
-                    id: signButton
-                    x: (calcGridUnit*13)
-                    y: 0
-                    text: "+/-"
-                    // TODO: implement changeSign function
-                    // onReleased: changeSign();
-                }
-
-                KeyboardButton {
-                    objectName: "divideButton"
-                    id: divideButton
-                    x: (calcGridUnit*13)*2
-                    y: 0
-                    text: "÷"
-                    onReleased: formulaPush('/');
-                }
-
-                KeyboardButton {
-                    objectName: "multiplyButton"
-                    id: multiplyButton
-                    x: (calcGridUnit*13)*3
-                    y: 0
-                    text: "×"
-                    onReleased: formulaPush('*');
-                }
-
-                KeyboardButton {
-                    objectName: "powerButton"
-                    id: powerButton
-                    x: (calcGridUnit*13)*4 + calcGridUnit
-                    y: 0
-                    text: "xⁿ"
-                    onReleased: formulaPush('^');
-                }
-
-
-                KeyboardButton {
-                    objectName: "squareButton"
-                    id: squareButton
-                    x: (calcGridUnit*13)*5 + calcGridUnit
-                    y: 0
-                    text: "x²"
-                    onReleased: formulaPush('^2');
-                }
-
-                KeyboardButton {
-                    objectName: "cubeButton"
-                    id: cubeButton
-                    x: (calcGridUnit*13)*6 + calcGridUnit
-                    y: 0
-                    text: "x³"
-                    onReleased: formulaPush('^3');
-                }
-
-                KeyboardButton {
-                    objectName: "logarithmButton"
-                    id: logarithmButton
-                    x: (calcGridUnit*13)*7 + calcGridUnit
-                    y: 0
-                    text: "log"
-                    onReleased: formulaPush('log(');
-                }
-
-                KeyboardButton {
-                    objectName: "sevenButton"
-                    id: sevenButton
-                    x: 0
-                    y: (calcGridUnit*10)
-                    text: Number(7).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "eightButton"
-                    id: eightButton
-                    x: (calcGridUnit*13)
-                    y: (calcGridUnit*10)
-                    text: Number(8).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "nineButton"
-                    id: nineButton
-                    x: (calcGridUnit*13)*2
-                    y: (calcGridUnit*10)
-                    text: Number(9).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "minusButton"
-                    id: minusButton
-                    x: (calcGridUnit*13)*3
-                    y: (calcGridUnit*10)
-                    text: "−"
-                    onReleased: formulaPush('-');
-                }
-
-                KeyboardButton {
-                    objectName: "eNumberButton"
-                    id: eNumberButton
-                    x: (calcGridUnit*13)*4 + calcGridUnit
-                    y: (calcGridUnit*10)
-                    text: "e"
-                    onReleased: formulaPush('E');
-                }
-
-                KeyboardButton {
-                    objectName: "piNumberButton"
-                    id: piNumberButton
-                    x: (calcGridUnit*13)*5 + calcGridUnit
-                    y: (calcGridUnit*10)
-                    text: "π"
-                    onReleased: formulaPush('pi');
-                }
-
-                KeyboardButton {
-                    objectName: "moduloButton"
-                    id: moduloButton
-                    x: (calcGridUnit*13)*6 + calcGridUnit
-                    y: (calcGridUnit*10)
-                    // TRANSLATORS: Refers to Modulo - operation that finds the remainder of division of one number by another.
-                    text: i18n.tr("mod")
-                    onReleased: formulaPush('%');
-                }
-
-                KeyboardButton {
-                    objectName: "factorialNumberButton"
-                    id: factorialNumberButton
-                    x: (calcGridUnit*13)*7 + calcGridUnit
-                    y: (calcGridUnit*10)
-                    text: "!"
-                    onReleased: formulaPush('!');
-                }
-
-                KeyboardButton {
-                    objectName: "fourButton"
-                    id: fourButton
-                    x: 0
-                    y: (calcGridUnit*10)*2
-                    text: Number(4).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "fiveButton"
-                    id: fiveButton
-                    x: (calcGridUnit*13)
-                    y: (calcGridUnit*10)*2
-                    text: Number(5).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "sixButton"
-                    id: sixButton
-                    x: (calcGridUnit*13)*2
-                    y: (calcGridUnit*10)*2
-                    text: Number(6).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "plusButton"
-                    id: plusButton
-                    x: (calcGridUnit*13)*3
-                    y: (calcGridUnit*10)*2
-                    text: "+"
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "openBracketButton"
-                    id: openBracketButton
-                    x: (calcGridUnit*13)*4 + calcGridUnit
-                    y: (calcGridUnit*10)*2
-                    text: "("
-                    onReleased: formulaPush('(');
-                }
-
-                KeyboardButton {
-                    objectName: "closeBracketButton"
-                    id: closeBracketButton
-                    x: (calcGridUnit*13)*5 + calcGridUnit
-                    y: (calcGridUnit*10)*2
-                    text: ")"
-                    onReleased: formulaPush(')');
-                }
-
-                KeyboardButton {
-                    objectName: "multiplicativeInverseButton"
-                    id: multiplicativeInverseButton
-                    x: (calcGridUnit*13)*6 + calcGridUnit
-                    y: (calcGridUnit*10)*2
-                    text: "1/x"
-                    onReleased: formulaPush('^-1');
-                }
-
-                KeyboardButton {
-                    objectName: "multiplicativeInverseButton2"
-                    id: multiplicativeInverseButton2
-                    x: (calcGridUnit*13)*7 + calcGridUnit
-                    y: (calcGridUnit*10)*2
-                    text: "1/x²"
-                    onReleased: formulaPush('^-2');
-                }
-
-                KeyboardButton {
-                    objectName: "oneButton"
-                    id: oneButton
-                    x: 0
-                    y: (calcGridUnit*10)*3
-                    text: Number(1).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "twoButton"
-                    id: twoButton
-                    x: (calcGridUnit*13)
-                    y: (calcGridUnit*10)*3
-                    text: Number(2).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "threeButton"
-                    id: threeButton
-                    x: (calcGridUnit*13)*2
-                    y: (calcGridUnit*10)*3
-                    text: Number(3).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "equalsButton"
-                    id: equalsButton
-                    x: (calcGridUnit*13)*3
-                    y: (calcGridUnit*10)*3
-                    height: (calcGridUnit*19)
-                    text: "="
-                    onReleased: calculate();
-                }
-
-                KeyboardButton {
-                    objectName: "sqrtButton"
-                    id: sqrtButton
-                    x: (calcGridUnit*13)*4 + calcGridUnit
-                    y: (calcGridUnit*10)*3
-                    text: "√ "
-                    onReleased: formulaPush('sqrt(')
-                }
-
-                KeyboardButton {
-                    objectName: "cosinusButton2"
-                    id: cosinusButton2
-                    x: (calcGridUnit*13)*5 + calcGridUnit
-                    y: (calcGridUnit*10)*3
-                    text: "cos"
-                    onReleased: formulaPush('cos(')
-                }
-
-                KeyboardButton {
-                    objectName: "tangensButton2"
-                    id: tangensButton2
-                    x: (calcGridUnit*13)*6 + calcGridUnit
-                    y: (calcGridUnit*10)*3
-                    text: "tan"
-                    onReleased: formulaPush('tan(')
-                }
-
-                KeyboardButton {
-                    objectName: "cotangensButton2"
-                    id: cotangensButton2
-                    x: (calcGridUnit*13)*7 + calcGridUnit
-                    y: (calcGridUnit*10)*3
-                    text: "ctg"
-                    onReleased: formulaPush('atan(')
-                }
-
-                KeyboardButton {
-                    objectName: "zeroButton"
-                    id: zeroButton
-                    x: 0
-                    y: (calcGridUnit*10)*4
-                    width: (calcGridUnit*12)*2+calcGridUnit
-                    text: Number(0).toLocaleString(Qt.locale(), "f", 0)
-                    onReleased: formulaPush(text);
-                }
-
-                KeyboardButton {
-                    objectName: "pointButton"
-                    id: pointButton
-                    x: (calcGridUnit*13)*2
-                    y: (calcGridUnit*10)*4
-                    text: "."
-                    onReleased: formulaPush('.');
-                }
-
-                KeyboardButton {
-                    objectName: "sinusButton"
-                    id: sinusButton
-                    x: (calcGridUnit*13)*4 + calcGridUnit
-                    y: (calcGridUnit*10)*4
-                    text: "sin"
-                    onReleased: formulaPush('sin(')
-                }
-
-                KeyboardButton {
-                    objectName: "cosinusButton"
-                    id: cosinusButton
-                    x: (calcGridUnit*13)*5 + calcGridUnit
-                    y: (calcGridUnit*10)*4
-                    text: "cos"
-                    onReleased: formulaPush('cos(')
-                }
-
-                KeyboardButton {
-                    objectName: "tangensButton"
-                    id: tangensButton
-                    x: (calcGridUnit*13)*6 + calcGridUnit
-                    y: (calcGridUnit*10)*4
-                    text: "tan"
-                    onReleased: formulaPush('tan(')
-                }
-
-                KeyboardButton {
-                    objectName: "cotangensButton"
-                    id: cotangensButton
-                    x: (calcGridUnit*13)*7 + calcGridUnit
-                    y: (calcGridUnit*10)*4
-                    text: "atan"
-                    onReleased: formulaPush('atan(')
-                }
+                model: new Array(
+                    { text: "xⁿ",  name: "power", pushText: "^" },
+                    { text: "x²",  name: "square", pushText: "^2" },
+                    { text: "x³",  name: "cube", pushText: "^3" },
+                    { text: i18n.tr("log"), name: "logarithm", pushText: "log(" },
+                    { text: "e", name: "eNumber", pushText: "E" },
+                    { text: "π", name: "piNumber", pushText: "pi" },
+                    { text: i18n.tr("mod"), name: "modulo", pushText: "%" },
+                    { text: "!", name: "factorialNumber" },
+                    { text: "(", name: "openBracket" },
+                    { text: ")", name: "closeBracket" },
+                    { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
+                    { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
+                    { text: "√", name: "sqrt", pushText: "sqrt("},
+                    { text: "sin", name: "sinus", pushText: "sin(" },
+                    { text: "cos", name: "cos", pushText: "cos(" },
+                    { text: "tan", name: "tangens", pushText: "tan(" },
+                    { text: "abs", name: "abs", pushText: "abs("},
+                    { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
+                    { text: "cos⁻¹", name: "arccos", pushText: "acos(" },
+                    { text: "tan⁻¹", name: "arctangens", pushText: "atan(" }
+                )
             }
         }
     }
