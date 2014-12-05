@@ -14,6 +14,7 @@ install(FILES ${QML_JS_FILES} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR})
 
 add_subdirectory(engine)
 add_subdirectory(ui)
+add_subdirectory(upstreamcomponents)
 
 # Make the autpilot files visible in qtcreator
 file(GLOB_RECURSE AUTOPILOT_TEST_FILES *.py)

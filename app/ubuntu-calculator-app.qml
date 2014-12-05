@@ -245,9 +245,10 @@ MainView {
         }
 
         TextField {
+            width: contentWidth + units.gu(3)
             // TODO: Make sure this bug gets fixed in SDK:
             // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-            width: parent.width
+            //width: parent.width
             height: units.gu(6)
 
             // remove ubuntu shape
@@ -258,7 +259,7 @@ MainView {
 
             text: displayedInputText
             font.pixelSize: height * 0.8
-            horizontalAlignment: TextInput.AlignRight
+            //horizontalAlignment: TextInput.AlignRight
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
             readOnly: true

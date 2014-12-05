@@ -29,7 +29,6 @@ ListItemWithActions {
         width: parent.width
         anchors.right: parent.right
 
-
         layoutDirection: Qt.RightToLeft
         spacing: units.gu(1)
 
