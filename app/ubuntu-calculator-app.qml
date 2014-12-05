@@ -31,6 +31,7 @@ MainView {
 
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false;
+    automaticOrientation: true
 
     width: units.gu(40);
     height: units.gu(70);
@@ -60,6 +61,8 @@ MainView {
 
     // Property needed to
     property bool isAllowedToAddDot: true;
+
+    property var decimalPoint: Qt.locale().decimalPoint
 
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
@@ -102,7 +105,7 @@ MainView {
             }
 
             if ((isOperator(previousVisual) && previousVisual !== ")")) {
-                // Not two operator one after other
+                // Not two operator one after otQt.locale().decimalPointher
                 return false;
             }
         }
@@ -138,7 +141,7 @@ MainView {
             '-': '−',
             '/': '÷',
             '*': '×',
-            '.': Qt.locale().decimalPoint,
+            '.': decimalPoint,
             'NaN': i18n.tr("NaN"),
             'Infinity': '∞'
         }
@@ -222,7 +225,6 @@ MainView {
             console.log("Error: " + exception.toString());
             return;
         }
-
         calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;
@@ -234,136 +236,132 @@ MainView {
         id: calculationHistory
     }
 
-    ListView {
-        id: formulaView
-        anchors.fill: parent
-        boundsBehavior: Flickable.StopAtBounds
-        clip: true
-        currentIndex: -1;
-        focus: true
-        snapMode: ListView.SnapToItem
-        // We need to set a bottomToTop direction because we want the listview starts from bottom on load
-        // and we set the position of the keyboard to bottom
-        verticalLayoutDirection: ListView.BottomToTop
+    VisualItemModel {
+        id: calculatorVisualModel
 
-        property var _currentSwipedItem: null
-
-        model: calculationHistory.getContents()
-
-        delegate: Screen {
-            id: screenDelegate
+        Loader {
             width: parent.width
+            source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+        }
 
-            property var removalAnimation
-            function remove() {
-                removalAnimation.start();
-            }
+        TextField {
+            // TODO: Make sure this bug gets fixed in SDK:
+            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+            width: parent.width
+            height: units.gu(6)
 
-            onSwippingChanged: {
-                formulaView._updateSwipeState(screenDelegate);
-            }
-
-            onSwipeStateChanged: {
-                formulaView._updateSwipeState(screenDelegate);
-            }
-
-            leftSideAction: Action {
-                iconName: "delete"
-                text: i18n.tr("Delete")
-                onTriggered: {
-                    screenDelegate.remove();
+            // remove ubuntu shape
+            style: TextFieldStyle {
+                background: Item {
                 }
             }
 
-            ListView.onRemove: ScriptAction {
-               script: {
-                    if (formulaView._currentSwipedItem === screenDelegate) {
-                        formulaView._currentSwipedItem = null;
+            text: displayedInputText
+            font.pixelSize: height * 0.8
+            horizontalAlignment: TextInput.AlignRight
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            readOnly: true
+            selectByMouse: true
+        }
+
+        ListView {
+            id: formulaView
+            width: parent.width
+            height: contentHeight
+            model: calculationHistory.getContents()
+            interactive: false
+
+            property var _currentSwipedItem: null
+
+            delegate: Screen {
+                id: screenDelegate
+                width: parent.width
+
+                property var removalAnimation
+                function remove() {
+                    removalAnimation.start();
+                }
+
+                onSwippingChanged: {
+                    formulaView._updateSwipeState(screenDelegate);
+                }
+
+                onSwipeStateChanged: {
+                    formulaView._updateSwipeState(screenDelegate);
+                }
+
+                leftSideAction: Action {
+                    iconName: "delete"
+                    text: i18n.tr("Delete")
+                    onTriggered: {
+                        screenDelegate.remove();
                     }
                 }
-            }
 
-            removalAnimation: SequentialAnimation {
-                alwaysRunToEnd: true
-
-                PropertyAction {
-                    target: screenDelegate
-                    property: "ListView.delayRemove"
-                    value: true
-                }
-
-                UbuntuNumberAnimation {
-                    target: screenDelegate
-                    property: "height"
-                    to: 0
-                }
-
-                PropertyAction {
-                    target: screenDelegate
-                    property: "ListView.delayRemove"
-                    value: false
-                }
-
-                ScriptAction {
+                ListView.onRemove: ScriptAction {
                     script: {
-                        calculationHistory.deleteCalc(docId);
+                        if (formulaView._currentSwipedItem === screenDelegate) {
+                            formulaView._currentSwipedItem = null;
+                        }
+                    }
+                }
+
+                removalAnimation: SequentialAnimation {
+                    alwaysRunToEnd: true
+
+                    PropertyAction {
+                        target: screenDelegate
+                        property: "ListView.delayRemove"
+                        value: true
+                    }
+
+                    UbuntuNumberAnimation {
+                        target: screenDelegate
+                        property: "height"
+                        to: 0
+                    }
+
+                    PropertyAction {
+                        target: screenDelegate
+                        property: "ListView.delayRemove"
+                        value: false
+                    }
+
+                    ScriptAction {
+                        script: {
+                            calculationHistory.deleteCalc(docId);
+                        }
+                    }
+                }
+            }
+
+            function _updateSwipeState(item) {
+                if (item.swipping) {
+                    return
+                }
+
+                if (item.swipeState !== "Normal") {
+                    if (formulaView._currentSwipedItem !== item) {
+                        if (formulaView._currentSwipedItem) {
+                            formulaView._currentSwipedItem.resetSwipe()
+                        }
+                        formulaView._currentSwipedItem = item
+                    } else if (item.swipeState !== "Normal"
+                        && formulaView._currentSwipedItem === item) {
+                        formulaView._currentSwipedItem = null
                     }
                 }
             }
         }
+    }
 
-        function _updateSwipeState(item) {
-            if (item.swipping) {
-                return
-            }
-
-            if (item.swipeState !== "Normal") {
-                if (formulaView._currentSwipedItem !== item) {
-                    if (formulaView._currentSwipedItem) {
-                        formulaView._currentSwipedItem.resetSwipe()
-                    }
-                    formulaView._currentSwipedItem = item
-                } else if (item.swipeState !== "Normal"
-                    && formulaView._currentSwipedItem === item) {
-                    formulaView._currentSwipedItem = null
-                }
-            }
-        }
-
-        header: Column {
-            width: parent ? parent.width : 0
-
-            TextField {
-                height: units.gu(6)
-                // Workaround to align text to right due bug #1320885
-                // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-                //width: parent.width - units.gu(2)
-                width: contentWidth + units.gu(3)
-                //anchors.horizontalCenter: parent.horizontalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: units.gu(1)
-
-                // remove ubuntu shape
-                style: TextFieldStyle {
-                    background: Item {
-                    }
-                }
-
-                text: displayedInputText
-                font.pixelSize: units.gu(4)
-
-                // Decomment that when upstream bug is fixed
-                //verticalAlignment: TextInput.AlignVCenter
-                //horizontalAlignment: TextInput.AlignRight
-
-                readOnly: true
-                selectByMouse: true
-            }
-
-            CalcKeyboard {
-                id: calcKeyboard
-            }
-        }
+    ListView {
+        id: mainListView
+        anchors.fill: parent
+        model: calculatorVisualModel
+        verticalLayoutDirection: ListView.BottomToTop
+        snapMode: ListView.SnapToItem
     }
 }
 

@@ -26,9 +26,34 @@ ListItemWithActions {
     color: "white"
     Row {
         id: row
-
         width: parent.width
         anchors.right: parent.right
+
+
+        layoutDirection: Qt.RightToLeft
+        spacing: units.gu(1)
+
+        Text {
+            id: result
+
+            anchors.bottom: formula.bottom
+
+            text: model.contents.result
+            font.pixelSize: units.gu(4)
+            lineHeight: units.gu(2)
+            lineHeightMode: Text.FixedHeight
+        }
+
+        Text {
+            id: equal
+
+            anchors.bottom: formula.bottom
+
+            text: " = "
+            font.pixelSize: units.gu(4)
+            lineHeight: units.gu(2)
+            lineHeightMode: Text.FixedHeight
+        }
 
         Text {
             id: formula
@@ -43,26 +68,6 @@ ListItemWithActions {
 
             elide: Text.ElideLeft
             horizontalAlignment: Text.AlignRight
-        }
-        Text {
-            id: equal
-
-            anchors.bottom: formula.bottom
-
-            text: " = "
-            font.pixelSize: units.gu(4)
-            lineHeight: units.gu(2)
-            lineHeightMode: Text.FixedHeight
-        }
-        Text {
-            id: result
-
-            anchors.bottom: formula.bottom
-
-            text: model.contents.result
-            font.pixelSize: units.gu(4)
-            lineHeight: units.gu(2)
-            lineHeightMode: Text.FixedHeight
         }
     }
 }

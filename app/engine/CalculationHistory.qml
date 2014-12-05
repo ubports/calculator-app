@@ -44,7 +44,7 @@ Item {
         id: sortedHistory
         model: query
         sort.property: "docId"
-        sort.order: Qt.DescendingOrder
+        sort.order: Qt.AscendingOrder
     }
 
     function addCalculationToDatabase(formula, result) {
