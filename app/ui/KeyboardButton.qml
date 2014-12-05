@@ -39,7 +39,7 @@ AbstractButton {
         id: buttonText
         anchors.centerIn: parent
         color: "#5a5a5c"
-        font.pixelSize: buttonRect.baseSize * 0.8
+        font.pixelSize: 0.5 * parent.height 
         font.bold: true
     }
 

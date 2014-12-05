@@ -201,10 +201,11 @@ MainView {
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
             isFormulaIsValidToCalculate = true;
         }
+        textInputField.cursorVisible = true
     }
 
     function calculate() {
-        if (longFormula === '') {
+        if ((longFormula === '') || (isLastCalculate === true)) {
             return;
         }
 
@@ -215,9 +216,12 @@ MainView {
             return false;
         }
 
-        isLastCalculate = true;
+        result = result.toString()
 
-        result = result.toString();
+        isLastCalculate = true;
+        if (result === longFormula) {
+            return;
+        }
 
         try {
             displayedInputText = returnFormulaToDisplay(result)
@@ -246,6 +250,7 @@ MainView {
         }
 
         TextField {
+            id: textInputField
             width: contentWidth + units.gu(3)
             // TODO: Make sure this bug gets fixed in SDK:
             // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
@@ -265,6 +270,7 @@ MainView {
             anchors.rightMargin: units.gu(1)
             readOnly: true
             selectByMouse: true
+            cursorVisible: true
         }
 
         ListView {

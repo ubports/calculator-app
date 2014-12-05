@@ -42,7 +42,7 @@ CalcKeyboard {
             { text: "cos", name: "cos", pushText: "cos(" },
             { text: "tan", name: "tangens", pushText: "tan(" },
             { number: 0, name: "zero", wFactor: 2, forceNumber: true },
-            { text: decimalPoint, name: "point" },
+            { text: decimalPoint, name: "point", pushText: "." },
             { text: "abs", name: "abs", pushText: "abs("},
             { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
             { text: "cos⁻¹", name: "arccos", pushText: "acos(" },

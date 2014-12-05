@@ -25,7 +25,7 @@ CalcKeyboard {
             { number: 3, name: "three" },
             { text: "=", name: "equals", hFactor: 2, action: "calculate" },
             { number: 0, name: "zero", wFactor: 2, forceNumber: true },
-            { text: decimalPoint, name: "point" }
+            { text: decimalPoint, name: "point", pushText: "." }
         )
     }
 
