@@ -64,11 +64,6 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
-    Component.onCompleted: {
-        // Put keyboard focus to the keyboard at app startup
-        keyboardLoader.item.forceActiveFocus();
-    }
-
     //Function which will delete last formula element.
     // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
     function deleteLastFormulaElement() {
@@ -249,6 +244,12 @@ MainView {
             id: keyboardLoader
             width: parent.width
             source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+            focus: true
+            onItemChanged: {
+                if (item && keyboardLoader.focus) {
+                    item.forceActiveFocus();
+                }
+            }
         }
 
         TextField {
