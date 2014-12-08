@@ -15,26 +15,58 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
 
-ListItem.Standard {
+import "../upstreamcomponents"
+
+ListItemWithActions {
     id: root
+
+    color: "white"
     Row {
         id: row
+        width: parent.width
+        anchors.right: parent.right
+
         layoutDirection: Qt.RightToLeft
         spacing: units.gu(1)
+
         Text {
-            text: contents.result
-            font.bold: true
+            id: result
+
+            anchors.bottom: formula.bottom
+
+            text: Number(model.contents.result).toLocaleString(Qt.locale(), "f", 0)
+            font.pixelSize: units.gu(4)
+            lineHeight: units.gu(2)
+            lineHeightMode: Text.FixedHeight
         }
+
         Text {
-            text: "=";
+            id: equal
+
+            anchors.bottom: formula.bottom
+
+            text: " = "
+            font.pixelSize: units.gu(3)
+            lineHeight: units.gu(1) + 1
+            lineHeightMode: Text.FixedHeight
         }
+
         Text {
-            text: contents.formula
+            id: formula
+
+            width: parent.width - equal.width - result.width
+            anchors.bottom: parent.bottom
+
+            text: returnFormulaToDisplay(model.contents.formula)
+            font.pixelSize: units.gu(3)
+            lineHeight: units.gu(1) + 1
+            lineHeightMode: Text.FixedHeight
+
+            elide: Text.ElideLeft
+            horizontalAlignment: Text.AlignRight
         }
     }
 }

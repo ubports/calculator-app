@@ -230,7 +230,7 @@ MainView {
             return;
         }
 
-        calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
+        calculationHistory.addCalculationToDatabase(longFormula, result);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
@@ -280,8 +280,86 @@ MainView {
             model: calculationHistory.getContents()
             interactive: false
 
+            property var _currentSwipedItem: null
+
             delegate: Screen {
+                id: screenDelegate
                 width: parent.width
+
+                property var removalAnimation
+                function remove() {
+                    removalAnimation.start();
+                }
+
+                onSwippingChanged: {
+                    formulaView._updateSwipeState(screenDelegate);
+                }
+
+                onSwipeStateChanged: {
+                    formulaView._updateSwipeState(screenDelegate);
+                }
+
+                leftSideAction: Action {
+                    iconName: "delete"
+                    text: i18n.tr("Delete")
+                    onTriggered: {
+                        screenDelegate.remove();
+                    }
+                }
+
+                ListView.onRemove: ScriptAction {
+                    script: {
+                        if (formulaView._currentSwipedItem === screenDelegate) {
+                            formulaView._currentSwipedItem = null;
+                        }
+                    }
+                }
+
+                removalAnimation: SequentialAnimation {
+                    alwaysRunToEnd: true
+
+                    PropertyAction {
+                        target: screenDelegate
+                        property: "ListView.delayRemove"
+                        value: true
+                    }
+
+                    UbuntuNumberAnimation {
+                        target: screenDelegate
+                        property: "height"
+                        to: 0
+                    }
+
+                    PropertyAction {
+                        target: screenDelegate
+                        property: "ListView.delayRemove"
+                        value: false
+                    }
+
+                    ScriptAction {
+                        script: {
+                            calculationHistory.deleteCalc(docId);
+                        }
+                    }
+                }
+            }
+
+            function _updateSwipeState(item) {
+                if (item.swipping) {
+                    return
+                }
+
+                if (item.swipeState !== "Normal") {
+                    if (formulaView._currentSwipedItem !== item) {
+                        if (formulaView._currentSwipedItem) {
+                            formulaView._currentSwipedItem.resetSwipe()
+                        }
+                        formulaView._currentSwipedItem = item
+                    } else if (item.swipeState !== "Normal"
+                        && formulaView._currentSwipedItem === item) {
+                        formulaView._currentSwipedItem = null
+                    }
+                }
             }
         }
     }

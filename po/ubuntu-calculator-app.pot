@@ -21,22 +21,14 @@ msgstr ""
 msgid "NaN"
 msgstr ""
 
+#: ../app/ubuntu-calculator-app.qml:296
+msgid "Delete"
+msgstr ""
+
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
 msgid "log"
 msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
 msgid "mod"
-msgstr ""
-
-#: /tmp/tmp.rKpWslWyww/po/ubuntu-calculator-app.desktop.in.h:1
-msgid "Calculator"
-msgstr ""
-
-#: /tmp/tmp.rKpWslWyww/po/ubuntu-calculator-app.desktop.in.h:2
-msgid "A calculator for Ubuntu."
-msgstr ""
-
-#: /tmp/tmp.rKpWslWyww/po/ubuntu-calculator-app.desktop.in.h:3
-msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
