@@ -226,7 +226,7 @@ MainView {
             return;
         }
 
-        calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
+        calculationHistory.addCalculationToDatabase(longFormula, result);
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
