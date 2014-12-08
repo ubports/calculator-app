@@ -22,6 +22,18 @@ Rectangle {
     id: virtualKeyboard
     height: flickableKeyboard.height + units.gu(1)
 
+    Keys.onPressed: {
+        pressedKey = event.key;
+        pressedKeyText = event.text;
+    }
+
+    Keys.onReleased: {
+        pressedKey = -1;
+        pressedKeyText = "";
+    }
+
+    property int pressedKey: -1
+    property string pressedKeyText: ""
 
     default property alias children: keyboardsRow.children
 
