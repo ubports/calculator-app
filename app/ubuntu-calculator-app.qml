@@ -225,6 +225,7 @@ MainView {
             console.log("Error: " + exception.toString());
             return;
         }
+
         calculationHistory.addCalculationToDatabase(returnFormulaToDisplay(longFormula), displayedInputText);
         longFormula = result;
         shortFormula = result;

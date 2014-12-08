@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 01:18+0100\n"
+"POT-Creation-Date: 2014-12-04 23:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,16 +31,4 @@ msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
 msgid "mod"
-msgstr ""
-
-#: /home/rpadovani/Documents/ubuntu/touch/core-apps/build/build-delegateImprovement141203-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/ubuntu-calculator-app.desktop.in.h:1
-msgid "Calculator"
-msgstr ""
-
-#: /home/rpadovani/Documents/ubuntu/touch/core-apps/build/build-delegateImprovement141203-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/ubuntu-calculator-app.desktop.in.h:2
-msgid "A calculator for Ubuntu."
-msgstr ""
-
-#: /home/rpadovani/Documents/ubuntu/touch/core-apps/build/build-delegateImprovement141203-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/ubuntu-calculator-app.desktop.in.h:3
-msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
