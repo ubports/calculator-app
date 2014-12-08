@@ -234,7 +234,11 @@ MainView {
         longFormula = result;
         shortFormula = result;
         numberOfOpenedBrackets = 0;
-        isAllowedToAddDot = false;
+        if (result % 1 != 0) {
+            isAllowedToAddDot = false;
+        } else {
+            isAllowedToAddDot = true;
+        }
     }
 
     CalculationHistory {
