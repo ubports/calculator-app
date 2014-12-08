@@ -30,7 +30,8 @@ Grid {
       * pushText: The text that will be pushed to the formula when the button is pressed and the action is "push"
       * kbdKeys: Normally a key would hightlight itself when "text" matches the currently pressed key. This doesn't work with
                  special keys or if you want multiple keyboard keys to trigger a button. You can override this behavor by
-                 specifying kbdKey keycode number. E.g. [Qt.Key_Return, Qt.Key_Enter] to trigger the = button on Enter and Return.
+                 specifying kbdKeys with a list of keyboard keys.
+                 E.g. [Qt.Key_Return, Qt.Key_Enter] to trigger the = button on Enter and Return.
     */
     property var keyboardModel: null
 
