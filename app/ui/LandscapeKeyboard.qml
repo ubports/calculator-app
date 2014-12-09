@@ -10,7 +10,7 @@ CalcKeyboard {
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete" },
-            { text: "+/-", name: "sign", action: "changeSign" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
             { text: "÷", name: "divide", pushText: "/" },
             { text: "×", name: "multiply", pushText: "*" },
             { text: "xⁿ", name: "power", pushText: "^" },
@@ -37,7 +37,7 @@ CalcKeyboard {
             { number: 2, name: "two" },
             { number: 3, name: "three" },
             { text: "=", name: "equals", hFactor: 2, action: "calculate" },
-            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "eⁿ", name: "exp", pushText: "exp("},
             { text: "sin", name: "sinus", pushText: "sin(" },
             { text: "cos", name: "cos", pushText: "cos(" },
             { text: "tan", name: "tangens", pushText: "tan(" },

@@ -9,7 +9,7 @@ CalcKeyboard {
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
-            { text: "+/-", name: "sign", action: "changeSign" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
             { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
             { text: "×", name: "multiply", pushText: "*", kbdKeys: [Qt.Key_Asterisk] },
             { number: 7, name: "seven" },
@@ -45,7 +45,7 @@ CalcKeyboard {
             { text: ")", name: "closeBracket" },
             { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
             { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
-            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "eⁿ", name: "exp", pushText: "exp("},
             { text: "sin", name: "sinus", pushText: "sin(" },
             { text: "cos", name: "cos", pushText: "cos(" },
             { text: "tan", name: "tangens", pushText: "tan(" },
