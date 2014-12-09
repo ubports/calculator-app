@@ -31,7 +31,36 @@ function deleteLastFormulaElement(isLastCalculate, longFormula) {
     }
 
     if (longFormula !== '') {
+        // The biggest lenght of block we can delete is 5.
+        var numberOfCharsToKeep = longFormula.length < 5 ? longFormula.length : 5;
+        var lastChars = longFormula.substring(longFormula.length - numberOfCharsToKeep,
+            longFormula.length);
+
+        // We choose how many chars remove checking if in the end of the string
+        // there is a special operation. Default: 1
         var removeSize = 1;
+
+        // 5 chars: sqrt(, asin(, acos(, atan(
+        if (lastChars.indexOf('sqrt(') !== -1 ||
+            lastChars.indexOf('asin(') !== -1 ||
+            lastChars.indexOf('acos(') !== -1 ||
+            lastChars.indexOf('atan(') !== -1) {
+            removeSize = 5;
+        }
+        // 4 chars: log(, exp(, sin(, cos(, tan(, abs(
+        else if (lastChars.indexOf('log(') !== -1 ||
+                lastChars.indexOf('exp(') !== -1 ||
+                lastChars.indexOf('sin(') !== -1 ||
+                lastChars.indexOf('cos(') !== -1 ||
+                lastChars.indexOf('tan(') !== -1 ||
+                lastChars.indexOf('abs(') !== -1) {
+            removeSize = 4;
+        }
+        // 2 chars: pi
+        else if (lastChars.indexOf('pi') !== -1) {
+            removeSize = 2;
+        }
+
         longFormula = longFormula.substring(0, longFormula.length - removeSize);
     }
 
@@ -69,6 +98,7 @@ function returnFormulaToDisplay(engineFormulaToDisplay) {
         '-': '−',
         '/': '÷',
         '*': '×',
+        'pi': 'π',
         '.': decimalPoint,
         'NaN': i18n.tr("NaN"),
         'Infinity': '∞'
@@ -173,7 +203,7 @@ function couldAddCloseBracket(longFormula) {
     }
 
     // Calculate how many brackets are opened
-    numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
+    var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
                              (longFormula.match(/\)/g) || []).length;
 
     if (numberOfOpenedBrackets < 1) {
