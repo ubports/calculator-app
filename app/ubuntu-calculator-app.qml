@@ -249,8 +249,15 @@ MainView {
         id: calculatorVisualModel
 
         Loader {
+            id: keyboardLoader
             width: parent.width
             source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+            focus: true
+            onItemChanged: {
+                if (item && keyboardLoader.focus) {
+                    item.forceActiveFocus();
+                }
+            }
         }
 
         TextField {

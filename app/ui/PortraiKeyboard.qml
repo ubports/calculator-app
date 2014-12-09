@@ -8,14 +8,14 @@ CalcKeyboard {
         buttonRatio: 0.7
 
         keyboardModel: new Array(
-            { text: "←", name: "clear", action: "delete" },
+            { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
             { text: "+/-", name: "sign", action: "changeSign" },
-            { text: "÷", name: "divide", pushText: "/" },
-            { text: "×", name: "multiply", pushText: "*" },
+            { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
+            { text: "×", name: "multiply", pushText: "*", kbdKeys: [Qt.Key_Asterisk] },
             { number: 7, name: "seven" },
             { number: 8, name: "eight" },
             { number: 9, name: "nine" },
-            { text: "−", name: "minus", pushText: "-" },
+            { text: "−", name: "minus", pushText: "-", kbdKeys: [Qt.Key_Minus] },
             { number: 4, name: "four" },
             { number: 5, name: "five" },
             { number: 6, name: "six" },
@@ -23,7 +23,7 @@ CalcKeyboard {
             { number: 1, name: "one" },
             { number: 2, name: "two" },
             { number: 3, name: "three" },
-            { text: "=", name: "equals", hFactor: 2, action: "calculate" },
+            { text: "=", name: "equals", hFactor: 2, action: "calculate", kbdKeys: [Qt.Key_Enter, Qt.Key_Return] },
             { number: 0, name: "zero", wFactor: 2, forceNumber: true },
             { text: decimalPoint, name: "point", pushText: "." }
         )
