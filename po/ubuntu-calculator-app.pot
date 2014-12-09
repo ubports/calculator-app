@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 23:50+0100\n"
+"POT-Creation-Date: 2014-12-09 23:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ubuntu-calculator-app.qml:145
+#: ../app/engine/formula.js:103
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:296
+#: ../app/ubuntu-calculator-app.qml:248
 msgid "Delete"
 msgstr ""
 
@@ -31,4 +31,16 @@ msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
 msgid "mod"
+msgstr ""
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:1
+msgid "Calculator"
+msgstr ""
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr ""
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
