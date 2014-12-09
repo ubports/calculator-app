@@ -19,6 +19,7 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 
 import "../upstreamcomponents"
+import "../engine/formula.js" as Formula
 
 ListItemWithActions {
     id: root
@@ -60,7 +61,7 @@ ListItemWithActions {
             width: parent.width - equal.width - result.width
             anchors.bottom: parent.bottom
 
-            text: returnFormulaToDisplay(model.contents.formula)
+            text: Formula.returnFormulaToDisplay(model.contents.formula)
             font.pixelSize: units.gu(3)
             lineHeight: units.gu(1) + 1
             lineHeightMode: Text.FixedHeight

@@ -22,6 +22,7 @@ import Ubuntu.Components.Themes.Ambiance 0.1
 import "ui"
 import "engine"
 import "engine/math.js" as MathJs
+import "engine/formula.js" as Formula
 
 MainView {
     id: mainView
@@ -64,47 +65,28 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
-    //Function which will delete last formula element.
-    // It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
+    /**
+     * The function calls the Formula.deleteLastFormulaElement function and
+     * place the result in right vars
+     */
     function deleteLastFormulaElement() {
-        if (isLastCalculate === true) {
-            longFormula = '';
+        if (longFormula[longFormula.length - 1] === ".") {
+            isAllowedToAddDot = true;
         }
 
-        if (longFormula !== '') {
-            var removeSize = 1;
-            if (longFormula[longFormula.length - 1] === ".") {
-                isAllowedToAddDot = true;
-            }
-            longFormula = longFormula.substring(0, longFormula.length - removeSize);
-        }
+        longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
         shortFormula = longFormula;
         displayedInputText = returnFormulaToDisplay(longFormula);
     }
 
-    // Check if the given digit is one of the valid operators or not.
-    function isOperator(digit) {
-        switch(digit) {
-        case "+":
-        case "-":
-        case "*":
-        case "/":
-        case "%":
-        case "^":
-            return true;
-        default:
-            return false;
-        }
-    }
-
     function validateStringForAddingToFormula(stringToAddToFormula) {
-        if (isOperator(stringToAddToFormula)) {
+        if (Formula.isOperator(stringToAddToFormula)) {
             if ((longFormula === '') && (stringToAddToFormula !== '-')) {
                 // Do not add operator at beginning
                 return false;
             }
 
-            if ((isOperator(previousVisual) && previousVisual !== ")")) {
+            if ((Formula.isOperator(previousVisual) && previousVisual !== ")")) {
                 // Not two operator one after otQt.locale().decimalPointher
                 return false;
             }
@@ -136,23 +118,6 @@ MainView {
         return true;
     }
 
-    function returnFormulaToDisplay(engineFormulaToDisplay) {
-        var engineToVisualMap = {
-            '-': '−',
-            '/': '÷',
-            '*': '×',
-            '.': decimalPoint,
-            'NaN': i18n.tr("NaN"),
-            'Infinity': '∞'
-        }
-
-        for (var engineElement in engineToVisualMap) {
-            //FIXME need to add 'g' flag, but "new RegExp(engineElement, 'g');" is not working for me
-            engineFormulaToDisplay = engineFormulaToDisplay.replace(engineElement, engineToVisualMap[engineElement]);
-        }
-        return engineFormulaToDisplay;
-    }
-
     function formulaPush(visual) {
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
@@ -173,7 +138,6 @@ MainView {
         // We save the value until next value is pushed
         previousVisual = visual;
 
-
         // If we add an operator after an operator we know has priority,
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
@@ -191,7 +155,7 @@ MainView {
         shortFormula += visual.toString();
 
         try {
-            displayedInputText = returnFormulaToDisplay(shortFormula);
+            displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
         } catch(exception) {
             console.log("Error: " + exception.toString());
             return;
@@ -224,7 +188,7 @@ MainView {
         }
 
         try {
-            displayedInputText = returnFormulaToDisplay(result)
+            displayedInputText = Formula.returnFormulaToDisplay(result)
         } catch(exception) {
             console.log("Error: " + exception.toString());
             return;
