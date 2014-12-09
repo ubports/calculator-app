@@ -21,6 +21,8 @@ import Ubuntu.Components 1.1
 
 AbstractButton {
     id: buttonRect
+    objectName: modelname + "Button"
+    activeFocusOnPress: false
 
     property real baseSize: 1
     property alias text: buttonText.text
@@ -28,11 +30,20 @@ AbstractButton {
     property string pressedColor: "#E2E1E4"
     property alias textColor: buttonText.color
 
+    readonly property bool kbdPressed: JSON.parse(model.kbdKeys).indexOf(pressedKey) > -1 || (pressedKeyText == text)
+
+
+    onKbdPressedChanged: {
+        if (!kbdPressed) {
+            buttonRect.clicked();
+        }
+    }
+
     Rectangle {
         anchors.fill: parent
         border.color: "#bdbec0"
         border.width: units.dp(2)
-        color: buttonMA.pressed ? pressedColor : buttonColor
+        color: buttonMA.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
     }
 
     Text {

@@ -28,6 +28,10 @@ Grid {
       * hFactor: the height factor to stretch the button over multiple rows (int)
       * action: The action to execute on button press. Can be "push", "delete", "changeSign" or "calculate". Default is "push".
       * pushText: The text that will be pushed to the formula when the button is pressed and the action is "push"
+      * kbdKeys: Normally a key would hightlight itself when "text" matches the currently pressed key. This doesn't work with
+                 special keys or if you want multiple keyboard keys to trigger a button. You can override this behavor by
+                 specifying kbdKeys with a list of keyboard keys.
+                 E.g. [Qt.Key_Return, Qt.Key_Enter] to trigger the = button on Enter and Return.
     */
     property var keyboardModel: null
 
@@ -39,6 +43,8 @@ Grid {
     property real buttonRatio: 0.7
 
     spacing: units.gu(1)
+
+    signal grabFocus();
 
     Component.onCompleted: {
         buildModel();
@@ -63,7 +69,8 @@ Grid {
                             hFactor: entry.hFactor ? entry.hFactor : 1,
                             action: entry.action ? entry.action : "push",
                             objectName: entry.name ? entry.name + "Button" : "",
-                            pushText: entry.pushText ? entry.pushText : text
+                            pushText: entry.pushText ? entry.pushText : text,
+                            kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([])
                         }
                     )
 
@@ -120,14 +127,11 @@ Grid {
                             case "delete":
                                 deleteLastFormulaElement();
                                 break;
-                            case "changeSign":
-                                // TODO: Implement changeSign() function
-                                //changeSign()
-                                break;
                             case "calculate":
                                 calculate();
                                 break;
                             }
+                            keyboardRoot.grabFocus();
                         }
                     }
                 }
