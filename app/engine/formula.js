@@ -31,7 +31,29 @@ function deleteLastFormulaElement(isLastCalculate, longFormula) {
     }
 
     if (longFormula !== '') {
-        var removeSize = 1;
+        var lastThreeChars = longFormula.substring(longFormula.length - 3,
+            longFormula.length);
+        var lastTwoChars = longFormula.substring(longFormula.length - 2,
+            longFormula.length);
+
+        switch (lastThreeChars) {
+            case "cos":
+            case "sin":
+            case "tan":
+            case "log":
+            case "abs":
+                var removeSize = 3;
+                if (longFormula.length > 3) {
+                    // Special case for atan, asin and acos
+                    if (longFormula[longFormula.length-4] === 'a') {
+                        removeSize = 4;
+                    }
+                }
+                break;
+            default:
+                var removeSize = lastTwoChars === 'pi' ? 2 : 1;
+        }
+
         longFormula = longFormula.substring(0, longFormula.length - removeSize);
     }
 
@@ -69,6 +91,7 @@ function returnFormulaToDisplay(engineFormulaToDisplay) {
         '-': '−',
         '/': '÷',
         '*': '×',
+        'pi': 'π',
         '.': decimalPoint,
         'NaN': i18n.tr("NaN"),
         'Infinity': '∞'

@@ -76,7 +76,7 @@ MainView {
 
         longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
         shortFormula = longFormula;
-        displayedInputText = returnFormulaToDisplay(longFormula);
+        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
     }
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
