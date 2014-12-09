@@ -145,7 +145,7 @@ MainView {
             return;
         }
 
-        displayedInputText = Formula.returnFormulaToDisplay(result)
+        displayedInputText = Formula.returnFormulaToDisplay(result);
         
         calculationHistory.addCalculationToDatabase(longFormula, result);
         longFormula = result;
