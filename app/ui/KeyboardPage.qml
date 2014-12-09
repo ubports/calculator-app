@@ -127,10 +127,6 @@ Grid {
                             case "delete":
                                 deleteLastFormulaElement();
                                 break;
-                            case "changeSign":
-                                // TODO: Implement changeSign() function
-                                //changeSign()
-                                break;
                             case "calculate":
                                 calculate();
                                 break;
