@@ -67,7 +67,7 @@ MainView {
     function deleteLastFormulaElement() {
         longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
         shortFormula = longFormula;
-        displayedInputText = returnFormulaToDisplay(longFormula);
+        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
     }
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
@@ -210,10 +210,10 @@ MainView {
             cursorVisible: true
             onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
                 var preservedCursorPosition = cursorPosition;
-                displayedInputText = returnFormulaToDisplay(longFormula);
+                displayedInputText = Formula.returnFormulaToDisplay(longFormula);
                 cursorPosition = preservedCursorPosition;
             } else {
-                displayedInputText = returnFormulaToDisplay(shortFormula);
+                displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
             }
         }
 
