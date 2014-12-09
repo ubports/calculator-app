@@ -96,23 +96,19 @@ function isOperator(digit) {
 function returnFormulaToDisplay(engineFormulaToDisplay) {
     var engineToVisualMap = {
         '-': '−',
-        '/': '÷',
-        '*': '×',
-        'pi': 'π',
-        '.': decimalPoint,
+        '\\/': '÷',
+        '\\*': '×',
+        '\\.': decimalPoint,
         'NaN': i18n.tr("NaN"),
         'Infinity': '∞'
     }
 
     if (engineFormulaToDisplay !== undefined) {
         for (var engineElement in engineToVisualMap) {
-            // FIXME: need to add 'g' flag, but "new RegExp(engineElement, 'g');"
-            // is not working for me
-            engineFormulaToDisplay = engineFormulaToDisplay.replace(
-                engineElement, engineToVisualMap[engineElement]);
+            var regExp = new RegExp(engineElement, 'g');
+            engineFormulaToDisplay = engineFormulaToDisplay.replace(regExp, engineToVisualMap[engineElement]);
         }
-    }
-    else {
+    } else {
         engineFormulaToDisplay = '';
     }
 

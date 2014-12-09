@@ -94,12 +94,7 @@ MainView {
         }
         isLastCalculate = false;
 
-        try {
-            if (validateStringForAddingToFormula(visual) === false) {
-                return;
-            }
-        } catch(exception) {
-            console.log("Error: " + exception.toString());
+        if (validateStringForAddingToFormula(visual) === false) {
             return;
         }
 
@@ -112,7 +107,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: math.js" + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Error: " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -122,13 +117,8 @@ MainView {
         longFormula += visual.toString();
         shortFormula += visual.toString();
 
-        try {
-            displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
-        } catch(exception) {
-            console.log("Error: " + exception.toString());
-            return;
-        }
-
+        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+        
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
             isFormulaIsValidToCalculate = true;
@@ -155,13 +145,8 @@ MainView {
             return;
         }
 
-        try {
-            displayedInputText = Formula.returnFormulaToDisplay(result)
-        } catch(exception) {
-            console.log("Error: " + exception.toString());
-            return;
-        }
-
+        displayedInputText = Formula.returnFormulaToDisplay(result);
+        
         calculationHistory.addCalculationToDatabase(longFormula, result);
         longFormula = result;
         shortFormula = result;
