@@ -70,17 +70,17 @@ MainView {
         displayedInputText = Formula.returnFormulaToDisplay(longFormula);
     }
 
-    function validateStringForAddingToFormula(stringToAddToFormula) {
+    function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         if (Formula.isOperator(stringToAddToFormula)) {
-            return Formula.couldAddOperator(stringToAddToFormula, longFormula);
+            return Formula.couldAddOperator(formula, stringToAddToFormula);
         }
 
         if (stringToAddToFormula === ".") {
-            return Formula.couldAddDot(longFormula);
+            return Formula.couldAddDot(formula);
         }
 
         if (stringToAddToFormula === ")") {
-            return Formula.couldAddCloseBracket(longFormula);
+            return Formula.couldAddCloseBracket(formula);
         }
 
         return true;
