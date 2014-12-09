@@ -58,11 +58,6 @@ MainView {
     // Becomes true after an user presses the "="
     property bool isLastCalculate: false;
 
-    property int numberOfOpenedBrackets: 0;
-
-    // Property needed to
-    property bool isAllowedToAddDot: true;
-
     property var decimalPoint: Qt.locale().decimalPoint
 
     /**
@@ -70,10 +65,6 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
-        if (longFormula[longFormula.length - 1] === ".") {
-            isAllowedToAddDot = true;
-        }
-
         longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
         shortFormula = longFormula;
         displayedInputText = returnFormulaToDisplay(longFormula);
@@ -81,40 +72,17 @@ MainView {
 
     function validateStringForAddingToFormula(stringToAddToFormula) {
         if (Formula.isOperator(stringToAddToFormula)) {
-            if ((longFormula === '') && (stringToAddToFormula !== '-')) {
-                // Do not add operator at beginning
-                return false;
-            }
-
-            if ((Formula.isOperator(previousVisual) && previousVisual !== ")")) {
-                // Not two operator one after otQt.locale().decimalPointher
-                return false;
-            }
+            return Formula.couldAddOperator(stringToAddToFormula, longFormula);
         }
 
-        if (isNaN(stringToAddToFormula)) {
-            if (stringToAddToFormula !== ".") {
-                isAllowedToAddDot = true
-            }
+        if (stringToAddToFormula === ".") {
+            return Formula.couldAddDot(longFormula);
         }
 
-        if (stringToAddToFormula[stringToAddToFormula.length - 1] === "(") {
-            numberOfOpenedBrackets = numberOfOpenedBrackets + 1
-        } else if (stringToAddToFormula === ")") {
-            // Do not allow closing brackets after opening bracket
-            // and do not allow adding too much closing brackets
-            if ((previousVisual === "(") || (numberOfOpenedBrackets < 1)) {
-                return false;
-            }
-            numberOfOpenedBrackets = numberOfOpenedBrackets - 1
-        } else if (stringToAddToFormula === ".") {
-            //Do not allow to have two decimal separators in the same number
-            if (isAllowedToAddDot === false) {
-                return false;
-            }
-
-            isAllowedToAddDot = false;
+        if (stringToAddToFormula === ")") {
+            return Formula.couldAddCloseBracket(longFormula);
         }
+
         return true;
     }
 
@@ -197,12 +165,6 @@ MainView {
         calculationHistory.addCalculationToDatabase(longFormula, result);
         longFormula = result;
         shortFormula = result;
-        numberOfOpenedBrackets = 0;
-        if (result % 1 != 0) {
-            isAllowedToAddDot = false;
-        } else {
-            isAllowedToAddDot = true;
-        }
     }
 
     CalculationHistory {

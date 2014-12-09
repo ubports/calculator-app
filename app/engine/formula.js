@@ -88,3 +88,97 @@ function returnFormulaToDisplay(engineFormulaToDisplay) {
 
     return engineFormulaToDisplay;
 }
+
+/**
+ * Function to check if an operator could be added to the formula
+ *
+ * @param char operatorToAdd: the operator that will be added to the formula
+ * @param string longFormula: the actual formula
+ * @return bool: true if the operator could be added, false otherwise
+ */
+function couldAddOperator(operatorToAdd, longFormula) {
+    // No two operators one after other
+    if (isOperator(longFormula.slice(-1))) {
+        // But a minus after a * or a / is allowed
+        if (!(operatorToAdd === "-" && (longFormula.slice(-1) === "*" ||
+                                        longFormula.slice(-1) === "/"))) {
+            return false;
+        }
+    }
+
+    // No operator after a dot
+    if (longFormula.slice(-1) === ".") {
+        return false;
+    }
+
+    // No operator after an open brackets, but minus
+    if (longFormula.slice(-1) === "(" && operatorToAdd !== "-") {
+        return false;
+    }
+
+    // No operator at beginning (but minus)
+    if (longFormula === "" && operatorToAdd !== "-") {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Function to check if could be add a dot at the end of a formula
+ *
+ * @param string longFormula: the formula where we have to add the dot
+ * @return bool: true if the dot could be added, false otherwhise
+ */
+function couldAddDot(longFormula) {
+    // A dot could be only after a number
+    if (isNaN(longFormula.slice(-1))) {
+        return false;
+    }
+
+    // If is after a number and it's the first dot of the calc it could be added
+    if (longFormula.indexOf('.') === -1) {
+        return true;
+    }
+
+    // If there is already a dot we have to check if it isn't in the same operation
+    // So we take all the string since the last occurence of dot to the end
+    var lastOperation = longFormula.substring(longFormula.lastIndexOf('.') + 1);
+
+    // If there isn't something different from a number we can't add a dot
+    if (!isNaN(lastOperation)) {
+        return false;
+    }
+
+    // If the only thing different from a number is a pi we cannot add a dot
+    if (lastOperation.indexOf('pi') !== -1) {
+        if (!isNaN(lastOperation.replace('pi', ''))) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Function to check if could be add a close bracket at the end of a formula
+ *
+ * @param string longFormula: the formula where we have to add the close bracket
+ * @return bool: true if the close bracket could be added, false otherwhise
+ */
+function couldAddCloseBracket(longFormula) {
+    // Don't close a bracket just after opened it
+    if (longFormula.slice(-1) === "(") {
+        return false;
+    }
+
+    // Calculate how many brackets are opened
+    numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
+                             (longFormula.match(/\)/g) || []).length;
+
+    if (numberOfOpenedBrackets < 1) {
+        return false;
+    }
+
+    return true;
+}
