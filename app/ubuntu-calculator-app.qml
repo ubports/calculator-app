@@ -275,6 +275,13 @@ MainView {
             readOnly: true
             selectByMouse: true
             cursorVisible: true
+            onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
+                var preservedCursorPosition = cursorPosition;
+                displayedInputText = returnFormulaToDisplay(longFormula);
+                cursorPosition = preservedCursorPosition;
+            } else {
+                displayedInputText = returnFormulaToDisplay(shortFormula);
+            }
         }
 
         ListView {
