@@ -203,7 +203,7 @@ function couldAddCloseBracket(longFormula) {
     }
 
     // Calculate how many brackets are opened
-    numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
+    var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
                              (longFormula.match(/\)/g) || []).length;
 
     if (numberOfOpenedBrackets < 1) {
