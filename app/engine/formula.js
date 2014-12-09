@@ -61,10 +61,10 @@ function isOperator(digit) {
 /**
  * Function to replace some chars in the visual textfield
  *
- * @param string engineFormulaToDisplay: the string where we have to replace chars
+ * @param string engineFormulaToConvert: the string where we have to replace chars
  * @return a string based on param with changes in chars
  */
-function returnFormulaToDisplay(engineFormulaToDisplay) {
+function returnFormulaToDisplay(engineFormulaToConvert) {
     var engineToVisualMap = {
         '-': '−',
         '\\/': '÷',
@@ -74,17 +74,16 @@ function returnFormulaToDisplay(engineFormulaToDisplay) {
         'Infinity': '∞'
     }
 
-    if (engineFormulaToDisplay !== undefined) {
+    if (engineFormulaToConvert !== undefined) {
         for (var engineElement in engineToVisualMap) {
             var regExp = new RegExp(engineElement, 'g');
-            engineFormulaToDisplay = engineFormulaToDisplay.replace(regExp, engineToVisualMap[engineElement]);
+            engineFormulaToConvert = engineFormulaToConvert.replace(regExp, engineToVisualMap[engineElement]);
         }
-    }
-    else {
-        engineFormulaToDisplay = '';
+    } else {
+        engineFormulaToConvert = '';
     }
 
-    return engineFormulaToDisplay;
+    return engineFormulaToConvert;
 }
 
 /**
