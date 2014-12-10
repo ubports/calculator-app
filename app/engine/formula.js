@@ -22,15 +22,15 @@
  *
  * @param bool isLastCalculate: if in the textfield there is the result of a
  *          calc this is true and the function delete all
- * @param string longFormula: the formula in the textfield
+ * @param string formulaToCheck: the formula in the textfield
  * @return a string with the new formula
  */
-function deleteLastFormulaElement(isLastCalculate, longFormula) {
+function deleteLastFormulaElement(isLastCalculate, formulaToCheck) {
     if (isLastCalculate === true) {
         return '';
     }
 
-    if (longFormula !== '') {
+    if (formulaToCheck !== '') {
         // The biggest lenght of block we can delete is 5.
         var numberOfCharsToKeep = longFormula.length < 5 ? longFormula.length : 5;
         var lastChars = longFormula.substring(longFormula.length - numberOfCharsToKeep,
@@ -60,11 +60,10 @@ function deleteLastFormulaElement(isLastCalculate, longFormula) {
         else if (lastChars.indexOf('pi') !== -1) {
             removeSize = 2;
         }
-
-        longFormula = longFormula.substring(0, longFormula.length - removeSize);
+        formulaToCheck = formulaToCheck.substring(0, formulaToCheck.length - removeSize);
     }
 
-    return longFormula;
+    return formulaToCheck;
 }
 
 /**
@@ -90,10 +89,10 @@ function isOperator(digit) {
 /**
  * Function to replace some chars in the visual textfield
  *
- * @param string engineFormulaToDisplay: the string where we have to replace chars
+ * @param string engineFormulaToConvert: the string where we have to replace chars
  * @return a string based on param with changes in chars
  */
-function returnFormulaToDisplay(engineFormulaToDisplay) {
+function returnFormulaToDisplay(engineFormulaToConvert) {
     var engineToVisualMap = {
         '-': '−',
         '\\/': '÷',
@@ -103,47 +102,47 @@ function returnFormulaToDisplay(engineFormulaToDisplay) {
         'Infinity': '∞'
     }
 
-    if (engineFormulaToDisplay !== undefined) {
+    if (engineFormulaToConvert !== undefined) {
         for (var engineElement in engineToVisualMap) {
             var regExp = new RegExp(engineElement, 'g');
-            engineFormulaToDisplay = engineFormulaToDisplay.replace(regExp, engineToVisualMap[engineElement]);
+            engineFormulaToConvert = engineFormulaToConvert.replace(regExp, engineToVisualMap[engineElement]);
         }
     } else {
-        engineFormulaToDisplay = '';
+        engineFormulaToConvert = '';
     }
 
-    return engineFormulaToDisplay;
+    return engineFormulaToConvert;
 }
 
 /**
  * Function to check if an operator could be added to the formula
  *
  * @param char operatorToAdd: the operator that will be added to the formula
- * @param string longFormula: the actual formula
+ * @param string formulaToCheck: the actual formula
  * @return bool: true if the operator could be added, false otherwise
  */
-function couldAddOperator(operatorToAdd, longFormula) {
+function couldAddOperator(formulaToCheck, operatorToAdd) {
     // No two operators one after other
-    if (isOperator(longFormula.slice(-1))) {
+    if (isOperator(formulaToCheck.slice(-1))) {
         // But a minus after a * or a / is allowed
-        if (!(operatorToAdd === "-" && (longFormula.slice(-1) === "*" ||
-                                        longFormula.slice(-1) === "/"))) {
+        if (!(operatorToAdd === "-" && (formulaToCheck.slice(-1) === "*" ||
+                                        formulaToCheck.slice(-1) === "/"))) {
             return false;
         }
     }
 
     // No operator after a dot
-    if (longFormula.slice(-1) === ".") {
+    if (formulaToCheck.slice(-1) === ".") {
         return false;
     }
 
     // No operator after an open brackets, but minus
-    if (longFormula.slice(-1) === "(" && operatorToAdd !== "-") {
+    if (formulaToCheck.slice(-1) === "(" && operatorToAdd !== "-") {
         return false;
     }
 
     // No operator at beginning (but minus)
-    if (longFormula === "" && operatorToAdd !== "-") {
+    if (formulaToCheck === "" && operatorToAdd !== "-") {
         return false;
     }
 
@@ -153,23 +152,23 @@ function couldAddOperator(operatorToAdd, longFormula) {
 /**
  * Function to check if could be add a dot at the end of a formula
  *
- * @param string longFormula: the formula where we have to add the dot
+ * @param string formulaToCheck: the formula where we have to add the dot
  * @return bool: true if the dot could be added, false otherwhise
  */
-function couldAddDot(longFormula) {
+function couldAddDot(formulaToCheck) {
     // A dot could be only after a number
-    if (isNaN(longFormula.slice(-1))) {
+    if (isNaN(formulaToCheck.slice(-1))) {
         return false;
     }
 
     // If is after a number and it's the first dot of the calc it could be added
-    if (longFormula.indexOf('.') === -1) {
+    if (formulaToCheck.indexOf('.') === -1) {
         return true;
     }
 
     // If there is already a dot we have to check if it isn't in the same operation
     // So we take all the string since the last occurence of dot to the end
-    var lastOperation = longFormula.substring(longFormula.lastIndexOf('.') + 1);
+    var lastOperation = formulaToCheck.substring(formulaToCheck.lastIndexOf('.') + 1);
 
     // If there isn't something different from a number we can't add a dot
     if (!isNaN(lastOperation)) {
@@ -189,18 +188,18 @@ function couldAddDot(longFormula) {
 /**
  * Function to check if could be add a close bracket at the end of a formula
  *
- * @param string longFormula: the formula where we have to add the close bracket
+ * @param string formulaToCheck: the formula where we have to add the close bracket
  * @return bool: true if the close bracket could be added, false otherwhise
  */
-function couldAddCloseBracket(longFormula) {
+function couldAddCloseBracket(formulaToCheck) {
     // Don't close a bracket just after opened it
-    if (longFormula.slice(-1) === "(") {
+    if (formulaToCheck.slice(-1) === "(") {
         return false;
     }
 
     // Calculate how many brackets are opened
     var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
-                             (longFormula.match(/\)/g) || []).length;
+                                (longFormula.match(/\)/g) || []).length;
 
     if (numberOfOpenedBrackets < 1) {
         return false;

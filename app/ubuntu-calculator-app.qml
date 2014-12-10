@@ -70,17 +70,17 @@ MainView {
         displayedInputText = Formula.returnFormulaToDisplay(longFormula);
     }
 
-    function validateStringForAddingToFormula(stringToAddToFormula) {
+    function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         if (Formula.isOperator(stringToAddToFormula)) {
-            return Formula.couldAddOperator(stringToAddToFormula, longFormula);
+            return Formula.couldAddOperator(formula, stringToAddToFormula);
         }
 
         if (stringToAddToFormula === ".") {
-            return Formula.couldAddDot(longFormula);
+            return Formula.couldAddDot(formula);
         }
 
         if (stringToAddToFormula === ")") {
-            return Formula.couldAddCloseBracket(longFormula);
+            return Formula.couldAddCloseBracket(formula);
         }
 
         return true;
@@ -93,8 +93,7 @@ MainView {
             longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
-
-        if (validateStringForAddingToFormula(visual) === false) {
+        if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition) , visual) === false) {
             return;
         }
 
@@ -114,16 +113,22 @@ MainView {
         }
 
         // Adding the new operator to the formula
-        longFormula += visual.toString();
-        shortFormula += visual.toString();
+        if (textInputField.cursorPosition === displayedInputText.length ) {
+            longFormula += visual.toString();
+            shortFormula += visual.toString();
+        } else {
+            longFormula = longFormula.slice(0, textInputField.cursorPosition) + visual.toString() + longFormula.slice(textInputField.cursorPosition, longFormula.length);
+            shortFormula = longFormula;
+ 	}
 
+        var preservedCursorPosition = textInputField.cursorPosition;
         displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
-        
+        textInputField.cursorPosition = preservedCursorPosition + visual.length;
+       
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
             isFormulaIsValidToCalculate = true;
         }
-        textInputField.cursorVisible = true
     }
 
     function calculate() {
