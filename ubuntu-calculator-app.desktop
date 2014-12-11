@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=Calculator
+_Comment=A simple calculator for Ubuntu.
+_Keywords=math;addition;subtraction;multiplication;division;
+Type=Application
+Terminal=false
+Exec=@EXEC@
+X-Ubuntu-Touch=true
+X-Ubuntu-StageHint=SideStage
+X-Ubuntu-Default-Department-ID=accessories
