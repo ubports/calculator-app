@@ -1,25 +1,23 @@
 Source: ubuntu-calculator-app
 Priority: optional
+Section: misc
 Maintainer: Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>
-Build-Depends: debhelper (>= 9),
-               cmake,
+Build-Depends: cmake,
+               debhelper (>= 9),
                gettext,
                intltool,
-               python3:any,
-Standards-Version: 3.9.5
-Section: misc
+               qtbase5-dev,
+               qtdeclarative5-dev
+Standards-Version: 3.9.6
 Homepage: https://launchpad.net/ubuntu-calculator-app
-# if you don't have have commit access to this branch but would like to upload
-# directly to Ubuntu, don't worry: your changes will be merged back into the
-# upstream branch
 Vcs-Bzr: lp:ubuntu-calculator-app/reboot
-X-Python-Version: 2.7
+Vcs-Browser: http://bazaar.launchpad.net/~ubuntu-calculator-dev/ubuntu-calculator-app/reboot/files
 
 Package: ubuntu-calculator-app
 Architecture: all
-Depends: ${misc:Depends},
-         qmlscene,
+Depends: qmlscene,
          qtdeclarative5-qtquick2-plugin,
          qtdeclarative5-ubuntu-ui-toolkit-plugin | qt-components-ubuntu,
+         ${misc:Depends}
 Description: Calculator application
  Core Calculator application

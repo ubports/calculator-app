@@ -13,9 +13,9 @@ endif()
 
 set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
 
-find_package(Qt5Core)
-find_package(Qt5Qml)
-find_package(Qt5Quick)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Qml REQUIRED)
+find_package(Qt5Quick REQUIRED)
 # Find_package(ubuntu-sdk-libs)
 
 #automatically create moc files
