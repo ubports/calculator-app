@@ -22,16 +22,6 @@ Rectangle {
     id: virtualKeyboard
     height: flickableKeyboard.height + units.gu(1)
 
-    Keys.onPressed: {
-        pressedKey = event.key;
-        pressedKeyText = event.text;
-    }
-
-    Keys.onReleased: {
-        pressedKey = -1;
-        pressedKeyText = "";
-    }
-
     property int pressedKey: -1
     property string pressedKeyText: ""
 
@@ -71,11 +61,6 @@ Rectangle {
             duration: UbuntuAnimation.BriskDuration
         }
 
-        MouseArea {
-            anchors.fill: keyboardsRow
-            onClicked: virtualKeyboard.forceActiveFocus()
-        }
-
         Row {
             id: keyboardsRow
             anchors { left: parent.left; right: parent.right; margins: units.gu(1) }
@@ -84,7 +69,6 @@ Rectangle {
             onChildrenChanged: {
                 for (var i = 0; i < children.length; i++) {
                     children[i].width = Qt.binding(function() { return (keyboardsRow.width - spacing * (children.length - 2)) / children.length; })
-                    children[i].grabFocus.connect(function() { virtualKeyboard.forceActiveFocus(); });
                 }
             }
         }
