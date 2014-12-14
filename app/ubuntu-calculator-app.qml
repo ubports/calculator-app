@@ -196,7 +196,7 @@ MainView {
             }
 
             text: displayedInputText
-            font.pixelSize: height * 0.8
+            font.pixelSize: height * 0.7
             //horizontalAlignment: TextInput.AlignRight
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
