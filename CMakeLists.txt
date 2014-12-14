@@ -3,13 +3,13 @@ cmake_minimum_required(VERSION 2.8.9)
 
 find_program(INTLTOOL_MERGE intltool-merge)
 if(NOT INTLTOOL_MERGE)
-    message(FATAL_ERROR "Could not find intltool-merge, please install the intltool package")
-endif()
+  message(FATAL_ERROR "Could not find intltool-merge, please install the intltool package")
+endif(NOT INTLTOOL_MERGE)
 
 find_program(INTLTOOL_EXTRACT intltool-extract)
 if(NOT INTLTOOL_EXTRACT)
-    message(FATAL_ERROR "Could not find intltool-extract, please install the intltool package")
-endif()
+  message(FATAL_ERROR "Could not find intltool-extract, please install the intltool package")
+endif(NOT INTLTOOL_EXTRACT)
 
 set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
 
@@ -21,7 +21,8 @@ find_package(Qt5Quick REQUIRED)
 #automatically create moc files
 set(CMAKE_AUTOMOC ON)
 
-# option(INSTALL_TESTS "Install the tests on make install" on)
+#TODO: after test suite is ready, uncomment this line
+#option(INSTALL_TESTS "Install the tests on make install" on)
 option(CLICK_MODE "Installs to a contained location" on)
 
 include(GNUInstallDirs)
@@ -57,7 +58,7 @@ else(CLICK_MODE)
     COMMAND qmake -query QT_INSTALL_QML
             OUTPUT_VARIABLE QT_IMPORTS_DIR
             OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
+  )
 endif(CLICK_MODE)
 
 if(${CLICK_MODE})
@@ -65,8 +66,8 @@ if(${CLICK_MODE})
 
   execute_process(
     COMMAND dpkg-architecture -qDEB_HOST_ARCH
-    OUTPUT_VARIABLE CLICK_ARCH
-    OUTPUT_STRIP_TRAILING_WHITESPACE
+            OUTPUT_VARIABLE CLICK_ARCH
+            OUTPUT_STRIP_TRAILING_WHITESPACE
   )
 
   configure_file(${UBUNTU_MANIFEST_PATH} ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
@@ -74,18 +75,20 @@ if(${CLICK_MODE})
   install(FILES "${APP_HARDCODE}.json" DESTINATION ${CMAKE_INSTALL_PREFIX})
 else(CLICK_MODE)
   set(EXEC "qmlscene $@ -I ${MODULE_PATH}  ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
-endif()
+endif(CLICK_MODE)
 
+#TODO: after test suite is ready, uncomment these lines
 #file(GLOB_RECURSE I18N_SRC_FILES
 #    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
 #    *.qml *.js)
 #list(APPEND I18N_SRC_FILES ${DESKTOP_FILE})
 #list(SORT I18N_SRC_FILES)
 
-configure_file(${DESKTOP_FILE} ${DESKTOP_FILE})
+configure_file(app/${DESKTOP_FILE}.in ${DESKTOP_FILE})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 
 add_subdirectory(app)
+#TODO: after we setup languages support, uncomment this line
 #add_subdirectory(po)
