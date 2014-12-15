@@ -203,13 +203,15 @@ MainView {
             readOnly: true
             selectByMouse: true
             cursorVisible: true
-            onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
-                var preservedCursorPosition = cursorPosition;
-                displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-                cursorPosition = preservedCursorPosition;
-            } else {
-                displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
-            }
+            onCursorPositionChanged: 
+                if (cursorPosition !== displayedInputText.length ) {
+                    // Count cursor position from the end of line
+                    var preservedCursorPosition = displayedInputText.length - cursorPosition;
+                    displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                    cursorPosition = displayedInputText.length - preservedCursorPosition;
+                } else {
+                    displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                }
         }
 
         ListView {
