@@ -6,6 +6,7 @@ Build-Depends: cmake,
                debhelper (>= 9),
                gettext,
                intltool,
+               python3,
                qtbase5-dev,
                qtdeclarative5-dev
 Standards-Version: 3.9.6
@@ -21,15 +22,3 @@ Depends: qmlscene,
          ${misc:Depends}
 Description: Calculator application
  Core Calculator application
-
-Package: ubuntu-calculator-app-autopilot
-Architecture: all
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         ${python:Depends},
-         ubuntu-calculator-app (= ${binary:Version}),
-         ubuntu-ui-toolkit-autopilot,
-         libautopilot-qt (>= 1.4),
-Description: Autopilot tests for the calculator app for Ubuntu
- ubuntu-calculator-app is a calculator app for the Ubuntu touch. This package
- contains autopilot tests for it.
