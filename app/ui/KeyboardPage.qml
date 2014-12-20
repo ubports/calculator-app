@@ -44,8 +44,6 @@ Grid {
 
     spacing: units.gu(1)
 
-    signal grabFocus();
-
     Component.onCompleted: {
         buildModel();
     }
@@ -131,7 +129,6 @@ Grid {
                                 calculate();
                                 break;
                             }
-                            keyboardRoot.grabFocus();
                         }
                     }
                 }

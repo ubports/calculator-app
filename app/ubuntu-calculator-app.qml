@@ -36,6 +36,7 @@ MainView {
 
     width: units.gu(40);
     height: units.gu(70);
+    focus: true
 
     // This is our engine
     property var mathJs: MathJs.mathJs;
@@ -161,6 +162,16 @@ MainView {
         id: calculationHistory
     }
 
+    Keys.onPressed: {
+        keyboardLoader.item.pressedKey = event.key;
+        keyboardLoader.item.pressedKeyText = event.text;
+    }
+
+    Keys.onReleased: {
+        keyboardLoader.item.pressedKey = -1;
+        keyboardLoader.item.pressedKeyText = "";
+    }
+
     VisualItemModel {
         id: calculatorVisualModel
 
@@ -168,12 +179,6 @@ MainView {
             id: keyboardLoader
             width: parent.width
             source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
-            focus: true
-            onItemChanged: {
-                if (item && keyboardLoader.focus) {
-                    item.forceActiveFocus();
-                }
-            }
         }
 
         TextField {
@@ -191,7 +196,7 @@ MainView {
             }
 
             text: displayedInputText
-            font.pixelSize: height * 0.8
+            font.pixelSize: height * 0.7
             //horizontalAlignment: TextInput.AlignRight
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
