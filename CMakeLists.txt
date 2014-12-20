@@ -21,14 +21,15 @@ find_package(Qt5Quick REQUIRED)
 #automatically create moc files
 set(CMAKE_AUTOMOC ON)
 
-#TODO: after test suite is ready, uncomment this line
-#option(INSTALL_TESTS "Install the tests on make install" on)
+
+option(INSTALL_TESTS "Install the tests on make install" on)
 option(CLICK_MODE "Installs to a contained location" on)
 
 include(GNUInstallDirs)
 
 set(APP_NAME                        ubuntu-calculator-app)
 set(APP_HARDCODE                    ubuntu-calculator-app)
+set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON                            "graphics/${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
@@ -61,7 +62,7 @@ else(CLICK_MODE)
   )
 endif(CLICK_MODE)
 
-if(${CLICK_MODE})
+if(CLICK_MODE)
   message("-- Configuring manifest.json")
 
   execute_process(
@@ -77,7 +78,7 @@ else(CLICK_MODE)
   set(EXEC "qmlscene $@ -I ${MODULE_PATH}  ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
 endif(CLICK_MODE)
 
-#TODO: after test suite is ready, uncomment these lines
+#TODO: after languages support is ready, uncomment these lines
 #file(GLOB_RECURSE I18N_SRC_FILES
 #    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
 #    *.qml *.js)
@@ -88,6 +89,9 @@ configure_file(app/${DESKTOP_FILE}.in ${DESKTOP_FILE})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+
+# Tests
+enable_testing()
 
 add_subdirectory(app)
 #TODO: after we setup languages support, uncomment this line
