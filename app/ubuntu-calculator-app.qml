@@ -56,6 +56,7 @@ MainView {
     // Last immission
     property var previousVisual;
 
+
     // Becomes true after an user presses the "="
     property bool isLastCalculate: false;
 
@@ -125,7 +126,7 @@ MainView {
         var preservedCursorPosition = textInputField.cursorPosition;
         displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
         textInputField.cursorPosition = preservedCursorPosition + visual.length;
-       
+
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
             isFormulaIsValidToCalculate = true;
@@ -152,8 +153,8 @@ MainView {
         }
 
         displayedInputText = Formula.returnFormulaToDisplay(result);
-        
-        calculationHistory.addCalculationToDatabase(longFormula, result);
+
+        calculationHistory.addCalculationToScreen(longFormula, result);
         longFormula = result;
         shortFormula = result;
     }
@@ -225,6 +226,8 @@ MainView {
                 id: screenDelegate
                 width: parent.width
 
+                visible: model.dbId != -1
+
                 property var removalAnimation
                 function remove() {
                     removalAnimation.start();
@@ -277,7 +280,7 @@ MainView {
 
                     ScriptAction {
                         script: {
-                            calculationHistory.deleteCalc(docId);
+                            calculationHistory.deleteCalc(dbId);
                         }
                     }
                 }
