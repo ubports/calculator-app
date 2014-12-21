@@ -36,9 +36,22 @@ ListItemWithActions {
         Text {
             id: result
 
+            function textToDisplay(result) {
+                // Check the precision of the result
+                var resultPrecision = 0;
+                if (result.indexOf('.') > 0) {
+                    resultPrecision = result.length - result.indexOf('.') - 1;
+                }
+
+                // The maximum precision we want is 11
+                var precisionToUse = resultPrecision > 11 ? 11 : resultPrecision;
+
+                return Number(result).toLocaleString(Qt.locale(), "f", precisionToUse);
+            }
+
             anchors.bottom: formula.bottom
 
-            text: Number(model.result).toLocaleString(Qt.locale(), "f", 0)
+            text: textToDisplay(model.result)
             font.pixelSize: units.gu(3.5)
             lineHeight: units.gu(2)
             lineHeightMode: Text.FixedHeight
