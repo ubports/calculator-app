@@ -1,11 +1,11 @@
 {
     "architecture": "@CLICK_ARCH@",
     "description": "description of ubuntu-calculator-app",
-    "framework": "ubuntu-sdk-14.10-dev2",
+    "framework": "ubuntu-sdk-14.10",
     "hooks": {
         "ubuntu-calculator-app": {
             "apparmor": "ubuntu-calculator-app.apparmor",
-            "desktop": "ubuntu-calculator-app.desktop"
+            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-clock-app.desktop"
         }
     },
     "maintainer": "Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>",
