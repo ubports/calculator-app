@@ -23,3 +23,14 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('9*9=')
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals('81')))
+
+    def test_small_numbers(self):
+        self.app.main_view.insert('0.000000001+1=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('1.000000001')))
+
+        self.app.main_view.press('clear')
+
+        self.app.main_view.insert('0.000000001/10=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('1e−10')))
