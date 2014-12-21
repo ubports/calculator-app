@@ -38,7 +38,8 @@ class MainView(ubuntuuitoolkit.MainView):
     BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
                '8': 'eightButton', '9': 'nineButton', '=': 'equalsButton',
                '+': 'plusButton', '1': 'oneButton', '0': 'zeroButton',
-               '/': 'divideButton', '.': 'pointButton'}
+               '/': 'divideButton', '.': 'pointButton', '2': 'twoButton',
+               '5': 'fiveButton', '6': 'sixButton', '-': 'minusButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
