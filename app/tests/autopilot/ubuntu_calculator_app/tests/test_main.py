@@ -13,6 +13,13 @@ class MainTestCase(CalculatorAppTestCase):
     def setUp(self):
         super(MainTestCase, self).setUp()
 
-    def test_calculator_visible(self):
-        self.assertThat(self.app.main_view.visible,
-                        Eventually(Equals(True)))
+    def test_operation_after_clear(self):
+        self.app.main_view.insert('8*8=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('64')))
+
+        self.app.main_view.press('clear')
+
+        self.app.main_view.insert('9*9=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('81')))

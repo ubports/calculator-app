@@ -35,12 +35,23 @@ class CalculatorApp(object):
 class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
+    BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
+               '8': 'eightButton', '9': 'nineButton', '=': 'equalsButton'}
+
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
         self.visible.wait_for(True)
 
-    def clear(self):
-        pass
+    def insert(self, expression):
+        for operand in expression:
+            self.press(operand)
 
     def press(self, button):
-        pass
+        button = self.wait_select_single('KeyboardButton',
+                                         objectName=MainView.BUTTONS[button])
+
+        self.pointing_device.click_object(button)
+
+    def get_result(self):
+        return self.wait_select_single('TextField',
+                                       objectName='textInputField').displayText
