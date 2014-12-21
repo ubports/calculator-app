@@ -66,9 +66,12 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
-        longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
+        var truncatedSubstring = Formula.deleteLastFormulaElement(isLastCalculate, longFormula.slice(0, textInputField.cursorPosition))
+        longFormula = truncatedSubstring + longFormula.slice(textInputField.cursorPosition, longFormula.length);
         shortFormula = longFormula;
+
         displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+        textInputField.cursorPosition = truncatedSubstring.length;
     }
 
     function validateStringForAddingToFormula(formula, stringToAddToFormula) {
