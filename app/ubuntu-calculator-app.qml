@@ -218,11 +218,11 @@ MainView {
             selectByMouse: true
             cursorVisible: true
             onCursorPositionChanged: 
-                if (cursorPosition !== displayedInputText.length ) {
+                if (cursorPosition !== length ) {
                     // Count cursor position from the end of line
-                    var preservedCursorPosition = displayedInputText.length - cursorPosition;
+                    var preservedCursorPosition = length - cursorPosition;
                     displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-                    cursorPosition = displayedInputText.length - preservedCursorPosition;
+                    cursorPosition = length - preservedCursorPosition;
                 } else {
                     displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
                 }
