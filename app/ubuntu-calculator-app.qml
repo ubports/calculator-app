@@ -97,8 +97,15 @@ MainView {
             longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
-        if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition) , visual) === false) {
-            return;
+        // Validate whole longFormula if the cursor is at the end of string
+        if (textInputField.cursorPosition === textInputField.length) {
+            if (validateStringForAddingToFormula(longFormula, visual) === false) {
+                return;
+            }            
+        } else {
+            if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
+                return;
+            }
         }
 
         // We save the value until next value is pushed
@@ -117,7 +124,7 @@ MainView {
         }
 
         // Adding the new operator to the formula
-        if (textInputField.cursorPosition === displayedInputText.length ) {
+        if (textInputField.cursorPosition === textInputField.length ) {
             longFormula += visual.toString();
             shortFormula += visual.toString();
         } else {
