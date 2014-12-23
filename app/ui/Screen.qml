@@ -44,9 +44,20 @@ ListItemWithActions {
                 }
 
                 // The maximum precision we want is 11
-                var precisionToUse = resultPrecision > 11 ? 11 : resultPrecision;
+                resultPrecision = resultPrecision > 11 ? 11 : resultPrecision;
 
-                return Number(result).toLocaleString(Qt.locale(), "f", precisionToUse);
+                var flagToUse = "f";
+                result = Number(result);
+                // If result is > 10^11 we use Scientific notation
+                if (result > 1000000000) {
+                    flagToUse = "E";
+                    // We set the precision to 11 so all numbers in scientific
+                    // notation have the same length
+                    resultPrecision = 11;
+                }
+
+                return result.toLocaleString(Qt.locale(),
+                                                    flagToUse, resultPrecision);
             }
 
             anchors.bottom: formula.bottom
