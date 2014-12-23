@@ -34,7 +34,7 @@ Item {
             formula: ''
             result: ''
             date: 0
-            favourite: 0
+            isFavourite: 0
             favouriteText: ''
         }
     }
@@ -60,7 +60,7 @@ Item {
                 formula TEXT NOT NULL,
                 result TEXT NOT NULL,
                 date INTEGER NOT NULL DEFAULT 0,
-                favourite BOOL DEFAULT false,
+                isFavourite BOOL DEFAULT false,
                 favouriteText TEXT
             )'
         ];
@@ -101,7 +101,7 @@ Item {
         history.append({"formula": formula,
             "result": result,
             "date": date,
-            "favourite": 0,
+            "isFavourite": 0,
             "favouriteText": ''});
 
         // TODO: move this function to a plave that retards the execution to
@@ -115,7 +115,7 @@ Item {
         calculationHistoryDatabase.transaction(
             function (tx) {
                 tx.executeSql('INSERT INTO Calculations (
-                    formula, result, date, favourite, favouriteText) VALUES(
+                    formula, result, date, isFavourite, favouriteText) VALUES(
                     ?, ?, ?, ?, ?)',
                     [formula, result, date, false, '']
                 );
