@@ -38,7 +38,7 @@ ListItemWithActions {
 
             anchors.bottom: formula.bottom
 
-            text: Number(model.contents.result).toLocaleString(Qt.locale(), "f", 0)
+            text: Number(model.result).toLocaleString(Qt.locale(), "f", 0)
             font.pixelSize: units.gu(3.5)
             lineHeight: units.gu(2)
             lineHeightMode: Text.FixedHeight
@@ -61,7 +61,7 @@ ListItemWithActions {
             width: parent.width - equal.width - result.width
             anchors.bottom: parent.bottom
 
-            text: Formula.returnFormulaToDisplay(model.contents.formula)
+            text: Formula.returnFormulaToDisplay(model.formula)
             font.pixelSize: units.gu(2.5)
             lineHeight: units.gu(1) + 1
             lineHeightMode: Text.FixedHeight
