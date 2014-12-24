@@ -38,7 +38,7 @@ ListItemWithActions {
 
             anchors.bottom: formula.bottom
 
-            text: Number(model.result).toLocaleString(Qt.locale(), "f", 0)
+            text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint);
             font.pixelSize: units.gu(3.5)
             lineHeight: units.gu(2)
             lineHeightMode: Text.FixedHeight
