@@ -36,33 +36,9 @@ ListItemWithActions {
         Text {
             id: result
 
-            function textToDisplay(result) {
-                // Check the precision of the result
-                var resultPrecision = 0;
-                if (result.indexOf('.') > 0) {
-                    resultPrecision = result.length - result.indexOf('.') - 1;
-                }
-
-                // The maximum precision we want is 11
-                resultPrecision = resultPrecision > 11 ? 11 : resultPrecision;
-
-                var flagToUse = "f";
-                result = Number(result);
-                // If result is > 10^11 we use Scientific notation
-                if (result > 1000000000) {
-                    flagToUse = "E";
-                    // We set the precision to 11 so all numbers in scientific
-                    // notation have the same length
-                    resultPrecision = 11;
-                }
-
-                return result.toLocaleString(Qt.locale(),
-                                                    flagToUse, resultPrecision);
-            }
-
             anchors.bottom: formula.bottom
 
-            text: textToDisplay(model.result)
+            text: mathJs.format(Number(model.result), 11);
             font.pixelSize: units.gu(3.5)
             lineHeight: units.gu(2)
             lineHeightMode: Text.FixedHeight

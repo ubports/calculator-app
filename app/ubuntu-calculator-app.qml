@@ -56,7 +56,6 @@ MainView {
     // Last immission
     property var previousVisual;
 
-
     // Becomes true after an user presses the "="
     property bool isLastCalculate: false;
 
@@ -121,7 +120,7 @@ MainView {
         } else {
             longFormula = longFormula.slice(0, textInputField.cursorPosition) + visual.toString() + longFormula.slice(textInputField.cursorPosition, longFormula.length);
             shortFormula = longFormula;
- 	}
+        }
 
         var preservedCursorPosition = textInputField.cursorPosition;
         displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
