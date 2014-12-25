@@ -18,7 +18,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals('64')))
 
-        self.app.main_view.press('clear')
+        self.app.main_view.clear()
 
         self.app.main_view.insert('9*9=')
         self.assertThat(self.app.main_view.get_result,

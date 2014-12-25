@@ -46,6 +46,9 @@ class MainView(ubuntuuitoolkit.MainView):
         for operand in expression:
             self.press(operand)
 
+    def clear(self):
+        self.press('clear')
+
     def press(self, button):
         button = self.wait_select_single('KeyboardButton',
                                          objectName=MainView.BUTTONS[button])
