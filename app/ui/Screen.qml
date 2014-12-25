@@ -35,6 +35,7 @@ ListItemWithActions {
 
         Text {
             id: result
+            objectName: "result"
 
             anchors.bottom: formula.bottom
 
@@ -57,6 +58,7 @@ ListItemWithActions {
 
         Text {
             id: formula
+            objectName: "formula"
 
             width: parent.width - equal.width - result.width
             anchors.bottom: parent.bottom

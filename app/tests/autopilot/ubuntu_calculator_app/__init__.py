@@ -32,6 +32,38 @@ class CalculatorApp(object):
         return self.app.pointing_device
 
 
+class CalculationHistory(object):
+    """Helper object for the calculation history."""
+
+    def __init__(self, app_proxy):
+        self.app = app_proxy
+
+    def size(self):
+        return self.app.count
+
+    def contains(self, formula, result):
+        found = False
+
+        calculations = self.app.select_many('QQuickRectangle',
+                                            objectName='mainItem')
+
+        for calculation in calculations:
+            if (formula.strip() == self._get_formula(calculation)) and (
+                    result.strip() == self._get_result(calculation)):
+
+                found = True
+
+        return found
+
+    def _get_formula(self, calc):
+        return calc.wait_select_single('QQuickText',
+                                       objectName='formula').text.strip()
+
+    def _get_result(self, calc):
+        return calc.wait_select_single('QQuickText',
+                                       objectName='result').text.strip()
+
+
 class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
@@ -54,6 +86,12 @@ class MainView(ubuntuuitoolkit.MainView):
                                          objectName=MainView.BUTTONS[button])
 
         self.pointing_device.click_object(button)
+
+    def get_history(self):
+        history = self.wait_select_single('QQuickListView',
+                                          objectName='formulaView')
+
+        return CalculationHistory(history)
 
     def get_result(self):
         return self.wait_select_single('TextField',

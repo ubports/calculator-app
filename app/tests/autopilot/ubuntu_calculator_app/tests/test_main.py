@@ -18,8 +18,18 @@ class MainTestCase(CalculatorAppTestCase):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals('64')))
 
+        self.assertThat(self.app.main_view.get_history().size,
+                        Eventually(Equals(1)))
+
+        self.assertTrue(self.app.main_view.get_history().contains('8×8', '64'))
+
         self.app.main_view.clear()
 
         self.app.main_view.insert('9*9=')
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals('81')))
+
+        self.assertThat(self.app.main_view.get_history().size,
+                        Eventually(Equals(2)))
+
+        self.assertTrue(self.app.main_view.get_history().contains('9×9', '81'))

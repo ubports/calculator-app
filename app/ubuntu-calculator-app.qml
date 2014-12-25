@@ -215,6 +215,7 @@ MainView {
 
         ListView {
             id: formulaView
+            objectName: "formulaView"
             width: parent.width
             height: contentHeight
             model: calculationHistory.getContents()
