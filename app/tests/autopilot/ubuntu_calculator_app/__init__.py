@@ -38,22 +38,20 @@ class CalculationHistory(object):
     def __init__(self, app_proxy):
         self.app = app_proxy
 
-    def size(self):
-        return self.app.count
-
-    def contains(self, formula, result):
+    def contains(self, entry):
         found = False
 
         calculations = self.app.select_many('QQuickRectangle',
                                             objectName='mainItem')
 
         for calculation in calculations:
-            if (formula.strip() == self._get_formula(calculation)) and (
-                    result.strip() == self._get_result(calculation)):
-
+            if entry.strip() == self._get_entry(calculation):
                 found = True
 
         return found
+
+    def _get_entry(self, calc):
+        return self._get_formula(calc) + '=' + self._get_result(calc)
 
     def _get_formula(self, calc):
         return calc.wait_select_single('QQuickText',
