@@ -183,6 +183,7 @@ MainView {
 
         TextField {
             id: textInputField
+            objectName: "textInputField"
             width: contentWidth + units.gu(3)
             // TODO: Make sure this bug gets fixed in SDK:
             // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
@@ -214,6 +215,7 @@ MainView {
 
         ListView {
             id: formulaView
+            objectName: "formulaView"
             width: parent.width
             height: contentHeight
             model: calculationHistory.getContents()
