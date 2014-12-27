@@ -120,12 +120,12 @@ MainView {
         } else {
             longFormula = longFormula.slice(0, textInputField.cursorPosition) + visual.toString() + longFormula.slice(textInputField.cursorPosition, longFormula.length);
             shortFormula = longFormula;
- 	}
+        }
 
         var preservedCursorPosition = textInputField.cursorPosition;
         displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
         textInputField.cursorPosition = preservedCursorPosition + visual.length;
-       
+
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
             isFormulaIsValidToCalculate = true;
@@ -152,8 +152,8 @@ MainView {
         }
 
         displayedInputText = Formula.returnFormulaToDisplay(result);
-        
-        calculationHistory.addCalculationToDatabase(longFormula, result);
+
+        calculationHistory.addCalculationToScreen(longFormula, result);
         longFormula = result;
         shortFormula = result;
     }
@@ -227,6 +227,8 @@ MainView {
                 id: screenDelegate
                 width: parent.width
 
+                visible: model.dbId != -1
+
                 property var removalAnimation
                 function remove() {
                     removalAnimation.start();
@@ -279,7 +281,7 @@ MainView {
 
                     ScriptAction {
                         script: {
-                            calculationHistory.deleteCalc(docId);
+                            calculationHistory.deleteCalc(dbId);
                         }
                     }
                 }
