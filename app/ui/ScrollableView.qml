@@ -24,24 +24,27 @@ Flickable {
     property double oldContentHeight: 0
     contentHeight: column.height
     boundsBehavior: Flickable.DragOverBounds
+    property bool snap: true
 
     onMovementEnded: {
-        if (contentY <= 0) {
+        if (contentY <= 0 || !snap) {
             return;
         }
         var posy = flickable.height + flickable.visibleArea.yPosition * flickable.contentHeight
-        // FIXME:
+        // FIXME see ubuntu-calculator-app:269:
         // It's column.width - units.gu(2) because of the weird alignment of TextField
         var obj = column.childAt(column.width - units.gu(2), posy)
         if (Math.abs(posy - obj.y) < obj.height / 2) {
-            console.log("scroll up", obj.y);
-            scrollingAnimation.to = obj.y - flickable.height
-            scrollingAnimation.start()
+            // scroll up
+            var destY = obj.y - flickable.height;
+            // don't go out of bound
+            if (destY < 0) destY = 0;
+            scrollingAnimation.to = destY;
         } else {
-            console.log("scroll down", obj.y);
-            scrollingAnimation.to = obj.y + obj.height - flickable.height
-            scrollingAnimation.start()
+            // scroll down
+            scrollingAnimation.to = obj.y + obj.height - flickable.height;
         }
+        scrollingAnimation.start()
     }
 
     NumberAnimation on contentY {
@@ -59,6 +62,7 @@ Flickable {
     Connections {
         target: column
         onHeightChanged: {
+            // scroll to bottom only when something is inserted.
             if (oldContentHeight < contentHeight) {
                 flickable.scrollToBottom();
             }
