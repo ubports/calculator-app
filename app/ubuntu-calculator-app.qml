@@ -172,56 +172,15 @@ MainView {
         keyboardLoader.item.pressedKeyText = "";
     }
 
-    VisualItemModel {
-        id: calculatorVisualModel
+    ScrollableView {
+        anchors.fill: parent
 
-        Loader {
-            id: keyboardLoader
-            width: parent.width
-            source: mainListView.width > mainListView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
-        }
-
-        TextField {
-            id: textInputField
-            width: contentWidth + units.gu(3)
-            // TODO: Make sure this bug gets fixed in SDK:
-            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-            //width: parent.width
-            height: units.gu(6)
-
-            // remove ubuntu shape
-            style: TextFieldStyle {
-                background: Item {
-                }
-            }
-
-            text: displayedInputText
-            font.pixelSize: height * 0.7
-            //horizontalAlignment: TextInput.AlignRight
-            anchors.right: parent.right
-            anchors.rightMargin: units.gu(1)
-            readOnly: true
-            selectByMouse: true
-            cursorVisible: true
-            onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
-                var preservedCursorPosition = cursorPosition;
-                displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-                cursorPosition = preservedCursorPosition;
-            } else {
-                displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
-            }
-        }
-
-        ListView {
+        Repeater {
             id: formulaView
-            width: parent.width
-            height: contentHeight
             model: calculationHistory.getContents()
-            interactive: false
-
             property var _currentSwipedItem: null
 
-            delegate: Screen {
+            Screen {
                 id: screenDelegate
                 width: parent.width
 
@@ -297,20 +256,53 @@ MainView {
                         }
                         formulaView._currentSwipedItem = item
                     } else if (item.swipeState !== "Normal"
-                        && formulaView._currentSwipedItem === item) {
+                    && formulaView._currentSwipedItem === item) {
                         formulaView._currentSwipedItem = null
                     }
                 }
             }
         }
-    }
 
-    ListView {
-        id: mainListView
-        anchors.fill: parent
-        model: calculatorVisualModel
-        verticalLayoutDirection: ListView.BottomToTop
-        snapMode: ListView.SnapToItem
+        TextField {
+            id: textInputField
+            width: contentWidth + units.gu(3)
+            // TODO: Make sure this bug gets fixed in SDK:
+            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+            //width: parent.width
+            height: units.gu(6)
+
+            // remove ubuntu shape
+            style: TextFieldStyle {
+                background: Item {
+                }
+            }
+
+            text: displayedInputText
+            font.pixelSize: height * 0.7
+            //horizontalAlignment: TextInput.AlignRight
+            anchors {
+                right: parent.right
+                rightMargin: units.gu(1)
+            }
+
+            readOnly: true
+            selectByMouse: true
+            cursorVisible: true
+            onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
+                var preservedCursorPosition = cursorPosition;
+                displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                cursorPosition = preservedCursorPosition;
+            } else {
+                displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+            }
+        }
+
+        Loader {
+            id: keyboardLoader
+            width: parent.width
+            source: mainView.width > mainView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+        }
+
     }
 }
 
