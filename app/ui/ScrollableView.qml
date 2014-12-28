@@ -24,12 +24,6 @@ Flickable {
     contentHeight: column.childrenRect.height
     boundsBehavior: Flickable.DragOverBounds
 
-    property double initContentY
-
-    onMovementStarted: {
-        initContentY = contentY;
-    }
-
     onMovementEnded: {
         if (contentY <= 0) {
             return;
