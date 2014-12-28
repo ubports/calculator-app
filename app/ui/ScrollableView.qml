@@ -21,7 +21,8 @@ Flickable {
     id: flickable
 
     default property alias data: column.children
-    contentHeight: column.childrenRect.height
+    property double oldContentHeight: 0
+    contentHeight: column.height
     boundsBehavior: Flickable.DragOverBounds
 
     onMovementEnded: {
@@ -34,20 +35,51 @@ Flickable {
         var obj = column.childAt(column.width - units.gu(2), posy)
         if (Math.abs(posy - obj.y) < obj.height / 2) {
             console.log("scroll up", obj.y);
-            flickable.contentY = obj.y - flickable.height
+            scrollingAnimation.to = obj.y - flickable.height
+            scrollingAnimation.start()
         } else {
             console.log("scroll down", obj.y);
-            flickable.contentY = obj.y + obj.height - flickable.height
+            scrollingAnimation.to = obj.y + obj.height - flickable.height
+            scrollingAnimation.start()
         }
     }
 
-    Behavior on contentY {
-        NumberAnimation { duration: 300; easing.type: Easing.OutQuad}
+    NumberAnimation on contentY {
+        id: scrollingAnimation
+        duration: 300
+        easing.type: Easing.OutQuad
+    }
+
+    function scrollToBottom() {
+        if (column.height > flickable.height) {
+            flickable.contentY = flickable.contentHeight - flickable.height;
+        }
+    }
+
+    Connections {
+        target: column
+        onHeightChanged: {
+            if (oldContentHeight < contentHeight) {
+                flickable.scrollToBottom();
+            }
+            oldContentHeight = contentHeight;
+        }
+    }
+
+    Item {
+        id: padding
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+        height: flickable.height > column.height ? flickable.height - column.height : 0
+        visible: height > 0
     }
 
     Column {
         id: column
         anchors {
+            top: padding.bottom
             left: parent.left
             right: parent.right
         }
