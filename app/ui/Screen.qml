@@ -24,50 +24,86 @@ import "../engine/formula.js" as Formula
 ListItemWithActions {
     id: root
 
+    function formatDate(date) {
+        var now = new Date();
+        var calcDate = new Date(date);
+
+        var difference = now.getTime() - calcDate.getTime();
+
+        difference = difference / 1000 / 60;
+
+        if (difference < 3) {
+            return i18n.tr("Just now")
+        } else if (difference < 60*24) {
+            return i18n.tr("Today")
+        } else if (difference < 60*48) {
+            return i18n.tr("Yesterday")
+        }
+
+        // TRANSLATORS: this is a time formatting string, see
+        // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
+        // expressions
+        return Qt.formatDateTime(calcDate, i18n.tr("dd MMM yyyy"))
+    }
+
     color: "white"
-    Row {
-        id: row
-        width: parent.width
-        anchors.right: parent.right
-
-        layoutDirection: Qt.RightToLeft
-        spacing: units.gu(1)
+    Column {
+        anchors.fill: parent
 
         Text {
-            id: result
+            anchors.right: parent.right
 
-            anchors.bottom: formula.bottom
-
-            text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint);
-            font.pixelSize: units.gu(3.5)
-            lineHeight: units.gu(2)
-            lineHeightMode: Text.FixedHeight
+            text: formatDate(model.date)
+            font.pixelSize: units.gu(1.5)
+            font.italic: true
         }
 
-        Text {
-            id: equal
+        Row {
+            id: row
+            width: parent.width
+            anchors.right: parent.right
 
-            anchors.bottom: formula.bottom
+            layoutDirection: Qt.RightToLeft
+            spacing: units.gu(1)
 
-            text: " = "
-            font.pixelSize: units.gu(2.5)
-            lineHeight: units.gu(1) + 1
-            lineHeightMode: Text.FixedHeight
-        }
+            Text {
+                id: result
+                objectName: "result"
 
-        Text {
-            id: formula
+                anchors.bottom: formula.bottom
 
-            width: parent.width - equal.width - result.width
-            anchors.bottom: parent.bottom
+                text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint);
+                font.pixelSize: units.gu(3.5)
+                lineHeight: units.gu(2)
+                lineHeightMode: Text.FixedHeight
+            }
 
-            text: Formula.returnFormulaToDisplay(model.formula)
-            font.pixelSize: units.gu(2.5)
-            lineHeight: units.gu(1) + 1
-            lineHeightMode: Text.FixedHeight
+            Text {
+                id: equal
 
-            elide: Text.ElideLeft
-            horizontalAlignment: Text.AlignRight
+                anchors.bottom: formula.bottom
+
+                text: " = "
+                font.pixelSize: units.gu(2.5)
+                lineHeight: units.gu(1) + 1
+                lineHeightMode: Text.FixedHeight
+            }
+
+            Text {
+                id: formula
+                objectName: "formula"
+
+                width: parent.width - equal.width - result.width
+                anchors.bottom: parent.bottom
+
+                text: Formula.returnFormulaToDisplay(model.formula)
+                font.pixelSize: units.gu(2.5)
+                lineHeight: units.gu(1) + 1
+                lineHeightMode: Text.FixedHeight
+
+                elide: Text.ElideLeft
+                horizontalAlignment: Text.AlignRight
+            }
         }
     }
 }
