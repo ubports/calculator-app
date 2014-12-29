@@ -14,57 +14,126 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import QtQuick 2.3
-import Ubuntu.Components 1.1
-import U1db 1.0 as U1db
+import QtQuick.LocalStorage 2.0
 
 Item {
-    U1db.Database {
-        id: calculationHistoryDatabase
-        path: "com.ubuntu.calculator"
+    property var calculationHistoryDatabase: null
+    readonly property var lastDatabaseVersion: 0.1
+
+    ListModel {
+        id: history
+
+        Component.onCompleted: {
+            getCalculations(function(calc) {
+                history.append(calc);
+            });
+        }
+
+        ListElement {
+            dbId: -1
+            formula: ''
+            result: ''
+            date: 0
+            isFavourite: 0
+            favouriteText: ''
+        }
     }
 
-    U1db.Document {
-        id: calculationDocument
-        database: calculationHistoryDatabase
+    function openDatabase() {
+        // Check if the database was already opened
+        if (calculationHistoryDatabase !== null) return;
+
+        calculationHistoryDatabase = LocalStorage.openDatabaseSync(
+            "com.ubuntu.calculator", "", "", 5000);
+
+        // Update (or create) the database if needed
+        if (calculationHistoryDatabase.version != lastDatabaseVersion) {
+            upgradeDatabase(calculationHistoryDatabase.version);
+        }
     }
 
-    U1db.Index {
-        id: index
-        database: calculationHistoryDatabase
-        name: "byDocId"
-        expression: ["formula", "result"]
+    function upgradeDatabase(currentDatabaseVersion) {
+        // Array with all the SQL needed to create database and update versions
+        var sqlcode = [
+            'CREATE TABLE IF NOT EXISTS Calculations(
+                dbId INTEGER PRIMARY KEY,
+                formula TEXT NOT NULL,
+                result TEXT NOT NULL,
+                date INTEGER NOT NULL DEFAULT 0,
+                isFavourite BOOL DEFAULT false,
+                favouriteText TEXT
+            )'
+        ];
+
+        // Start the upgrade
+        calculationHistoryDatabase.changeVersion(currentDatabaseVersion,
+            lastDatabaseVersion, function(tx) {
+                // Create the database
+                if (currentDatabaseVersion < 0.1) {
+                    tx.executeSql(sqlcode[0]);
+                    console.log("Database upgraded to 0.1");
+                }
+            }
+        );
     }
 
-    U1db.Query {
-        id: query
-        index: index
+    function getCalculations(callback) {
+        openDatabase();
+
+        // Do a transaction to take all calculations
+        calculationHistoryDatabase.transaction(
+            function (tx) {
+                var results = tx.executeSql('SELECT * FROM Calculations');
+
+                for (var i = 0; i < results.rows.length; i++) {
+                    callback(results.rows.item(i));
+                }
+            }
+        );
     }
 
-    SortFilterModel {
-        id: sortedHistory
-        model: query
-        sort.property: "docId"
-        sort.order: Qt.AscendingOrder
+    function addCalculationToScreen(formula, result) {
+        // The function add the last formula to the model, and leave to
+        // addCalculationToDatabase the job to add it to the database
+        // that is called only after the element has been added to the
+        // model
+        var date = Date.now();
+        history.append({"formula": formula,
+            "result": result,
+            "date": date,
+            "isFavourite": 0,
+            "favouriteText": ''});
+
+        // TODO: move this function to a plave that retards the execution to
+        // improve performances
+        calculationHistory.addCalculationToDatabase(longFormula, result, date);
     }
 
-    function addCalculationToDatabase(formula, result) {
-        var docId = calculationHistoryDatabase.listDocs().length;
-        var calculationToAdd = calculationDocument;
+    function addCalculationToDatabase(formula, result, date) {
+        openDatabase();
 
-        calculationToAdd.docId = docId;
-        calculationToAdd.contents = {
-            'formula': formula,
-            'result': result
-        };
-
-        calculationToAdd.create = true;
+        calculationHistoryDatabase.transaction(
+            function (tx) {
+                tx.executeSql('INSERT INTO Calculations (
+                    formula, result, date, isFavourite, favouriteText) VALUES(
+                    ?, ?, ?, ?, ?)',
+                    [formula, result, date, false, '']
+                );
+            }
+        );
     }
 
     function getContents() {
-        return sortedHistory;
+        return history;
     }
 
-    function deleteCalc(docId) {
-        calculationHistoryDatabase.deleteDoc(docId);
+    function deleteCalc(dbId) {
+        openDatabase();
+
+        calculationHistoryDatabase.transaction(
+            function (tx) {
+                tx.executeSql('DELETE FROM Calculations WHERE dbId = ?', [dbId]);
+            }
+        );
     }
 }
