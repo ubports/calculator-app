@@ -86,8 +86,8 @@ class MainView(ubuntuuitoolkit.MainView):
         self.pointing_device.click_object(button)
 
     def get_history(self):
-        history = self.wait_select_single('QQuickListView',
-                                          objectName='formulaView')
+        history = self.wait_select_single('ScrollableView',
+                                          objectName='scrollableView')
 
         return CalculationHistory(history)
 
