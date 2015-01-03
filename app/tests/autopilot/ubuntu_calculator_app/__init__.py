@@ -66,7 +66,9 @@ class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
     BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
-               '8': 'eightButton', '9': 'nineButton', '=': 'equalsButton'}
+               '8': 'eightButton', '9': 'nineButton', '=': 'equalsButton',
+               '+': 'plusButton', '1': 'oneButton', '0': 'zeroButton',
+               '/': 'divideButton', '.': 'pointButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
