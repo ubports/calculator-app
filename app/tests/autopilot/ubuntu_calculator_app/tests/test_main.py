@@ -38,3 +38,27 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('0.000000001/10=')
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals('1e−10')))
+
+    def test_operators_precedence(self):
+        self.app.main_view.insert('2+2*2=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('6')))
+
+        self.assertTrue(self.app.main_view.get_history().contains('2+2×2=6'))
+
+        self.app.main_view.clear()
+
+        self.app.main_view.insert('2-2*2=')
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('−2')))
+
+        self.assertTrue(self.app.main_view.get_history().contains('2−2×2=-2'))
+
+        self.app.main_view.clear()
+
+        self.app.main_view.insert('5+6/2=')
+
+        self.assertThat(self.app.main_view.get_result,
+                        Eventually(Equals('8')))
+
+        self.assertTrue(self.app.main_view.get_history().contains('5+6÷2=8'))
