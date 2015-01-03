@@ -174,6 +174,8 @@ MainView {
 
     ScrollableView {
         anchors.fill: parent
+        id: scrollableView
+        objectName: "scrollableView"
 
         Repeater {
             id: formulaView
