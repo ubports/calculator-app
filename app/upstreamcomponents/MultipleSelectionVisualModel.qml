@@ -43,12 +43,10 @@ VisualDataModel {
 
         if (item.swipeState !== "Normal") {
             if (currentSwipedItem !== item) {
-                console.log(item, item.swipeState, "currentSwipedItem", currentSwipedItem)
                 if (currentSwipedItem) {
                     currentSwipedItem.resetSwipe();
                 }
                 currentSwipedItem = item;
-                console.log(currentSwipedItem)
             } else if (item.swipeState !== "Normal" && currentSwipedItem === item) {
                 currentSwipedItem = null;
             }
