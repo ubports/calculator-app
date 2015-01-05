@@ -52,6 +52,24 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is('8')
         self._assert_history_contains('5+6÷2=8')
 
+    def test_divide_with_zero(self):
+        self.app.main_view.insert('0/5=')
+
+        self._assert_result_is('0')
+        self._assert_history_contains('0÷5=0')
+
+    def test_divide_by_zero(self):
+        self.app.main_view.insert('5/0=')
+
+        self._assert_result_is(u'\u221e')
+        self._assert_history_contains(u'5÷0=Infinity')
+
+    def test_divide_zero_by_zero(self):
+        self.app.main_view.insert('0/0=')
+
+        self._assert_result_is("NaN")
+        self._assert_history_contains(u'0÷0=NaN')
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))
