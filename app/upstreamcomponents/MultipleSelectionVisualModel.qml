@@ -65,7 +65,7 @@ VisualDataModel {
      Start the selection mode on the list view.
      */
     function startSelection() {
-        state = "selection"
+        state = "selection";
     }
     /*!
      Check if the item is selected
@@ -73,9 +73,9 @@ VisualDataModel {
      */
     function isSelected(item) {
         if (item && item.VisualDataModel) {
-            return (item.VisualDataModel.inSelected === true)
+            return (item.VisualDataModel.inSelected === true);
         } else {
-            return false
+            return false;
         }
     }
     /*!
@@ -84,60 +84,62 @@ VisualDataModel {
      */
     function selectItem(item) {
         if (item.VisualDataModel.inSelected) {
-            return false
+            return false;
         } else {
             if (!multipleSelection) {
-                clearSelection()
+                clearSelection();
             }
-            item.VisualDataModel.inSelected = true
-            return true
+            item.VisualDataModel.inSelected = true;
+            return true;
         }
     }
     /*!
      Remove the index from the selected list
      */
     function deselectItem(item) {
-        var result = false
+        var result = false;
         if (item.VisualDataModel.inSelected) {
-            item.VisualDataModel.inSelected = false
-            result = true
+            item.VisualDataModel.inSelected = false;
+            result = true;
         }
-        return result
+        return result;
     }
     /*!
      Finish the selection mode with sucess
      */
     function endSelection() {
-        selectionDone(visualModel.selectedItems)
-        clearSelection()
-        state = ""
+        selectionDone(visualModel.selectedItems);
+        clearSelection();
+        state = "";
     }
     /*!
      Cancel the selection
      */
     function cancelSelection() {
-        selectionCanceled()
-        clearSelection()
-        state = ""
+        selectionCanceled();
+        clearSelection();
+        state = "";
     }
     /*!
      Remove any selected item from the selection list
      */
     function clearSelection() {
         if (selectedItems.count > 0) {
-            selectedItems.remove(0, selectedItems.count)
+            selectedItems.remove(0, selectedItems.count);
         }
     }
     /*!
      Select all items in the list
      */
     function selectAll() {
-        if (multipleSelection) {
-            visualModel.items.addGroups(0, visualModel.items.count, ["selected"] )
+        if (multipleSelection && selectedItems.count < visualModel.items.count) {
+            visualModel.items.addGroups(0, visualModel.items.count, ["selected"] );
+        } else {
+            clearSelection();
         }
     }
 
     function getModelIndexFromIndex(index) {
-        return visualModel.modelIndex(index)
+        return visualModel.modelIndex(index);
     }
 }

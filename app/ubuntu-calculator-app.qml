@@ -193,6 +193,7 @@ MainView {
         id: header
         visible: true
         useDeprecatedToolbar: false
+        property color dividerColor: "#babbbc"
         config: PageHeadConfiguration {
             backAction: Action {
                 objectName: "cancelSelectionAction"
