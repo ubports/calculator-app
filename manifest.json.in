@@ -5,7 +5,7 @@
     "hooks": {
         "ubuntu-calculator-app": {
             "apparmor": "ubuntu-calculator-app.apparmor",
-            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-clock-app.desktop"
+            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
         }
     },
     "maintainer": "Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>",
