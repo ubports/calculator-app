@@ -104,21 +104,25 @@ Item {
             "isFavourite": 0,
             "favouriteText": ''});
 
+        var index = history.count - 1;
         // TODO: move this function to a plave that retards the execution to
         // improve performances
-        calculationHistory.addCalculationToDatabase(longFormula, result, date);
+        calculationHistory.addCalculationToDatabase(longFormula, result, date, index);
     }
 
-    function addCalculationToDatabase(formula, result, date) {
+    function addCalculationToDatabase(formula, result, date, index) {
         openDatabase();
 
         calculationHistoryDatabase.transaction(
             function (tx) {
-                tx.executeSql('INSERT INTO Calculations (
+                var results = tx.executeSql('INSERT INTO Calculations (
                     formula, result, date, isFavourite, favouriteText) VALUES(
                     ?, ?, ?, ?, ?)',
                     [formula, result, date, false, '']
                 );
+                // we need to update the listmodel unless we would have dbId = 0 on the
+                // last inserted item
+                history.setProperty(index, "dbId", parseInt(results.insertId));
             }
         );
     }
@@ -127,8 +131,10 @@ Item {
         return history;
     }
 
-    function deleteCalc(dbId) {
+    function deleteCalc(dbId, id) {
         openDatabase();
+
+        history.setProperty(id, "dbId", -1);
 
         calculationHistoryDatabase.transaction(
             function (tx) {

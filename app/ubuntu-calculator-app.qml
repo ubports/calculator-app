@@ -20,6 +20,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.Themes.Ambiance 0.1
 
 import "ui"
+import "upstreamcomponents"
 import "engine"
 import "engine/math.js" as MathJs
 import "engine/formula.js" as Formula
@@ -60,6 +61,22 @@ MainView {
     property bool isLastCalculate: false;
 
     property var decimalPoint: Qt.locale().decimalPoint
+
+    state: visualModel.isInSelectionMode ? "selection" : "default"
+    states: [
+        State {
+            name: "default"
+            StateChangeScript {
+                script: header.hide()
+            }
+        },
+        State {
+            name: "selection"
+            StateChangeScript {
+                script: header.show()
+            }
+        }
+    ]
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
@@ -172,97 +189,129 @@ MainView {
         keyboardLoader.item.pressedKeyText = "";
     }
 
+    Header {
+        id: header
+        visible: true
+        useDeprecatedToolbar: false
+        property color dividerColor: "#babbbc"
+        config: PageHeadConfiguration {
+            backAction: Action {
+                objectName: "cancelSelectionAction"
+                iconName: "close"
+                text: i18n.tr("Cancel")
+                onTriggered: visualModel.cancelSelection()
+            }
+            actions: [
+                Action {
+                    id: selectAllAction
+                    objectName: "selectAllAction"
+                    iconName: "select"
+                    onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: multiDeleteAction
+                    objectName: "multiDeleteAction"
+                    iconName: "delete"
+                    onTriggered: visualModel.endSelection()
+                }
+            ]
+        }
+    }
+
+    MultipleSelectionVisualModel {
+        id: visualModel
+        model: calculationHistory.getContents()
+
+        onSelectionDone: {
+            for (var i = 0; i < items.count; i++) {
+                calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+            }
+        }
+
+        delegate: Screen {
+            id: screenDelegate
+            width: parent ? parent.width : 0
+
+            visible: model.dbId != -1
+
+            selectionMode: visualModel.isInSelectionMode
+            selected: visualModel.isSelected(screenDelegate)
+
+            property var removalAnimation
+            function remove() {
+                removalAnimation.start();
+            }
+
+            onSwippingChanged: {
+                visualModel.updateSwipeState(screenDelegate);
+            }
+
+            onSwipeStateChanged: {
+                visualModel.updateSwipeState(screenDelegate);
+            }
+
+            onItemClicked: {
+                if (visualModel.isInSelectionMode) {
+                    if (!visualModel.selectItem(screenDelegate)) {
+                        visualModel.deselectItem(screenDelegate);
+                    }
+                }
+            }
+
+            onItemPressAndHold: {
+                visualModel.startSelection();
+                visualModel.selectItem(screenDelegate);
+            }
+
+            leftSideAction: Action {
+                iconName: "delete"
+                text: i18n.tr("Delete")
+                onTriggered: {
+                    screenDelegate.remove();
+                }
+            }
+
+            removalAnimation: SequentialAnimation {
+                alwaysRunToEnd: true
+
+                ScriptAction {
+                    script: {
+                        if (visualModel.currentSwipedItem === screenDelegate) {
+                            visualModel.currentSwipedItem = null;
+                        }
+                    }
+                }
+
+                UbuntuNumberAnimation {
+                    target: screenDelegate
+                    property: "height"
+                    to: 0
+                }
+
+                ScriptAction {
+                    script: {
+                        calculationHistory.deleteCalc(dbId, index);
+                    }
+                }
+            }
+        }
+
+    }
+
     ScrollableView {
-        anchors.fill: parent
+        anchors {
+            top: header.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
         id: scrollableView
         objectName: "scrollableView"
+        clip: true
 
         Repeater {
             id: formulaView
-            model: calculationHistory.getContents()
-            property var _currentSwipedItem: null
-
-            Screen {
-                id: screenDelegate
-                width: parent.width
-
-                visible: model.dbId != -1
-
-                property var removalAnimation
-                function remove() {
-                    removalAnimation.start();
-                }
-
-                onSwippingChanged: {
-                    formulaView._updateSwipeState(screenDelegate);
-                }
-
-                onSwipeStateChanged: {
-                    formulaView._updateSwipeState(screenDelegate);
-                }
-
-                leftSideAction: Action {
-                    iconName: "delete"
-                    text: i18n.tr("Delete")
-                    onTriggered: {
-                        screenDelegate.remove();
-                    }
-                }
-
-                ListView.onRemove: ScriptAction {
-                    script: {
-                        if (formulaView._currentSwipedItem === screenDelegate) {
-                            formulaView._currentSwipedItem = null;
-                        }
-                    }
-                }
-
-                removalAnimation: SequentialAnimation {
-                    alwaysRunToEnd: true
-
-                    PropertyAction {
-                        target: screenDelegate
-                        property: "ListView.delayRemove"
-                        value: true
-                    }
-
-                    UbuntuNumberAnimation {
-                        target: screenDelegate
-                        property: "height"
-                        to: 0
-                    }
-
-                    PropertyAction {
-                        target: screenDelegate
-                        property: "ListView.delayRemove"
-                        value: false
-                    }
-
-                    ScriptAction {
-                        script: {
-                            calculationHistory.deleteCalc(dbId);
-                        }
-                    }
-                }
-            }
-
-            function _updateSwipeState(item) {
-                if (item.swipping) {
-                    return
-                }
-
-                if (item.swipeState !== "Normal") {
-                    if (formulaView._currentSwipedItem !== item) {
-                        if (formulaView._currentSwipedItem) {
-                            formulaView._currentSwipedItem.resetSwipe()
-                        }
-                        formulaView._currentSwipedItem = item
-                    } else if (item.swipeState !== "Normal"
-                    && formulaView._currentSwipedItem === item) {
-                        formulaView._currentSwipedItem = null
-                    }
-                }
-            }
+            model: visualModel
         }
 
         TextField {
