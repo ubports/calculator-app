@@ -86,7 +86,22 @@ class MainView(ubuntuuitoolkit.MainView):
         button = self.wait_select_single('KeyboardButton',
                                          objectName=MainView.BUTTONS[button])
 
-        self.pointing_device.click_object(button)
+        button_area = button.wait_select_single('QQuickMouseArea',
+                                                objectName='buttonMA')
+
+        self.pointing_device.move_to_object(button)
+        # we use press and release so we can check the qml property
+        # and ensure the button is pressed long enough to be recieved
+        # and processed correctly
+        # using a larger press_duration for click_object would be inferior
+        # as it would cause longer delays (we are forced to arbitrarily decide
+        # how long to press each time) and potentially fail.
+        # Also, https://bugs.launchpad.net/autopilot/+bug/1366949
+        # causes press_duration argument to be ignored currently
+        # balloons 2014-09-08
+        self.pointing_device.press()
+        button_area.pressed.wait_for(True)
+        self.pointing_device.release()
 
     def get_history(self):
         history = self.wait_select_single('ScrollableView',

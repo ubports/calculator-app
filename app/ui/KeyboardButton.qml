@@ -56,6 +56,7 @@ AbstractButton {
 
     MouseArea {
         id: buttonMA
+        objectName: "buttonMA"
         anchors.fill: parent
         onClicked: buttonRect.clicked();
     }
