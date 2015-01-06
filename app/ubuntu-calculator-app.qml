@@ -92,7 +92,9 @@ MainView {
         shortFormula = longFormula;
 
         displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-        textInputField.cursorPosition = truncatedSubstring.length;
+        if (truncatedSubstring) {
+            textInputField.cursorPosition = truncatedSubstring.length;
+        }
     }
 
     function validateStringForAddingToFormula(formula, stringToAddToFormula) {
