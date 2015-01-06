@@ -83,9 +83,18 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
-        longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula);
+        if (textInputField.cursorPosition === textInputField.length) {
+            longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula)
+        } else {
+            var truncatedSubstring = Formula.deleteLastFormulaElement(isLastCalculate, longFormula.slice(0, textInputField.cursorPosition))
+            longFormula = truncatedSubstring + longFormula.slice(textInputField.cursorPosition, longFormula.length);
+        }
         shortFormula = longFormula;
+
         displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+        if (truncatedSubstring) {
+            textInputField.cursorPosition = truncatedSubstring.length;
+        }
     }
 
     function validateStringForAddingToFormula(formula, stringToAddToFormula) {
@@ -111,8 +120,15 @@ MainView {
             longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
-        if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition) , visual) === false) {
-            return;
+        // Validate whole longFormula if the cursor is at the end of string
+        if (textInputField.cursorPosition === textInputField.length) {
+            if (validateStringForAddingToFormula(longFormula, visual) === false) {
+                return;
+            }            
+        } else {
+            if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
+                return;
+            }
         }
 
         // We save the value until next value is pushed
@@ -131,7 +147,7 @@ MainView {
         }
 
         // Adding the new operator to the formula
-        if (textInputField.cursorPosition === displayedInputText.length ) {
+        if (textInputField.cursorPosition === textInputField.length ) {
             longFormula += visual.toString();
             shortFormula += visual.toString();
         } else {
@@ -340,13 +356,15 @@ MainView {
             readOnly: true
             selectByMouse: true
             cursorVisible: true
-            onCursorPositionChanged: if (cursorPosition !== displayedInputText.length ) {
-                var preservedCursorPosition = cursorPosition;
-                displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-                cursorPosition = preservedCursorPosition;
-            } else {
-                displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
-            }
+            onCursorPositionChanged: 
+                if (cursorPosition !== length ) {
+                    // Count cursor position from the end of line
+                    var preservedCursorPosition = length - cursorPosition;
+                    displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                    cursorPosition = length - preservedCursorPosition;
+                } else {
+                    displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                }
         }
 
         Loader {
