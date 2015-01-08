@@ -44,7 +44,7 @@ Item {
         if (calculationHistoryDatabase !== null) return;
 
         calculationHistoryDatabase = LocalStorage.openDatabaseSync(
-            "com.ubuntu.calculator", "", "", 5000);
+            "com.ubuntu.calculator_reboot", "", "", 5000);
 
         // Update (or create) the database if needed
         if (calculationHistoryDatabase.version != lastDatabaseVersion) {
