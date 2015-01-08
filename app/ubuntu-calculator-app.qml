@@ -120,6 +120,10 @@ MainView {
             longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
+
+        if (visual === "()") {
+            visual = Formula.determineBracketTypeToAdd(longFormula)
+        }
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {

@@ -10,7 +10,7 @@ CalcKeyboard {
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete" },
-            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "( )", name: "universalBracket", pushText: "()" },
             { text: "÷", name: "divide", pushText: "/" },
             { text: "×", name: "multiply", pushText: "*" },
             { text: "xⁿ", name: "power", pushText: "^" },
@@ -29,7 +29,7 @@ CalcKeyboard {
             { number: 5, name: "five" },
             { number: 6, name: "six" },
             { text: "+", name: "plus" },
-            { text: "(", name: "openBracket" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
             { text: ")", name: "closeBracket" },
             { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
             { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
