@@ -3,10 +3,10 @@ Upstream-Name: ubuntu-calculator-app
 Source: https://launchpad.net/ubuntu-calculator-app
 
 Files: *
-Copyright: 2014 Canonical Ltd.
+Copyright: 2014-2015 Canonical Ltd.
            2014 Bartosz Kosiorek <gang65@poczta.onet.pl>
            2014 Michael Zanetti <michael.zanetti@canonical.com>
-           2014 Riccardo Padovani <rpadovani@ubuntu.com>
+           2014-2015 Riccardo Padovani <rpadovani@ubuntu.com>
 License: GPL-3
 
 Files: debian/*

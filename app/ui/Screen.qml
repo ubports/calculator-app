@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Canonical Ltd.
+ * Copyright 2014-2015 Canonical Ltd.
  *
  * This file is part of ubuntu-calculator-app.
  *
@@ -32,11 +32,15 @@ ListItemWithActions {
 
         difference = difference / 1000 / 60;
 
-        if (difference < 3) {
+        if (difference < 10) {
             return i18n.tr("Just now")
-        } else if (difference < 60*24) {
-            return i18n.tr("Today")
-        } else if (difference < 60*48) {
+        } else if (difference < 60*24 && now.getDay() === calcDate.getDay()) {
+            var today = i18n.tr("Today ");
+            // TRANSLATORS: this is a time formatting string, see
+            // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+            // valid expressions
+            return today + Qt.formatDateTime(calcDate, i18n.tr("hh:mm"))
+        } else if (difference < 60*48 && now.getDay() === calcDate.getDay() + 1) {
             return i18n.tr("Yesterday")
         }
 
