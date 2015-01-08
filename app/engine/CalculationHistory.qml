@@ -18,7 +18,7 @@ import QtQuick.LocalStorage 2.0
 
 Item {
     property var calculationHistoryDatabase: null
-    readonly property var lastDatabaseVersion: 0.1
+    readonly property int lastDatabaseVersion: 1
 
     ListModel {
         id: history
@@ -47,7 +47,7 @@ Item {
             "com.ubuntu.calculator_reboot", "", "", 5000);
 
         // Update (or create) the database if needed
-        if (calculationHistoryDatabase.version != lastDatabaseVersion) {
+        if (calculationHistoryDatabase.version !== lastDatabaseVersion) {
             upgradeDatabase(calculationHistoryDatabase.version);
         }
     }
@@ -69,9 +69,9 @@ Item {
         calculationHistoryDatabase.changeVersion(currentDatabaseVersion,
             lastDatabaseVersion, function(tx) {
                 // Create the database
-                if (currentDatabaseVersion < 0.1) {
+                if (currentDatabaseVersion < lastDatabaseVersion) {
                     tx.executeSql(sqlcode[0]);
-                    console.log("Database upgraded to 0.1");
+                    console.log("Database upgraded to " + lastDatabaseVersion.toString());
                 }
             }
         );
