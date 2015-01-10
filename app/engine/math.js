@@ -115,7 +115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    matrix: 'matrix',
 
 	    // type of default number output. Choose 'number' (default) or 'bignumber'
-	    number: 'bignumber',
+	    number: 'number',
 
 	    // number of significant digits in BigNumbers
 	    precision: 64,

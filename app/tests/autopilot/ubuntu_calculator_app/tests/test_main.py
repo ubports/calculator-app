@@ -13,6 +13,26 @@ class MainTestCase(CalculatorAppTestCase):
     def setUp(self):
         super(MainTestCase, self).setUp()
 
+    def test_temporarly_result(self):
+        self.app.main_view.insert('2450.1*369+')
+
+        self._assert_result_is(u'904086.9+')
+        self.app.main_view.insert('3.1=')
+
+        self._assert_result_is(u'904090')
+        self._assert_history_contains(u'2450.1×369+3.1=9.0409e+5')
+
+    def test_small_numbers(self):
+        self.app.main_view.insert('0.000000001+1=')
+        self._assert_result_is(u'1.000000001')
+        self._assert_history_contains(u'0.000000001+1=1.000000001')
+
+        self.app.main_view.clear()
+
+        self.app.main_view.insert('0.000000001/10=')
+        self._assert_result_is(u'1e−10')
+        self._assert_history_contains(u'0.000000001÷10=1e-10')
+
     def test_operation_after_clear(self):
         self.app.main_view.insert('8*8=')
 
