@@ -65,12 +65,12 @@ class CalculationHistory(object):
 class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
-    BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton', 
-               '/': 'divideButton', '.': 'pointButton', 
+    BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
+               '/': 'divideButton', '.': 'pointButton',
                '=': 'equalsButton', '-': 'minusButton', '+': 'plusButton',
-               '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton', 
+               '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
                '3': 'threeButton', '4': 'fourButton', '5': 'fiveButton',
-               '6': 'sixButton', '7': 'sevenButton', '8': 'eightButton', 
+               '6': 'sixButton', '7': 'sevenButton', '8': 'eightButton',
                '9': 'nineButton'}
 
     def __init__(self, *args):
