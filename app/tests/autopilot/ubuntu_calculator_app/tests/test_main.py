@@ -101,8 +101,26 @@ class MainTestCase(CalculatorAppTestCase):
     def test_divide_zero_by_zero(self):
         self.app.main_view.insert('0/0=')
 
-        self._assert_result_is(u"NaN")
+        self._assert_result_is(u'NaN')
         self._assert_history_contains(u'0÷0=NaN')
+
+    def test_equals_doesnt_change_numbers(self):
+        self.app.main_view.insert('125')
+        self._assert_result_is(u'125')
+
+        self.app.main_view.insert('=')
+        self._assert_result_is(u'125')
+
+    def test_divide_with_infinite_number_as_result(self):
+        self.app.main_view.insert('1/3=')
+        self._assert_result_is(u'0.3333333333333333')
+
+    def test_operation_on_infinite_number(self):
+        self.app.main_view.insert('5/3=')
+        self._assert_result_is(u'1.6666666666666667')
+
+        self.app.main_view.insert('-1=')
+        self._assert_result_is(u'0.6666666666666667')
 
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
