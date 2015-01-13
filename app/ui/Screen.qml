@@ -33,21 +33,21 @@ ListItemWithActions {
         difference = difference / 1000 / 60;
 
         if (difference < 10) {
-            return i18n.tr("Just now")
-        } else if (difference < 60*24 && now.getDay() === calcDate.getDay()) {
+            return i18n.tr("Just now");
+        } else if (difference < 60 * 24 && now.getDay() === calcDate.getDay()) {
             var today = i18n.tr("Today ");
             // TRANSLATORS: this is a time formatting string, see
             // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
             // valid expressions
-            return today + Qt.formatDateTime(calcDate, i18n.tr("hh:mm"))
-        } else if (difference < 60*48 && now.getDay() === calcDate.getDay() + 1) {
-            return i18n.tr("Yesterday")
+            return today + Qt.formatDateTime(calcDate, i18n.tr("hh:mm"));
+        } else if (difference < 60 * 48 && now.getDay() === calcDate.getDay() + 1) {
+            return i18n.tr("Yesterday");
         }
 
         // TRANSLATORS: this is a time formatting string, see
         // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
         // expressions
-        return Qt.formatDateTime(calcDate, i18n.tr("dd MMM yyyy"))
+        return Qt.formatDateTime(calcDate, i18n.tr("dd MMM yyyy"));
     }
 
     color: "white"
@@ -76,7 +76,7 @@ ListItemWithActions {
 
                 anchors.bottom: formula.bottom
 
-                text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint);
+                text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight
