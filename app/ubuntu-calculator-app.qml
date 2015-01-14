@@ -233,18 +233,21 @@ MainView {
                     id: copySelectedAction
                     objectName: "copySelectedAction"
                     iconName: "edit-copy"
+                    text: i18n.tr("Copy")
                     onTriggered: copySelectedCalculations()
                 },
                 Action {
                     id: selectAllAction
                     objectName: "selectAllAction"
                     iconName: "select"
+                    text: i18n.tr("Select All")
                     onTriggered: visualModel.selectAll()
                 },
                 Action {
                     id: multiDeleteAction
                     objectName: "multiDeleteAction"
                     iconName: "delete"
+                    text: i18n.tr("Delete")
                     onTriggered: deleteSelectedCalculations()
                 }
             ]
