@@ -69,11 +69,19 @@ MainView {
             StateChangeScript {
                 script: header.hide()
             }
+            PropertyChanges {
+                target: scrollableView
+                clip: false
+            }
         },
         State {
             name: "selection"
             StateChangeScript {
                 script: header.show()
+            }
+            PropertyChanges {
+                target: scrollableView
+                clip: true
             }
         }
     ]
@@ -238,29 +246,30 @@ MainView {
         }
     }
 
-    MultipleSelectionVisualModel {
-        id: visualModel
-        model: calculationHistory.getContents()
+    Component {
+        id: emptyDelegate
+        Item { }
+    }
 
-        onSelectionDone: {
-            for (var i = 0; i < items.count; i++) {
-                calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
-            }
-        }
-
-        delegate: Screen {
+    Component {
+        id: screenDelegateComponent
+        Screen {
             id: screenDelegate
             width: parent ? parent.width : 0
 
+            property var model: itemModel
             visible: model.dbId != -1
 
             selectionMode: visualModel.isInSelectionMode
-            selected: visualModel.isSelected(screenDelegate)
+            selected: visualModel.isSelected(visualDelegate)
 
             property var removalAnimation
             function remove() {
                 removalAnimation.start();
             }
+
+            // parent is the loader component
+            property var visualDelegate: parent ? parent : null
 
             onSwippingChanged: {
                 visualModel.updateSwipeState(screenDelegate);
@@ -272,22 +281,27 @@ MainView {
 
             onItemClicked: {
                 if (visualModel.isInSelectionMode) {
-                    if (!visualModel.selectItem(screenDelegate)) {
-                        visualModel.deselectItem(screenDelegate);
+                    if (!visualModel.selectItem(visualDelegate)) {
+                        visualModel.deselectItem(visualDelegate);
                     }
                 }
             }
 
             onItemPressAndHold: {
                 visualModel.startSelection();
-                visualModel.selectItem(screenDelegate);
+                visualModel.selectItem(visualDelegate);
             }
 
-            leftSideAction: Action {
-                iconName: "delete"
-                text: i18n.tr("Delete")
-                onTriggered: {
-                    screenDelegate.remove();
+            leftSideAction: screenDelegateDeleteAction.item
+
+            Loader {
+                id: screenDelegateDeleteAction
+                sourceComponent: Action {
+                    iconName: "delete"
+                    text: i18n.tr("Delete")
+                    onTriggered: {
+                        screenDelegate.remove();
+                    }
                 }
             }
 
@@ -310,12 +324,42 @@ MainView {
 
                 ScriptAction {
                     script: {
-                        calculationHistory.deleteCalc(dbId, index);
+                        calculationHistory.deleteCalc(model.dbId, model.index);
                     }
                 }
             }
         }
+    }
 
+    MultipleSelectionVisualModel {
+        id: visualModel
+        model: calculationHistory.getContents()
+
+        onSelectionDone: {
+            for (var i = 0; i < items.count; i++) {
+                calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+            }
+        }
+
+        delegate: Component {
+            Loader {
+                property var itemModel: model
+                width: parent.width
+                height: model.dbId != -1 ? item.height : 0;
+                sourceComponent: screenDelegateComponent
+                opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                onOpacityChanged: {
+                    if (this.hasOwnProperty('item') && this.item != null) {
+                        if (opacity > 0) {
+                            sourceComponent = screenDelegateComponent;
+                        } else {
+                            this.item.visible = false;
+                            sourceComponent = emptyDelegate;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     ScrollableView {
@@ -327,7 +371,14 @@ MainView {
         }
         id: scrollableView
         objectName: "scrollableView"
-        clip: true
+
+        Component.onCompleted: {
+            // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
+            // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
+            var scaleFactor = units.gridUnit / 8;
+            maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
+            flickDeceleration = flickDeceleration * scaleFactor;
+        }
 
         Repeater {
             id: formulaView
@@ -374,9 +425,9 @@ MainView {
         Loader {
             id: keyboardLoader
             width: parent.width
-            source: mainView.width > mainView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+            source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+            opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
         }
-
     }
 }
 

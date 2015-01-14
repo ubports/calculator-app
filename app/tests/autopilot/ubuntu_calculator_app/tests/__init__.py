@@ -96,7 +96,7 @@ class CalculatorAppTestCase(AutopilotTestCase):
             os.path.expanduser('~'),
             '.local',
             'share',
-            'com.ubuntu.calculator'
+            'com.ubuntu.calculator_reboot'
         )
 
         if os.path.exists(calculator_database_path):
