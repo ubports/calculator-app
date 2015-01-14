@@ -18,7 +18,7 @@ class MainTestCase(CalculatorAppTestCase):
 
         self._assert_result_is(u'81')
         self._assert_history_contains(u'9×9=81')
-        # We expect that after inserting operator, 
+        # We expect that after inserting operator,
         # the result will be used in next calculation
         self.app.main_view.insert('+9=')
 
@@ -30,7 +30,7 @@ class MainTestCase(CalculatorAppTestCase):
 
         self._assert_result_is(u'9')
 
-        # We expect that after inserting number, 
+        # We expect that after inserting number,
         # result will be deleted
         self._assert_history_contains(u'3×3=9')
         self.app.main_view.insert('2+3=')
