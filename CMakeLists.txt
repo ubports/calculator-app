@@ -78,12 +78,11 @@ else(CLICK_MODE)
   set(EXEC "qmlscene $@ -I ${MODULE_PATH}  ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
 endif(CLICK_MODE)
 
-#TODO: after languages support is ready, uncomment these lines
-#file(GLOB_RECURSE I18N_SRC_FILES
-#    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
-#    *.qml *.js)
-#list(APPEND I18N_SRC_FILES ${DESKTOP_FILE})
-#list(SORT I18N_SRC_FILES)
+file(GLOB_RECURSE I18N_SRC_FILES
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
+    *.qml *.js)
+list(APPEND I18N_SRC_FILES ${DESKTOP_FILE})
+list(SORT I18N_SRC_FILES)
 
 configure_file(app/${DESKTOP_FILE}.in ${DESKTOP_FILE})
 
@@ -94,5 +93,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
 enable_testing()
 
 add_subdirectory(app)
-#TODO: after we setup languages support, uncomment this line
-#add_subdirectory(po)
+add_subdirectory(po)
