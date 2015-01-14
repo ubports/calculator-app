@@ -13,6 +13,26 @@ class MainTestCase(CalculatorAppTestCase):
     def setUp(self):
         super(MainTestCase, self).setUp()
 
+    def test_add_operator_after_result(self):
+        self.app.main_view.insert('9*9=')
+
+        self._assert_result_is(u'81')
+        self._assert_history_contains(u'9×9=81')
+        self.app.main_view.insert('+9=')
+
+        self._assert_result_is(u'90')
+        self._assert_history_contains(u'81+9=90')
+
+    def test_enter_number_after_result(self):
+        self.app.main_view.insert('3*3=')
+
+        self._assert_result_is(u'9')
+        self._assert_history_contains(u'3×3=9')
+        self.app.main_view.insert('2+3=')
+
+        self._assert_result_is(u'5')
+        self._assert_history_contains(u'2+3=5')
+
     def test_temporarly_result(self):
         self.app.main_view.insert('2450.1*369+')
 
