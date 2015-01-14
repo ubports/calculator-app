@@ -421,7 +421,7 @@ MainView {
         Loader {
             id: keyboardLoader
             width: parent.width
-            source: mainView.width > mainView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+            source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
             opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
         }
     }
