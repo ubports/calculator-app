@@ -62,6 +62,9 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
+    // By default we delete selected calculation from history
+    property bool deleteSelectedCalculation: true;
+
     state: visualModel.isInSelectionMode ? "selection" : "default"
     states: [
         State {
@@ -227,6 +230,12 @@ MainView {
             }
             actions: [
                 Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    onTriggered: copySelectedCalculations()
+                },
+                Action {
                     id: selectAllAction
                     objectName: "selectAllAction"
                     iconName: "select"
@@ -236,7 +245,7 @@ MainView {
                     id: multiDeleteAction
                     objectName: "multiDeleteAction"
                     iconName: "delete"
-                    onTriggered: visualModel.endSelection()
+                    onTriggered: deleteSelectedCalculations()
                 }
             ]
         }
@@ -254,7 +263,7 @@ MainView {
             width: parent ? parent.width : 0
 
             property var model: itemModel
-            visible: model.dbId != -1
+            visible: model.dbId !== -1
 
             selectionMode: visualModel.isInSelectionMode
             selected: visualModel.isSelected(visualDelegate)
@@ -327,13 +336,32 @@ MainView {
         }
     }
 
+    function deleteSelectedCalculations() {
+        deleteSelectedCalculation = true;
+        visualModel.endSelection();
+    }
+
+    function copySelectedCalculations() {
+        deleteSelectedCalculation = false;
+        visualModel.endSelection();
+    }
+
     MultipleSelectionVisualModel {
         id: visualModel
         model: calculationHistory.getContents()
 
         onSelectionDone: {
-            for (var i = 0; i < items.count; i++) {
-                calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+            if(deleteSelectedCalculation === true) {
+                for(var i = 0; i < items.count; i++) {
+                    calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+                }
+            } else {
+                var mimeData = Clipboard.newData();
+                mimeData.text = "";
+                for(var j = 0; j < items.count; j++) {
+                    mimeData.text = mimeData.text + "[" + Date(items.get(j).model.date) + "] " + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
+                }
+                Clipboard.push(mimeData);
             }
         }
 
@@ -341,11 +369,11 @@ MainView {
             Loader {
                 property var itemModel: model
                 width: parent.width
-                height: model.dbId != -1 ? item.height : 0;
+                height: model.dbId !== -1 ? item.height : 0;
                 sourceComponent: screenDelegateComponent
-                opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 onOpacityChanged: {
-                    if (this.hasOwnProperty('item') && this.item != null) {
+                    if (this.hasOwnProperty('item') && this.item !== null) {
                         if (opacity > 0) {
                             sourceComponent = screenDelegateComponent;
                         } else {
