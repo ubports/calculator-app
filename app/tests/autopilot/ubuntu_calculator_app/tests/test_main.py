@@ -13,6 +13,31 @@ class MainTestCase(CalculatorAppTestCase):
     def setUp(self):
         super(MainTestCase, self).setUp()
 
+    def test_add_operator_after_result(self):
+        self.app.main_view.insert('9*9=')
+
+        self._assert_result_is(u'81')
+        self._assert_history_contains(u'9×9=81')
+        # We expect that after inserting operator,
+        # the result will be used in next calculation
+        self.app.main_view.insert('+9=')
+
+        self._assert_result_is(u'90')
+        self._assert_history_contains(u'81+9=90')
+
+    def test_enter_number_after_result(self):
+        self.app.main_view.insert('3*3=')
+
+        self._assert_result_is(u'9')
+
+        # We expect that after inserting number,
+        # result will be deleted
+        self._assert_history_contains(u'3×3=9')
+        self.app.main_view.insert('2+3=')
+
+        self._assert_result_is(u'5')
+        self._assert_history_contains(u'2+3=5')
+
     def test_temporarly_result(self):
         self.app.main_view.insert('2450.1*369+')
 
@@ -22,6 +47,28 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'904090')
         self._assert_history_contains(u'2450.1×369+3.1=9.0409e+5')
 
+    def test_addding_operator_after_calculation(self):
+        self.app.main_view.insert('8*8.1=')
+
+        self._assert_result_is(u'64.8')
+        self._assert_history_contains(u'8×8.1=64.8')
+
+        self.app.main_view.insert('+5.2=')
+
+        self._assert_result_is(u'70')
+        self._assert_history_contains(u'64.8+5.2=70')
+
+    def test_addding_number_after_calculation(self):
+        self.app.main_view.insert('3*3.1=')
+
+        self._assert_result_is(u'9.3')
+        self._assert_history_contains(u'3×3.1=9.3')
+
+        self.app.main_view.insert('8-7=')
+
+        self._assert_result_is(u'1')
+        self._assert_history_contains(u'8−7=1')
+
     def test_operation_after_clear(self):
         self.app.main_view.insert('8*8=')
 
@@ -29,6 +76,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'8×8=64')
 
         self.app.main_view.clear()
+        self._assert_result_is(u'')
         self.app.main_view.insert('9*9=')
 
         self._assert_result_is(u'81')

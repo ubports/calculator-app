@@ -362,7 +362,9 @@ MainView {
                 var mimeData = Clipboard.newData();
                 mimeData.text = "";
                 for(var j = 0; j < items.count; j++) {
-                    mimeData.text = mimeData.text + "[" + Date(items.get(j).model.date) + "] " + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
+                    if (items.get(j).model.dbId !== -1) {
+                        mimeData.text = mimeData.text + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
+                    }
                 }
                 Clipboard.push(mimeData);
             }
