@@ -47,6 +47,12 @@ Flickable {
         scrollingAnimation.start()
     }
 
+    onHeightChanged: {
+        if (atYEnd) {
+            scrollToBottom();
+        }
+    }
+
     NumberAnimation on contentY {
         id: scrollingAnimation
         duration: 300
