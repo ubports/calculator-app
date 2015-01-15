@@ -122,7 +122,7 @@ Item {
         timer.execute.push(function() {
             calculationHistory.addCalculationToDatabase(formula, result, date, index);
         });
-        timer.restart();
+        timer.start();
     }
 
     function addCalculationToDatabase(formula, result, date, index) {
@@ -158,6 +158,6 @@ Item {
                 }
             )
         });
-        timer.restart();
+        timer.start();
     }
 }
