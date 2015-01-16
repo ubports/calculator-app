@@ -22,7 +22,7 @@ Flickable {
 
     default property alias data: column.children
     property double oldContentHeight: 0
-    contentHeight: column.height
+    contentHeight: flickable.height > column.height ? flickable.height : column.height
     boundsBehavior: Flickable.DragOverBounds
     property bool snap: true
 
@@ -76,22 +76,12 @@ Flickable {
         }
     }
 
-    Item {
-        id: padding
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
-        height: flickable.height > column.height ? flickable.height - column.height : 0
-        visible: height > 0
-    }
-
     Column {
         id: column
         anchors {
-            top: padding.bottom
             left: parent.left
             right: parent.right
+            bottom: parent.bottom
         }
         spacing: 0
     }
