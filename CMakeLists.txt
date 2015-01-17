@@ -33,6 +33,7 @@ set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON                            "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
+set(APP_VERSION                     0.1)
 
 if(CLICK_MODE)
   set(CMAKE_INSTALL_PREFIX "/")
