@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Calculator
-Comment=A calculator for Ubuntu.
-Keywords=math;addition;subtraction;multiplication;division;
+_Name=Calculator
+_Comment=A calculator for Ubuntu.
+_Keywords=math;addition;subtraction;multiplication;division;
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false

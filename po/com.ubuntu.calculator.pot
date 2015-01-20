@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-20 01:44+0100\n"
+"POT-Creation-Date: 2015-01-20 01:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,4 +69,16 @@ msgstr ""
 #. expressions
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
+msgstr ""
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:1
+msgid "Calculator"
+msgstr ""
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr ""
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

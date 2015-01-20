@@ -22,7 +22,7 @@ add_custom_target(${POT_FILE} ALL
   COMMENT "Generating translation template"
   # Extract the translatable messages from the desktop file 
   COMMAND ${INTLTOOL_EXTRACT} --update --type=gettext/ini
-          --srcdir=${CMAKE_SOURCE_DIR}/app ${DESKTOP_FILE}.in
+          --srcdir=${CMAKE_SOURCE_DIR}/app ${DESKTOP_FILE}.in.in
   # Update the translation file
   COMMAND ${GETTEXT_XGETTEXT_EXECUTABLE} -o ${POT_FILE}
           --from-code=UTF-8
@@ -47,10 +47,6 @@ foreach(PO_FILE ${PO_FILES})
   RENAME ${DOMAIN}.mo)
 endforeach(PO_FILE)
 
-add_custom_target(${DESKTOP_FILE} ALL
-  COMMENT "Merging translations into ${DESKTOP_FILE}"
-  COMMAND LC_ALL=C ${INTLTOOL_MERGE} -d -u ${CMAKE_SOURCE_DIR}/po ${CMAKE_SOURCE_DIR}/app/${DESKTOP_FILE}.in ${CMAKE_BINARY_DIR}/app/${DESKTOP_FILE} > /dev/null
-)
 
 # make the translation files visible on qtcreator
 file(GLOB TRANSLATION_FILES
