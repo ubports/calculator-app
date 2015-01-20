@@ -1,0 +1,46 @@
+# Turkish translation for ubuntu-calculator-app
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the ubuntu-calculator-app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubuntu-calculator-app\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-12-09 23:15+0100\n"
+"PO-Revision-Date: 2015-01-20 02:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-01-20 07:35+0000\n"
+"X-Generator: Launchpad (build 17304)\n"
+
+#: ../app/engine/formula.js:103
+msgid "NaN"
+msgstr "Sayı Değil"
+
+#: ../app/ubuntu-calculator-app.qml:248
+msgid "Delete"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
+msgid "log"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
+msgid "mod"
+msgstr ""
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:1
+msgid "Calculator"
+msgstr "Hesap Makinesi"
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr ""
+
+#: /tmp/tmp.UX5yyCtCUe/po/ubuntu-calculator-app.desktop.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
+msgstr "matematik;ekleme;çıkarma;çarpma;bölme;toplama"
