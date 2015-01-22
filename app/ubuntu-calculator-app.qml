@@ -135,7 +135,7 @@ MainView {
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {
                 return;
-            }            
+            }
         } else {
             if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 return;
@@ -440,7 +440,7 @@ MainView {
             readOnly: true
             selectByMouse: true
             cursorVisible: true
-            onCursorPositionChanged: 
+            onCursorPositionChanged:
                 if (cursorPosition !== length ) {
                     // Count cursor position from the end of line
                     var preservedCursorPosition = length - cursorPosition;
