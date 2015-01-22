@@ -221,6 +221,7 @@ MainView {
         visible: true
         useDeprecatedToolbar: false
         property color dividerColor: "#babbbc"
+        property color panelColor: "white"
         config: PageHeadConfiguration {
             backAction: Action {
                 objectName: "cancelSelectionAction"
@@ -230,18 +231,18 @@ MainView {
             }
             actions: [
                 Action {
-                    id: copySelectedAction
-                    objectName: "copySelectedAction"
-                    iconName: "edit-copy"
-                    text: i18n.tr("Copy")
-                    onTriggered: copySelectedCalculations()
-                },
-                Action {
                     id: selectAllAction
                     objectName: "selectAllAction"
                     iconName: "select"
                     text: i18n.tr("Select All")
                     onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: copySelectedCalculations()
                 },
                 Action {
                     id: multiDeleteAction
@@ -300,7 +301,21 @@ MainView {
                 visualModel.selectItem(visualDelegate);
             }
 
+            rightSideActions: [ screenDelegateCopyAction.item ]
             leftSideAction: screenDelegateDeleteAction.item
+
+            Loader {
+                id: screenDelegateCopyAction
+                sourceComponent: Action {
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: {
+                        var mimeData = Clipboard.newData();
+                        mimeData.text = model.formula + "=" + model.result;
+                        Clipboard.push(mimeData);
+                    }
+                }
+            }
 
             Loader {
                 id: screenDelegateDeleteAction
