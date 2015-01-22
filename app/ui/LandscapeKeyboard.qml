@@ -5,7 +5,7 @@ CalcKeyboard {
     id: calcKeyboard
 
     KeyboardPage {
-        buttonRatio: 0.6
+        buttonRatio: ratio * 0.39
         columns: 8
 
         keyboardModel: new Array(
