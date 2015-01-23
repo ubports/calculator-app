@@ -469,7 +469,6 @@ MainView {
         Loader {
             id: keyboardLoader
             width: parent.width
-            property double ratio: scrollableView.width / scrollableView.height
             source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
             opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
         }
