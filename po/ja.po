@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-01-20 01:55+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-01-23 02:09+0000\n"
+"Last-Translator: Hajime Mizuno <hajime.mizuno@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-21 06:48+0000\n"
+"X-Launchpad-Export-Date: 2015-01-23 06:54+0000\n"
 "X-Generator: Launchpad (build 17306)\n"
 
 #: ../app/engine/formula.js:101
@@ -58,7 +58,7 @@ msgstr ""
 #. valid expressions
 #: ../app/ui/Screen.qml:42
 msgid "hh:mm"
-msgstr ""
+msgstr "hh:mm"
 
 #: ../app/ui/Screen.qml:44
 msgid "Yesterday"
