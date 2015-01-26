@@ -1,15 +1,23 @@
 {
     "architecture": "all",
-    "description": "description of ubuntu-calculator-app",
+    "description": "A calculator for Ubuntu Touch",
     "framework": "ubuntu-sdk-14.10",
     "hooks": {
         "@APP_HARDCODE@": {
             "apparmor": "@APP_HARDCODE@.apparmor",
-            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/@DESKTOP_FILE@"
+            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
         }
     },
     "maintainer": "Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>",
     "name": "com.ubuntu.calculator",
     "title": "@APP_NAME@",
+    "icon": "@ICON@",
     "version": "@APP_VERSION@.@BZR_REVNO@"
+    "x-source": {
+        "vcs-bzr": "@BZR_SOURCE@",
+        "vcs-bzr-revno": "@BZR_REVNO@"
+    },
+    "x-test": {
+        "autopilot": "@AUTOPILOT_DIR@"
+    }
 }
