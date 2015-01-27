@@ -151,7 +151,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -184,7 +184,7 @@ MainView {
         try {
             var result = mathJs.eval(longFormula);
         } catch(exception) {
-            console.log("Error: math.js" + exception.toString() + " engine formula:" + longFormula);
+            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
 
