@@ -25,6 +25,14 @@ Item {
 
         Component.onCompleted: {
             getCalculations(function(calc) {
+                // Also if isFavourite is set as BOOL, LocalStorage saves it as
+                // int, so we need to convert it before adding the calc to
+                // the history
+                if (calc.isFavourite === 1) {
+                    calc.isFavourite = true;
+                } else {
+                    calc.isFavourite = false;
+                }
                 history.append(calc);
             });
         }
@@ -34,7 +42,7 @@ Item {
             formula: ''
             result: ''
             date: 0
-            isFavourite: 0
+            isFavourite: false
             favouriteText: ''
         }
     }
@@ -104,7 +112,7 @@ Item {
         );
     }
 
-    function addCalculationToScreen(formula, result) {
+    function addCalculationToScreen(formula, result, isFavourite, favouriteText) {
         // The function add the last formula to the model, and leave to
         // addCalculationToDatabase the job to add it to the database
         // that is called only after the element has been added to the
@@ -113,27 +121,25 @@ Item {
         history.append({"formula": formula,
             "result": result,
             "date": date,
-            "isFavourite": 0,
-            "favouriteText": ''});
-
+            "isFavourite": isFavourite,
+            "favouriteText": favouriteText});
         var index = history.count - 1;
         // TODO: move this function to a plave that retards the execution to
         // improve performances
         timer.execute.push(function() {
-            calculationHistory.addCalculationToDatabase(formula, result, date, index);
+            calculationHistory.addCalculationToDatabase(formula, result, date, index, isFavourite, favouriteText);
         });
         timer.start();
     }
 
-    function addCalculationToDatabase(formula, result, date, index) {
+    function addCalculationToDatabase(formula, result, date, index, isFavourite, favouriteText) {
         openDatabase();
-
         calculationHistoryDatabase.transaction(
             function (tx) {
                 var results = tx.executeSql('INSERT INTO Calculations (
                     formula, result, date, isFavourite, favouriteText) VALUES(
                     ?, ?, ?, ?, ?)',
-                    [formula, result, date, false, '']
+                    [formula, result, date, isFavourite, favouriteText]
                 );
                 // we need to update the listmodel unless we would have dbId = 0 on the
                 // last inserted item

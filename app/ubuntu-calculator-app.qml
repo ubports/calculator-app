@@ -62,6 +62,9 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
+    // Var used to save favourite calcs
+    property bool isFavourite: false
+
     // By default we delete selected calculation from history
     property bool deleteSelectedCalculation: true;
 
@@ -135,7 +138,7 @@ MainView {
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {
                 return;
-            }            
+            }
         } else {
             if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 return;
@@ -197,9 +200,14 @@ MainView {
 
         displayedInputText = Formula.returnFormulaToDisplay(result);
 
-        calculationHistory.addCalculationToScreen(longFormula, result);
+        if (!isFavourite) {
+            favouriteTextField.text = "";
+        }
+
+        calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
         longFormula = result;
         shortFormula = result;
+        favouriteTextField.text = "";
     }
 
     CalculationHistory {
@@ -414,46 +422,119 @@ MainView {
             model: visualModel
         }
 
-        TextField {
-            id: textInputField
-            objectName: "textInputField"
-            width: contentWidth + units.gu(3)
-            // TODO: Make sure this bug gets fixed in SDK:
-            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-            //width: parent.width
+        Rectangle {
+            width: parent.width
             height: units.gu(6)
 
-            // remove ubuntu shape
-            style: TextFieldStyle {
-                background: Item {
+            Icon {
+                id: favouriteIcon
+                height: parent.height - units.gu(2)
+                width: height
+
+                anchors {
+                    left: parent.left
+                    leftMargin: units.gu(1)
+                    top: parent.top
+                    topMargin: units.gu(1)
+                }
+
+                name: isFavourite ? "starred" : "non-starred"
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        if (isFavourite) {
+                            textInputField.visible = true;
+                            textInputField.forceActiveFocus();
+                        } else {
+                            textInputField.visible = false;
+                            favouriteTextField.forceActiveFocus();
+                        }
+                        isFavourite = !isFavourite;
+                    }
                 }
             }
 
-            text: displayedInputText
-            font.pixelSize: height * 0.7
-            //horizontalAlignment: TextInput.AlignRight
-            anchors {
-                right: parent.right
-                rightMargin: units.gu(1)
+            TextField {
+                id: favouriteTextField
+
+                anchors {
+                    right: parent.right
+                    rightMargin: units.gu(1)
+                }
+                width: parent.width - favouriteIcon.width - units.gu(2)
+                height: parent.height
+                visible: !textInputField.visible
+
+                font.italic: true
+                font.pixelSize: height * 0.5
+                verticalAlignment: TextInput.AlignVCenter
+
+                // TRANSLATORS: this is a time formatting string, see
+                // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+                // valid expressions
+                placeholderText: Qt.formatDateTime(new Date(), i18n.tr("dd MMM yyyy"))
+
+                // remove ubuntu shape
+                style: TextFieldStyle {
+                    background: Item {
+                    }
+                }
+
+                InverseMouseArea {
+                    anchors.fill: parent
+
+                    onClicked: {
+                        textInputField.visible = true;
+                        textInputField.forceActiveFocus();
+                    }
+                }
             }
 
-            readOnly: true
-            selectByMouse: true
-            cursorVisible: true
-            onCursorPositionChanged: 
-                if (cursorPosition !== length ) {
-                    // Count cursor position from the end of line
-                    var preservedCursorPosition = length - cursorPosition;
-                    displayedInputText = Formula.returnFormulaToDisplay(longFormula);
-                    cursorPosition = length - preservedCursorPosition;
-                } else {
-                    displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+            TextField {
+                id: textInputField
+                objectName: "textInputField"
+                // TODO: Make sure this bug gets fixed in SDK:
+                // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+                // It has been fixed in vivid - wait until it becomes the stable
+                // version before removing this
+                width: parent.width - favouriteIcon.width - units.gu(2)
+                //width: Math.min(contentWidth + units.gu(3), parent.width - favouriteIcon.width - units.gu(2))
+                height: parent.height
+
+                // remove ubuntu shape
+                style: TextFieldStyle {
+                    background: Item {
+                    }
                 }
+
+                text: displayedInputText
+                font.pixelSize: height * 0.7
+                horizontalAlignment: TextInput.AlignRight
+                anchors {
+                    right: parent.right
+                    rightMargin: units.gu(1)
+                }
+
+                readOnly: true
+                selectByMouse: true
+                cursorVisible: true
+                onCursorPositionChanged:
+                    if (cursorPosition !== length ) {
+                        // Count cursor position from the end of line
+                        var preservedCursorPosition = length - cursorPosition;
+                        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                        cursorPosition = length - preservedCursorPosition;
+                    } else {
+                        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                    }
+            }
         }
 
         Loader {
             id: keyboardLoader
             width: parent.width
+            visible: textInputField.visible
             source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
             opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
         }
