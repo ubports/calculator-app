@@ -183,6 +183,7 @@ MainView {
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
+        isFavourite = false;
         displayedInputText = result;
     }
 
@@ -193,6 +194,14 @@ MainView {
 
         PageWithBottomEdge {
             id: calculatorPage
+
+            bottomEdgeTitle: i18n.tr("Favorite")
+
+            bottomEdgePageComponent: FavouritePage {
+                anchors.fill: parent
+
+                title: i18n.tr("Favorite")
+            }
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [

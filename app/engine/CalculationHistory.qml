@@ -166,4 +166,25 @@ Item {
         });
         timer.start();
     }
+
+    function removeFavourites(removedFavourites) {
+        openDatabase();
+        var sql = "UPDATE Calculations SET isFavourite = 'false' WHERE dbId IN (";
+        var removed = removedFavourites[0];
+        history.setProperty(removedFavourites[0], "isFavourite", false);
+        removedFavourites.splice(0, 1);
+
+        for (var index in removedFavourites) {
+            history.setProperty(removedFavourites[index], "isFavourite", false);
+            removed += "," + removedFavourites[index];
+        }
+
+        sql += removed + ")";
+
+        calculationHistoryDatabase.transaction(
+            function (tx) {
+                var result = tx.executeSql(sql);
+            }
+        );
+    }
 }
