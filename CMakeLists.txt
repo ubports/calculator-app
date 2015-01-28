@@ -33,6 +33,7 @@ set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON                            "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
+set(APP_VERSION                     0.1)
 
 if(CLICK_MODE)
   set(CMAKE_INSTALL_PREFIX "/")
@@ -78,14 +79,18 @@ else(CLICK_MODE)
   set(EXEC "qmlscene $@ -I ${MODULE_PATH}  ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
 endif(CLICK_MODE)
 
-#TODO: after languages support is ready, uncomment these lines
-#file(GLOB_RECURSE I18N_SRC_FILES
-#    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
-#    *.qml *.js)
-#list(APPEND I18N_SRC_FILES ${DESKTOP_FILE})
-#list(SORT I18N_SRC_FILES)
+file(GLOB_RECURSE I18N_SRC_FILES
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
+    *.qml *.js)
+list(APPEND I18N_SRC_FILES  ${CMAKE_CURRENT_BINARY_DIR}/po/${DESKTOP_FILE}.in.in.h)
+list(SORT I18N_SRC_FILES)
 
-configure_file(app/${DESKTOP_FILE}.in ${DESKTOP_FILE})
+configure_file(app/${DESKTOP_FILE}.in.in ${DESKTOP_FILE}.in)
+
+add_custom_target(${DESKTOP_FILE} ALL
+  COMMENT "Merging translations into ${DESKTOP_FILE}"
+  COMMAND LC_ALL=C ${INTLTOOL_MERGE} -d -u ${CMAKE_SOURCE_DIR}/po ${DESKTOP_FILE}.in ${DESKTOP_FILE}
+)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
@@ -94,5 +99,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
 enable_testing()
 
 add_subdirectory(app)
-#TODO: after we setup languages support, uncomment this line
-#add_subdirectory(po)
+add_subdirectory(po)

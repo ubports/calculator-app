@@ -39,6 +39,18 @@ Item {
         }
     }
 
+    Timer {
+        id: timer
+        interval: 500
+        property var execute: []
+        onTriggered: {
+            for (var i = 0; i < execute.length; i++) {
+                execute[i]();
+            }
+            execute = [];
+        }
+    }
+
     function openDatabase() {
         // Check if the database was already opened
         if (calculationHistoryDatabase !== null) return;
@@ -107,7 +119,10 @@ Item {
         var index = history.count - 1;
         // TODO: move this function to a plave that retards the execution to
         // improve performances
-        calculationHistory.addCalculationToDatabase(longFormula, result, date, index);
+        timer.execute.push(function() {
+            calculationHistory.addCalculationToDatabase(formula, result, date, index);
+        });
+        timer.start();
     }
 
     function addCalculationToDatabase(formula, result, date, index) {
@@ -136,10 +151,13 @@ Item {
 
         history.setProperty(id, "dbId", -1);
 
-        calculationHistoryDatabase.transaction(
-            function (tx) {
-                tx.executeSql('DELETE FROM Calculations WHERE dbId = ?', [dbId]);
-            }
-        );
+        timer.execute.push(function () {
+            calculationHistoryDatabase.transaction(
+                function (tx) {
+                    tx.executeSql('DELETE FROM Calculations WHERE dbId = ?', [dbId]);
+                }
+            )
+        });
+        timer.start();
     }
 }

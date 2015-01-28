@@ -1,0 +1,84 @@
+# Portuguese translation for ubuntu-calculator-app
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the ubuntu-calculator-app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubuntu-calculator-app\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-20 01:55+0100\n"
+"PO-Revision-Date: 2015-01-22 23:54+0000\n"
+"Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-01-23 06:54+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
+
+#: ../app/engine/formula.js:101
+msgid "NaN"
+msgstr "NaN"
+
+#: ../app/ubuntu-calculator-app.qml:228
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../app/ubuntu-calculator-app.qml:236
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../app/ubuntu-calculator-app.qml:243
+msgid "Select All"
+msgstr "Selecionar tudo"
+
+#: ../app/ubuntu-calculator-app.qml:250 ../app/ubuntu-calculator-app.qml:309
+msgid "Delete"
+msgstr "Apagar"
+
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
+msgid "log"
+msgstr "registo"
+
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
+msgid "mod"
+msgstr "mod"
+
+#: ../app/ui/Screen.qml:36
+msgid "Just now"
+msgstr "Agora mesmo"
+
+#: ../app/ui/Screen.qml:38
+msgid "Today "
+msgstr "Hoje "
+
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+#. valid expressions
+#: ../app/ui/Screen.qml:42
+msgid "hh:mm"
+msgstr "hh:mm"
+
+#: ../app/ui/Screen.qml:44
+msgid "Yesterday"
+msgstr "Ontem"
+
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
+#. expressions
+#: ../app/ui/Screen.qml:50
+msgid "dd MMM yyyy"
+msgstr "dd MMM yyyy"
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:1
+msgid "Calculator"
+msgstr "Calculadora"
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr "Calculadora para Ubuntu."
+
+#: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
+msgstr "matemática;soma;subtracção;multiplicação;divisão;"

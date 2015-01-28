@@ -62,6 +62,9 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
+    // By default we delete selected calculation from history
+    property bool deleteSelectedCalculation: true;
+
     state: visualModel.isInSelectionMode ? "selection" : "default"
     states: [
         State {
@@ -99,7 +102,7 @@ MainView {
         }
         shortFormula = longFormula;
 
-        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+        displayedInputText = longFormula;
         if (truncatedSubstring) {
             textInputField.cursorPosition = truncatedSubstring.length;
         }
@@ -136,7 +139,7 @@ MainView {
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {
                 return;
-            }            
+            }
         } else {
             if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 return;
@@ -152,7 +155,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -168,7 +171,7 @@ MainView {
         }
 
         var preservedCursorPosition = textInputField.cursorPosition;
-        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+        displayedInputText = shortFormula;
         textInputField.cursorPosition = preservedCursorPosition + visual.length;
 
         // Add here operators that have always priority
@@ -185,7 +188,7 @@ MainView {
         try {
             var result = mathJs.eval(longFormula);
         } catch(exception) {
-            console.log("Error: math.js" + exception.toString() + " engine formula:" + longFormula);
+            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
 
@@ -196,11 +199,11 @@ MainView {
             return;
         }
 
-        displayedInputText = Formula.returnFormulaToDisplay(result);
 
         calculationHistory.addCalculationToScreen(longFormula, result);
         longFormula = result;
         shortFormula = result;
+        displayedInputText = result;
     }
 
     CalculationHistory {
@@ -222,6 +225,7 @@ MainView {
         visible: true
         useDeprecatedToolbar: false
         property color dividerColor: "#babbbc"
+        property color panelColor: "white"
         config: PageHeadConfiguration {
             backAction: Action {
                 objectName: "cancelSelectionAction"
@@ -234,13 +238,22 @@ MainView {
                     id: selectAllAction
                     objectName: "selectAllAction"
                     iconName: "select"
+                    text: i18n.tr("Select All")
                     onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: copySelectedCalculations()
                 },
                 Action {
                     id: multiDeleteAction
                     objectName: "multiDeleteAction"
                     iconName: "delete"
-                    onTriggered: visualModel.endSelection()
+                    text: i18n.tr("Delete")
+                    onTriggered: deleteSelectedCalculations()
                 }
             ]
         }
@@ -258,7 +271,7 @@ MainView {
             width: parent ? parent.width : 0
 
             property var model: itemModel
-            visible: model.dbId != -1
+            visible: model.dbId !== -1
 
             selectionMode: visualModel.isInSelectionMode
             selected: visualModel.isSelected(visualDelegate)
@@ -292,7 +305,21 @@ MainView {
                 visualModel.selectItem(visualDelegate);
             }
 
+            rightSideActions: [ screenDelegateCopyAction.item ]
             leftSideAction: screenDelegateDeleteAction.item
+
+            Loader {
+                id: screenDelegateCopyAction
+                sourceComponent: Action {
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: {
+                        var mimeData = Clipboard.newData();
+                        mimeData.text = model.formula + "=" + model.result;
+                        Clipboard.push(mimeData);
+                    }
+                }
+            }
 
             Loader {
                 id: screenDelegateDeleteAction
@@ -331,13 +358,34 @@ MainView {
         }
     }
 
+    function deleteSelectedCalculations() {
+        deleteSelectedCalculation = true;
+        visualModel.endSelection();
+    }
+
+    function copySelectedCalculations() {
+        deleteSelectedCalculation = false;
+        visualModel.endSelection();
+    }
+
     MultipleSelectionVisualModel {
         id: visualModel
         model: calculationHistory.getContents()
 
         onSelectionDone: {
-            for (var i = 0; i < items.count; i++) {
-                calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+            if(deleteSelectedCalculation === true) {
+                for(var i = 0; i < items.count; i++) {
+                    calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+                }
+            } else {
+                var mimeData = Clipboard.newData();
+                mimeData.text = "";
+                for(var j = 0; j < items.count; j++) {
+                    if (items.get(j).model.dbId !== -1) {
+                        mimeData.text = mimeData.text + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
+                    }
+                }
+                Clipboard.push(mimeData);
             }
         }
 
@@ -345,11 +393,11 @@ MainView {
             Loader {
                 property var itemModel: model
                 width: parent.width
-                height: model.dbId != -1 ? item.height : 0;
+                height: model.dbId !== -1 ? item.height : 0;
                 sourceComponent: screenDelegateComponent
-                opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 onOpacityChanged: {
-                    if (this.hasOwnProperty('item') && this.item != null) {
+                    if (this.hasOwnProperty('item') && this.item !== null) {
                         if (opacity > 0) {
                             sourceComponent = screenDelegateComponent;
                         } else {
@@ -400,7 +448,7 @@ MainView {
                 }
             }
 
-            text: displayedInputText
+            text: Formula.returnFormulaToDisplay(displayedInputText)
             font.pixelSize: height * 0.7
             //horizontalAlignment: TextInput.AlignRight
             anchors {
@@ -411,14 +459,14 @@ MainView {
             readOnly: true
             selectByMouse: true
             cursorVisible: true
-            onCursorPositionChanged: 
+            onCursorPositionChanged:
                 if (cursorPosition !== length ) {
                     // Count cursor position from the end of line
                     var preservedCursorPosition = length - cursorPosition;
-                    displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                    displayedInputText = longFormula;
                     cursorPosition = length - preservedCursorPosition;
                 } else {
-                    displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                    displayedInputText = shortFormula;
                 }
         }
 

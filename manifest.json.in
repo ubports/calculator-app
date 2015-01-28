@@ -3,13 +3,13 @@
     "description": "description of ubuntu-calculator-app",
     "framework": "ubuntu-sdk-14.10",
     "hooks": {
-        "ubuntu-calculator-app": {
-            "apparmor": "ubuntu-calculator-app.apparmor",
-            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
+        "@APP_HARDCODE@": {
+            "apparmor": "@APP_HARDCODE@.apparmor",
+            "desktop": "@CMAKE_INSTALL_DATADIR@/applications/@DESKTOP_FILE@"
         }
     },
     "maintainer": "Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>",
     "name": "com.ubuntu.calculator",
-    "title": "ubuntu-calculator-app",
-    "version": "0.1"
+    "title": "@APP_NAME@",
+    "version": "@APP_VERSION@.@BZR_REVNO@"
 }
