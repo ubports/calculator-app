@@ -46,6 +46,8 @@ Rectangle {
                 index = Math.max(0, currentIndex - 1)
             } else {
                 index = Math.round(contentX / (width + keyboardsRow.spacing))
+                index = Math.max(0, index)
+                index = Math.min(keyboardsRow.children.length - 1, index)
             }
 
             currentIndex = index;

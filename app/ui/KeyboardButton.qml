@@ -44,13 +44,19 @@ AbstractButton {
         border.color: "#bdbec0"
         border.width: units.dp(2)
         color: buttonMA.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
+
+        Behavior on color {
+            ColorAnimation {
+                duration: UbuntuAnimation.SnapDuration
+            }
+        }
     }
 
     Text {
         id: buttonText
         anchors.centerIn: parent
         color: "#5a5a5c"
-        font.pixelSize: 0.5 * parent.height 
+        font.pixelSize: 0.5 * parent.height
         font.bold: true
     }
 

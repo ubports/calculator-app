@@ -105,7 +105,7 @@ MainView {
         }
         shortFormula = longFormula;
 
-        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+        displayedInputText = longFormula;
         if (truncatedSubstring) {
             textInputField.cursorPosition = truncatedSubstring.length;
         }
@@ -154,7 +154,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -170,7 +170,7 @@ MainView {
         }
 
         var preservedCursorPosition = textInputField.cursorPosition;
-        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+        displayedInputText = shortFormula;
         textInputField.cursorPosition = preservedCursorPosition + visual.length;
 
         // Add here operators that have always priority
@@ -187,7 +187,7 @@ MainView {
         try {
             var result = mathJs.eval(longFormula);
         } catch(exception) {
-            console.log("Error: math.js" + exception.toString() + " engine formula:" + longFormula);
+            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
 
@@ -198,7 +198,6 @@ MainView {
             return;
         }
 
-        displayedInputText = Formula.returnFormulaToDisplay(result);
 
         if (!isFavourite) {
             favouriteTextField.text = "";
@@ -208,6 +207,7 @@ MainView {
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
+        displayedInputText = result;
     }
 
     CalculationHistory {
@@ -229,6 +229,7 @@ MainView {
         visible: true
         useDeprecatedToolbar: false
         property color dividerColor: "#babbbc"
+        property color panelColor: "white"
         config: PageHeadConfiguration {
             backAction: Action {
                 objectName: "cancelSelectionAction"
@@ -238,18 +239,18 @@ MainView {
             }
             actions: [
                 Action {
-                    id: copySelectedAction
-                    objectName: "copySelectedAction"
-                    iconName: "edit-copy"
-                    text: i18n.tr("Copy")
-                    onTriggered: copySelectedCalculations()
-                },
-                Action {
                     id: selectAllAction
                     objectName: "selectAllAction"
                     iconName: "select"
                     text: i18n.tr("Select All")
                     onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: copySelectedCalculations()
                 },
                 Action {
                     id: multiDeleteAction
@@ -308,7 +309,21 @@ MainView {
                 visualModel.selectItem(visualDelegate);
             }
 
+            rightSideActions: [ screenDelegateCopyAction.item ]
             leftSideAction: screenDelegateDeleteAction.item
+
+            Loader {
+                id: screenDelegateCopyAction
+                sourceComponent: Action {
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: {
+                        var mimeData = Clipboard.newData();
+                        mimeData.text = model.formula + "=" + model.result;
+                        Clipboard.push(mimeData);
+                    }
+                }
+            }
 
             Loader {
                 id: screenDelegateDeleteAction
@@ -508,7 +523,7 @@ MainView {
                     }
                 }
 
-                text: displayedInputText
+                text: Formula.returnFormulaToDisplay(displayedInputText)
                 font.pixelSize: height * 0.7
                 horizontalAlignment: TextInput.AlignRight
                 anchors {
@@ -523,10 +538,10 @@ MainView {
                     if (cursorPosition !== length ) {
                         // Count cursor position from the end of line
                         var preservedCursorPosition = length - cursorPosition;
-                        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                        displayedInputText = longFormula;
                         cursorPosition = length - preservedCursorPosition;
                     } else {
-                        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                        displayedInputText = shortFormula;
                     }
             }
         }
