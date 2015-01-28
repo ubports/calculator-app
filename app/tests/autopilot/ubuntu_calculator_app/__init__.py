@@ -66,7 +66,7 @@ class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
     BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
-               '/': 'divideButton', '.': 'pointButton',
+               '/': 'divideButton', '.': 'pointButton', 'bracket': 'universalBracketButton',
                '=': 'equalsButton', '-': 'minusButton', '+': 'plusButton',
                '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
                '3': 'threeButton', '4': 'fourButton', '5': 'fiveButton',
@@ -80,6 +80,9 @@ class MainView(ubuntuuitoolkit.MainView):
     def insert(self, expression):
         for operand in expression:
             self.press(operand)
+
+    def press_universal_bracket(self):
+        self.press('bracket')
 
     def clear(self):
         self.press('clear')

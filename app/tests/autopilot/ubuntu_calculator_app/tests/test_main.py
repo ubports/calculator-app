@@ -93,6 +93,25 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'1e−10')
         self._assert_history_contains(u'0.000000001÷10=1e-10')
 
+    def test_brackets_precedence(self):
+        self.app.main_view.insert('2*')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('3+4')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('=')
+        self._assert_result_is(u'14')
+        self._assert_history_contains(u'2×(3+4)=14')
+
+        self.app.main_view.clear()
+        self.app.main_view.insert('4')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('3-2')
+        self.app.main_view.press_universal_bracket()
+        self._assert_result_is(u'4×(3−2)')
+        self.app.main_view.insert('=')
+        self._assert_result_is(u'4')
+        self._assert_history_contains(u'4×(3−2)=4')
+
     def test_operators_precedence(self):
         self.app.main_view.insert('2+2*2=')
 
