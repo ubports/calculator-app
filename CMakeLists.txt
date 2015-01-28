@@ -33,7 +33,6 @@ set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON                            "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
-set(ICON                            calculator-app@30.png)
 set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(APP_VERSION                     2.0)
 
