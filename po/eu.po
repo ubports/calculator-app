@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-01-20 01:55+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-01-27 23:04+0000\n"
+"Last-Translator: Ibai Oihanguren Sala <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-23 06:54+0000\n"
+"X-Launchpad-Export-Date: 2015-01-28 06:40+0000\n"
 "X-Generator: Launchpad (build 17306)\n"
 
 #: ../app/engine/formula.js:101
@@ -23,53 +23,53 @@ msgstr "Ez da zenbakia"
 
 #: ../app/ubuntu-calculator-app.qml:228
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: ../app/ubuntu-calculator-app.qml:236
 msgid "Copy"
-msgstr ""
+msgstr "Kopiatu"
 
 #: ../app/ubuntu-calculator-app.qml:243
 msgid "Select All"
-msgstr ""
+msgstr "Hautatu dena"
 
 #: ../app/ubuntu-calculator-app.qml:250 ../app/ubuntu-calculator-app.qml:309
 msgid "Delete"
-msgstr ""
+msgstr "Ezabatu"
 
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
 msgid "mod"
-msgstr ""
+msgstr "mod"
 
 #: ../app/ui/Screen.qml:36
 msgid "Just now"
-msgstr ""
+msgstr "Oraintxe bertan"
 
 #: ../app/ui/Screen.qml:38
 msgid "Today "
-msgstr ""
+msgstr "Gaur "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:42
 msgid "hh:mm"
-msgstr ""
+msgstr "hh:mm"
 
 #: ../app/ui/Screen.qml:44
 msgid "Yesterday"
-msgstr ""
+msgstr "Atzo"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
-msgstr ""
+msgstr "yyyy MMM dd"
 
 #: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
@@ -77,7 +77,7 @@ msgstr "Kalkulagailua"
 
 #: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr ""
+msgstr "Ubunturako kalkulagailu bat."
 
 #: /tmp/tmp.fsDMzkJEd1/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"

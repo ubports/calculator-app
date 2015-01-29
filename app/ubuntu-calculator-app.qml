@@ -102,7 +102,7 @@ MainView {
         }
         shortFormula = longFormula;
 
-        displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+        displayedInputText = longFormula;
         if (truncatedSubstring) {
             textInputField.cursorPosition = truncatedSubstring.length;
         }
@@ -151,7 +151,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -167,7 +167,7 @@ MainView {
         }
 
         var preservedCursorPosition = textInputField.cursorPosition;
-        displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+        displayedInputText = shortFormula;
         textInputField.cursorPosition = preservedCursorPosition + visual.length;
 
         // Add here operators that have always priority
@@ -196,7 +196,7 @@ MainView {
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
                 deleteLastFormulaElement();
             }
-            console.log("Error: math.js" + exception.toString() + " engine formula:" + longFormula);
+            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
 
@@ -207,11 +207,11 @@ MainView {
             return;
         }
 
-        displayedInputText = Formula.returnFormulaToDisplay(result);
 
         calculationHistory.addCalculationToScreen(longFormula, result);
         longFormula = result;
         shortFormula = result;
+        displayedInputText = result;
     }
 
     CalculationHistory {
@@ -456,7 +456,7 @@ MainView {
                 }
             }
 
-            text: displayedInputText
+            text: Formula.returnFormulaToDisplay(displayedInputText)
             font.pixelSize: height * 0.7
             //horizontalAlignment: TextInput.AlignRight
             anchors {
@@ -471,10 +471,10 @@ MainView {
                 if (cursorPosition !== length ) {
                     // Count cursor position from the end of line
                     var preservedCursorPosition = length - cursorPosition;
-                    displayedInputText = Formula.returnFormulaToDisplay(longFormula);
+                    displayedInputText = longFormula;
                     cursorPosition = length - preservedCursorPosition;
                 } else {
-                    displayedInputText = Formula.returnFormulaToDisplay(shortFormula);
+                    displayedInputText = shortFormula;
                 }
         }
 
