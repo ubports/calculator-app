@@ -471,6 +471,7 @@ MainView {
                         }
 
                         name: isFavourite ? "starred" : "non-starred"
+                        color: isFavourite ? "#dd4814" : "#808080"
 
                         MouseArea {
                             anchors.fill: parent
@@ -491,10 +492,10 @@ MainView {
                         id: favouriteTextField
 
                         anchors {
-                            right: parent.right
+                            right: confirmFavourite.left
                             rightMargin: units.gu(1)
                         }
-                        width: parent.width - favouriteIcon.width - units.gu(2)
+                        width: parent.width - favouriteIcon.width - confirmFavourite.width - units.gu(3)
                         height: parent.height
                         visible: !textInputField.visible
 
@@ -521,6 +522,23 @@ MainView {
                                 textInputField.forceActiveFocus();
                             }
                         }
+                    }
+
+                    Icon {
+                        id: confirmFavourite
+                        visible: favouriteTextField.visible
+
+                        name: "keyboard-enter"
+
+                        anchors {
+                            right: parent.right
+                            rightMargin: units.gu(1)
+                            top: parent.top
+                            topMargin: units.gu(1)
+                        }
+
+                        height: parent.height - units.gu(2)
+                        width: height
                     }
 
                     TextField {
