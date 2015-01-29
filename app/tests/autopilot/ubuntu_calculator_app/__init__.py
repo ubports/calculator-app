@@ -17,6 +17,7 @@
 """Calculator app autopilot emulators."""
 
 import ubuntuuitoolkit
+from time import sleep
 
 
 class CalculatorApp(object):
@@ -98,10 +99,11 @@ class MainView(ubuntuuitoolkit.MainView):
         # using a larger press_duration for click_object would be inferior
         # as it would cause longer delays (we are forced to arbitrarily decide
         # how long to press each time) and potentially fail.
-        # Also, https://bugs.launchpad.net/autopilot/+bug/1366949
-        # causes press_duration argument to be ignored currently
-        # balloons 2014-09-08
+        # balloons 2015-01-29
         self.pointing_device.press()
+        # this sleeps represents our minimum press time,
+        # should button_area.pressed be true without any wait
+        sleep(0.3)
         button_area.pressed.wait_for(True)
         self.pointing_device.release()
 
