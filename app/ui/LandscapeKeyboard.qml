@@ -5,7 +5,8 @@ CalcKeyboard {
     id: calcKeyboard
 
     KeyboardPage {
-        buttonRatio: 0.7
+        buttonRatio: 0.6
+        buttonMaxHeight: scrollableView.height / 10.0
         columns: 8
 
         keyboardModel: new Array(

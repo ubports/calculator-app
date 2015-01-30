@@ -5,7 +5,8 @@ CalcKeyboard {
     id: calcKeyboard
 
     KeyboardPage {
-        buttonRatio: 0.7
+        buttonRatio: 0.6
+        buttonMaxHeight: scrollableView.height / 10.0
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
@@ -30,7 +31,8 @@ CalcKeyboard {
     }
 
     KeyboardPage {
-        buttonRatio: 0.7
+        buttonRatio: 0.6
+        buttonMaxHeight: scrollableView.height / 10.0
 
         keyboardModel: new Array(
             { text: "xⁿ", name: "power", pushText: "^", kbdKeys: [Qt.Key_AsciiCircum] },
