@@ -99,6 +99,7 @@ function returnFormulaToDisplay(engineFormulaToConvert) {
         '\\*': '×',
         '\\.': decimalPoint,
         'NaN': i18n.tr("NaN"),
+        'E': 'ℯ',
         'Infinity': '∞'
     }
 
