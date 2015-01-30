@@ -31,33 +31,29 @@ function deleteLastFormulaElement(isLastCalculate, formulaToCheck) {
     }
 
     if (formulaToCheck !== '') {
-        // The biggest lenght of block we can delete is 5.
-        var numberOfCharsToKeep = longFormula.length < 5 ? longFormula.length : 5;
-        var lastChars = longFormula.substring(longFormula.length - numberOfCharsToKeep,
-            longFormula.length);
-
         // We choose how many chars remove checking if in the end of the string
         // there is a special operation. Default: 1
         var removeSize = 1;
 
         // 5 chars: sqrt(, asin(, acos(, atan(
-        if (lastChars.indexOf('sqrt(') !== -1 ||
-            lastChars.indexOf('asin(') !== -1 ||
-            lastChars.indexOf('acos(') !== -1 ||
-            lastChars.indexOf('atan(') !== -1) {
+        if (formulaToCheck.slice(-5) === 'sqrt(' ||
+            formulaToCheck.slice(-5) === 'asin(' ||
+            formulaToCheck.slice(-5) === 'acos(' ||
+            formulaToCheck.slice(-5) === 'atan(') {
             removeSize = 5;
         }
         // 4 chars: log(, exp(, sin(, cos(, tan(, abs(
-        else if (lastChars.indexOf('log(') !== -1 ||
-                lastChars.indexOf('exp(') !== -1 ||
-                lastChars.indexOf('sin(') !== -1 ||
-                lastChars.indexOf('cos(') !== -1 ||
-                lastChars.indexOf('tan(') !== -1 ||
-                lastChars.indexOf('abs(') !== -1) {
+        else if (formulaToCheck.slice(-4) === 'log(' ||
+                 formulaToCheck.slice(-4) === 'exp(' ||
+                 formulaToCheck.slice(-4) === 'sin(' ||
+                 formulaToCheck.slice(-4) === 'cos(' ||
+                 formulaToCheck.slice(-4) === 'tan(' ||
+                 formulaToCheck.slice(-4) === 'abs(') {
             removeSize = 4;
+
         }
         // 2 chars: pi
-        else if (lastChars.indexOf('pi') !== -1) {
+        else if (formulaToCheck.slice(-2) === 'pi') {
             removeSize = 2;
         }
         formulaToCheck = formulaToCheck.substring(0, formulaToCheck.length - removeSize);
