@@ -62,32 +62,11 @@ MainView {
 
     property var decimalPoint: Qt.locale().decimalPoint
 
+    // Var used to save favourite calcs
+    property bool isFavourite: false
+
     // By default we delete selected calculation from history
     property bool deleteSelectedCalculation: true;
-
-    state: visualModel.isInSelectionMode ? "selection" : "default"
-    states: [
-        State {
-            name: "default"
-            StateChangeScript {
-                script: header.hide()
-            }
-            PropertyChanges {
-                target: scrollableView
-                clip: false
-            }
-        },
-        State {
-            name: "selection"
-            StateChangeScript {
-                script: header.show()
-            }
-            PropertyChanges {
-                target: scrollableView
-                clip: true
-            }
-        }
-    ]
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
@@ -208,281 +187,420 @@ MainView {
         }
 
 
-        calculationHistory.addCalculationToScreen(longFormula, result);
+        if (!isFavourite) {
+            favouriteTextField.text = "";
+        }
+
+        calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
         longFormula = result;
         shortFormula = result;
+        favouriteTextField.text = "";
+        isFavourite = false;
         displayedInputText = result;
     }
 
-    CalculationHistory {
-        id: calculationHistory
-    }
+    PageStack {
+        id: mainStack
 
-    Keys.onPressed: {
-        keyboardLoader.item.pressedKey = event.key;
-        keyboardLoader.item.pressedKeyText = event.text;
-    }
+        Component.onCompleted: push(calculatorPage)
 
-    Keys.onReleased: {
-        keyboardLoader.item.pressedKey = -1;
-        keyboardLoader.item.pressedKeyText = "";
-    }
+        PageWithBottomEdge {
+            id: calculatorPage
 
-    Header {
-        id: header
-        visible: true
-        useDeprecatedToolbar: false
-        property color dividerColor: "#babbbc"
-        property color panelColor: "white"
-        config: PageHeadConfiguration {
-            backAction: Action {
-                objectName: "cancelSelectionAction"
-                iconName: "close"
-                text: i18n.tr("Cancel")
-                onTriggered: visualModel.cancelSelection()
+            bottomEdgeTitle: i18n.tr("Favorite")
+
+            bottomEdgePageComponent: FavouritePage {
+                anchors.fill: parent
+
+                title: i18n.tr("Favorite")
             }
-            actions: [
-                Action {
-                    id: selectAllAction
-                    objectName: "selectAllAction"
-                    iconName: "select"
-                    text: i18n.tr("Select All")
-                    onTriggered: visualModel.selectAll()
+
+            state: visualModel.isInSelectionMode ? "selection" : "default"
+            states: [
+                State {
+                    name: "default"
+                    StateChangeScript {
+                        script: header.hide()
+                    }
+                    PropertyChanges {
+                        target: scrollableView
+                        clip: false
+                    }
                 },
-                Action {
-                    id: copySelectedAction
-                    objectName: "copySelectedAction"
-                    iconName: "edit-copy"
-                    text: i18n.tr("Copy")
-                    onTriggered: copySelectedCalculations()
-                },
-                Action {
-                    id: multiDeleteAction
-                    objectName: "multiDeleteAction"
-                    iconName: "delete"
-                    text: i18n.tr("Delete")
-                    onTriggered: deleteSelectedCalculations()
+                State {
+                    name: "selection"
+                    StateChangeScript {
+                        script: header.show()
+                    }
+                    PropertyChanges {
+                        target: scrollableView
+                        clip: true
+                    }
                 }
             ]
-        }
-    }
 
-    Component {
-        id: emptyDelegate
-        Item { }
-    }
-
-    Component {
-        id: screenDelegateComponent
-        Screen {
-            id: screenDelegate
-            width: parent ? parent.width : 0
-
-            property var model: itemModel
-            visible: model.dbId !== -1
-
-            selectionMode: visualModel.isInSelectionMode
-            selected: visualModel.isSelected(visualDelegate)
-
-            property var removalAnimation
-            function remove() {
-                removalAnimation.start();
+            CalculationHistory {
+                id: calculationHistory
             }
 
-            // parent is the loader component
-            property var visualDelegate: parent ? parent : null
-
-            onSwippingChanged: {
-                visualModel.updateSwipeState(screenDelegate);
+            Keys.onPressed: {
+                keyboardLoader.item.pressedKey = event.key;
+                keyboardLoader.item.pressedKeyText = event.text;
             }
 
-            onSwipeStateChanged: {
-                visualModel.updateSwipeState(screenDelegate);
+            Keys.onReleased: {
+                keyboardLoader.item.pressedKey = -1;
+                keyboardLoader.item.pressedKeyText = "";
             }
 
-            onItemClicked: {
-                if (visualModel.isInSelectionMode) {
-                    if (!visualModel.selectItem(visualDelegate)) {
-                        visualModel.deselectItem(visualDelegate);
+            Header {
+                id: header
+                visible: true
+                useDeprecatedToolbar: false
+                property color dividerColor: "#babbbc"
+                property color panelColor: "white"
+                config: PageHeadConfiguration {
+                    backAction: Action {
+                        objectName: "cancelSelectionAction"
+                        iconName: "close"
+                        text: i18n.tr("Cancel")
+                        onTriggered: visualModel.cancelSelection()
+                    }
+                    actions: [
+                        Action {
+                            id: selectAllAction
+                            objectName: "selectAllAction"
+                            iconName: "select"
+                            text: i18n.tr("Select All")
+                            onTriggered: visualModel.selectAll()
+                        },
+                        Action {
+                            id: copySelectedAction
+                            objectName: "copySelectedAction"
+                            iconName: "edit-copy"
+                            text: i18n.tr("Copy")
+                            onTriggered: copySelectedCalculations()
+                        },
+                        Action {
+                            id: multiDeleteAction
+                            objectName: "multiDeleteAction"
+                            iconName: "delete"
+                            text: i18n.tr("Delete")
+                            onTriggered: deleteSelectedCalculations()
+                        }
+                    ]
+                }
+            }
+
+            Component {
+                id: emptyDelegate
+                Item { }
+            }
+
+            Component {
+                id: screenDelegateComponent
+                Screen {
+                    id: screenDelegate
+                    width: parent ? parent.width : 0
+
+                    property var model: itemModel
+                    visible: model.dbId !== -1
+
+                    selectionMode: visualModel.isInSelectionMode
+                    selected: visualModel.isSelected(visualDelegate)
+
+                    property var removalAnimation
+                    function remove() {
+                        removalAnimation.start();
+                    }
+
+                    // parent is the loader component
+                    property var visualDelegate: parent ? parent : null
+
+                    onSwippingChanged: {
+                        visualModel.updateSwipeState(screenDelegate);
+                    }
+
+                    onSwipeStateChanged: {
+                        visualModel.updateSwipeState(screenDelegate);
+                    }
+
+                    onItemClicked: {
+                        if (visualModel.isInSelectionMode) {
+                            if (!visualModel.selectItem(visualDelegate)) {
+                                visualModel.deselectItem(visualDelegate);
+                            }
+                        }
+                    }
+
+                    onItemPressAndHold: {
+                        visualModel.startSelection();
+                        visualModel.selectItem(visualDelegate);
+                    }
+
+                    rightSideActions: [ screenDelegateCopyAction.item ]
+                    leftSideAction: screenDelegateDeleteAction.item
+
+                    Loader {
+                        id: screenDelegateCopyAction
+                        sourceComponent: Action {
+                            iconName: "edit-copy"
+                            text: i18n.tr("Copy")
+                            onTriggered: {
+                                var mimeData = Clipboard.newData();
+                                mimeData.text = model.formula + "=" + model.result;
+                                Clipboard.push(mimeData);
+                            }
+                        }
+                    }
+
+                    Loader {
+                        id: screenDelegateDeleteAction
+                        sourceComponent: Action {
+                            iconName: "delete"
+                            text: i18n.tr("Delete")
+                            onTriggered: {
+                                screenDelegate.remove();
+                            }
+                        }
+                    }
+
+                    removalAnimation: SequentialAnimation {
+                        alwaysRunToEnd: true
+
+                        ScriptAction {
+                            script: {
+                                if (visualModel.currentSwipedItem === screenDelegate) {
+                                    visualModel.currentSwipedItem = null;
+                                }
+                            }
+                        }
+
+                        UbuntuNumberAnimation {
+                            target: screenDelegate
+                            property: "height"
+                            to: 0
+                        }
+
+                        ScriptAction {
+                            script: {
+                                calculationHistory.deleteCalc(model.dbId, model.index);
+                            }
+                        }
                     }
                 }
             }
 
-            onItemPressAndHold: {
-                visualModel.startSelection();
-                visualModel.selectItem(visualDelegate);
+            function deleteSelectedCalculations() {
+                deleteSelectedCalculation = true;
+                visualModel.endSelection();
             }
 
-            rightSideActions: [ screenDelegateCopyAction.item ]
-            leftSideAction: screenDelegateDeleteAction.item
+            function copySelectedCalculations() {
+                deleteSelectedCalculation = false;
+                visualModel.endSelection();
+            }
 
-            Loader {
-                id: screenDelegateCopyAction
-                sourceComponent: Action {
-                    iconName: "edit-copy"
-                    text: i18n.tr("Copy")
-                    onTriggered: {
+            MultipleSelectionVisualModel {
+                id: visualModel
+                model: calculationHistory.getContents()
+
+                onSelectionDone: {
+                    if(deleteSelectedCalculation === true) {
+                        for(var i = 0; i < items.count; i++) {
+                            calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
+                        }
+                    } else {
                         var mimeData = Clipboard.newData();
-                        mimeData.text = model.formula + "=" + model.result;
+                        mimeData.text = "";
+                        for(var j = 0; j < items.count; j++) {
+                            if (items.get(j).model.dbId !== -1) {
+                                mimeData.text = mimeData.text + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
+                            }
+                        }
                         Clipboard.push(mimeData);
                     }
                 }
-            }
 
-            Loader {
-                id: screenDelegateDeleteAction
-                sourceComponent: Action {
-                    iconName: "delete"
-                    text: i18n.tr("Delete")
-                    onTriggered: {
-                        screenDelegate.remove();
-                    }
-                }
-            }
-
-            removalAnimation: SequentialAnimation {
-                alwaysRunToEnd: true
-
-                ScriptAction {
-                    script: {
-                        if (visualModel.currentSwipedItem === screenDelegate) {
-                            visualModel.currentSwipedItem = null;
-                        }
-                    }
-                }
-
-                UbuntuNumberAnimation {
-                    target: screenDelegate
-                    property: "height"
-                    to: 0
-                }
-
-                ScriptAction {
-                    script: {
-                        calculationHistory.deleteCalc(model.dbId, model.index);
-                    }
-                }
-            }
-        }
-    }
-
-    function deleteSelectedCalculations() {
-        deleteSelectedCalculation = true;
-        visualModel.endSelection();
-    }
-
-    function copySelectedCalculations() {
-        deleteSelectedCalculation = false;
-        visualModel.endSelection();
-    }
-
-    MultipleSelectionVisualModel {
-        id: visualModel
-        model: calculationHistory.getContents()
-
-        onSelectionDone: {
-            if(deleteSelectedCalculation === true) {
-                for(var i = 0; i < items.count; i++) {
-                    calculationHistory.deleteCalc(items.get(i).model.dbId, items.get(i).model.index);
-                }
-            } else {
-                var mimeData = Clipboard.newData();
-                mimeData.text = "";
-                for(var j = 0; j < items.count; j++) {
-                    if (items.get(j).model.dbId !== -1) {
-                        mimeData.text = mimeData.text + items.get(j).model.formula + "=" + items.get(j).model.result + "\n";
-                    }
-                }
-                Clipboard.push(mimeData);
-            }
-        }
-
-        delegate: Component {
-            Loader {
-                property var itemModel: model
-                width: parent.width
-                height: model.dbId !== -1 ? item.height : 0;
-                sourceComponent: screenDelegateComponent
-                opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
-                onOpacityChanged: {
-                    if (this.hasOwnProperty('item') && this.item !== null) {
-                        if (opacity > 0) {
-                            sourceComponent = screenDelegateComponent;
-                        } else {
-                            this.item.visible = false;
-                            sourceComponent = emptyDelegate;
+                delegate: Component {
+                    Loader {
+                        property var itemModel: model
+                        width: parent.width
+                        height: model.dbId !== -1 ? item.height : 0;
+                        sourceComponent: screenDelegateComponent
+                        opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                        onOpacityChanged: {
+                            if (this.hasOwnProperty('item') && this.item !== null) {
+                                if (opacity > 0) {
+                                    sourceComponent = screenDelegateComponent;
+                                } else {
+                                    this.item.visible = false;
+                                    sourceComponent = emptyDelegate;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
-    }
 
-    ScrollableView {
-        anchors {
-            top: header.bottom
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-        }
-        id: scrollableView
-        objectName: "scrollableView"
+            ScrollableView {
+                anchors {
+                    top: header.bottom
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: parent.right
+                }
+                id: scrollableView
+                objectName: "scrollableView"
 
-        Component.onCompleted: {
-            // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
-            // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
-            var scaleFactor = units.gridUnit / 8;
-            maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
-            flickDeceleration = flickDeceleration * scaleFactor;
-        }
+                Component.onCompleted: {
+                    // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
+                    // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
+                    var scaleFactor = units.gridUnit / 8;
+                    maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
+                    flickDeceleration = flickDeceleration * scaleFactor;
+                }
 
-        Repeater {
-            id: formulaView
-            model: visualModel
-        }
+                Repeater {
+                    id: formulaView
+                    model: visualModel
+                }
 
-        TextField {
-            id: textInputField
-            objectName: "textInputField"
-            width: contentWidth + units.gu(3)
-            // TODO: Make sure this bug gets fixed in SDK:
-            // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-            //width: parent.width
-            height: units.gu(6)
+                Rectangle {
+                    width: parent.width
+                    height: units.gu(6)
 
-            // remove ubuntu shape
-            style: TextFieldStyle {
-                background: Item {
+                    Icon {
+                        id: favouriteIcon
+                        height: parent.height - units.gu(2)
+                        width: height
+
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(1)
+                            top: parent.top
+                            topMargin: units.gu(1)
+                        }
+
+                        name: isFavourite ? "starred" : "non-starred"
+                        color: isFavourite ? "#dd4814" : "#808080"
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                if (isFavourite) {
+                                    textInputField.visible = true;
+                                    textInputField.forceActiveFocus();
+                                } else {
+                                    textInputField.visible = false;
+                                    favouriteTextField.forceActiveFocus();
+                                }
+                                isFavourite = !isFavourite;
+                            }
+                        }
+                    }
+
+                    TextField {
+                        id: favouriteTextField
+
+                        anchors {
+                            right: confirmFavourite.left
+                            rightMargin: units.gu(1)
+                        }
+                        width: parent.width - favouriteIcon.width - confirmFavourite.width - units.gu(3)
+                        height: parent.height
+                        visible: !textInputField.visible
+
+                        font.italic: true
+                        font.pixelSize: height * 0.5
+                        verticalAlignment: TextInput.AlignVCenter
+
+                        // TRANSLATORS: this is a time formatting string, see
+                        // http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+                        // valid expressions
+                        placeholderText: Qt.formatDateTime(new Date(), i18n.tr("dd MMM yyyy"))
+
+                        // remove ubuntu shape
+                        style: TextFieldStyle {
+                            background: Item {
+                            }
+                        }
+
+                        InverseMouseArea {
+                            anchors.fill: parent
+
+                            onClicked: {
+                                textInputField.visible = true;
+                                textInputField.forceActiveFocus();
+                            }
+                        }
+                    }
+
+                    Icon {
+                        id: confirmFavourite
+                        visible: favouriteTextField.visible
+
+                        name: "keyboard-enter"
+
+                        anchors {
+                            right: parent.right
+                            rightMargin: units.gu(1)
+                            top: parent.top
+                            topMargin: units.gu(1)
+                        }
+
+                        height: parent.height - units.gu(2)
+                        width: height
+                    }
+
+                    TextField {
+                        id: textInputField
+                        objectName: "textInputField"
+                        // TODO: Make sure this bug gets fixed in SDK:
+                        // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
+                        // It has been fixed in vivid - wait until it becomes the stable
+                        // version before removing this
+                        width: parent.width - favouriteIcon.width - units.gu(2)
+                        //width: Math.min(contentWidth + units.gu(3), parent.width - favouriteIcon.width - units.gu(2))
+                        height: parent.height
+
+                        // remove ubuntu shape
+                        style: TextFieldStyle {
+                            background: Item {
+                            }
+                        }
+
+                        text: Formula.returnFormulaToDisplay(displayedInputText)
+                        font.pixelSize: height * 0.7
+                        horizontalAlignment: TextInput.AlignRight
+                        anchors {
+                            right: parent.right
+                            rightMargin: units.gu(1)
+                        }
+
+                        readOnly: true
+                        selectByMouse: true
+                        cursorVisible: true
+                        onCursorPositionChanged:
+                            if (cursorPosition !== length ) {
+                                // Count cursor position from the end of line
+                                var preservedCursorPosition = length - cursorPosition;
+                                displayedInputText = longFormula;
+                                cursorPosition = length - preservedCursorPosition;
+                            } else {
+                                displayedInputText = shortFormula;
+                            }
+                    }
+                }
+
+                Loader {
+                    id: keyboardLoader
+                    width: parent.width
+                    visible: textInputField.visible
+                    source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
+                    opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
-
-            text: Formula.returnFormulaToDisplay(displayedInputText)
-            font.pixelSize: height * 0.7
-            //horizontalAlignment: TextInput.AlignRight
-            anchors {
-                right: parent.right
-                rightMargin: units.gu(1)
-            }
-
-            readOnly: true
-            selectByMouse: true
-            cursorVisible: true
-            onCursorPositionChanged:
-                if (cursorPosition !== length ) {
-                    // Count cursor position from the end of line
-                    var preservedCursorPosition = length - cursorPosition;
-                    displayedInputText = longFormula;
-                    cursorPosition = length - preservedCursorPosition;
-                } else {
-                    displayedInputText = shortFormula;
-                }
-        }
-
-        Loader {
-            id: keyboardLoader
-            width: parent.width
-            source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
-            opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
         }
     }
 }
