@@ -33,7 +33,8 @@ set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON                            "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
-set(APP_VERSION                     0.1)
+set(AUTOPILOT_DIR                   ubuntu_calculator_app)
+set(APP_VERSION                     2.0)
 
 if(CLICK_MODE)
   set(CMAKE_INSTALL_PREFIX "/")
@@ -48,7 +49,7 @@ if(CLICK_MODE)
               OUTPUT_VARIABLE BZR_REVNO
               WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
               OUTPUT_STRIP_TRAILING_WHITESPACE
-      )
+    )
   endif(NOT BZR_REVNO)
   if(NOT BZR_SOURCE)
     set(BZR_SOURCE lp:${APP_HARDCODE})
@@ -80,8 +81,8 @@ else(CLICK_MODE)
 endif(CLICK_MODE)
 
 file(GLOB_RECURSE I18N_SRC_FILES
-    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
-    *.qml *.js)
+     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
+     *.qml *.js)
 list(APPEND I18N_SRC_FILES  ${CMAKE_CURRENT_BINARY_DIR}/po/${DESKTOP_FILE}.in.in.h)
 list(SORT I18N_SRC_FILES)
 

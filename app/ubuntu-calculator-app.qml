@@ -160,9 +160,21 @@ MainView {
             return;
         }
 
+        // We try to balance brackets to avoid mathJs errors
+        var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
+                                        (longFormula.match(/\)/g) || []).length;
+
+        for (var i = 0; i < numberOfOpenedBrackets; i++) {
+            formulaPush(')');
+        }
+
         try {
             var result = mathJs.eval(longFormula);
         } catch(exception) {
+            // If the formula isn't right and we added brackets, we remove them
+            for (var i = 0; i < numberOfOpenedBrackets; i++) {
+                deleteLastFormulaElement();
+            }
             console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             return false;
         }
@@ -585,7 +597,7 @@ MainView {
                     id: keyboardLoader
                     width: parent.width
                     visible: textInputField.visible
-                    source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraiKeyboard.qml"
+                    source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }

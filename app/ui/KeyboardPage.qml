@@ -41,6 +41,7 @@ Grid {
       0.5 means the button's height will be half the button's width
     */
     property real buttonRatio: 0.7
+    property real buttonMaxHeight: units.gu(10)
 
     spacing: units.gu(1)
 
@@ -104,7 +105,7 @@ Grid {
         Loader {
             sourceComponent: model.text ? buttonComponent : undefined
 
-            height: width * keyboardRoot.buttonRatio
+            height: Math.min(width * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight)
             width: keyboardRoot.width / keyboardRoot.columns - keyboardRoot.spacing
 
             Component {
@@ -112,7 +113,7 @@ Grid {
 
                 Item {
                     KeyboardButton {
-                        height: repeater.baseSize * keyboardRoot.buttonRatio * model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
+                        height: Math.min(repeater.baseSize * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight) * model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
                         width: repeater.baseSize * model.wFactor + (keyboardRoot.spacing * (model.wFactor - 1))
                         text: model.text
                         objectName: model.objectName
