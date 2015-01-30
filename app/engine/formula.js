@@ -111,10 +111,10 @@ function couldAddCloseBracket(formulaToCheck) {
 }
 
 /**
- * Function to replace some chars in the visual textfield
- *
- * @param string engineFormulaToConvert: the string where we have to replace chars
- * @return a string based on param with changes in chars
+ * Function to determine what bracket needs to be added after press
+ * universal bracket
+ * @param string formulaToCheck: formula which will be analysed
+ * @return a string contains bracket to add
  */
 function determineBracketTypeToAdd(formulaToCheck) {
     if (formulaToCheck === '') {
@@ -123,10 +123,8 @@ function determineBracketTypeToAdd(formulaToCheck) {
     var lastChar = longFormula.substring(formulaToCheck.length - 1, formulaToCheck.length);
     if (isNaN(lastChar) && lastChar !== ")") {
         return "(";
-    } else {
-        if (couldAddCloseBracket(formulaToCheck) === true) {
-            return ")";
-        }
+    } else if (couldAddCloseBracket(formulaToCheck) === true) {
+        return ")";
     }
 
     return "*("
