@@ -11,7 +11,7 @@ CalcKeyboard {
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
-            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "( )", name: "universalBracket", pushText: "()" },
             { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
             { text: "×", name: "multiply", pushText: "*", kbdKeys: [Qt.Key_Asterisk] },
             { text: "xⁿ", name: "power", pushText: "^", kbdKeys: [Qt.Key_AsciiCircum] },
@@ -30,10 +30,10 @@ CalcKeyboard {
             { number: 5, name: "five" },
             { number: 6, name: "six" },
             { text: "+", name: "plus" },
-            { text: "(", name: "openBracket" },
-            { text: ")", name: "closeBracket" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
             { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
             { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
+            { text: "1/x³", name: "multiplicativeInverse3", pushText: "^-3" },
             { number: 1, name: "one" },
             { number: 2, name: "two" },
             { number: 3, name: "three" },

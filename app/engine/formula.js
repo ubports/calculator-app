@@ -66,6 +66,7 @@ function deleteLastFormulaElement(isLastCalculate, formulaToCheck) {
     return formulaToCheck;
 }
 
+
 /**
  * Function to check if a char is an operator
  *
@@ -84,6 +85,49 @@ function isOperator(digit) {
         default:
             return false;
     }
+}
+
+/**
+ * Function to check if could be add a close bracket at the end of a formula
+ *
+ * @param string formulaToCheck: the formula where we have to add the close bracket
+ * @return bool: true if the close bracket could be added, false otherwhise
+ */
+function couldAddCloseBracket(formulaToCheck) {
+    // Don't close a bracket just after opened it
+    if (formulaToCheck.slice(-1) === "(") {
+        return false;
+    }
+
+    // Calculate how many brackets are opened
+    var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
+                                (longFormula.match(/\)/g) || []).length;
+
+    if (numberOfOpenedBrackets < 1) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Function to determine what bracket needs to be added after press
+ * universal bracket
+ * @param string formulaToCheck: formula which will be analysed
+ * @return a string contains bracket to add
+ */
+function determineBracketTypeToAdd(formulaToCheck) {
+    if (formulaToCheck === '') {
+        return "(";
+    }
+    var lastChar = longFormula.substring(formulaToCheck.length - 1, formulaToCheck.length);
+    if (isNaN(lastChar) && lastChar !== ")") {
+        return "(";
+    } else if (couldAddCloseBracket(formulaToCheck) === true) {
+        return ")";
+    }
+
+    return "*("
 }
 
 /**
@@ -185,25 +229,3 @@ function couldAddDot(formulaToCheck) {
     return true;
 }
 
-/**
- * Function to check if could be add a close bracket at the end of a formula
- *
- * @param string formulaToCheck: the formula where we have to add the close bracket
- * @return bool: true if the close bracket could be added, false otherwhise
- */
-function couldAddCloseBracket(formulaToCheck) {
-    // Don't close a bracket just after opened it
-    if (formulaToCheck.slice(-1) === "(") {
-        return false;
-    }
-
-    // Calculate how many brackets are opened
-    var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
-                                (longFormula.match(/\)/g) || []).length;
-
-    if (numberOfOpenedBrackets < 1) {
-        return false;
-    }
-
-    return true;
-}

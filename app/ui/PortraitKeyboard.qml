@@ -10,7 +10,7 @@ CalcKeyboard {
 
         keyboardModel: new Array(
             { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
-            { text: "√", name: "sqrt", pushText: "sqrt("},
+            { text: "( )", name: "universalBracket", pushText: "()" },
             { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
             { text: "×", name: "multiply", pushText: "*", kbdKeys: [Qt.Key_Asterisk] },
             { number: 7, name: "seven" },
@@ -43,10 +43,10 @@ CalcKeyboard {
             { text: "π", name: "piNumber", pushText: "pi", kbdKeys: [Qt.Key_P] },
             { text: i18n.tr("mod"), name: "modulo", pushText: "%", kbdKeys: [Qt.Key_Percent] },
             { text: "!", name: "factorialNumber", kbdKeys: [Qt.Key_Exclam] },
-            { text: "(", name: "openBracket" },
-            { text: ")", name: "closeBracket" },
+            { text: "√", name: "sqrt", pushText: "sqrt("},
             { text: "1/x", name: "multiplicativeInverse", pushText: "^-1" },
             { text: "1/x²", name: "multiplicativeInverse2", pushText: "^-2" },
+            { text: "1/x³", name: "multiplicativeInverse3", pushText: "^-3" },
             { text: "eⁿ", name: "exp", pushText: "exp("},
             { text: "sin", name: "sinus", pushText: "sin(", kbdKeys: [Qt.Key_S]  },
             { text: "cos", name: "cos", pushText: "cos(", kbdKeys: [Qt.Key_C]  },

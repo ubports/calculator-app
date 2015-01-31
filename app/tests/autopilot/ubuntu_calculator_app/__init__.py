@@ -72,7 +72,7 @@ class MainView(ubuntuuitoolkit.MainView):
                '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
                '3': 'threeButton', '4': 'fourButton', '5': 'fiveButton',
                '6': 'sixButton', '7': 'sevenButton', '8': 'eightButton',
-               '9': 'nineButton'}
+               '9': 'nineButton', 'bracket': 'universalBracketButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
@@ -81,6 +81,9 @@ class MainView(ubuntuuitoolkit.MainView):
     def insert(self, expression):
         for operand in expression:
             self.press(operand)
+
+    def press_universal_bracket(self):
+        self.press('bracket')
 
     def clear(self):
         self.press('clear')
