@@ -7,41 +7,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-01-27 00:12+0100\n"
+"POT-Creation-Date: 2015-01-30 22:35+0100\n"
 "PO-Revision-Date: 2015-01-20 02:00+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Burmese <my@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-30 07:33+0000\n"
+"X-Launchpad-Export-Date: 2015-01-31 06:23+0000\n"
 "X-Generator: Launchpad (build 17306)\n"
 
-#: ../app/engine/formula.js:101
+#: ../app/engine/formula.js:145
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:229
+#: ../app/ubuntu-calculator-app.qml:214 ../app/ubuntu-calculator-app.qml:219
+msgid "Favorite"
+msgstr ""
+
+#: ../app/ubuntu-calculator-app.qml:270
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:237
+#: ../app/ubuntu-calculator-app.qml:278
 msgid "Select All"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:244 ../app/ubuntu-calculator-app.qml:311
+#: ../app/ubuntu-calculator-app.qml:285 ../app/ubuntu-calculator-app.qml:352
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:251 ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:292 ../app/ubuntu-calculator-app.qml:365
 msgid "Delete"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraiKeyboard.qml:39
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+#. valid expressions
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
+#. expressions
+#: ../app/ubuntu-calculator-app.qml:525 ../app/ui/Screen.qml:50
+msgid "dd MMM yyyy"
+msgstr ""
+
+#: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
 msgid "log"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraiKeyboard.qml:42
+#: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
 msgid "mod"
 msgstr ""
 
@@ -64,21 +78,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#. TRANSLATORS: this is a time formatting string, see
-#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
-#. expressions
-#: ../app/ui/Screen.qml:50
-msgid "dd MMM yyyy"
-msgstr ""
-
-#: /tmp/tmp.fxCBR8fL9V/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.OLyVDpDzrv/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "ဂဏန်းတွက်စက်"
 
-#: /tmp/tmp.fxCBR8fL9V/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.OLyVDpDzrv/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.fxCBR8fL9V/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.OLyVDpDzrv/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
