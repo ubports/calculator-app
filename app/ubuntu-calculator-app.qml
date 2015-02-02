@@ -118,10 +118,12 @@ MainView {
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {
+                errorAnimation.restart();
                 return;
             }
         } else {
             if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
+                errorAnimation.restart();
                 return;
             }
         }
@@ -136,7 +138,6 @@ MainView {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
                 console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
-                errorAnimation.restart();
             }
 
             isFormulaIsValidToCalculate = false;
@@ -163,6 +164,7 @@ MainView {
 
     function calculate() {
         if ((longFormula === '') || (isLastCalculate === true)) {
+            errorAnimation.restart();
             return;
         }
 
@@ -190,6 +192,7 @@ MainView {
 
         isLastCalculate = true;
         if (result === longFormula) {
+            errorAnimation.restart();
             return;
         }
 
