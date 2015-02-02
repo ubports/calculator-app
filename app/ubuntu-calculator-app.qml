@@ -34,6 +34,7 @@ MainView {
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false;
     automaticOrientation: true
+    anchorToKeyboard: true
 
     width: units.gu(40);
     height: units.gu(70);
@@ -117,10 +118,12 @@ MainView {
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
             if (validateStringForAddingToFormula(longFormula, visual) === false) {
+                errorAnimation.restart();
                 return;
             }
         } else {
             if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
+                errorAnimation.restart();
                 return;
             }
         }
@@ -161,6 +164,7 @@ MainView {
 
     function calculate() {
         if ((longFormula === '') || (isLastCalculate === true)) {
+            errorAnimation.restart();
             return;
         }
 
@@ -180,6 +184,7 @@ MainView {
                 deleteLastFormulaElement();
             }
             console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
+            errorAnimation.restart();
             return false;
         }
 
@@ -187,6 +192,7 @@ MainView {
 
         isLastCalculate = true;
         if (result === longFormula) {
+            errorAnimation.restart();
             return;
         }
 
@@ -568,6 +574,7 @@ MainView {
                         //width: Math.min(contentWidth + units.gu(3), parent.width - favouriteIcon.width - units.gu(2))
                         height: parent.height
 
+                        color: UbuntuColors.darkGrey
                         // remove ubuntu shape
                         style: TextFieldStyle {
                             background: Item {
@@ -594,6 +601,26 @@ MainView {
                             } else {
                                 displayedInputText = shortFormula;
                             }
+
+                        SequentialAnimation {
+                            id: errorAnimation
+                            running: false
+                            PropertyAnimation {
+                                target: textInputField
+                                properties: "color"
+                                to: UbuntuColors.red
+                                duration: UbuntuAnimation.SnapDuration
+                            }
+                            PauseAnimation {
+                                duration: UbuntuAnimation.SnapDuration
+                            }
+                            PropertyAnimation {
+                                target: textInputField
+                                properties: "color"
+                                to: UbuntuColors.darkGrey
+                                duration: UbuntuAnimation.SnapDuration
+                            }
+                        }
                     }
                 }
 

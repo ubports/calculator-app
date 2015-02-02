@@ -194,6 +194,7 @@ Item {
         width: root.leftActionWidth + actionThreshold
         visible: leftSideAction
         color: UbuntuColors.red
+        opacity: main.x > 0 ? 1 : 0
 
         Icon {
             anchors {
