@@ -22,7 +22,7 @@ CalcKeyboard {
             { number: 8, name: "eight" },
             { number: 9, name: "nine" },
             { text: "−", name: "minus", pushText: "-", kbdKeys: [Qt.Key_Minus] },
-            { text: "e", name: "eNumber", pushText: "E", kbdKeys: [Qt.Key_E] },
+            { text: "ℯ", name: "eNumber", pushText: "E", kbdKeys: [Qt.Key_E] },
             { text: "π", name: "piNumber", pushText: "pi", kbdKeys: [Qt.Key_P] },
             { text: i18n.tr("mod"), name: "modulo", pushText: "%", kbdKeys: [Qt.Key_Percent] },
             { text: "!", name: "factorialNumber", kbdKeys: [Qt.Key_Exclam] },

@@ -39,7 +39,7 @@ CalcKeyboard {
             { text: "x²", name: "square", pushText: "^2" },
             { text: "x³", name: "cube", pushText: "^3" },
             { text: i18n.tr("log"), name: "logarithm", pushText: "log(", kbdKeys: [Qt.Key_L] },
-            { text: "e", name: "eNumber", pushText: "E", kbdKeys: [Qt.Key_E] },
+            { text: "ℯ", name: "eNumber", pushText: "E", kbdKeys: [Qt.Key_E] },
             { text: "π", name: "piNumber", pushText: "pi", kbdKeys: [Qt.Key_P] },
             { text: i18n.tr("mod"), name: "modulo", pushText: "%", kbdKeys: [Qt.Key_Percent] },
             { text: "!", name: "factorialNumber", kbdKeys: [Qt.Key_Exclam] },
