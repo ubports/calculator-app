@@ -83,6 +83,22 @@ function isOperator(digit) {
     }
 }
 
+function validateStringForAddingToFormula(formula, stringToAddToFormula) {
+    if (Formula.isOperator(stringToAddToFormula)) {
+        return couldAddOperator(formula, stringToAddToFormula);
+    }
+
+    if (stringToAddToFormula === ".") {
+        return couldAddDot(formula);
+    }
+
+    if (stringToAddToFormula === ")") {
+        return couldAddCloseBracket(formula);
+    }
+
+    return true;
+}
+
 /**
  * Function to check if could be add a close bracket at the end of a formula
  *
