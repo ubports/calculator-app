@@ -65,5 +65,6 @@ AbstractButton {
         objectName: "buttonMA"
         anchors.fill: parent
         onClicked: buttonRect.clicked();
+        onPressAndHold: buttonRect.pressAndHold();
     }
 }

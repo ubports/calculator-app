@@ -9,7 +9,7 @@ CalcKeyboard {
         buttonMaxHeight: scrollableView.height / 10.0
 
         keyboardModel: new Array(
-            { text: "←", name: "clear", action: "delete", kbdKeys: [Qt.Key_Backspace] },
+            { text: "←", name: "delete", action: "delete", kbdKeys: [Qt.Key_Backspace], secondaryAction: "clearFormula" },
             { text: "( )", name: "universalBracket", pushText: "()" },
             { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
             { text: "×", name: "multiply", pushText: "*", kbdKeys: [Qt.Key_Asterisk] },

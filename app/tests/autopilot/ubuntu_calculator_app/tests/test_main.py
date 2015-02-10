@@ -70,12 +70,24 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'8−7=1')
 
     def test_operation_after_clear(self):
+        self.app.main_view.insert('7*7')
+
+        self._assert_result_is(u'7×7')
+
+        self.app.main_view.clear()
+        self._assert_result_is(u'')
+        self.app.main_view.insert('2*0=')
+
+        self._assert_result_is(u'0')
+        self._assert_history_contains(u'2×0=0')
+
+    def test_operation_after_delete(self):
         self.app.main_view.insert('8*8=')
 
         self._assert_result_is(u'64')
         self._assert_history_contains(u'8×8=64')
 
-        self.app.main_view.clear()
+        self.app.main_view.delete()
         self._assert_result_is(u'')
         self.app.main_view.insert('9*9=')
 
@@ -87,7 +99,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'1.000000001')
         self._assert_history_contains(u'0.000000001+1=1.000000001')
 
-        self.app.main_view.clear()
+        self.app.main_view.delete()
 
         self.app.main_view.insert('0.000000001/10=')
         self._assert_result_is(u'1e−10')
@@ -102,7 +114,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'14')
         self._assert_history_contains(u'2×(3+4)=14')
 
-        self.app.main_view.clear()
+        self.app.main_view.delete()
         self.app.main_view.insert('4')
         self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('3-2')
@@ -118,13 +130,13 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'6')
         self._assert_history_contains(u'2+2×2=6')
 
-        self.app.main_view.clear()
+        self.app.main_view.delete()
         self.app.main_view.insert('2-2*2=')
 
         self._assert_result_is(u'−2')
         self._assert_history_contains(u'2−2×2=-2')
 
-        self.app.main_view.clear()
+        self.app.main_view.delete()
         self.app.main_view.insert('5+6/2=')
 
         self._assert_result_is(u'8')

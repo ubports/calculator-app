@@ -66,7 +66,7 @@ class CalculationHistory(object):
 class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
-    BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
+    BUTTONS = {'delete': 'deleteButton', '*': 'multiplyButton',
                '/': 'divideButton', '.': 'pointButton',
                '=': 'equalsButton', '-': 'minusButton', '+': 'plusButton',
                '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
@@ -85,8 +85,24 @@ class MainView(ubuntuuitoolkit.MainView):
     def press_universal_bracket(self):
         self.press('bracket')
 
+    def delete(self):
+        self.press('delete')
+
     def clear(self):
-        self.press('clear')
+        self.press_and_hold('delete')
+
+    def press_and_hold(self, button):
+        button = self.wait_select_single('KeyboardButton',
+                                         objectName=MainView.BUTTONS[button])
+
+        button_area = button.wait_select_single('QQuickMouseArea',
+                                                objectName='buttonMA')
+
+        self.pointing_device.move_to_object(button)
+        self.pointing_device.press()
+        button_area.pressed.wait_for(True)
+        sleep(3)
+        self.pointing_device.release()
 
     def press(self, button):
         button = self.wait_select_single('KeyboardButton',
@@ -106,7 +122,7 @@ class MainView(ubuntuuitoolkit.MainView):
         self.pointing_device.press()
         # this sleeps represents our minimum press time,
         # should button_area.pressed be true without any wait
-        sleep(0.3)
+        sleep(0.1)
         button_area.pressed.wait_for(True)
         self.pointing_device.release()
 
