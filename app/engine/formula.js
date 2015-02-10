@@ -198,7 +198,7 @@ function couldAddOperator(formulaToCheck, operatorToAdd) {
  */
 function couldAddDot(formulaToCheck) {
     // A dot could be only after a number
-    if (isNaN(formulaToCheck.slice(-1))) {
+    if ((isNaN(formulaToCheck.slice(-1))) || (formulaToCheck === "")) {
         return false;
     }
 
