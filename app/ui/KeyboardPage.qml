@@ -69,7 +69,8 @@ Grid {
                             action: entry.action ? entry.action : "push",
                             objectName: entry.name ? entry.name + "Button" : "",
                             pushText: entry.pushText ? entry.pushText : text,
-                            kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([])
+                            kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([]),
+                            secondaryAction: entry.secondaryAction ? entry.secondaryAction : ""
                         }
                     )
 
@@ -113,7 +114,8 @@ Grid {
 
                 Item {
                     KeyboardButton {
-                        height: Math.min(repeater.baseSize * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight) * model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
+                        height: Math.min(repeater.baseSize * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight) *
+                                model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
                         width: repeater.baseSize * model.wFactor + (keyboardRoot.spacing * (model.wFactor - 1))
                         text: model.text
                         objectName: model.objectName
@@ -128,6 +130,13 @@ Grid {
                                 break;
                             case "calculate":
                                 calculate();
+                                break;
+                            }
+                        }
+                        onPressAndHold: {
+                            switch (model.secondaryAction) {
+                            case "clearFormula":
+                                clearFormula();
                                 break;
                             }
                         }

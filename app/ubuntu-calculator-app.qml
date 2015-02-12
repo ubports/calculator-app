@@ -88,6 +88,15 @@ MainView {
         }
     }
 
+    /**
+     * Function to clear formula in input text field
+     */
+    function clearFormula() {
+        shortFormula = "";
+        longFormula = "";
+        displayedInputText = "";
+    }
+
     function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         if (Formula.isOperator(stringToAddToFormula)) {
             return Formula.couldAddOperator(formula, stringToAddToFormula);
