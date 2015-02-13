@@ -121,19 +121,25 @@ Grid {
                         objectName: model.objectName
                         baseSize: repeater.height
                         onClicked: {
+                            //If key pressed then scroll down
+
                             switch (model.action) {
                             case "push":
                                 formulaPush(model.pushText);
+                                scrollableView.scrollToBottom()
                                 break;
                             case "delete":
                                 deleteLastFormulaElement();
+                                scrollableView.scrollToBottom()
                                 break;
                             case "calculate":
                                 calculate();
+                                scrollableView.scrollToBottom()
                                 break;
                             }
                         }
                         onPressAndHold: {
+                            //If key pressed then scroll down
                             switch (model.secondaryAction) {
                             case "clearFormula":
                                 clearFormula();
