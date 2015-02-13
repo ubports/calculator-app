@@ -383,7 +383,7 @@ MainView {
                                 displayedInputText = model.formula;
                                 isLastCalculate = false;
                                 previousVisual = "";
-                                scrollableView.scrollToBottom()
+                                scrollableView.scrollToBottom();
                             }
                         }
                     }

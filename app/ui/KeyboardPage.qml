@@ -126,15 +126,15 @@ Grid {
                             switch (model.action) {
                             case "push":
                                 formulaPush(model.pushText);
-                                scrollableView.scrollToBottom()
+                                scrollableView.scrollToBottom();
                                 break;
                             case "delete":
                                 deleteLastFormulaElement();
-                                scrollableView.scrollToBottom()
+                                scrollableView.scrollToBottom();
                                 break;
                             case "calculate":
                                 calculate();
-                                scrollableView.scrollToBottom()
+                                scrollableView.scrollToBottom();
                                 break;
                             }
                         }
