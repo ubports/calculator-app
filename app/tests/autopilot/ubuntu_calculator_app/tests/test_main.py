@@ -7,8 +7,6 @@ from testtools.matchers import Equals
 
 from ubuntu_calculator_app.tests import CalculatorAppTestCase
 
-from time import sleep
-
 
 class MainTestCase(CalculatorAppTestCase):
 
