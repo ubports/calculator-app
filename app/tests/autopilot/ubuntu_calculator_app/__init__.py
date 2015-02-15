@@ -16,8 +16,8 @@
 
 """Calculator app autopilot emulators."""
 
-import ubuntuuitoolkit
 from time import sleep
+import ubuntuuitoolkit
 
 
 class CalculatorApp(object):
@@ -72,7 +72,8 @@ class MainView(ubuntuuitoolkit.MainView):
                '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
                '3': 'threeButton', '4': 'fourButton', '5': 'fiveButton',
                '6': 'sixButton', '7': 'sevenButton', '8': 'eightButton',
-               '9': 'nineButton', 'bracket': 'universalBracketButton'}
+               '9': 'nineButton', 'bracket': 'universalBracketButton',
+               'square': 'squareButton', 'cube': 'cubeButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
@@ -135,3 +136,25 @@ class MainView(ubuntuuitoolkit.MainView):
     def get_result(self):
         return self.wait_select_single('TextField',
                                        objectName='textInputField').displayText
+
+    def show_scientific_keyboard(self):
+        self._scientific_keyboard()
+
+    def hide_scientific_keyboard(self):
+        self._scientific_keyboard(enable=False)
+
+    def _scientific_keyboard(self, enable=True):
+        y = (self.globalRect[1] + self.globalRect[3] / 2) + 150
+
+        x_start = self.globalRect[0] + self.globalRect[2]
+        x_stop = self.globalRect[0] + self.globalRect[2]
+
+        if enable:
+            x_stop = x_stop - 200
+        else:
+            x_start = x_start - 300
+
+        self.pointing_device.drag(x_start, y, x_stop, y)
+
+        # TODO: Find a better implementation to avoid this, if possible.
+        sleep(2)

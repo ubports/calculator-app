@@ -178,6 +178,24 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('-1=')
         self._assert_result_is(u'0.6666666666666667')
 
+    def test_square(self):
+        self.app.main_view.insert('2')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('square')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'4')
+
+    def test_cube(self):
+        self.app.main_view.insert('3')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('cube')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'27')
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))
