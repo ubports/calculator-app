@@ -209,7 +209,6 @@ MainView {
         if (!isFavourite) {
             favouriteTextField.text = "";
         }
-
         calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
         longFormula = result;
         shortFormula = result;
@@ -357,7 +356,7 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item ]
+                    rightSideActions: [ screenDelegateCopyAction.item, screenDelegateEditAction.item ]
                     leftSideAction: screenDelegateDeleteAction.item
 
                     Loader {
@@ -373,6 +372,21 @@ MainView {
                         }
                     }
 
+                    Loader {
+                        id: screenDelegateEditAction
+                        sourceComponent: Action {
+                            iconName: "edit"
+                            text: i18n.tr("Edit")
+                            onTriggered: {
+                                longFormula = model.formula;
+                                shortFormula =  model.result;
+                                displayedInputText = model.formula;
+                                isLastCalculate = false;
+                                previousVisual = "";
+                                scrollableView.scrollToBottom();
+                            }
+                        }
+                    }
                     Loader {
                         id: screenDelegateDeleteAction
                         sourceComponent: Action {

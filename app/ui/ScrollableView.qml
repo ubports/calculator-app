@@ -18,11 +18,11 @@
 import QtQuick 2.3
 
 Flickable {
-    id: flickable
+    id: flickableHistory
 
     default property alias data: column.children
     property double oldContentHeight: 0
-    contentHeight: flickable.height > column.height ? flickable.height : column.height
+    contentHeight: flickableHistory.height > column.height ? flickableHistory.height : column.height
     boundsBehavior: Flickable.DragOverBounds
     property bool snap: true
 
@@ -30,19 +30,19 @@ Flickable {
         if (contentY <= 0 || !snap) {
             return;
         }
-        var posy = flickable.height + flickable.visibleArea.yPosition * flickable.contentHeight
+        var posy = flickableHistory.height + flickableHistory.visibleArea.yPosition * flickableHistory.contentHeight
         // FIXME see ubuntu-calculator-app:269:
         // It's column.width - units.gu(2) because of the weird alignment of TextField
         var obj = column.childAt(column.width - units.gu(2), posy)
         if (Math.abs(posy - obj.y) < obj.height / 2) {
             // scroll up
-            var destY = obj.y - flickable.height;
+            var destY = obj.y - flickableHistory.height;
             // don't go out of bound
             if (destY < 0) destY = 0;
             scrollingAnimation.to = destY;
         } else {
             // scroll down
-            scrollingAnimation.to = obj.y + obj.height - flickable.height;
+            scrollingAnimation.to = obj.y + obj.height - flickableHistory.height;
         }
         scrollingAnimation.start()
     }
@@ -60,8 +60,8 @@ Flickable {
     }
 
     function scrollToBottom() {
-        if (column.height > flickable.height) {
-            flickable.contentY = flickable.contentHeight - flickable.height;
+        if (column.height > flickableHistory.height) {
+            flickableHistory.contentY = flickableHistory.contentHeight - flickableHistory.height;
         }
     }
 
@@ -70,7 +70,7 @@ Flickable {
         onHeightChanged: {
             // scroll to bottom only when something is inserted.
             if (oldContentHeight < contentHeight) {
-                flickable.scrollToBottom();
+                flickableHistory.scrollToBottom();
             }
             oldContentHeight = contentHeight;
         }
