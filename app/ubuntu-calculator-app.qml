@@ -305,6 +305,7 @@ MainView {
                             iconName: "edit-copy"
                             text: i18n.tr("Copy")
                             onTriggered: calculatorPage.copySelectedCalculations()
+                            enabled: visualModel.selectedItems.count > 0
                         },
                         Action {
                             id: multiDeleteAction
@@ -312,6 +313,7 @@ MainView {
                             iconName: "delete"
                             text: i18n.tr("Delete")
                             onTriggered: calculatorPage.deleteSelectedCalculations()
+                            enabled: visualModel.selectedItems.count > 0
                         }
                     ]
                 }
