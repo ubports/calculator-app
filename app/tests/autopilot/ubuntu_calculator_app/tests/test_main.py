@@ -196,6 +196,24 @@ class MainTestCase(CalculatorAppTestCase):
 
         self._assert_result_is(u'27')
 
+    def test_power(self):
+        self.app.main_view.insert('2')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('power')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('3=')
+
+        self._assert_result_is(u'8')
+
+    def test_loge(self):
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('log')
+        self.app.main_view.press('e')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'1')
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))
