@@ -304,14 +304,14 @@ MainView {
                             objectName: "copySelectedAction"
                             iconName: "edit-copy"
                             text: i18n.tr("Copy")
-                            onTriggered: copySelectedCalculations()
+                            onTriggered: calculatorPage.copySelectedCalculations()
                         },
                         Action {
                             id: multiDeleteAction
                             objectName: "multiDeleteAction"
                             iconName: "delete"
                             text: i18n.tr("Delete")
-                            onTriggered: deleteSelectedCalculations()
+                            onTriggered: calculatorPage.deleteSelectedCalculations()
                         }
                     ]
                 }
