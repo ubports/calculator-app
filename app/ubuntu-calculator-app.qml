@@ -290,7 +290,13 @@ MainView {
                             id: selectAllAction
                             objectName: "selectAllAction"
                             iconName: "select"
-                            text: i18n.tr("Select All")
+                            // Until a select none icon  will be added to the theme we have to use
+                            // our own
+                            iconSource: visualModel.selectedItems.count < visualModel.items.count ?
+                                    Qt.resolvedUrl("graphics/select.svg") :
+                                    Qt.resolvedUrl("graphics/select_none.svg")
+                            text: visualModel.selectedItems.count < visualModel.items.count ?
+                                    i18n.tr("Select All") : i18n.tr("Select None")
                             onTriggered: visualModel.selectAll()
                         },
                         Action {
