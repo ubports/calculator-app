@@ -364,7 +364,9 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item, screenDelegateEditAction.item ]
+                    rightSideActions: [ screenDelegateCopyAction.item, 
+                                        screenDelegateEditAction.item, 
+                                        screenDelegateFavouriteAction.item ]
                     leftSideAction: screenDelegateDeleteAction.item
 
                     Loader {
@@ -392,6 +394,24 @@ MainView {
                                 isLastCalculate = false;
                                 previousVisual = "";
                                 scrollableView.scrollToBottom();
+                            }
+                        }
+                    }
+                    Loader {
+                        id: screenDelegateFavouriteAction
+                        sourceComponent: Action {
+                            iconName: model.isFavourite ? "starred" : "non-starred"
+                           
+                            text: i18n.tr("Add to favorites")
+                            onTriggered: {
+                                if (model.isFavourite) {
+                                    textInputField.visible = true;
+                                    textInputField.forceActiveFocus();
+                                } else {
+                                    textInputField.visible = false;
+                                    favouriteTextField.forceActiveFocus();
+                                }
+                                model.isFavourite = !model.isFavourite;
                             }
                         }
                     }

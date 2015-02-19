@@ -57,6 +57,7 @@ ListItemWithActions {
         Text {
             anchors.right: parent.right
 
+            color: model.isFavourite ? "#dd4814" : "#808080"
             text: formatDate(model.date)
             font.pixelSize: units.gu(1.5)
             font.italic: true
@@ -76,6 +77,7 @@ ListItemWithActions {
 
                 anchors.bottom: formula.bottom
 
+                color: model.isFavourite ? "#dd4814" : "#808080"
                 text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
@@ -87,6 +89,7 @@ ListItemWithActions {
 
                 anchors.bottom: formula.bottom
 
+                color: model.isFavourite ? "#dd4814" : "#808080"
                 text: " = "
                 font.pixelSize: units.gu(2.5)
                 lineHeight: units.gu(1) + 1
@@ -100,6 +103,7 @@ ListItemWithActions {
                 width: parent.width - equal.width - result.width
                 anchors.bottom: parent.bottom
 
+                color: model.isFavourite ? "#dd4814" : "#808080"
                 text: Formula.returnFormulaToDisplay(model.formula)
                 font.pixelSize: units.gu(2.5)
                 lineHeight: units.gu(1) + 1
