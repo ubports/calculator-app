@@ -214,6 +214,31 @@ class MainTestCase(CalculatorAppTestCase):
 
         self._assert_result_is(u'1')
 
+    def test_factorial(self):
+        self.app.main_view.insert('4')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('!')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'24')
+
+    def test_sincos(self):
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('sin')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('0=')
+
+        self._assert_result_is(u'0')
+
+        self.app.main_view.clear()
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('cos')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('0=')
+
+        self._assert_result_is(u'1')
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))
