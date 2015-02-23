@@ -222,6 +222,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'24')
+        self._assert_history_contains(u'4!=24')
 
     def test_sincos(self):
         self.app.main_view.show_scientific_keyboard()
@@ -230,6 +231,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('0=')
 
         self._assert_result_is(u'0')
+        self._assert_history_contains(u'sin(0)=0')
 
         self.app.main_view.clear()
         self.app.main_view.show_scientific_keyboard()
@@ -238,6 +240,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('0=')
 
         self._assert_result_is(u'1')
+        self._assert_history_contains(u'cos(0)=1')
 
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
