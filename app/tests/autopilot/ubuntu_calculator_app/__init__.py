@@ -16,8 +16,8 @@
 
 """Calculator app autopilot emulators."""
 
-import ubuntuuitoolkit
 from time import sleep
+import ubuntuuitoolkit
 
 
 class CalculatorApp(object):
@@ -66,13 +66,16 @@ class CalculationHistory(object):
 class MainView(ubuntuuitoolkit.MainView):
     """Calculator MainView Autopilot emulator."""
 
-    BUTTONS = {'clear': 'clearButton', '*': 'multiplyButton',
+    BUTTONS = {'delete': 'deleteButton', '*': 'multiplyButton',
                '/': 'divideButton', '.': 'pointButton',
                '=': 'equalsButton', '-': 'minusButton', '+': 'plusButton',
                '0': 'zeroButton', '1': 'oneButton', '2': 'twoButton',
                '3': 'threeButton', '4': 'fourButton', '5': 'fiveButton',
                '6': 'sixButton', '7': 'sevenButton', '8': 'eightButton',
-               '9': 'nineButton', 'bracket': 'universalBracketButton'}
+               '9': 'nineButton', 'bracket': 'universalBracketButton',
+               'square': 'squareButton', 'cube': 'cubeButton',
+               'power': 'powerButton', 'log': 'logarithmButton',
+               'e': 'eNumberButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
@@ -85,8 +88,24 @@ class MainView(ubuntuuitoolkit.MainView):
     def press_universal_bracket(self):
         self.press('bracket')
 
+    def delete(self):
+        self.press('delete')
+
     def clear(self):
-        self.press('clear')
+        self.press_and_hold('delete')
+
+    def press_and_hold(self, button):
+        button = self.wait_select_single('KeyboardButton',
+                                         objectName=MainView.BUTTONS[button])
+
+        button_area = button.wait_select_single('QQuickMouseArea',
+                                                objectName='buttonMA')
+
+        self.pointing_device.move_to_object(button)
+        self.pointing_device.press()
+        button_area.pressed.wait_for(True)
+        sleep(3)
+        self.pointing_device.release()
 
     def press(self, button):
         button = self.wait_select_single('KeyboardButton',
@@ -106,7 +125,7 @@ class MainView(ubuntuuitoolkit.MainView):
         self.pointing_device.press()
         # this sleeps represents our minimum press time,
         # should button_area.pressed be true without any wait
-        sleep(0.3)
+        sleep(0.1)
         button_area.pressed.wait_for(True)
         self.pointing_device.release()
 
@@ -119,3 +138,25 @@ class MainView(ubuntuuitoolkit.MainView):
     def get_result(self):
         return self.wait_select_single('TextField',
                                        objectName='textInputField').displayText
+
+    def show_scientific_keyboard(self):
+        self._scientific_keyboard()
+
+    def hide_scientific_keyboard(self):
+        self._scientific_keyboard(enable=False)
+
+    def _scientific_keyboard(self, enable=True):
+        y = (self.globalRect[1] + self.globalRect[3] / 2) + 150
+
+        x_start = self.globalRect[0] + self.globalRect[2]
+        x_stop = self.globalRect[0] + self.globalRect[2]
+
+        if enable:
+            x_stop = x_stop - 200
+        else:
+            x_start = x_start - 300
+
+        self.pointing_device.drag(x_start, y, x_stop, y)
+
+        # TODO: Find a better implementation to avoid this, if possible.
+        sleep(2)

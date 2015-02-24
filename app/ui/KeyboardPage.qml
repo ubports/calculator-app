@@ -69,7 +69,8 @@ Grid {
                             action: entry.action ? entry.action : "push",
                             objectName: entry.name ? entry.name + "Button" : "",
                             pushText: entry.pushText ? entry.pushText : text,
-                            kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([])
+                            kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([]),
+                            secondaryAction: entry.secondaryAction ? entry.secondaryAction : ""
                         }
                     )
 
@@ -113,21 +114,35 @@ Grid {
 
                 Item {
                     KeyboardButton {
-                        height: Math.min(repeater.baseSize * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight) * model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
+                        height: Math.min(repeater.baseSize * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight) *
+                                model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
                         width: repeater.baseSize * model.wFactor + (keyboardRoot.spacing * (model.wFactor - 1))
                         text: model.text
                         objectName: model.objectName
                         baseSize: repeater.height
                         onClicked: {
+                            //If key pressed then scroll down
+
                             switch (model.action) {
                             case "push":
                                 formulaPush(model.pushText);
+                                scrollableView.scrollToBottom();
                                 break;
                             case "delete":
                                 deleteLastFormulaElement();
+                                scrollableView.scrollToBottom();
                                 break;
                             case "calculate":
                                 calculate();
+                                scrollableView.scrollToBottom();
+                                break;
+                            }
+                        }
+                        onPressAndHold: {
+                            //If key pressed then scroll down
+                            switch (model.secondaryAction) {
+                            case "clearFormula":
+                                clearFormula();
                                 break;
                             }
                         }

@@ -84,7 +84,7 @@ function isOperator(digit) {
 }
 
 function validateStringForAddingToFormula(formula, stringToAddToFormula) {
-    if (Formula.isOperator(stringToAddToFormula)) {
+    if (isOperator(stringToAddToFormula)) {
         return couldAddOperator(formula, stringToAddToFormula);
     }
 
