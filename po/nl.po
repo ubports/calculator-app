@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-02-13 23:19+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-23 09:31+0000\n"
+"Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-19 06:01+0000\n"
-"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-24 05:52+0000\n"
+"X-Generator: Launchpad (build 17355)\n"
 
 #: ../app/engine/formula.js:141
 msgid "NaN"
@@ -27,23 +27,23 @@ msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:284
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: ../app/ubuntu-calculator-app.qml:292
 msgid "Select All"
-msgstr ""
+msgstr "Alles selecteren"
 
 #: ../app/ubuntu-calculator-app.qml:299 ../app/ubuntu-calculator-app.qml:366
 msgid "Copy"
-msgstr ""
+msgstr "Kopiëren"
 
 #: ../app/ubuntu-calculator-app.qml:306 ../app/ubuntu-calculator-app.qml:394
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #: ../app/ubuntu-calculator-app.qml:379
 msgid "Edit"
-msgstr ""
+msgstr "Bewerken"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -53,7 +53,7 @@ msgstr ""
 #. expressions
 #: ../app/ubuntu-calculator-app.qml:554 ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
-msgstr ""
+msgstr "dd MMM jjjj"
 
 #: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
 msgid "log"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
 msgid "mod"
-msgstr ""
+msgstr "mod"
 
 #: ../app/ui/Screen.qml:36
 msgid "Just now"
@@ -69,14 +69,14 @@ msgstr ""
 
 #: ../app/ui/Screen.qml:38
 msgid "Today "
-msgstr ""
+msgstr "Vandaag "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:42
 msgid "hh:mm"
-msgstr ""
+msgstr "uu:mm"
 
 #: ../app/ui/Screen.qml:44
 msgid "Yesterday"
@@ -88,7 +88,7 @@ msgstr "Rekenmachine"
 
 #: /tmp/tmp.RkXdmNBKKn/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr ""
+msgstr "Een rekenmachine voor Ubuntu."
 
 #: /tmp/tmp.RkXdmNBKKn/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
