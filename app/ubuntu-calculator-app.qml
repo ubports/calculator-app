@@ -66,6 +66,9 @@ MainView {
     // Var used to save favourite calcs
     property bool isFavourite: false
 
+    // Var used to store currently edited database Id
+    property var currentlyEditedCalculationIndex: -1
+
     // By default we delete selected calculation from history
     property bool deleteSelectedCalculation: true;
 
@@ -210,6 +213,7 @@ MainView {
             favouriteTextField.text = "";
         }
         calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
+        editedDbId = -1;
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
@@ -400,17 +404,22 @@ MainView {
                     Loader {
                         id: screenDelegateFavouriteAction
                         sourceComponent: Action {
-                            iconName: model.isFavourite ? "starred" : "non-starred"
-                           
+                            iconName: (currentlyEditedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
+                            
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
+                                
                                 if (model.isFavourite) {
+                                    calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
+                                    currentlyEditedCalculationIndex = -1;
                                     textInputField.visible = true;
                                     textInputField.forceActiveFocus();
                                 } else {
+                                    currentlyEditedCalculationIndex = model.index;
                                     textInputField.visible = false;
                                     favouriteTextField.forceActiveFocus();
                                 }
+   
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
@@ -544,7 +553,7 @@ MainView {
                         }
 
                         name: isFavourite ? "starred" : "non-starred"
-                        color: isFavourite ? "#dd4814" : "#808080"
+                        color: isFavourite ? UbuntuColors.orange : UbuntuColors.darkGrey
 
                         MouseArea {
                             anchors.fill: parent
@@ -587,14 +596,7 @@ MainView {
                             }
                         }
 
-                        InverseMouseArea {
-                            anchors.fill: parent
-
-                            onClicked: {
-                                textInputField.visible = true;
-                                textInputField.forceActiveFocus();
-                            }
-                        }
+                        
                     }
 
                     Icon {
@@ -610,6 +612,19 @@ MainView {
                             topMargin: units.gu(1)
                         }
 
+                        MouseArea {
+                            anchors.fill: parent
+
+                            onReleased: {
+                                textInputField.visible = true;
+                                textInputField.forceActiveFocus();
+                                if(currentlyEditedCalculationIndex >= 0) {
+                                    calculationHistory.updateCalculationInDatabase(currentlyEditedCalculationIndex, calculationHistory.getContents().get(currentlyEditedCalculationIndex).dbId, true, favouriteTextField.text);
+                                    favouriteTextField.text = "";
+                                    currentlyEditedCalculationIndex = -1;
+                                }
+                            }
+                        }
                         height: parent.height - units.gu(2)
                         width: height
                     }
@@ -680,7 +695,7 @@ MainView {
                     width: parent.width
                     visible: textInputField.visible
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
-                    opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                    opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }
