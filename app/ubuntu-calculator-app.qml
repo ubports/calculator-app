@@ -208,16 +208,11 @@ MainView {
             return;
         }
 
-
-        if (!isFavourite) {
-            favouriteTextField.text = "";
-        }
-        calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
-        editedDbId = -1;
+        calculationHistory.addCalculationToScreen(longFormula, result, false, "");
+        currentlyEditedCalculationIndex = -1;
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
-        isFavourite = false;
         displayedInputText = result;
     }
 
@@ -418,6 +413,7 @@ MainView {
                                     currentlyEditedCalculationIndex = model.index;
                                     textInputField.visible = false;
                                     favouriteTextField.forceActiveFocus();
+                                    scrollableView.scrollToBottom();
                                 }
    
                                 model.isFavourite = !model.isFavourite;
@@ -540,36 +536,6 @@ MainView {
                     width: parent.width
                     height: units.gu(6)
 
-                    Icon {
-                        id: favouriteIcon
-                        height: parent.height - units.gu(2)
-                        width: height
-
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(1)
-                            top: parent.top
-                            topMargin: units.gu(1)
-                        }
-
-                        name: isFavourite ? "starred" : "non-starred"
-                        color: isFavourite ? UbuntuColors.orange : UbuntuColors.darkGrey
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if (isFavourite) {
-                                    textInputField.visible = true;
-                                    textInputField.forceActiveFocus();
-                                } else {
-                                    textInputField.visible = false;
-                                    favouriteTextField.forceActiveFocus();
-                                }
-                                isFavourite = !isFavourite;
-                            }
-                        }
-                    }
-
                     TextField {
                         id: favouriteTextField
 
@@ -577,7 +543,7 @@ MainView {
                             right: confirmFavourite.left
                             rightMargin: units.gu(1)
                         }
-                        width: parent.width - favouriteIcon.width - confirmFavourite.width - units.gu(3)
+                        width: parent.width - confirmFavourite.width - units.gu(3)
                         height: parent.height
                         visible: !textInputField.visible
 
@@ -636,8 +602,8 @@ MainView {
                         // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
                         // It has been fixed in vivid - wait until it becomes the stable
                         // version before removing this
-                        width: parent.width - favouriteIcon.width - units.gu(2)
-                        //width: Math.min(contentWidth + units.gu(3), parent.width - favouriteIcon.width - units.gu(2))
+                        width: parent.width - units.gu(2)
+                        //width: Math.min(contentWidth + units.gu(3), parent.width - units.gu(2))
                         height: parent.height
 
                         color: UbuntuColors.darkGrey
