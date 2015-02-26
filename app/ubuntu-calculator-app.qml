@@ -66,10 +66,11 @@ MainView {
     // Var used to save favourite calcs
     property bool isFavourite: false
 
-    // Var used to store currently edited database Id
-    property var currentlyEditedCalculationIndex: -1
+    // Var used to store currently edited calculation history item
+    property int editedCalculationIndex: -1
 
-    // By default we delete selected calculation from history
+    // By default we delete selected calculation from history.
+    // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
     /**
@@ -209,7 +210,7 @@ MainView {
         }
 
         calculationHistory.addCalculationToScreen(longFormula, result, false, "");
-        currentlyEditedCalculationIndex = -1;
+        editedCalculationIndex = -1;
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
@@ -399,18 +400,18 @@ MainView {
                     Loader {
                         id: screenDelegateFavouriteAction
                         sourceComponent: Action {
-                            iconName: (currentlyEditedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
+                            iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
                             
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
                                 
                                 if (model.isFavourite) {
                                     calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
-                                    currentlyEditedCalculationIndex = -1;
+                                    editedCalculationIndex = -1;
                                     textInputField.visible = true;
                                     textInputField.forceActiveFocus();
                                 } else {
-                                    currentlyEditedCalculationIndex = model.index;
+                                    editedCalculationIndex = model.index;
                                     textInputField.visible = false;
                                     favouriteTextField.forceActiveFocus();
                                     scrollableView.scrollToBottom();
@@ -584,10 +585,10 @@ MainView {
                             onReleased: {
                                 textInputField.visible = true;
                                 textInputField.forceActiveFocus();
-                                if(currentlyEditedCalculationIndex >= 0) {
-                                    calculationHistory.updateCalculationInDatabase(currentlyEditedCalculationIndex, calculationHistory.getContents().get(currentlyEditedCalculationIndex).dbId, true, favouriteTextField.text);
+                                if(editedCalculationIndex >= 0) {
+                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex, calculationHistory.getContents().get(editedCalculationIndex).dbId, true, favouriteTextField.text);
                                     favouriteTextField.text = "";
-                                    currentlyEditedCalculationIndex = -1;
+                                    editedCalculationIndex = -1;
                                 }
                             }
                         }

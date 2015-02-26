@@ -177,7 +177,7 @@ Item {
                 function (tx) {
                     tx.executeSql('DELETE FROM Calculations WHERE dbId = ?', [dbId]);
                 }
-            )
+            );
         });
         timer.start();
     }
