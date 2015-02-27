@@ -53,18 +53,30 @@ ListItemWithActions {
     color: "white"
     Column {
         anchors.fill: parent
-
-        Text {
+        Row {
+            id: creationDateRow
+            width: parent.width
             anchors.right: parent.right
 
-            color: model.isFavourite ? UbuntuColors.orange : UbuntuColors.darkGrey
-            text: formatDate(model.date)
-            font.pixelSize: units.gu(1.5)
-            font.italic: true
-        }
+            layoutDirection: Qt.RightToLeft
+            Icon {
+                id: favouriteIcon
+                height: units.gu(2)
+                width: height
+                name: model.isFavourite ? "starred" : "non-starred"
+                color: model.isFavourite ? UbuntuColors.orange : "white"
+            }
 
+            Text {
+                id: creationTimeText
+                color: UbuntuColors.darkGrey
+                text: formatDate(model.date)
+                font.pixelSize: units.gu(1.5)
+                font.italic: true
+            }
+        }
         Row {
-            id: row
+            id: calculationRow
             width: parent.width
             anchors.right: parent.right
 
