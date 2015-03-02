@@ -60,6 +60,15 @@ ListItemWithActions {
             spacing: units.gu(1)
 
             layoutDirection: Qt.RightToLeft
+
+            Text {
+                id: creationTimeText
+                color: UbuntuColors.darkGrey
+                text: formatDate(model.date)
+                font.pixelSize: units.gu(1.5)
+                font.italic: true
+            }
+
             Icon {
                 id: favouriteIcon
                 height: units.gu(1.8)
@@ -69,11 +78,13 @@ ListItemWithActions {
             }
 
             Text {
-                id: creationTimeText
+                id: favouriteDescriptionText
                 color: UbuntuColors.darkGrey
-                text: formatDate(model.date)
+                text: model.favouriteText
+                //width: creationDateRow.width - creationTimeText.width -favouriteIcon.width - units.gu(3)
+                width: paintedWidth + units.gu(3)
                 font.pixelSize: units.gu(1.5)
-                font.italic: true
+                font.bold: true
             }
         }
         Row {
