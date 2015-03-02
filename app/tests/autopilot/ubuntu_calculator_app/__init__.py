@@ -75,7 +75,8 @@ class MainView(ubuntuuitoolkit.MainView):
                '9': 'nineButton', 'bracket': 'universalBracketButton',
                'square': 'squareButton', 'cube': 'cubeButton',
                'power': 'powerButton', 'log': 'logarithmButton',
-               'e': 'eNumberButton'}
+               'e': 'eNumberButton', '!': 'factorialNumberButton',
+               'sin': 'sinusButton', 'cos': 'cosButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)
@@ -148,7 +149,7 @@ class MainView(ubuntuuitoolkit.MainView):
     def _scientific_keyboard(self, enable=True):
         y = (self.globalRect[1] + self.globalRect[3] / 2) + 150
 
-        x_start = self.globalRect[0] + self.globalRect[2]
+        x_start = self.globalRect[0] + self.globalRect[2] - 10
         x_stop = self.globalRect[0] + self.globalRect[2]
 
         if enable:

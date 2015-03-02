@@ -101,22 +101,6 @@ MainView {
         displayedInputText = "";
     }
 
-    function validateStringForAddingToFormula(formula, stringToAddToFormula) {
-        if (Formula.isOperator(stringToAddToFormula)) {
-            return Formula.couldAddOperator(formula, stringToAddToFormula);
-        }
-
-        if (stringToAddToFormula === ".") {
-            return Formula.couldAddDot(formula);
-        }
-
-        if (stringToAddToFormula === ")") {
-            return Formula.couldAddCloseBracket(formula);
-        }
-
-        return true;
-    }
-
     function formulaPush(visual) {
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
@@ -130,12 +114,12 @@ MainView {
         }
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
-            if (validateStringForAddingToFormula(longFormula, visual) === false) {
+            if (Formula.validateStringForAddingToFormula(longFormula, visual) === false) {
                 errorAnimation.restart();
                 return;
             }
         } else {
-            if (validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
+            if (Formula.validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 errorAnimation.restart();
                 return;
             }
