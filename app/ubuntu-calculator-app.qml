@@ -569,8 +569,11 @@ MainView {
                             onReleased: {
                                 textInputField.visible = true;
                                 textInputField.forceActiveFocus();
-                                if(editedCalculationIndex >= 0) {
-                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex, calculationHistory.getContents().get(editedCalculationIndex).dbId, true, favouriteTextField.text);
+                                if (editedCalculationIndex >= 0) {
+                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
+                                                                                   calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                                                                   true,
+                                                                                   favouriteTextField.text);
                                     favouriteTextField.text = "";
                                     editedCalculationIndex = -1;
                                 }
@@ -588,7 +591,6 @@ MainView {
                         // It has been fixed in vivid - wait until it becomes the stable
                         // version before removing this
                         width: parent.width - units.gu(2)
-                        //width: Math.min(contentWidth + units.gu(3), parent.width - units.gu(2))
                         height: parent.height
 
                         color: UbuntuColors.darkGrey

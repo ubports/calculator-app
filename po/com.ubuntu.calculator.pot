@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 20:57+0100\n"
+"POT-Creation-Date: 2015-03-02 22:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,8 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
+#: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr ""
 
@@ -90,14 +91,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.d26FIGbPUE/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.cFtjuQu3eW/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.d26FIGbPUE/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.cFtjuQu3eW/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.d26FIGbPUE/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.cFtjuQu3eW/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
