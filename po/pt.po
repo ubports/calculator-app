@@ -7,41 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-02-13 23:19+0100\n"
+"POT-Creation-Date: 2015-02-24 20:32+0100\n"
 "PO-Revision-Date: 2015-02-22 17:38+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-23 05:40+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"X-Launchpad-Export-Date: 2015-03-03 06:09+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 
-#: ../app/engine/formula.js:141
+#: ../app/engine/formula.js:157
 msgid "NaN"
 msgstr "NaN"
 
-#: ../app/ubuntu-calculator-app.qml:228 ../app/ubuntu-calculator-app.qml:233
+#: ../app/ubuntu-calculator-app.qml:212 ../app/ubuntu-calculator-app.qml:217
 msgid "Favorite"
 msgstr "Favorito"
 
-#: ../app/ubuntu-calculator-app.qml:284
+#: ../app/ubuntu-calculator-app.qml:268
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../app/ubuntu-calculator-app.qml:292
+#: ../app/ubuntu-calculator-app.qml:282
 msgid "Select All"
 msgstr "Selecionar tudo"
 
-#: ../app/ubuntu-calculator-app.qml:299 ../app/ubuntu-calculator-app.qml:366
+#: ../app/ubuntu-calculator-app.qml:282
+msgid "Select None"
+msgstr ""
+
+#: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:358
 msgid "Copy"
 msgstr "Copiar"
 
-#: ../app/ubuntu-calculator-app.qml:306 ../app/ubuntu-calculator-app.qml:394
+#: ../app/ubuntu-calculator-app.qml:297 ../app/ubuntu-calculator-app.qml:386
 msgid "Delete"
 msgstr "Apagar"
 
-#: ../app/ubuntu-calculator-app.qml:379
+#: ../app/ubuntu-calculator-app.qml:371
 msgid "Edit"
 msgstr "Editar"
 
@@ -51,7 +55,7 @@ msgstr "Editar"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:554 ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:546 ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr "dd MMM yyyy"
 
@@ -82,14 +86,14 @@ msgstr "hh:mm"
 msgid "Yesterday"
 msgstr "Ontem"
 
-#: /tmp/tmp.RkXdmNBKKn/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "Calculadora"
 
-#: /tmp/tmp.RkXdmNBKKn/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Calculadora para Ubuntu."
 
-#: /tmp/tmp.RkXdmNBKKn/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "matemática;soma;subtracção;multiplicação;divisão;"
