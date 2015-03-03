@@ -148,6 +148,21 @@ Item {
         );
     }
 
+    function updateCalculationInDatabase(listIndex, dbId, isFavourite, favouriteText) {
+        openDatabase();
+        calculationHistoryDatabase.transaction(
+            function (tx) {
+                var results = tx.executeSql('UPDATE Calculations
+                    SET isFavourite=?, favouriteText=?
+                    WHERE dbId=?',
+                    [isFavourite, favouriteText, dbId]
+                );
+                history.setProperty(listIndex, "isFavourite", isFavourite);
+                history.setProperty(listIndex, "favouriteText", favouriteText);
+            }
+        );
+    }
+
     function getContents() {
         return history;
     }
@@ -162,7 +177,7 @@ Item {
                 function (tx) {
                     tx.executeSql('DELETE FROM Calculations WHERE dbId = ?', [dbId]);
                 }
-            )
+            );
         });
         timer.start();
     }

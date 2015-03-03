@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-24 20:32+0100\n"
+"POT-Creation-Date: 2015-03-02 22:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,16 +37,20 @@ msgstr ""
 msgid "Select None"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:358
+#: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:360
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:297 ../app/ubuntu-calculator-app.qml:386
+#: ../app/ubuntu-calculator-app.qml:297 ../app/ubuntu-calculator-app.qml:412
 msgid "Delete"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:371
+#: ../app/ubuntu-calculator-app.qml:373
 msgid "Edit"
+msgstr ""
+
+#: ../app/ubuntu-calculator-app.qml:389
+msgid "Add to favorites"
 msgstr ""
 
 #. TRANSLATORS: this is a time formatting string, see
@@ -55,7 +59,8 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:546 ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
+#: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr ""
 
@@ -86,14 +91,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.BVR0LEjnfA/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

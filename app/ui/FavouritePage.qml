@@ -53,8 +53,7 @@ Page {
                     if (favouriteIcon.name == "starred") {
                         favouriteIcon.name = "non-starred";
                         removedFavourites.push(model.dbId);
-                    }
-                    else {
+                    } else {
                         favouriteIcon.name = "starred";
                         removedFavourites.splice(removedFavourites.indexOf(model.dbId), 1);
                     }
@@ -77,7 +76,9 @@ Page {
                 }
 
                 Text {
-                    text: model.favouriteText
+                    text: (model.favouriteText.length === 0) ?
+                              Qt.formatDateTime(new Date(model.date), i18n.tr("dd MMM yyyy")) :
+                              model.favouriteText
                     Layout.fillWidth: true
                 }
 

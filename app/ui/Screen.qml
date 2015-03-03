@@ -53,17 +53,42 @@ ListItemWithActions {
     color: "white"
     Column {
         anchors.fill: parent
-
-        Text {
-            anchors.right: parent.right
-
-            text: formatDate(model.date)
-            font.pixelSize: units.gu(1.5)
-            font.italic: true
-        }
-
         Row {
-            id: row
+            id: creationDateRow
+            width: parent.width
+            anchors.right: parent.right
+            spacing: units.gu(1)
+
+            layoutDirection: Qt.RightToLeft
+
+            Text {
+                id: creationTimeText
+                color: UbuntuColors.darkGrey
+                text: formatDate(model.date)
+                font.pixelSize: units.gu(1.5)
+                font.italic: true
+            }
+
+            Icon {
+                id: favouriteIcon
+                height: units.gu(1.8)
+                width: height
+                name: model.isFavourite ? "starred" : "non-starred"
+                color: model.isFavourite ? UbuntuColors.orange : "white"
+            }
+
+            Text {
+                id: favouriteDescriptionText
+                color: UbuntuColors.orange
+                text: model.favouriteText
+                //width: creationDateRow.width - creationTimeText.width -favouriteIcon.width - units.gu(3)
+                width: paintedWidth + units.gu(3)
+                font.pixelSize: units.gu(1.5)
+                font.bold: true
+            }
+        }
+        Row {
+            id: calculationRow
             width: parent.width
             anchors.right: parent.right
 
@@ -76,6 +101,7 @@ ListItemWithActions {
 
                 anchors.bottom: formula.bottom
 
+                color: UbuntuColors.darkGrey
                 text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
@@ -87,6 +113,7 @@ ListItemWithActions {
 
                 anchors.bottom: formula.bottom
 
+                color: UbuntuColors.darkGrey
                 text: " = "
                 font.pixelSize: units.gu(2.5)
                 lineHeight: units.gu(1) + 1
@@ -100,6 +127,7 @@ ListItemWithActions {
                 width: parent.width - equal.width - result.width
                 anchors.bottom: parent.bottom
 
+                color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.formula)
                 font.pixelSize: units.gu(2.5)
                 lineHeight: units.gu(1) + 1

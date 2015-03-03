@@ -66,7 +66,11 @@ MainView {
     // Var used to save favourite calcs
     property bool isFavourite: false
 
-    // By default we delete selected calculation from history
+    // Var used to store currently edited calculation history item
+    property int editedCalculationIndex: -1
+
+    // By default we delete selected calculation from history.
+    // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
     /**
@@ -189,15 +193,11 @@ MainView {
             return;
         }
 
-
-        if (!isFavourite) {
-            favouriteTextField.text = "";
-        }
-        calculationHistory.addCalculationToScreen(longFormula, result, isFavourite, favouriteTextField.text);
+        calculationHistory.addCalculationToScreen(longFormula, result, false, "");
+        editedCalculationIndex = -1;
         longFormula = result;
         shortFormula = result;
         favouriteTextField.text = "";
-        isFavourite = false;
         displayedInputText = result;
     }
 
@@ -348,7 +348,9 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item, screenDelegateEditAction.item ]
+                    rightSideActions: [ screenDelegateCopyAction.item, 
+                                        screenDelegateEditAction.item, 
+                                        screenDelegateFavouriteAction.item ]
                     leftSideAction: screenDelegateDeleteAction.item
 
                     Loader {
@@ -376,6 +378,30 @@ MainView {
                                 isLastCalculate = false;
                                 previousVisual = "";
                                 scrollableView.scrollToBottom();
+                            }
+                        }
+                    }
+                    Loader {
+                        id: screenDelegateFavouriteAction
+                        sourceComponent: Action {
+                            iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
+                            
+                            text: i18n.tr("Add to favorites")
+                            onTriggered: {
+                                
+                                if (model.isFavourite) {
+                                    calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
+                                    editedCalculationIndex = -1;
+                                    textInputField.visible = true;
+                                    textInputField.forceActiveFocus();
+                                } else {
+                                    editedCalculationIndex = model.index;
+                                    textInputField.visible = false;
+                                    favouriteTextField.forceActiveFocus();
+                                    scrollableView.scrollToBottom();
+                                }
+   
+                                model.isFavourite = !model.isFavourite;
                             }
                         }
                     }
@@ -495,36 +521,6 @@ MainView {
                     width: parent.width
                     height: units.gu(6)
 
-                    Icon {
-                        id: favouriteIcon
-                        height: parent.height - units.gu(2)
-                        width: height
-
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(1)
-                            top: parent.top
-                            topMargin: units.gu(1)
-                        }
-
-                        name: isFavourite ? "starred" : "non-starred"
-                        color: isFavourite ? "#dd4814" : "#808080"
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if (isFavourite) {
-                                    textInputField.visible = true;
-                                    textInputField.forceActiveFocus();
-                                } else {
-                                    textInputField.visible = false;
-                                    favouriteTextField.forceActiveFocus();
-                                }
-                                isFavourite = !isFavourite;
-                            }
-                        }
-                    }
-
                     TextField {
                         id: favouriteTextField
 
@@ -532,7 +528,7 @@ MainView {
                             right: confirmFavourite.left
                             rightMargin: units.gu(1)
                         }
-                        width: parent.width - favouriteIcon.width - confirmFavourite.width - units.gu(3)
+                        width: parent.width - confirmFavourite.width - units.gu(3)
                         height: parent.height
                         visible: !textInputField.visible
 
@@ -551,14 +547,7 @@ MainView {
                             }
                         }
 
-                        InverseMouseArea {
-                            anchors.fill: parent
-
-                            onClicked: {
-                                textInputField.visible = true;
-                                textInputField.forceActiveFocus();
-                            }
-                        }
+                        
                     }
 
                     Icon {
@@ -574,6 +563,22 @@ MainView {
                             topMargin: units.gu(1)
                         }
 
+                        MouseArea {
+                            anchors.fill: parent
+
+                            onReleased: {
+                                textInputField.visible = true;
+                                textInputField.forceActiveFocus();
+                                if (editedCalculationIndex >= 0) {
+                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
+                                                                                   calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                                                                   true,
+                                                                                   favouriteTextField.text);
+                                    favouriteTextField.text = "";
+                                    editedCalculationIndex = -1;
+                                }
+                            }
+                        }
                         height: parent.height - units.gu(2)
                         width: height
                     }
@@ -585,8 +590,7 @@ MainView {
                         // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
                         // It has been fixed in vivid - wait until it becomes the stable
                         // version before removing this
-                        width: parent.width - favouriteIcon.width - units.gu(2)
-                        //width: Math.min(contentWidth + units.gu(3), parent.width - favouriteIcon.width - units.gu(2))
+                        width: parent.width - units.gu(2)
                         height: parent.height
 
                         color: UbuntuColors.darkGrey
@@ -644,7 +648,7 @@ MainView {
                     width: parent.width
                     visible: textInputField.visible
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
-                    opacity: ((y+height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                    opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }
