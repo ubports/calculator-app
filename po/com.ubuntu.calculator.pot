@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 22:49+0100\n"
+"POT-Creation-Date: 2015-03-05 23:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,11 +64,11 @@ msgstr ""
 msgid "dd MMM yyyy"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
 msgid "log"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:45
 msgid "mod"
 msgstr ""
 
@@ -91,14 +91,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /home/m/dev/core/build-reboot-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /home/m/dev/core/build-reboot-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /home/m/dev/core/build-reboot-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

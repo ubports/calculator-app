@@ -26,7 +26,7 @@ AbstractButton {
 
     property real baseSize: 1
     property alias text: buttonText.text
-    property string buttonColor: "#babbbc"
+    property string buttonColor: "#eeeeee"
     property string pressedColor: "#E2E1E4"
     property alias textColor: buttonText.color
 
@@ -41,7 +41,7 @@ AbstractButton {
 
     Rectangle {
         anchors.fill: parent
-        border.color: "#bdbec0"
+        border.color: "#d0d0d0"
         border.width: units.dp(2)
         color: buttonMA.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
 

@@ -43,7 +43,8 @@ Grid {
     property real buttonRatio: 0.7
     property real buttonMaxHeight: units.gu(10)
 
-    spacing: units.gu(1)
+    //Space between the buttons
+    spacing: units.gu(0)
 
     Component.onCompleted: {
         buildModel();
