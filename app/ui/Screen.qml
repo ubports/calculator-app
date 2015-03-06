@@ -102,7 +102,7 @@ ListItemWithActions {
                 anchors.bottom: formula.bottom
 
                 color: UbuntuColors.darkGrey
-                text: (mathJs.format(Number(model.result), 11)).replace('.', decimalPoint)
+                text: Formula.returnFormulaToDisplay((mathJs.format(model.result)))
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight

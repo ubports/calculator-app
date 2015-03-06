@@ -632,7 +632,7 @@ MainView {
                             PropertyAnimation {
                                 target: textInputField
                                 properties: "color"
-                                to: UbuntuColors.red
+                                to: UbuntuColors.greyGradient
                                 duration: UbuntuAnimation.SnapDuration
                             }
                             PauseAnimation {
@@ -641,7 +641,7 @@ MainView {
                             PropertyAnimation {
                                 target: textInputField
                                 properties: "color"
-                                to: UbuntuColors.darkGrey
+                                to: UbuntuColors.orange
                                 duration: UbuntuAnimation.SnapDuration
                             }
                         }

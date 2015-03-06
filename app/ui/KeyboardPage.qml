@@ -44,7 +44,7 @@ Grid {
     property real buttonMaxHeight: units.gu(10)
 
     //Space between the buttons
-    spacing: units.gu(0)
+    spacing: 0
 
     Component.onCompleted: {
         buildModel();
@@ -71,7 +71,8 @@ Grid {
                             objectName: entry.name ? entry.name + "Button" : "",
                             pushText: entry.pushText ? entry.pushText : text,
                             kbdKeys: entry.kbdKeys ? JSON.stringify(entry.kbdKeys) : JSON.stringify([]),
-                            secondaryAction: entry.secondaryAction ? entry.secondaryAction : ""
+                            secondaryAction: entry.secondaryAction ? entry.secondaryAction : "",
+                            textColor: entry.textColor ? entry.textColor : "#5a5a5c"
                         }
                     )
 
@@ -119,6 +120,7 @@ Grid {
                                 model.hFactor + (keyboardRoot.spacing * (model.hFactor - 1))
                         width: repeater.baseSize * model.wFactor + (keyboardRoot.spacing * (model.wFactor - 1))
                         text: model.text
+                        textColor: model.textColor
                         objectName: model.objectName
                         baseSize: repeater.height
                         onClicked: {

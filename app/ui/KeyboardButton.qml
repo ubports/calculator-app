@@ -58,6 +58,8 @@ AbstractButton {
         color: "#5a5a5c"
         font.pixelSize: 0.5 * parent.height
         font.bold: true
+
+         styleColor: "gray"
     }
 
     MouseArea {

@@ -149,6 +149,8 @@ function determineBracketTypeToAdd(formulaToCheck) {
  * @return a string based on param with changes in chars
  */
 function returnFormulaToDisplay(engineFormulaToConvert) {
+    // The deletion of " is necessary for MathJs.format function - it returns a
+    // string surrounded by ", and they're useless, so we remove them
     var engineToVisualMap = {
         '-': '−',
         '\\/': '÷',
@@ -156,7 +158,8 @@ function returnFormulaToDisplay(engineFormulaToConvert) {
         '\\.': decimalPoint,
         'NaN': i18n.tr("NaN"),
         'E': 'ℯ',
-        'Infinity': '∞'
+        'Infinity': '∞',
+        '"': ''
     }
 
     if (engineFormulaToConvert !== undefined) {
