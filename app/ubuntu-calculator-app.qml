@@ -632,7 +632,7 @@ MainView {
                             PropertyAnimation {
                                 target: textInputField
                                 properties: "color"
-                                to: UbuntuColors.greyGradient
+                                to: "#000000"
                                 duration: UbuntuAnimation.SnapDuration
                             }
                             PauseAnimation {
