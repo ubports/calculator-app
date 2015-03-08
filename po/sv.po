@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-02 22:49+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-03-07 10:26+0000\n"
+"Last-Translator: Josef Andersson <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-04 06:01+0000\n"
-"X-Generator: Launchpad (build 17361)\n"
+"X-Launchpad-Export-Date: 2015-03-08 05:45+0000\n"
+"X-Generator: Launchpad (build 17383)\n"
 
 #: ../app/engine/formula.js:157
 msgid "NaN"
@@ -23,35 +23,35 @@ msgstr "NaN"
 
 #: ../app/ubuntu-calculator-app.qml:212 ../app/ubuntu-calculator-app.qml:217
 msgid "Favorite"
-msgstr ""
+msgstr "Favorit"
 
 #: ../app/ubuntu-calculator-app.qml:268
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ../app/ubuntu-calculator-app.qml:282
 msgid "Select All"
-msgstr ""
+msgstr "Markera alla"
 
 #: ../app/ubuntu-calculator-app.qml:282
 msgid "Select None"
-msgstr ""
+msgstr "Markera ingen"
 
 #: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:360
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: ../app/ubuntu-calculator-app.qml:297 ../app/ubuntu-calculator-app.qml:412
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 #: ../app/ubuntu-calculator-app.qml:373
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #: ../app/ubuntu-calculator-app.qml:389
 msgid "Add to favorites"
-msgstr ""
+msgstr "Lägg till i favoriter"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -62,34 +62,34 @@ msgstr ""
 #: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
-msgstr ""
+msgstr "dd MMM yyyy"
 
 #: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
 msgid "log"
-msgstr ""
+msgstr "logg"
 
 #: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
 msgid "mod"
-msgstr ""
+msgstr "mod"
 
 #: ../app/ui/Screen.qml:36
 msgid "Just now"
-msgstr ""
+msgstr "Just nu"
 
 #: ../app/ui/Screen.qml:38
 msgid "Today "
-msgstr ""
+msgstr "Idag "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:42
 msgid "hh:mm"
-msgstr ""
+msgstr "hh:mm"
 
 #: ../app/ui/Screen.qml:44
 msgid "Yesterday"
-msgstr ""
+msgstr "Igår"
 
 #: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
@@ -97,7 +97,7 @@ msgstr "Kalkylator"
 
 #: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr ""
+msgstr "En kalkylator för Ubuntu."
 
 #: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
