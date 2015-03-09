@@ -65,12 +65,14 @@ Rectangle {
 
         Row {
             id: keyboardsRow
-            anchors { left: parent.left; right: parent.right; margins: units.gu(1) }
-            spacing: units.gu(1)
+            anchors { left: parent.left; right: parent.right }
 
             onChildrenChanged: {
                 for (var i = 0; i < children.length; i++) {
-                    children[i].width = Qt.binding(function() { return (keyboardsRow.width - spacing * (children.length - 2)) / children.length; })
+                    children[i].width = Qt.binding(function() {
+                        return (keyboardsRow.width - spacing * (children.length - 2)) / children.length;
+                    }
+                    )
                 }
             }
         }

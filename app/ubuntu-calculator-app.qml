@@ -593,10 +593,15 @@ MainView {
                         width: parent.width - units.gu(2)
                         height: parent.height
 
-                        color: UbuntuColors.darkGrey
+                        color: UbuntuColors.orange
                         // remove ubuntu shape
                         style: TextFieldStyle {
                             background: Item {
+                                Rectangle {
+                                    color: "#EFEEEE"
+                                    width: parent.width
+                                    height: parent.height
+                                }
                             }
                         }
 
@@ -627,7 +632,7 @@ MainView {
                             PropertyAnimation {
                                 target: textInputField
                                 properties: "color"
-                                to: UbuntuColors.red
+                                to: "#000000"
                                 duration: UbuntuAnimation.SnapDuration
                             }
                             PauseAnimation {
@@ -636,7 +641,7 @@ MainView {
                             PropertyAnimation {
                                 target: textInputField
                                 properties: "color"
-                                to: UbuntuColors.darkGrey
+                                to: UbuntuColors.orange
                                 duration: UbuntuAnimation.SnapDuration
                             }
                         }

@@ -45,7 +45,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('3.1=')
 
         self._assert_result_is(u'904090')
-        self._assert_history_contains(u'2450.1×369+3.1=9.0409e+5')
+        self._assert_history_contains(u'2450.1×369+3.1=904090')
 
     def test_addding_operator_after_calculation(self):
         self.app.main_view.insert('8*8.1=')
@@ -103,7 +103,7 @@ class MainTestCase(CalculatorAppTestCase):
 
         self.app.main_view.insert('0.000000001/10=')
         self._assert_result_is(u'1e−10')
-        self._assert_history_contains(u'0.000000001÷10=1e-10')
+        self._assert_history_contains(u'0.000000001÷10=1e−10')
 
     def test_brackets_precedence(self):
         self.app.main_view.insert('2*')
@@ -134,7 +134,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('2-2*2=')
 
         self._assert_result_is(u'−2')
-        self._assert_history_contains(u'2−2×2=-2')
+        self._assert_history_contains(u'2−2×2=−2')
 
         self.app.main_view.delete()
         self.app.main_view.insert('5+6/2=')
@@ -152,7 +152,7 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('5/0=')
 
         self._assert_result_is(u'\u221e')
-        self._assert_history_contains(u'5÷0=Infinity')
+        self._assert_history_contains(u'5÷0=\u221e')
 
     def test_divide_zero_by_zero(self):
         self.app.main_view.insert('0/0=')
