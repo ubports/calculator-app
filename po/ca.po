@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-02 22:49+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-03-07 11:42+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-04 06:01+0000\n"
-"X-Generator: Launchpad (build 17361)\n"
+"X-Launchpad-Export-Date: 2015-03-08 05:45+0000\n"
+"X-Generator: Launchpad (build 17383)\n"
 
 #: ../app/engine/formula.js:157
 msgid "NaN"
@@ -23,7 +23,7 @@ msgstr "NaN"
 
 #: ../app/ubuntu-calculator-app.qml:212 ../app/ubuntu-calculator-app.qml:217
 msgid "Favorite"
-msgstr ""
+msgstr "Preferit"
 
 #: ../app/ubuntu-calculator-app.qml:268
 msgid "Cancel"
@@ -35,7 +35,7 @@ msgstr "Selecciona-ho tot"
 
 #: ../app/ubuntu-calculator-app.qml:282
 msgid "Select None"
-msgstr ""
+msgstr "No seleccionis res"
 
 #: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:360
 msgid "Copy"
@@ -47,11 +47,11 @@ msgstr "Suprimeix"
 
 #: ../app/ubuntu-calculator-app.qml:373
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 #: ../app/ubuntu-calculator-app.qml:389
 msgid "Add to favorites"
-msgstr ""
+msgstr "Afegeix als preferits"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for

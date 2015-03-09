@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-02 22:49+0100\n"
-"PO-Revision-Date: 2015-02-24 09:45+0000\n"
-"Last-Translator: rob <linuxned@gmail.com>\n"
+"PO-Revision-Date: 2015-03-05 16:24+0000\n"
+"Last-Translator: JSE <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-04 06:01+0000\n"
-"X-Generator: Launchpad (build 17361)\n"
+"X-Launchpad-Export-Date: 2015-03-06 06:09+0000\n"
+"X-Generator: Launchpad (build 17374)\n"
 
 #: ../app/engine/formula.js:157
 msgid "NaN"
@@ -23,7 +23,7 @@ msgstr "NaN"
 
 #: ../app/ubuntu-calculator-app.qml:212 ../app/ubuntu-calculator-app.qml:217
 msgid "Favorite"
-msgstr "Favorieten"
+msgstr "Favoriet"
 
 #: ../app/ubuntu-calculator-app.qml:268
 msgid "Cancel"
@@ -35,7 +35,7 @@ msgstr "Alles selecteren"
 
 #: ../app/ubuntu-calculator-app.qml:282
 msgid "Select None"
-msgstr ""
+msgstr "Niets selecteren"
 
 #: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:360
 msgid "Copy"
@@ -51,7 +51,7 @@ msgstr "Bewerken"
 
 #: ../app/ubuntu-calculator-app.qml:389
 msgid "Add to favorites"
-msgstr ""
+msgstr "Aan favorieten toevoegen"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -62,11 +62,11 @@ msgstr ""
 #: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
-msgstr "dd MMM jjjj"
+msgstr "dd MMM yyyy"
 
 #: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
 msgid "mod"
@@ -74,7 +74,7 @@ msgstr "mod"
 
 #: ../app/ui/Screen.qml:36
 msgid "Just now"
-msgstr ""
+msgstr "Zojuist"
 
 #: ../app/ui/Screen.qml:38
 msgid "Today "
@@ -89,7 +89,7 @@ msgstr "uu:mm"
 
 #: ../app/ui/Screen.qml:44
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 #: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
@@ -101,6 +101,4 @@ msgstr "Een rekenmachine voor Ubuntu."
 
 #: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr ""
-"math;addition;subtraction;multiplication;division;optellen;aftrekken;vermenig"
-"vuldigen;delen;"
+msgstr "wiskunde;optellen;aftrekken;vermenigvuldigen;delen;"
