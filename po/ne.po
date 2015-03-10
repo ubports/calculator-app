@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-02 22:49+0100\n"
+"POT-Creation-Date: 2015-03-06 22:13+0100\n"
 "PO-Revision-Date: 2015-01-20 02:00+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Nepali <ne@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-04 06:01+0000\n"
-"X-Generator: Launchpad (build 17361)\n"
+"X-Launchpad-Export-Date: 2015-03-10 05:59+0000\n"
+"X-Generator: Launchpad (build 17389)\n"
 
-#: ../app/engine/formula.js:157
+#: ../app/engine/formula.js:159
 msgid "NaN"
 msgstr "NaN"
 
@@ -64,11 +64,11 @@ msgstr ""
 msgid "dd MMM yyyy"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:20 ../app/ui/PortraitKeyboard.qml:41
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
 msgid "log"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:27 ../app/ui/PortraitKeyboard.qml:44
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:45
 msgid "mod"
 msgstr ""
 
@@ -91,14 +91,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "क्याल्कुलेटर"
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /home/m/dev/core/build-reboot-favourite-Desktop-Default/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "गणित; जोड्; घटाउ; गुणन; विभाजन;"
