@@ -43,7 +43,7 @@ Page {
         subTitle: i18n.tr("Swipe calculations to the left\nto mark as favourites")
         iconName: "starred"
         anchors.centerIn: parent
-        visible: favouriteListview.model.count == 0
+        visible: calculationHistory.numberOfFavourites == 0;
     }
 
     ListView {
