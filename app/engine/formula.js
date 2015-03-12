@@ -96,6 +96,12 @@ function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         return couldAddCloseBracket(formula);
     }
 
+    // Validate complex numbers
+    if ((stringToAddToFormula === "i") || (!isNaN(stringToAddToFormula))){
+        if (formula.slice(-1) === "i") {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -159,7 +165,8 @@ function returnFormulaToDisplay(engineFormulaToConvert) {
         'NaN': i18n.tr("NaN"),
         'E': 'ℯ',
         'Infinity': '∞',
-        '"': ''
+        '"': '',
+        ' ': ''
     }
 
     if (engineFormulaToConvert !== undefined) {

@@ -242,6 +242,25 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'1')
         self._assert_history_contains(u'cos(0)=1')
 
+
+    def test_complex_numbers(self):
+        self.app.main_view.insert('66')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('i')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('*')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('i')
+        self.app.main_view.press('i')
+        self.app.main_view.press('i')
+        self._assert_result_is(u'66i×i')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('33=')
+        self._assert_result_is(u'−66')
+        self._assert_history_contains(u'66i×i=−66')
+
+
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))
