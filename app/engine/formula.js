@@ -139,7 +139,7 @@ function determineBracketTypeToAdd(formulaToCheck) {
         return "(";
     }
     var lastChar = longFormula.substring(formulaToCheck.length - 1, formulaToCheck.length);
-    if (isNaN(lastChar) && lastChar !== ")") {
+    if (isNaN(lastChar) && lastChar !== ")" && lastChar !== "i" && lastChar !== "E") {
         return "(";
     } else if (couldAddCloseBracket(formulaToCheck) === true) {
         return ")";
