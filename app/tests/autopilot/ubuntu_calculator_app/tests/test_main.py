@@ -224,6 +224,19 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'24')
         self._assert_history_contains(u'4!=24')
 
+    def test_factorial_with_brackets(self):
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('3')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('!')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('*2')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'12')
+        self._assert_history_contains(u'(3!×2)=12')
+
     def test_sincos(self):
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('sin')
@@ -242,7 +255,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'1')
         self._assert_history_contains(u'cos(0)=1')
 
-    def test_complex_numbers(self):
+    def test_validation_complex_numbers(self):
         self.app.main_view.insert('66')
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('i')

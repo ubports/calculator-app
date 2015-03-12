@@ -77,6 +77,7 @@ function isOperator(digit) {
         case "/":
         case "%":
         case "^":
+        case "!":
             return true;
         default:
             return false;
@@ -139,7 +140,8 @@ function determineBracketTypeToAdd(formulaToCheck) {
         return "(";
     }
     var lastChar = longFormula.substring(formulaToCheck.length - 1, formulaToCheck.length);
-    if (isNaN(lastChar) && lastChar !== ")" && lastChar !== "i" && lastChar !== "E") {
+
+    if (isNaN(lastChar) && lastChar !== ")" && lastChar !== "i" && lastChar !== "E"  && lastChar !== "!") {
         return "(";
     } else if (couldAddCloseBracket(formulaToCheck) === true) {
         return ")";
@@ -189,8 +191,8 @@ function returnFormulaToDisplay(engineFormulaToConvert) {
  * @return bool: true if the operator could be added, false otherwise
  */
 function couldAddOperator(formulaToCheck, operatorToAdd) {
-    // No two operators one after other
-    if (isOperator(formulaToCheck.slice(-1))) {
+    // No two operators one after other, except factorial operator
+    if (isOperator(formulaToCheck.slice(-1)) && formulaToCheck.slice(-1) !== "!") {
         // But a minus after a * or a / is allowed
         if (!(operatorToAdd === "-" && (formulaToCheck.slice(-1) === "*" ||
                                         formulaToCheck.slice(-1) === "/"))) {
