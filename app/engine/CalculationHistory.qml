@@ -201,6 +201,7 @@ Item {
         var removed = removedFavourites[0];
         history.setProperty(removedFavourites[0], "isFavourite", false);
         removedFavourites.splice(0, 1);
+        numberOfFavourites--;
 
         for (var index in removedFavourites) {
             numberOfFavourites--;
