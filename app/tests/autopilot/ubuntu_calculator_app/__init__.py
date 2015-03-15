@@ -76,7 +76,7 @@ class MainView(ubuntuuitoolkit.MainView):
                'square': 'squareButton', 'cube': 'cubeButton',
                'power': 'powerButton', 'log': 'logarithmButton',
                'e': 'eNumberButton', '!': 'factorialNumberButton',
-               'sin': 'sinusButton', 'cos': 'cosButton'}
+               'i': 'iButton', 'sin': 'sinusButton', 'cos': 'cosButton'}
 
     def __init__(self, *args):
         super(MainView, self).__init__(*args)

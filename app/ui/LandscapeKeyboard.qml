@@ -45,7 +45,7 @@ CalcKeyboard {
             { number: 0, name: "zero", textColor: "#DD4814", forceNumber: true },
             { text: "( )", name: "universalBracket", pushText: "()", textColor: "#DD4814" },
             { text: "=", name: "equals", action: "calculate", kbdKeys: [Qt.Key_Enter, Qt.Key_Return] },
-            { text: "abs", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A] },
+            { text: "|x|", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A] },
             { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
             { text: "cos⁻¹", name: "arccos", pushText: "acos(" },
             { text: "tan⁻¹", name: "arctangens", pushText: "atan(" }

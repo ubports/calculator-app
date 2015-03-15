@@ -52,7 +52,7 @@ CalcKeyboard {
             { text: "sin", name: "sinus", pushText: "sin(", kbdKeys: [Qt.Key_S] },
             { text: "cos", name: "cos", pushText: "cos(", kbdKeys: [Qt.Key_C]  },
             { text: "tan", name: "tangens", pushText: "tan(", kbdKeys: [Qt.Key_T]  },
-            { text: "abs", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A] },
+            { text: "|x|", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A] },
             { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
             { text: "cos⁻¹", name: "arccos", pushText: "acos(" },
             { text: "tan⁻¹", name: "arctangens", pushText: "atan(" }

@@ -224,7 +224,20 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'24')
         self._assert_history_contains(u'4!=24')
 
-    def test_sincos(self):
+    def test_factorial_with_brackets(self):
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('3')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('!')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('*2')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('=')
+
+        self._assert_result_is(u'12')
+        self._assert_history_contains(u'(3!×2)=12')
+
+    def test_sin(self):
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('sin')
         self.app.main_view.hide_scientific_keyboard()
@@ -233,14 +246,32 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'0')
         self._assert_history_contains(u'sin(0)=0')
 
-        self.app.main_view.clear()
+    def test_cos(self):
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('cos')
         self.app.main_view.hide_scientific_keyboard()
-        self.app.main_view.insert('0=')
+        self.app.main_view.insert('0')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('=')
 
         self._assert_result_is(u'1')
         self._assert_history_contains(u'cos(0)=1')
+
+    def test_validation_complex_numbers(self):
+        self.app.main_view.insert('66')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('i')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('*')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('i')
+        self.app.main_view.press('i')
+        self.app.main_view.press('i')
+        self._assert_result_is(u'66i×i')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('33=')
+        self._assert_result_is(u'−66')
+        self._assert_history_contains(u'66i×i=−66')
 
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,

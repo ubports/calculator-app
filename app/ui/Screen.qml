@@ -102,7 +102,7 @@ ListItemWithActions {
                 anchors.bottom: formula.bottom
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay((mathJs.format(model.result)))
+                text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight
