@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-06 22:13+0100\n"
+"POT-Creation-Date: 2015-03-12 23:05+0100\n"
 "PO-Revision-Date: 2015-03-13 02:45+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-14 05:37+0000\n"
+"X-Launchpad-Export-Date: 2015-03-16 06:20+0000\n"
 "X-Generator: Launchpad (build 17389)\n"
 "Language: gd\n"
 
-#: ../app/engine/formula.js:159
+#: ../app/engine/formula.js:167
 msgid "NaN"
 msgstr "NaN"
 
@@ -92,15 +92,15 @@ msgstr "hh:mm"
 msgid "Yesterday"
 msgstr "An-dè"
 
-#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "An t-àireamhair"
 
-#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Àireamhair airson Ubuntu."
 
-#: /tmp/tmp.UV9NB7uRBM/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
 "math;addition;subtraction;multiplication;division;matamataig;roinneadh;toirt "
