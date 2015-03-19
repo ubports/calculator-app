@@ -19,6 +19,7 @@ import QtQuick.LocalStorage 2.0
 Item {
     property var calculationHistoryDatabase: null
     readonly property int lastDatabaseVersion: 1
+    property int numberOfFavourites: 0
 
     ListModel {
         id: history
@@ -30,6 +31,7 @@ Item {
                 // the history
                 if (calc.isFavourite === 1) {
                     calc.isFavourite = true;
+                    numberOfFavourites++;
                 } else {
                     calc.isFavourite = false;
                 }
@@ -117,6 +119,9 @@ Item {
         // addCalculationToDatabase the job to add it to the database
         // that is called only after the element has been added to the
         // model
+        if (isFavourite) {
+            numberOfFavourites++;
+        }
         var date = Date.now();
         history.append({"formula": formula,
             "result": result,
@@ -157,6 +162,12 @@ Item {
                     WHERE dbId=?',
                     [isFavourite, favouriteText, dbId]
                 );
+                if (!history.get(listIndex).isFavourite && isFavourite) {
+                    numberOfFavourites++;
+                }
+                if (history.get(listIndex).isFavourite && !isFavourite) {
+                    numberOfFavourites--;
+                }
                 history.setProperty(listIndex, "isFavourite", isFavourite);
                 history.setProperty(listIndex, "favouriteText", favouriteText);
             }
@@ -169,7 +180,9 @@ Item {
 
     function deleteCalc(dbId, id) {
         openDatabase();
-
+        if (history.get(id).isFavourite) {
+            numberOfFavourites--;
+        }
         history.setProperty(id, "dbId", -1);
 
         timer.execute.push(function () {
@@ -188,8 +201,10 @@ Item {
         var removed = removedFavourites[0];
         history.setProperty(removedFavourites[0], "isFavourite", false);
         removedFavourites.splice(0, 1);
+        numberOfFavourites--;
 
         for (var index in removedFavourites) {
+            numberOfFavourites--;
             history.setProperty(removedFavourites[index], "isFavourite", false);
             removed += "," + removedFavourites[index];
         }

@@ -21,6 +21,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
 import "../engine"
+import "../upstreamcomponents"
 
 Page {
     anchors.fill: parent
@@ -35,6 +36,14 @@ Page {
             }
             mainStack.pop();
         }
+    }
+
+    EmptyState {
+        title: i18n.tr("No favourites")
+        subTitle: i18n.tr("Swipe calculations to the left\nto mark as favourites")
+        iconName: "starred"
+        anchors.centerIn: parent
+        visible: calculationHistory.numberOfFavourites == 0;
     }
 
     ListView {
