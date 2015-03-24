@@ -217,6 +217,8 @@ MainView {
                 title: i18n.tr("Favorite")
             }
 
+            bottomEdgeEnabled: textInputField.visible
+
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [
                 State {
@@ -348,8 +350,8 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item, 
-                                        screenDelegateEditAction.item, 
+                    rightSideActions: [ screenDelegateCopyAction.item,
+                                        screenDelegateEditAction.item,
                                         screenDelegateFavouriteAction.item ]
                     leftSideAction: screenDelegateDeleteAction.item
 
@@ -385,10 +387,10 @@ MainView {
                         id: screenDelegateFavouriteAction
                         sourceComponent: Action {
                             iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
-                            
+
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
-                                
+
                                 if (model.isFavourite) {
                                     calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
                                     editedCalculationIndex = -1;
@@ -400,7 +402,7 @@ MainView {
                                     favouriteTextField.forceActiveFocus();
                                     scrollableView.scrollToBottom();
                                 }
-   
+
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
@@ -525,10 +527,10 @@ MainView {
                         id: favouriteTextField
 
                         anchors {
-                            right: confirmFavourite.left
+                            right: parent.right
                             rightMargin: units.gu(1)
                         }
-                        width: parent.width - confirmFavourite.width - units.gu(3)
+                        width: parent.width - units.gu(3)
                         height: parent.height
                         visible: !textInputField.visible
 
@@ -547,40 +549,18 @@ MainView {
                             }
                         }
 
-                        
-                    }
-
-                    Icon {
-                        id: confirmFavourite
-                        visible: favouriteTextField.visible
-
-                        name: "keyboard-enter"
-
-                        anchors {
-                            right: parent.right
-                            rightMargin: units.gu(1)
-                            top: parent.top
-                            topMargin: units.gu(1)
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-
-                            onReleased: {
-                                textInputField.visible = true;
-                                textInputField.forceActiveFocus();
-                                if (editedCalculationIndex >= 0) {
-                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
-                                                                                   calculationHistory.getContents().get(editedCalculationIndex).dbId,
-                                                                                   true,
-                                                                                   favouriteTextField.text);
-                                    favouriteTextField.text = "";
-                                    editedCalculationIndex = -1;
-                                }
+                        onAccepted: {
+                            textInputField.visible = true;
+                            textInputField.forceActiveFocus();
+                            if (editedCalculationIndex >= 0) {
+                                calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
+                                 calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                 true,
+                                 favouriteTextField.text);
+                                favouriteTextField.text = "";
+                                editedCalculationIndex = -1;
                             }
                         }
-                        height: parent.height - units.gu(2)
-                        width: height
                     }
 
                     TextField {
