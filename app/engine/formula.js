@@ -85,8 +85,9 @@ function isOperator(digit) {
 }
 
 function validateStringForAddingToFormula(formula, stringToAddToFormula) {
-    if (isOperator(stringToAddToFormula)) {
-        return couldAddOperator(formula, stringToAddToFormula);
+    // We are checking first character to validate strings with number eg. "^3"
+    if (isOperator(stringToAddToFormula[0])) {
+        return couldAddOperator(formula, stringToAddToFormula[0]);
     }
 
     if (stringToAddToFormula === ".") {

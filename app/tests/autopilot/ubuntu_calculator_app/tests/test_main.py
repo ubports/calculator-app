@@ -170,22 +170,36 @@ class MainTestCase(CalculatorAppTestCase):
     def test_divide_with_infinite_number_as_result(self):
         self.app.main_view.insert('1/3=')
         self._assert_result_is(u'0.3333333333333333')
+        self._assert_history_contains(u'1÷3=0.3333333333333333')
 
     def test_operation_on_infinite_number(self):
         self.app.main_view.insert('5/3=')
         self._assert_result_is(u'1.6666666666666667')
+        self._assert_history_contains(u'5÷3=1.6666666666666667')
 
         self.app.main_view.insert('-1=')
         self._assert_result_is(u'0.6666666666666667')
 
     def test_square(self):
-        self.app.main_view.insert('2')
+        self.app.main_view.insert('4')
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('square')
         self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
 
-        self._assert_result_is(u'4')
+        self._assert_result_is(u'16')
+        self._assert_history_contains(u'4^2=16')
+
+    def test_adding_square_to_empty_formula(self):
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('square')
+        self._assert_result_is(u'')
+
+    def test_adding_square_after_operator(self):
+        self.app.main_view.insert('6/')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('square')
+        self._assert_result_is(u'6÷')
 
     def test_cube(self):
         self.app.main_view.insert('3')
@@ -195,15 +209,17 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'27')
+        self._assert_history_contains(u'3^3=27')
 
     def test_power(self):
         self.app.main_view.insert('2')
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('power')
         self.app.main_view.hide_scientific_keyboard()
-        self.app.main_view.insert('3=')
+        self.app.main_view.insert('4=')
 
-        self._assert_result_is(u'8')
+        self._assert_result_is(u'16')
+        self._assert_history_contains(u'2^4=16')
 
     def test_loge(self):
         self.app.main_view.show_scientific_keyboard()
