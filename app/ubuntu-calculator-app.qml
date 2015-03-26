@@ -204,7 +204,10 @@ MainView {
     PageStack {
         id: mainStack
 
-        Component.onCompleted: push(calculatorPage)
+        Component.onCompleted: {
+            push(calculatorPage);
+            calculatorPage.forceActiveFocus();
+        }
 
         PageWithBottomEdge {
             id: calculatorPage
