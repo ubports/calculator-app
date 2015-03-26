@@ -52,7 +52,7 @@ Page {
         model: calculationHistory.getContents();
 
         delegate: ListItem.Empty {
-            visible: model.isFavourite
+            visible: model.isFavourite && model.dbId != -1
             height: visible ? units.gu(6) : 0
 
             MouseArea {
