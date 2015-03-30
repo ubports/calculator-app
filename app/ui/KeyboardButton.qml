@@ -22,7 +22,7 @@ import Ubuntu.Components 1.1
 AbstractButton {
     id: buttonRect
     objectName: modelname + "Button"
-    activeFocusOnPress: false
+    activeFocusOnPress: true
 
     property real baseSize: 1
     property alias text: buttonText.text
@@ -36,6 +36,7 @@ AbstractButton {
     onKbdPressedChanged: {
         if (!kbdPressed) {
             buttonRect.clicked();
+            buttonRect.forceActiveFocus();
         }
     }
 

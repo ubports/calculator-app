@@ -73,6 +73,11 @@ MainView {
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
+    Connections {
+        id: oskKeyboard
+        target: Qt.inputMethod
+    }
+
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
      * place the result in right vars
@@ -204,7 +209,10 @@ MainView {
     PageStack {
         id: mainStack
 
-        Component.onCompleted: push(calculatorPage)
+        Component.onCompleted: {
+            push(calculatorPage);
+            calculatorPage.forceActiveFocus();
+        }
 
         PageWithBottomEdge {
             id: calculatorPage
@@ -216,6 +224,8 @@ MainView {
 
                 title: i18n.tr("Favorite")
             }
+
+            bottomEdgeEnabled: textInputField.visible
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [
@@ -348,8 +358,8 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item, 
-                                        screenDelegateEditAction.item, 
+                    rightSideActions: [ screenDelegateCopyAction.item,
+                                        screenDelegateEditAction.item,
                                         screenDelegateFavouriteAction.item ]
                     leftSideAction: screenDelegateDeleteAction.item
 
@@ -385,10 +395,10 @@ MainView {
                         id: screenDelegateFavouriteAction
                         sourceComponent: Action {
                             iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
-                            
+
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
-                                
+
                                 if (model.isFavourite) {
                                     calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
                                     editedCalculationIndex = -1;
@@ -400,7 +410,7 @@ MainView {
                                     favouriteTextField.forceActiveFocus();
                                     scrollableView.scrollToBottom();
                                 }
-   
+
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
@@ -525,10 +535,10 @@ MainView {
                         id: favouriteTextField
 
                         anchors {
-                            right: confirmFavourite.left
+                            right: parent.right
                             rightMargin: units.gu(1)
                         }
-                        width: parent.width - confirmFavourite.width - units.gu(3)
+                        width: parent.width - units.gu(3)
                         height: parent.height
                         visible: !textInputField.visible
 
@@ -547,49 +557,23 @@ MainView {
                             }
                         }
 
-                        
-                    }
-
-                    Icon {
-                        id: confirmFavourite
-                        visible: favouriteTextField.visible
-
-                        name: "keyboard-enter"
-
-                        anchors {
-                            right: parent.right
-                            rightMargin: units.gu(1)
-                            top: parent.top
-                            topMargin: units.gu(1)
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-
-                            onReleased: {
-                                textInputField.visible = true;
-                                textInputField.forceActiveFocus();
-                                if (editedCalculationIndex >= 0) {
-                                    calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
-                                                                                   calculationHistory.getContents().get(editedCalculationIndex).dbId,
-                                                                                   true,
-                                                                                   favouriteTextField.text);
-                                    favouriteTextField.text = "";
-                                    editedCalculationIndex = -1;
-                                }
+                        onAccepted: {
+                            textInputField.visible = true;
+                            textInputField.forceActiveFocus();
+                            if (editedCalculationIndex >= 0) {
+                                calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
+                                 calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                 true,
+                                 favouriteTextField.text);
+                                favouriteTextField.text = "";
+                                editedCalculationIndex = -1;
                             }
                         }
-                        height: parent.height - units.gu(2)
-                        width: height
                     }
 
                     TextField {
                         id: textInputField
                         objectName: "textInputField"
-                        // TODO: Make sure this bug gets fixed in SDK:
-                        // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-                        // It has been fixed in vivid - wait until it becomes the stable
-                        // version before removing this
                         width: parent.width - units.gu(2)
                         height: parent.height
 
@@ -651,7 +635,7 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
-                    visible: textInputField.visible
+                    visible: textInputField.visible && !oskKeyboard.visible
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
