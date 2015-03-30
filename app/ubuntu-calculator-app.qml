@@ -73,6 +73,11 @@ MainView {
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
+    Connections {
+        id: oskKeyboard
+        target: Qt.inputMethod
+    }
+
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
      * place the result in right vars
@@ -625,11 +630,6 @@ MainView {
                             }
                         }
                     }
-                }
-
-                Connections {
-                    id: oskKeyboard
-                    target: Qt.inputMethod
                 }
 
                 Loader {
