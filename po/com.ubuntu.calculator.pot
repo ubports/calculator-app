@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 23:05+0100\n"
+"POT-Creation-Date: 2015-03-26 22:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/engine/formula.js:167
+#: ../app/engine/formula.js:168
 msgid "NaN"
 msgstr ""
 
@@ -59,9 +59,19 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
+#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
+msgstr ""
+
+#: ../app/ui/FavouritePage.qml:42
+msgid "No favourites"
+msgstr ""
+
+#: ../app/ui/FavouritePage.qml:43
+msgid ""
+"Swipe calculations to the left\n"
+"to mark as favourites"
 msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
@@ -91,14 +101,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
