@@ -569,10 +569,6 @@ MainView {
                     TextField {
                         id: textInputField
                         objectName: "textInputField"
-                        // TODO: Make sure this bug gets fixed in SDK:
-                        // https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1320885
-                        // It has been fixed in vivid - wait until it becomes the stable
-                        // version before removing this
                         width: parent.width - units.gu(2)
                         height: parent.height
 
@@ -631,10 +627,15 @@ MainView {
                     }
                 }
 
+                Connections {
+                    id: oskKeyboard
+                    target: Qt.inputMethod
+                }
+
                 Loader {
                     id: keyboardLoader
                     width: parent.width
-                    visible: textInputField.visible
+                    visible: textInputField.visible && !oskKeyboard.visible
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
