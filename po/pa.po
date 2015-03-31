@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-12 23:05+0100\n"
+"POT-Creation-Date: 2015-03-26 22:15+0100\n"
 "PO-Revision-Date: 2015-03-16 05:01+0000\n"
 "Last-Translator: Gursharnjit_Singh <ubuntuser13@gmail.com>\n"
 "Language-Team: Punjabi <pa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-17 05:49+0000\n"
-"X-Generator: Launchpad (build 17389)\n"
+"X-Launchpad-Export-Date: 2015-03-31 06:04+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
-#: ../app/engine/formula.js:167
+#: ../app/engine/formula.js:168
 msgid "NaN"
 msgstr "NaN"
 
@@ -59,10 +59,20 @@ msgstr "ਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:80
+#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr "dd MMM yyyy"
+
+#: ../app/ui/FavouritePage.qml:42
+msgid "No favourites"
+msgstr ""
+
+#: ../app/ui/FavouritePage.qml:43
+msgid ""
+"Swipe calculations to the left\n"
+"to mark as favourites"
+msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
 msgid "log"
@@ -91,14 +101,14 @@ msgstr "hh:mm"
 msgid "Yesterday"
 msgstr "ਕੱਲ੍ਹ"
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "ਕੈਲਕੂਲੇਟਰ"
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "ਉਬੰਤੂ ਲਈ ਇੱਕ ਕੈਲਕੁਲੇਟਰ"
 
-#: /tmp/tmp.8YaHgSIjUW/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "ਹਿਸਾਬ;ਜੋੜ;ਘਟਾਉ;ਗੁਣਾ;ਭਾਗ;"
