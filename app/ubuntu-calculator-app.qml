@@ -635,7 +635,7 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
-                    visible: textInputField.visible && !oskKeyboard.visible
+                    visible: textInputField.visible && (!oskKeyboard.height || oskKeyboard.height === 0)
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
