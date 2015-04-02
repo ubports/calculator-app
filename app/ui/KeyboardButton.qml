@@ -22,6 +22,8 @@ import Ubuntu.Components 1.1
 AbstractButton {
     id: buttonRect
     objectName: modelname + "Button"
+    // We don't want to change focus, because after pressing button and get focus we will hide cursor from textInputField
+    activeFocusOnPress: false
 
     property real baseSize: 1
     property alias text: buttonText.text
