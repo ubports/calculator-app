@@ -34,7 +34,7 @@ MainView {
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false;
     automaticOrientation: true
-    anchorToKeyboard: true
+    anchorToKeyboard: textInputField.visible ? false : true
 
     width: units.gu(40);
     height: units.gu(70);
@@ -72,11 +72,6 @@ MainView {
     // By default we delete selected calculation from history.
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
-
-    Connections {
-        id: oskKeyboard
-        target: Qt.inputMethod
-    }
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
@@ -508,6 +503,7 @@ MainView {
                 anchors {
                     top: header.bottom
                     bottom: parent.bottom
+                    bottomMargin: textInputField.visible ? 0 : -keyboardLoader.height
                     left: parent.left
                     right: parent.right
                 }
@@ -635,9 +631,9 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
-                    visible: textInputField.visible && (!oskKeyboard.height || oskKeyboard.height === 0)
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
-                    opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                    opacity: ((y + height) >= scrollableView.contentY) &&
+                            (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }
