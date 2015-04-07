@@ -32,8 +32,6 @@ add_custom_target(${POT_FILE} ALL
           --copyright-holder='Canonical Ltd.'
           -D ${CMAKE_CURRENT_SOURCE_DIR} 
           ${I18N_SRC_FILES}
-  # Copy the up2date translation file to the source directory
-  COMMAND ${CMAKE_COMMAND} -E copy ${POT_FILE} ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # Builds the binary translations catalog. For each language

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-26 22:15+0100\n"
+"POT-Creation-Date: 2015-04-07 22:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,35 +21,35 @@ msgstr ""
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:212 ../app/ubuntu-calculator-app.qml:217
+#: ../app/ubuntu-calculator-app.qml:215 ../app/ubuntu-calculator-app.qml:220
 msgid "Favorite"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:268
+#: ../app/ubuntu-calculator-app.qml:273
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:282
+#: ../app/ubuntu-calculator-app.qml:287
 msgid "Select All"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:282
+#: ../app/ubuntu-calculator-app.qml:287
 msgid "Select None"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:289 ../app/ubuntu-calculator-app.qml:360
+#: ../app/ubuntu-calculator-app.qml:294 ../app/ubuntu-calculator-app.qml:365
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:297 ../app/ubuntu-calculator-app.qml:412
+#: ../app/ubuntu-calculator-app.qml:302 ../app/ubuntu-calculator-app.qml:417
 msgid "Delete"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:373
+#: ../app/ubuntu-calculator-app.qml:378
 msgid "Edit"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:389
+#: ../app/ubuntu-calculator-app.qml:394
 msgid "Add to favorites"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:542 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:548 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr ""
@@ -101,14 +101,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.IQZ6BEYwiF/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.IQZ6BEYwiF/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.d9b6OuAiba/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.IQZ6BEYwiF/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
