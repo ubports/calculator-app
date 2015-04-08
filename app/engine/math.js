@@ -24,8 +24,7 @@ var mathJs;
  * use this file except in compliance with the License. You may obtain a copy
  * of the License at
  *
- * http://www.apache.org/licens    // UCA: we delete all exports, we don't need them, and we keep only our var
-    mathJs = factory();es/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
