@@ -99,21 +99,15 @@ class MainView(ubuntuuitoolkit.MainView):
         button = self.wait_select_single('KeyboardButton',
                                          objectName=MainView.BUTTONS[button])
 
-        button_area = button.wait_select_single('QQuickMouseArea',
-                                                objectName='buttonMA')
-
         self.pointing_device.move_to_object(button)
         self.pointing_device.press()
-        button_area.pressed.wait_for(True)
+        button.pressed.wait_for(True)
         sleep(3)
         self.pointing_device.release()
 
     def press(self, button):
         button = self.wait_select_single('KeyboardButton',
                                          objectName=MainView.BUTTONS[button])
-
-        button_area = button.wait_select_single('QQuickMouseArea',
-                                                objectName='buttonMA')
 
         self.pointing_device.move_to_object(button)
         # we use press and release so we can check the qml property
@@ -125,9 +119,9 @@ class MainView(ubuntuuitoolkit.MainView):
         # balloons 2015-01-29
         self.pointing_device.press()
         # this sleeps represents our minimum press time,
-        # should button_area.pressed be true without any wait
+        # should button.pressed be true without any wait
         sleep(0.1)
-        button_area.pressed.wait_for(True)
+        button.pressed.wait_for(True)
         self.pointing_device.release()
 
     def get_history(self):
