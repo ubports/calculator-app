@@ -33,7 +33,6 @@ AbstractButton {
 
     readonly property bool kbdPressed: JSON.parse(model.kbdKeys).indexOf(pressedKey) > -1 || (pressedKeyText == text)
 
-
     onKbdPressedChanged: {
         if (!kbdPressed) {
             buttonRect.clicked();
@@ -46,7 +45,7 @@ AbstractButton {
         anchors.fill: parent
         border.color: "#d0d0d0"
         border.width: units.dp(2)
-        color: buttonMA.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
+        color: buttonRect.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
 
         Behavior on color {
             ColorAnimation {
@@ -62,14 +61,6 @@ AbstractButton {
         font.pixelSize: 0.5 * parent.height
         font.bold: true
 
-         styleColor: "gray"
-    }
-
-    MouseArea {
-        id: buttonMA
-        objectName: "buttonMA"
-        anchors.fill: parent
-        onClicked: buttonRect.clicked();
-        onPressAndHold: buttonRect.pressAndHold();
+        styleColor: "gray"
     }
 }
