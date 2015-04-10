@@ -23,8 +23,6 @@ AbstractButton {
     id: buttonRect
     objectName: modelname + "Button"
 
-    activeFocusOnPress: true
-
     property real baseSize: 1
     property alias text: buttonText.text
     property string buttonColor: "#eeeeee"
@@ -33,11 +31,14 @@ AbstractButton {
 
     readonly property bool kbdPressed: JSON.parse(model.kbdKeys).indexOf(pressedKey) > -1 || (pressedKeyText == text)
 
+    onClicked: {
+        //We need to force active focus to hide Favourites tab from bottom edge
+        textInputField.forceActiveFocus();
+    }
+
     onKbdPressedChanged: {
         if (!kbdPressed) {
             buttonRect.clicked();
-            //We need to force active focus to hide Favourites tab from bottom edge
-            textInputField.forceActiveFocus();
         }
     }
 
