@@ -23,7 +23,7 @@ AbstractButton {
     id: buttonRect
     objectName: modelname + "Button"
     // We don't want to change focus, because after pressing button and get focus we will hide cursor from textInputField
-    activeFocusOnPress: false
+    activeFocusOnPress: true
 
     property real baseSize: 1
     property alias text: buttonText.text
@@ -37,6 +37,8 @@ AbstractButton {
     onKbdPressedChanged: {
         if (!kbdPressed) {
             buttonRect.clicked();
+            //We need to force active focus to hide Favourites tab from bottom edge
+            textInputField.forceActiveFocus();
         }
     }
 
