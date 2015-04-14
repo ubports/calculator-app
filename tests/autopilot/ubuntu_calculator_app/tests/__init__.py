@@ -40,7 +40,7 @@ class CalculatorAppTestCase(AutopilotTestCase):
     local_location = os.path.dirname(os.path.dirname(os.getcwd()))
 
     local_location_qml = os.path.join(local_location,
-                                      'ubuntu-calculator-app.qml')
+                                      'app/ubuntu-calculator-app.qml')
 
     installed_location_qml = os.path.join('/usr/share/ubuntu-calculator-app/',
                                           'ubuntu-calculator-app.qml')
