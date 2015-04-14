@@ -100,4 +100,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
 enable_testing()
 
 add_subdirectory(app)
+add_subdirectory(tests)
 add_subdirectory(po)
