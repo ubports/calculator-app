@@ -289,6 +289,11 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'−66')
         self._assert_history_contains(u'66i×i=−66')
 
+    def test_floating_point_round_error(self):
+        self.app.main_view.insert('0.1+0.2=')
+        self._assert_result_is(u'0.3')
+        self._assert_history_contains(u'0.1+0.2=0.3')
+
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
                         Eventually(Equals(value)))

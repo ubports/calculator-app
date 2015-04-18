@@ -102,6 +102,7 @@ MainView {
     }
 
     function formulaPush(visual) {
+        mathJs.config({number: 'bignumber'});
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
@@ -160,6 +161,7 @@ MainView {
     }
 
     function calculate() {
+        mathJs.config({number: 'bignumber'});
         if ((longFormula === '') || (isLastCalculate === true)) {
             errorAnimation.restart();
             return;
