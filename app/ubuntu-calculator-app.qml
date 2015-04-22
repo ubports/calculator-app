@@ -24,6 +24,7 @@ import "upstreamcomponents"
 import "engine"
 import "engine/math.js" as MathJs
 import "engine/formula.js" as Formula
+import Qt.labs.settings 1.0
 
 MainView {
     id: mainView
@@ -68,6 +69,11 @@ MainView {
 
     // Var used to store currently edited calculation history item
     property int editedCalculationIndex: -1
+
+    property var settings: Settings {
+        // Used for Welcome Wizard
+        property bool firstRun: true
+    }
 
     // By default we delete selected calculation from history.
     // If it is set to false, then editing will be invoked
@@ -134,7 +140,7 @@ MainView {
             try {
                 shortFormula = mathJs.eval(shortFormula);
             } catch(exception) {
-                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("[LOG]: Unable to create short formula from: \"" + longFormula + "\", math.js: " + exception.toString());
             }
 
             isFormulaIsValidToCalculate = false;
@@ -180,7 +186,7 @@ MainView {
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
                 deleteLastFormulaElement();
             }
-            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
+            console.log("[LOG]: Unable to calculate formula : \"" + longFormula + "\", math.js: " + exception.toString());
             errorAnimation.restart();
             return false;
         }
@@ -205,13 +211,19 @@ MainView {
         id: mainStack
 
         Component.onCompleted: {
-            push(calculatorPage);
-            calculatorPage.forceActiveFocus();
+            // Show the welcome wizard only when running the app for the first time
+            if (settings.firstRun) {
+                console.log("[LOG]: Detecting first time run by user. Starting welcome wizard.")
+                push(Qt.resolvedUrl("welcomewizard/WelcomeWizard.qml"))
+            } else {
+                push(calculatorPage);
+                calculatorPage.forceActiveFocus();
+            }
         }
 
         PageWithBottomEdge {
             id: calculatorPage
-
+            visible: false
             bottomEdgeTitle: i18n.tr("Favorite")
 
             bottomEdgePageComponent: FavouritePage {
