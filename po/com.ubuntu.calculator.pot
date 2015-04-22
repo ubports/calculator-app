@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 21:20+0200\n"
+"POT-Creation-Date: 2015-04-22 21:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,35 +21,35 @@ msgstr ""
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:215 ../app/ubuntu-calculator-app.qml:220
+#: ../app/ubuntu-calculator-app.qml:227 ../app/ubuntu-calculator-app.qml:232
 msgid "Favorite"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:273
+#: ../app/ubuntu-calculator-app.qml:285
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:299
 msgid "Select All"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:299
 msgid "Select None"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:294 ../app/ubuntu-calculator-app.qml:365
+#: ../app/ubuntu-calculator-app.qml:306 ../app/ubuntu-calculator-app.qml:377
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:302 ../app/ubuntu-calculator-app.qml:417
+#: ../app/ubuntu-calculator-app.qml:314 ../app/ubuntu-calculator-app.qml:429
 msgid "Delete"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:378
+#: ../app/ubuntu-calculator-app.qml:390
 msgid "Edit"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:394
+#: ../app/ubuntu-calculator-app.qml:406
 msgid "Add to favorites"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:548 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:560 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr ""
@@ -101,14 +101,50 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: ../app/ui/Walkthrough.qml:88
+msgid "Skip"
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:42
+msgid "Welcome to Calculator"
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:50
+msgid "Enjoy the power of math by using Calculator."
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:71
+msgid "Swipe to move between pages"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:45
+msgid "Discover Scientific Calculator"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:62
+msgid "You can rotate for the Scientific Calculator"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:45
+msgid "Enjoy"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:62
+msgid "We hope you enjoy using Calculator!"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:76
+msgid "Finish"
+msgstr ""
+
+#: /tmp/tmp.hYmpD8HCXs/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.hYmpD8HCXs/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.hYmpD8HCXs/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
