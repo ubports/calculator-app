@@ -136,7 +136,7 @@ MainView {
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
-                shortFormula = mathJs.format(mathJs.eval(shortFormula)).toString();
+                shortFormula = mathJs.format(mathJs.eval(shortFormula));
             } catch(exception) {
                 console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
@@ -187,8 +187,8 @@ MainView {
             // Maximum length of the result number
             var NUMBER_LENGTH_LIMIT = 12;
 
-            if (mathJs.format(result).toString().length > NUMBER_LENGTH_LIMIT) {
-                if (result.toExponential().toString().length > NUMBER_LENGTH_LIMIT) {
+            if (mathJs.format(result).length > NUMBER_LENGTH_LIMIT) {
+                if (result.toExponential().length > NUMBER_LENGTH_LIMIT) {
                     // long format like: "1.2341322e+22"
                     result = mathJs.format(result, {notation: 'auto', precision: NUMBER_LENGTH_LIMIT});
                 } else {
@@ -207,8 +207,6 @@ MainView {
             errorAnimation.restart();
             return false;
         }
-
-        result = result.toString()
 
         isLastCalculate = true;
         if (result === longFormula) {
