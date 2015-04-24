@@ -136,7 +136,7 @@ MainView {
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
-                shortFormula = mathJs.eval(shortFormula);
+                shortFormula = mathJs.format(mathJs.eval(shortFormula)).toString();
             } catch(exception) {
                 console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
