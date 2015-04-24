@@ -580,9 +580,9 @@ MainView {
                             textInputField.forceActiveFocus();
                             if (editedCalculationIndex >= 0) {
                                 calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
-                                 calculationHistory.getContents().get(editedCalculationIndex).dbId,
-                                 true,
-                                 favouriteTextField.text);
+                                  calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                  true,
+                                  favouriteTextField.text);
                                 favouriteTextField.text = "";
                                 editedCalculationIndex = -1;
                             }
@@ -655,7 +655,7 @@ MainView {
                     width: parent.width
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
-                            (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                             (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }
