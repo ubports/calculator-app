@@ -102,7 +102,6 @@ MainView {
     }
 
     function formulaPush(visual) {
-        mathJs.config({number: 'bignumber'});
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
@@ -161,7 +160,6 @@ MainView {
     }
 
     function calculate() {
-        mathJs.config({number: 'bignumber'});
         if ((longFormula === '') || (isLastCalculate === true)) {
             errorAnimation.restart();
             return;
@@ -207,6 +205,10 @@ MainView {
         id: mainStack
 
         Component.onCompleted: {
+            mathJs.config({
+                number: 'bignumber',  // Choose 'number' (default) or 'bignumber'
+                precision: 16         // 64 by default, only applicable for BigNumbers
+            });
             push(calculatorPage);
             calculatorPage.forceActiveFocus();
         }
