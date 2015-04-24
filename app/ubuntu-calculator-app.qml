@@ -102,6 +102,10 @@ MainView {
     }
 
     function formulaPush(visual) {
+        mathJs.config({
+                number: 'bignumber',  // Choose 'number' (default) or 'bignumber'
+                precision: 64
+        });
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
@@ -160,6 +164,10 @@ MainView {
     }
 
     function calculate() {
+        mathJs.config({
+                number: 'bignumber',  // Choose 'number' (default) or 'bignumber'
+                precision: 64
+        });
         if ((longFormula === '') || (isLastCalculate === true)) {
             errorAnimation.restart();
             return;
@@ -175,6 +183,21 @@ MainView {
 
         try {
             var result = mathJs.eval(longFormula);
+
+            // Maximum length of the result number
+            var NUMBER_LENGTH_LIMIT = 12;
+
+            if (mathJs.format(result).toString().length > NUMBER_LENGTH_LIMIT) {
+                if (result.toExponential().toString().length > NUMBER_LENGTH_LIMIT) {
+                    // long format like: "1.2341322e+22"
+                    result = mathJs.format(result, {notation: 'auto', precision: NUMBER_LENGTH_LIMIT});
+                } else {
+                    // short format like: "1e-10"
+                    result = result.toExponential();
+                }
+            } else {
+                result = mathJs.format(result)
+            }
         } catch(exception) {
             // If the formula isn't right and we added brackets, we remove them
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
@@ -205,10 +228,7 @@ MainView {
         id: mainStack
 
         Component.onCompleted: {
-            mathJs.config({
-                number: 'bignumber',  // Choose 'number' (default) or 'bignumber'
-                precision: 16         // 64 by default, only applicable for BigNumbers
-            });
+
             push(calculatorPage);
             calculatorPage.forceActiveFocus();
         }
