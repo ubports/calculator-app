@@ -105,6 +105,16 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'1e−10')
         self._assert_history_contains(u'0.000000001÷10=1e−10')
 
+    def test_operation_on_large_numbers(self):
+        self.app.main_view.insert('99999999999*99999999999=')
+        self._assert_result_is(u'9.9999999998e+21')
+        self._assert_history_contains(u'99999999999×99999999999=9.9999999998e+21')
+
+        self.app.main_view.insert('*100=')
+
+        self._assert_result_is(u'9.9999999998e+23')
+        self._assert_history_contains(u'9.9999999998e+21×100=9.9999999998e+23')
+
     def test_brackets_precedence(self):
         self.app.main_view.insert('2*')
         self.app.main_view.press_universal_bracket()
