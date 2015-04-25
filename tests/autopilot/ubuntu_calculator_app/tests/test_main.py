@@ -186,11 +186,11 @@ class MainTestCase(CalculatorAppTestCase):
 
     def test_operation_on_infinite_number(self):
         self.app.main_view.insert('5/3=')
-        self._assert_result_is(u'1.666666666667')
-        self._assert_history_contains(u'5÷3=1.666666666667')
+        self._assert_result_is(u'1.66666666667')
+        self._assert_history_contains(u'5÷3=1.66666666667')
 
         self.app.main_view.insert('-1=')
-        self._assert_result_is(u'0.666666666667')
+        self._assert_result_is(u'0.66666666667')
 
     def test_square(self):
         self.app.main_view.insert('4')
