@@ -95,15 +95,15 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'9×9=81')
 
     def test_small_numbers(self):
-        self.app.main_view.insert('0.000000001+1=')
-        self._assert_result_is(u'1.000000001')
-        self._assert_history_contains(u'0.000000001+1=1.000000001')
+        self.app.main_view.insert('0.0000000001+1=')
+        self._assert_result_is(u'1.0000000001')
+        self._assert_history_contains(u'0.0000000001+1=1.0000000001')
 
         self.app.main_view.delete()
 
-        self.app.main_view.insert('0.000000001/10=')
-        self._assert_result_is(u'1e−10')
-        self._assert_history_contains(u'0.000000001÷10=1e−10')
+        self.app.main_view.insert('0.0000000001/10=')
+        self._assert_result_is(u'1e−11')
+        self._assert_history_contains(u'0.0000000001÷10=1e−11')
 
     def test_operation_on_large_numbers(self):
         self.app.main_view.insert('99999999999*99999999999=')
