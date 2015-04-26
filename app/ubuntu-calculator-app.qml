@@ -112,8 +112,11 @@ MainView {
         if (mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}}).length > NUMBER_LENGTH_LIMIT) {
             if (bigNumberToFormat.toExponential().length > NUMBER_LENGTH_LIMIT) {
                 // long format like: "1.2341322e+22"
+                var resultLenth = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                                precision: NUMBER_LENGTH_LIMIT}).length;
+
                 return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
-                                                precision: NUMBER_LENGTH_LIMIT});
+                                                precision: (NUMBER_LENGTH_LIMIT - resultLenth + NUMBER_LENGTH_LIMIT)});
             } else {
                 // short format like: "1e-10"
                 return bigNumberToFormat.toExponential();
