@@ -107,7 +107,7 @@ MainView {
     function formatBigNumber(bigNumberToFormat) {
 
         // Maximum length of the result number
-        var NUMBER_LENGTH_LIMIT = 12;
+        var NUMBER_LENGTH_LIMIT = 14;
 
         if (mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}}).length > NUMBER_LENGTH_LIMIT) {
             if (bigNumberToFormat.toExponential().length > NUMBER_LENGTH_LIMIT) {
