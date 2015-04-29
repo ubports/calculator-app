@@ -35236,8 +35236,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        }
 
 	                        for ( b -= LOGBASE; i < b; ) {
-	                            x['c'].push( +n.slice( i, i += LOGBASE ) );
-	                        }
+                                    var next = i + LOGBASE;
+                                    x['c'].push( +n.slice( i, next ) );
+                                    i = next;
+                                }
 
 	                        n = n.slice(i);
 	                        i = LOGBASE - n.length;
