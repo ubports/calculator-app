@@ -7,50 +7,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-14 21:20+0200\n"
+"POT-Creation-Date: 2015-04-30 08:58+0200\n"
 "PO-Revision-Date: 2015-04-08 09:53+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-15 05:52+0000\n"
-"X-Generator: Launchpad (build 17428)\n"
+"X-Launchpad-Export-Date: 2015-05-01 05:53+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
 "Language: gd\n"
 
 #: ../app/engine/formula.js:168
 msgid "NaN"
 msgstr "NaN"
 
-#: ../app/ubuntu-calculator-app.qml:215 ../app/ubuntu-calculator-app.qml:220
+#: ../app/ubuntu-calculator-app.qml:252 ../app/ubuntu-calculator-app.qml:257
 msgid "Favorite"
 msgstr "Annsachd"
 
-#: ../app/ubuntu-calculator-app.qml:273
+#: ../app/ubuntu-calculator-app.qml:310
 msgid "Cancel"
 msgstr "Sguir dheth"
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:324
 msgid "Select All"
 msgstr "Tagh na h-uile"
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:324
 msgid "Select None"
 msgstr "Dì-thagh na h-uile"
 
-#: ../app/ubuntu-calculator-app.qml:294 ../app/ubuntu-calculator-app.qml:365
+#: ../app/ubuntu-calculator-app.qml:331 ../app/ubuntu-calculator-app.qml:402
 msgid "Copy"
 msgstr "Dèan lethbhreac"
 
-#: ../app/ubuntu-calculator-app.qml:302 ../app/ubuntu-calculator-app.qml:417
+#: ../app/ubuntu-calculator-app.qml:339 ../app/ubuntu-calculator-app.qml:454
 msgid "Delete"
 msgstr "Sguab às"
 
-#: ../app/ubuntu-calculator-app.qml:378
+#: ../app/ubuntu-calculator-app.qml:415
 msgid "Edit"
 msgstr "Deasaich"
 
-#: ../app/ubuntu-calculator-app.qml:394
+#: ../app/ubuntu-calculator-app.qml:431
 msgid "Add to favorites"
 msgstr "Cuir ris na h-annsachdan"
 
@@ -60,7 +60,7 @@ msgstr "Cuir ris na h-annsachdan"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:548 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:585 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:50
 msgid "dd MMM yyyy"
 msgstr "dd MMM yyyy"
@@ -104,15 +104,15 @@ msgstr "hh:mm"
 msgid "Yesterday"
 msgstr "An-dè"
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "An t-àireamhair"
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Àireamhair airson Ubuntu."
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
 "math;addition;subtraction;multiplication;division;matamataig;roinneadh;toirt "
