@@ -101,7 +101,37 @@ MainView {
         displayedInputText = "";
     }
 
+    /**
+     * Format bigNumber
+     */
+    function formatBigNumber(bigNumberToFormat) {
+
+        // Maximum length of the result number
+        var NUMBER_LENGTH_LIMIT = 14;
+
+        if (mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}}).length > NUMBER_LENGTH_LIMIT) {
+            if (bigNumberToFormat.toExponential().length > NUMBER_LENGTH_LIMIT) {
+                // long format like: "1.2341322e+22"
+                var resultLenth = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                                precision: NUMBER_LENGTH_LIMIT}).length;
+
+                return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                                precision: (NUMBER_LENGTH_LIMIT - resultLenth + NUMBER_LENGTH_LIMIT)});
+            } else {
+                // short format like: "1e-10"
+                return bigNumberToFormat.toExponential();
+            }
+        } else {
+            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper, 
+            // used by notation 'auto' to determine when to return exponential notation.
+            return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}});
+        }
+    }
+
     function formulaPush(visual) {
+        mathJs.config({
+                number: 'bignumber'
+        });
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
@@ -132,7 +162,7 @@ MainView {
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
-                shortFormula = mathJs.eval(shortFormula);
+                shortFormula = formatBigNumber(mathJs.eval(shortFormula));
             } catch(exception) {
                 console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
             }
@@ -144,14 +174,16 @@ MainView {
         if (textInputField.cursorPosition === textInputField.length ) {
             longFormula += visual.toString();
             shortFormula += visual.toString();
+            displayedInputText = shortFormula;
         } else {
             longFormula = longFormula.slice(0, textInputField.cursorPosition) + visual.toString() + longFormula.slice(textInputField.cursorPosition, longFormula.length);
             shortFormula = longFormula;
+            var preservedCursorPosition = textInputField.cursorPosition;
+            displayedInputText = shortFormula;
+            textInputField.cursorPosition = preservedCursorPosition + visual.length;
         }
 
-        var preservedCursorPosition = textInputField.cursorPosition;
-        displayedInputText = shortFormula;
-        textInputField.cursorPosition = preservedCursorPosition + visual.length;
+
 
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
@@ -160,6 +192,9 @@ MainView {
     }
 
     function calculate() {
+        mathJs.config({
+                number: 'bignumber'
+        });
         if ((longFormula === '') || (isLastCalculate === true)) {
             errorAnimation.restart();
             return;
@@ -175,6 +210,9 @@ MainView {
 
         try {
             var result = mathJs.eval(longFormula);
+
+            result = formatBigNumber(result)
+
         } catch(exception) {
             // If the formula isn't right and we added brackets, we remove them
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
@@ -184,8 +222,6 @@ MainView {
             errorAnimation.restart();
             return false;
         }
-
-        result = result.toString()
 
         isLastCalculate = true;
         if (result === longFormula) {
@@ -205,6 +241,7 @@ MainView {
         id: mainStack
 
         Component.onCompleted: {
+
             push(calculatorPage);
             calculatorPage.forceActiveFocus();
         }
@@ -558,9 +595,9 @@ MainView {
                             textInputField.forceActiveFocus();
                             if (editedCalculationIndex >= 0) {
                                 calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
-                                 calculationHistory.getContents().get(editedCalculationIndex).dbId,
-                                 true,
-                                 favouriteTextField.text);
+                                  calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                  true,
+                                  favouriteTextField.text);
                                 favouriteTextField.text = "";
                                 editedCalculationIndex = -1;
                             }
@@ -633,7 +670,7 @@ MainView {
                     width: parent.width
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
-                            (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                             (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }

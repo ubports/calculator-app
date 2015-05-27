@@ -95,15 +95,27 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'9×9=81')
 
     def test_small_numbers(self):
-        self.app.main_view.insert('0.000000001+1=')
-        self._assert_result_is(u'1.000000001')
-        self._assert_history_contains(u'0.000000001+1=1.000000001')
+        self.app.main_view.insert('0.0000000001+1=')
+        self._assert_result_is(u'1.0000000001')
+        self._assert_history_contains(u'0.0000000001+1=1.0000000001')
 
         self.app.main_view.delete()
 
-        self.app.main_view.insert('0.000000001/10=')
-        self._assert_result_is(u'1e−10')
-        self._assert_history_contains(u'0.000000001÷10=1e−10')
+        self.app.main_view.insert('0.0000000001/10=')
+        self._assert_result_is(u'1e−11')
+        self._assert_history_contains(u'0.0000000001÷10=1e−11')
+
+    def test_operation_on_large_numbers(self):
+        self.app.main_view.insert('99999999999*99999999999=')
+        self._assert_result_is(u'9.9999999998e+21')
+        self._assert_history_contains(u'99999999999×99999999999='
+                                      '9.9999999998e+21')
+
+        self.app.main_view.insert('*100=')
+
+        self._assert_result_is(u'9.9999999998e+23')
+        self._assert_history_contains(u'9.9999999998e+21×100='
+                                      '9.9999999998e+23')
 
     def test_brackets_precedence(self):
         self.app.main_view.insert('2*')
@@ -169,16 +181,16 @@ class MainTestCase(CalculatorAppTestCase):
 
     def test_divide_with_infinite_number_as_result(self):
         self.app.main_view.insert('1/3=')
-        self._assert_result_is(u'0.3333333333333333')
-        self._assert_history_contains(u'1÷3=0.3333333333333333')
+        self._assert_result_is(u'0.333333333333')
+        self._assert_history_contains(u'1÷3=0.333333333333')
 
     def test_operation_on_infinite_number(self):
         self.app.main_view.insert('5/3=')
-        self._assert_result_is(u'1.6666666666666667')
-        self._assert_history_contains(u'5÷3=1.6666666666666667')
+        self._assert_result_is(u'1.666666666667')
+        self._assert_history_contains(u'5÷3=1.666666666667')
 
         self.app.main_view.insert('-1=')
-        self._assert_result_is(u'0.6666666666666667')
+        self._assert_result_is(u'0.666666666667')
 
     def test_square(self):
         self.app.main_view.insert('4')
@@ -288,6 +300,11 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('33=')
         self._assert_result_is(u'−66')
         self._assert_history_contains(u'66i×i=−66')
+
+    def test_floating_point_round_error(self):
+        self.app.main_view.insert('0.1+0.2=')
+        self._assert_result_is(u'0.3')
+        self._assert_history_contains(u'0.1+0.2=0.3')
 
     def _assert_result_is(self, value):
         self.assertThat(self.app.main_view.get_result,
