@@ -45,7 +45,7 @@ AbstractButton {
     Rectangle {
         anchors.fill: parent
         border.color: "#d0d0d0"
-        border.width: units.dp(2)
+        border.width: units.dp(0.5)
         color: buttonRect.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
 
         Behavior on color {
@@ -60,7 +60,6 @@ AbstractButton {
         anchors.centerIn: parent
         color: "#5a5a5c"
         font.pixelSize: 0.5 * parent.height
-        font.bold: true
 
         styleColor: "gray"
     }
