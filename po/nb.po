@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-30 08:58+0200\n"
+"POT-Creation-Date: 2015-04-30 11:30+0200\n"
 "PO-Revision-Date: 2015-04-01 07:56+0000\n"
 "Last-Translator: Åka Sikrom <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-29 05:38+0000\n"
+"X-Launchpad-Export-Date: 2015-05-31 05:34+0000\n"
 "X-Generator: Launchpad (build 17532)\n"
 
 #: ../app/engine/formula.js:168
@@ -103,14 +103,14 @@ msgstr "HH:mm"
 msgid "Yesterday"
 msgstr "I går"
 
-#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "Kalkulator"
 
-#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Kalkulatorprogram for Ubuntu."
 
-#: /tmp/tmp.qLTfJqU5Ys/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "matte;addisjon;subtraksjon;multiplikasjon;divisjon;"
