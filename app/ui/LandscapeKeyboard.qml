@@ -10,12 +10,12 @@ CalcKeyboard {
         columns: 8
 
         keyboardModel: new Array(
-            { text: "←", name: "delete", wFactor: 2, action: "delete", kbdKeys: [Qt.Key_Backspace], secondaryAction: "clearFormula" },
+            { text: "←", name: "delete", wFactor: 2, action: "delete", kbdKeys: [Qt.Key_Backspace, Qt.Key_Delete], secondaryAction: "clearFormula" },
             { text: "√", name: "sqrt", pushText: "sqrt(" },
             { text: "÷", name: "divide", pushText: "/", kbdKeys: [Qt.Key_Slash] },
-            { text: "xⁿ", name: "power", pushText: "^", kbdKeys: [Qt.Key_AsciiCircum] },
-            { text: "x²", name: "square", pushText: "^2" },
-            { text: "x³", name: "cube", pushText: "^3" },
+            { text: "xⁿ", name: "power", pushText: "^", kbdKeys: [Qt.Key_AsciiCircum, 16781906] }, //Number needed to make key work with the German keyboard layout as that character is normally typed by pressing the circumflex key twice but that does not work here
+            { text: "x²", name: "square", pushText: "^2", kbdKeys: [Qt.Key_twosuperior] },
+            { text: "x³", name: "cube", pushText: "^3", kbdKeys: [Qt.Key_threesuperior] },
             { text: i18n.tr("log"), name: "logarithm", pushText: "log(", kbdKeys: [Qt.Key_L] },
             { number: 7, name: "seven", textColor: "#DD4814" },
             { number: 8, name: "eight", textColor: "#DD4814" },
@@ -43,9 +43,9 @@ CalcKeyboard {
             { text: "tan", name: "tangens", pushText: "tan(", kbdKeys: [Qt.Key_T] },
             { text: decimalPoint, name: "point", pushText: ".", textColor: "#DD4814" },
             { number: 0, name: "zero", textColor: "#DD4814", forceNumber: true },
-            { text: "( )", name: "universalBracket", pushText: "()", textColor: "#DD4814" },
+            { text: "( )", name: "universalBracket", pushText: "()", textColor: "#DD4814", kbdKeys: [Qt.Key_ParenLeft, Qt.Key_ParenRight, Qt.Key_BracketLeft, Qt.Key_BracketRight] },
             { text: "=", name: "equals", action: "calculate", kbdKeys: [Qt.Key_Enter, Qt.Key_Return] },
-            { text: "|x|", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A] },
+            { text: "|x|", name: "abs", pushText: "abs(", kbdKeys: [Qt.Key_A, Qt.Key_Bar] },
             { text: "sin⁻¹", name: "arcsinus", pushText: "asin(" },
             { text: "cos⁻¹", name: "arccos", pushText: "acos(" },
             { text: "tan⁻¹", name: "arctangens", pushText: "atan(" }
