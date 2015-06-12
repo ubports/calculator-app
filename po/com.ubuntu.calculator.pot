@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-30 11:30+0200\n"
+"POT-Creation-Date: 2015-06-11 20:53-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,13 +65,13 @@ msgid "dd MMM yyyy"
 msgstr ""
 
 #: ../app/ui/FavouritePage.qml:42
-msgid "No favourites"
+msgid "No favorites"
 msgstr ""
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
 "Swipe calculations to the left\n"
-"to mark as favourites"
+"to mark as favorites"
 msgstr ""
 
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
