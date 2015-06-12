@@ -287,7 +287,7 @@ MainView {
                 id: calculationHistory
             }
 
-            Keys.onPressed: {
+            Keys.onPressed: { //Some special keys like backspace captured in TextField below as they are for some reason not sent to the application but to the text input
                 keyboardLoader.item.pressedKey = event.key;
                 keyboardLoader.item.pressedKeyText = event.text;
             }
@@ -628,6 +628,16 @@ MainView {
                         anchors {
                             right: parent.right
                             rightMargin: units.gu(1)
+                        }
+
+                        Keys.onPressed: { //Need to capture special keys like backspace here as they are for some reason not sent to the application but to the text input
+                            keyboardLoader.item.pressedKey = event.key;
+                            keyboardLoader.item.pressedKeyText = event.text;
+                        }
+
+                        Keys.onReleased: {
+                            keyboardLoader.item.pressedKey = -1;
+                            keyboardLoader.item.pressedKeyText = "";
                         }
 
                         readOnly: true
