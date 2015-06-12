@@ -39,8 +39,8 @@ Page {
     }
 
     EmptyState {
-        title: i18n.tr("No favourites")
-        subTitle: i18n.tr("Swipe calculations to the left\nto mark as favourites")
+        title: i18n.tr("No favorites")
+        subTitle: i18n.tr("Swipe calculations to the left\nto mark as favorites")
         iconName: "starred"
         anchors.centerIn: parent
         visible: calculationHistory.numberOfFavourites == 0;
