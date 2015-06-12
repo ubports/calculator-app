@@ -143,13 +143,14 @@ class MainView(ubuntuuitoolkit.MainView):
     def _scientific_keyboard(self, enable=True):
         y = (self.globalRect[1] + self.globalRect[3] / 2) + 150
 
-        x_start = self.globalRect[0] + self.globalRect[2] - 20
-        x_stop = self.globalRect[0] + self.globalRect[2] - 20
+        x_middle = self.globalRect[0] + self.globalRect[2] / 2
 
         if enable:
-            x_stop = x_stop - 200
+            x_start = x_middle + 150
+            x_stop = x_middle - 150
         else:
-            x_start = x_start - 300
+            x_start = x_middle - 150
+            x_stop = x_middle + 150
 
         self.pointing_device.drag(x_start, y, x_stop, y)
 
