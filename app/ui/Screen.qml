@@ -53,8 +53,6 @@ ListItemWithActions {
 
     color: "white"
     Column {
-        id: calculationCol
-        objectName: "screencolumn"
         anchors.fill: parent
         Row {
             id: creationDateRow
