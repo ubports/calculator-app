@@ -42,25 +42,43 @@ class CalculationHistory(object):
     def contains(self, entry):
         found = False
 
-        calculations = self.app.select_many('QQuickRectangle',
-                                            objectName='mainItem')
-
-        for calculation in calculations:
-            if entry.strip() == self._get_entry(calculation):
+        history = self.get_all_history_entries()
+        for line in history:
+            calculation = self._get_entry(line)
+            if calculation == entry.strip():
                 found = True
+                break
 
         return found
 
-    def _get_entry(self, calc):
-        return self._get_formula(calc) + '=' + self._get_result(calc)
+    def get_all_history_entries(self):
+        return self.app.select_many('QQuickRow', objectName='historyrow')
 
-    def _get_formula(self, calc):
-        return calc.wait_select_single('QQuickText',
-                                       objectName='formula').text.strip()
+    def get_history_entry(self, entry):
+        return self.app.select_single('QQuickText',
+                                      objectName='result' + str(entry))
 
-    def _get_result(self, calc):
-        return calc.wait_select_single('QQuickText',
-                                       objectName='result').text.strip()
+    def get_formula_entry(self, entry=0):
+        return self.app.select_single('QQuickText',
+                                      objectName='formula' + str(entry))
+
+    def get_formula_value(self, entry=0):
+        return self.get_formula_entry(entry).text.strip()
+
+    def get_result_value(self, entry=0):
+        return self.get_history_entry(entry).text.strip()
+
+    def _get_entry(self, line):
+        values = line.select_many('QQuickText')
+        result = ''
+        formula = ''
+        for value in values:
+            if 'result' in value.objectName:
+                result = value.text.strip()
+            elif 'formula' in value.objectName:
+                formula = value.text.strip()
+
+        return formula + '=' + result
 
 
 class MainView(ubuntuuitoolkit.MainView):

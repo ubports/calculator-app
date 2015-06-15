@@ -90,6 +90,7 @@ ListItemWithActions {
         }
         Row {
             id: calculationRow
+            objectName: "historyrow"
             width: parent.width
             anchors.right: parent.right
 
@@ -111,6 +112,7 @@ ListItemWithActions {
 
             Text {
                 id: equal
+                //objectName: "equal" + model.index
 
                 anchors.bottom: formula.bottom
 
