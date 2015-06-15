@@ -23,6 +23,7 @@ import "../engine/formula.js" as Formula
 
 ListItemWithActions {
     id: root
+    objectName: "screenroot" + model.index
 
     function formatDate(date) {
         var now = new Date();
@@ -52,6 +53,8 @@ ListItemWithActions {
 
     color: "white"
     Column {
+        id: calculationCol
+        objectName: "screencolumn"
         anchors.fill: parent
         Row {
             id: creationDateRow
@@ -97,7 +100,7 @@ ListItemWithActions {
 
             Text {
                 id: result
-                objectName: "result"
+                objectName: "result" + model.index
 
                 anchors.bottom: formula.bottom
 
@@ -122,7 +125,7 @@ ListItemWithActions {
 
             Text {
                 id: formula
-                objectName: "formula"
+                objectName: "formula" + model.index
 
                 width: parent.width - equal.width - result.width
                 anchors.bottom: parent.bottom
