@@ -112,8 +112,6 @@ ListItemWithActions {
 
             Text {
                 id: equal
-                //objectName: "equal" + model.index
-
                 anchors.bottom: formula.bottom
 
                 color: UbuntuColors.darkGrey
