@@ -39,9 +39,11 @@ CalcKeyboard {
             { text: "xⁿ", name: "power", pushText: "^", kbdKeys: [Qt.Key_AsciiCircum, 16781906] }, //Number needed to make key work with the German keyboard layout as that character is normally typed by pressing the circumflex key twice but that does not work here
             { text: "x²", name: "square", pushText: "^2", kbdKeys: [Qt.Key_twosuperior] },
             { text: "x³", name: "cube", pushText: "^3", kbdKeys: [Qt.Key_threesuperior] },
+            // TRANSLATORS Natural logarithm symbol (logarithm to the base e)
             { text: i18n.tr("log"), name: "logarithm", pushText: "log(", kbdKeys: [Qt.Key_L] },
             { text: "ℯ", name: "eNumber", pushText: "E", kbdKeys: [Qt.Key_E] },
             { text: "π", name: "piNumber", pushText: "pi", kbdKeys: [Qt.Key_P] },
+            // TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
             { text: i18n.tr("mod"), name: "modulo", pushText: "%", kbdKeys: [Qt.Key_Percent] },
             { text: "!", name: "factorialNumber", kbdKeys: [Qt.Key_Exclam] },
             { text: "ℯⁿ", name: "exp", pushText: "E^" },
