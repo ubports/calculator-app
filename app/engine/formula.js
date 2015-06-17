@@ -90,14 +90,21 @@ function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         return couldAddOperator(formula, stringToAddToFormula[0]);
     }
 
-    if (stringToAddToFormula === ".") {
+    // After decimal separator only number is allowed
+    if (isNaN(stringToAddToFormula)) {
+        if (formula.slice(-1) === ".") {
+            return false;
+        }
+    }
+
+    if (stringToAddToFormula.slice(-1) === ".") {
         return couldAddDot(formula);
     }
 
     if (stringToAddToFormula === ")") {
         return couldAddCloseBracket(formula);
     }
-
+ 
     // Validate complex numbers
     if ((stringToAddToFormula === "i") || (!isNaN(stringToAddToFormula))){
         if (formula.slice(-1) === "i") {
@@ -226,11 +233,6 @@ function couldAddOperator(formulaToCheck, operatorToAdd) {
  * @return bool: true if the dot could be added, false otherwhise
  */
 function couldAddDot(formulaToCheck) {
-    // A dot could be only after a number
-    if ((isNaN(formulaToCheck.slice(-1))) || (formulaToCheck === "")) {
-        return false;
-    }
-
     // If is after a number and it's the first dot of the calc it could be added
     if (formulaToCheck.indexOf('.') === -1) {
         return true;
