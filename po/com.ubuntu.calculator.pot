@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 12:23+0200\n"
+"POT-Creation-Date: 2015-06-18 23:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,35 +21,35 @@ msgstr ""
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:252 ../app/ubuntu-calculator-app.qml:257
+#: ../app/ubuntu-calculator-app.qml:255 ../app/ubuntu-calculator-app.qml:260
 msgid "Favorite"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:310
+#: ../app/ubuntu-calculator-app.qml:313
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:327
 msgid "Select All"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:327
 msgid "Select None"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:331 ../app/ubuntu-calculator-app.qml:402
+#: ../app/ubuntu-calculator-app.qml:334 ../app/ubuntu-calculator-app.qml:405
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:339 ../app/ubuntu-calculator-app.qml:454
+#: ../app/ubuntu-calculator-app.qml:342 ../app/ubuntu-calculator-app.qml:457
 msgid "Delete"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:415
+#: ../app/ubuntu-calculator-app.qml:418
 msgid "Edit"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:431
+#: ../app/ubuntu-calculator-app.qml:434
 msgid "Add to favorites"
 msgstr ""
 
@@ -59,8 +59,8 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:585 ../app/ui/FavouritePage.qml:89
-#: ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:588 ../app/ui/FavouritePage.qml:89
+#: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
 msgstr ""
 
@@ -84,33 +84,33 @@ msgstr ""
 msgid "mod"
 msgstr ""
 
-#: ../app/ui/Screen.qml:36
+#: ../app/ui/Screen.qml:37
 msgid "Just now"
 msgstr ""
 
-#: ../app/ui/Screen.qml:38
+#: ../app/ui/Screen.qml:39
 msgid "Today "
 msgstr ""
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
-#: ../app/ui/Screen.qml:42
+#: ../app/ui/Screen.qml:43
 msgid "hh:mm"
 msgstr ""
 
-#: ../app/ui/Screen.qml:44
+#: ../app/ui/Screen.qml:45
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.hsPh6As0kc/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.hsPh6As0kc/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.hsPh6As0kc/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

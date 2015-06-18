@@ -78,6 +78,7 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
+        isFormulaIsValidToCalculate = false;
         if (textInputField.cursorPosition === textInputField.length) {
             longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula)
         } else {
@@ -96,6 +97,7 @@ MainView {
      * Function to clear formula in input text field
      */
     function clearFormula() {
+        isFormulaIsValidToCalculate = false;
         shortFormula = "";
         longFormula = "";
         displayedInputText = "";
@@ -135,6 +137,7 @@ MainView {
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if (!isNaN(visual) && isLastCalculate) {
+            isFormulaIsValidToCalculate = false;
             longFormula = displayedInputText = shortFormula = "";
         }
         isLastCalculate = false;
