@@ -7,49 +7,49 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-06-11 20:53-0500\n"
+"POT-Creation-Date: 2015-06-17 22:10+0200\n"
 "PO-Revision-Date: 2015-06-17 14:23+0000\n"
 "Last-Translator: Gursharnjit_Singh <ubuntuser13@gmail.com>\n"
 "Language-Team: Punjabi <pa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-18 05:12+0000\n"
+"X-Launchpad-Export-Date: 2015-06-19 05:05+0000\n"
 "X-Generator: Launchpad (build 17570)\n"
 
 #: ../app/engine/formula.js:168
 msgid "NaN"
 msgstr "NaN"
 
-#: ../app/ubuntu-calculator-app.qml:252 ../app/ubuntu-calculator-app.qml:257
+#: ../app/ubuntu-calculator-app.qml:255 ../app/ubuntu-calculator-app.qml:260
 msgid "Favorite"
 msgstr "ਪਸੰਦੀਦਾ"
 
-#: ../app/ubuntu-calculator-app.qml:310
+#: ../app/ubuntu-calculator-app.qml:313
 msgid "Cancel"
 msgstr "ਰੱਦ"
 
-#: ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:327
 msgid "Select All"
 msgstr "ਸਾਰੇ ਚੁਣੋ"
 
-#: ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:327
 msgid "Select None"
 msgstr "ਕੁੱਝ ਨਾ ਚੁਣੋ"
 
-#: ../app/ubuntu-calculator-app.qml:331 ../app/ubuntu-calculator-app.qml:402
+#: ../app/ubuntu-calculator-app.qml:334 ../app/ubuntu-calculator-app.qml:405
 msgid "Copy"
 msgstr "ਕਾਪੀ"
 
-#: ../app/ubuntu-calculator-app.qml:339 ../app/ubuntu-calculator-app.qml:454
+#: ../app/ubuntu-calculator-app.qml:342 ../app/ubuntu-calculator-app.qml:457
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: ../app/ubuntu-calculator-app.qml:415
+#: ../app/ubuntu-calculator-app.qml:418
 msgid "Edit"
 msgstr "ਸੋਧ"
 
-#: ../app/ubuntu-calculator-app.qml:431
+#: ../app/ubuntu-calculator-app.qml:434
 msgid "Add to favorites"
 msgstr "ਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
@@ -59,8 +59,8 @@ msgstr "ਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:585 ../app/ui/FavouritePage.qml:89
-#: ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:588 ../app/ui/FavouritePage.qml:89
+#: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
 msgstr "dd MMM yyyy"
 
@@ -84,33 +84,33 @@ msgstr "ਲਾਗ"
 msgid "mod"
 msgstr "ਮੌਡ"
 
-#: ../app/ui/Screen.qml:36
+#: ../app/ui/Screen.qml:37
 msgid "Just now"
 msgstr "ਹੁਣੇ ਹੀ"
 
-#: ../app/ui/Screen.qml:38
+#: ../app/ui/Screen.qml:39
 msgid "Today "
 msgstr "ਅੱਜ "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
-#: ../app/ui/Screen.qml:42
+#: ../app/ui/Screen.qml:43
 msgid "hh:mm"
 msgstr "hh:mm"
 
-#: ../app/ui/Screen.qml:44
+#: ../app/ui/Screen.qml:45
 msgid "Yesterday"
 msgstr "ਕੱਲ੍ਹ"
 
-#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "ਕੈਲਕੂਲੇਟਰ"
 
-#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "ਉਬੰਤੂ ਲਈ ਇੱਕ ਕੈਲਕੁਲੇਟਰ"
 
-#: /tmp/tmp.esBHnyUxUN/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "ਹਿਸਾਬ;ਜੋੜ;ਘਟਾਉ;ਗੁਣਾ;ਭਾਗ;"
