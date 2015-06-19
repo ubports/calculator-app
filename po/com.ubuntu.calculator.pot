@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-17 22:10+0200\n"
+"POT-Creation-Date: 2015-06-18 23:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,11 +74,13 @@ msgid ""
 "to mark as favorites"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
+#. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:43
 msgid "log"
 msgstr ""
 
-#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:45
+#. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:47
 msgid "mod"
 msgstr ""
 
@@ -101,14 +103,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.9RSzhUvMx8/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
