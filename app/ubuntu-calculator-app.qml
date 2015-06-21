@@ -290,7 +290,9 @@ MainView {
                 id: calculationHistory
             }
 
-            Keys.onPressed: { //Some special keys like backspace captured in TextField below as they are for some reason not sent to the application but to the text input
+            // Some special keys like backspace captured in TextField,
+            // are for some reason not sent to the application but to the text input
+            Keys.onPressed: {                 
                 keyboardLoader.item.pressedKey = event.key;
                 keyboardLoader.item.pressedKeyText = event.text;
             }
@@ -633,9 +635,16 @@ MainView {
                             rightMargin: units.gu(1)
                         }
 
-                        Keys.onPressed: { //Need to capture special keys like backspace here as they are for some reason not sent to the application but to the text input
-                            keyboardLoader.item.pressedKey = event.key;
-                            keyboardLoader.item.pressedKeyText = event.text;
+                        // Need to capture special keys like backspace here,
+                        // as they are for some reason not sent to the application but to the text input
+                        Keys.onPressed: { 
+                            // Don't press calculator's visual keys, when modifiers are pressed
+                            // to allow work keyboard shortcuts (eg. Ctrl+C)
+                            if (event.modifiers & Qt.NoModifier) {
+                                
+                                keyboardLoader.item.pressedKey = event.key;
+                                keyboardLoader.item.pressedKeyText = event.text;
+                            }
                         }
 
                         Keys.onReleased: {
