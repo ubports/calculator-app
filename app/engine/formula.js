@@ -97,6 +97,7 @@ function validateStringForAddingToFormula(formula, stringToAddToFormula) {
         }
     }
 
+    // We are ckecking last char, because we want to handle "0." string
     if (stringToAddToFormula.slice(-1) === ".") {
         return couldAddDot(formula);
     }
