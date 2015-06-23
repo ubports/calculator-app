@@ -54,6 +54,9 @@ class CalculationHistory(object):
     def get_all_history_entries(self):
         return self.app.select_many('QQuickRow', objectName='historyrow')
 
+    def get_history_entry_count(self):
+        return len(self.get_all_history_entries())
+
     def get_history_entry(self, entry):
         return self.app.select_single('QQuickText',
                                       objectName='result' + str(entry))
