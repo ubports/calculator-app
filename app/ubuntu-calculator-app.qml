@@ -138,7 +138,7 @@ MainView {
             longFormula = displayedInputText = shortFormula = "";
         }
         // Add zero when decimal separator is not after number
-        if ((visual === ".") && ((isNaN(longFormula.slice(textInputField.cursorPosition - 1, textInputField.cursorPosition))) || (longFormula === ""))) {
+        if ((visual === ".") && ((isNaN(displayedInputText.slice(textInputField.cursorPosition - 1, textInputField.cursorPosition))) || (longFormula === ""))) {
             visual = "0.";
         }
         isLastCalculate = false;
