@@ -1,3 +1,45 @@
+ubuntu-calculator-app (2.0.197) vivid; urgency=medium
+
+  [ Bartosz Kosiorek ]
+  * Do not allow swiping in Landscape mode. 
+    Fixes: https://bugs.launchpad.net/bugs/1466635.
+  * Fix keyboard shortcuts (eg. Ctrl+C). 
+    Fixes: https://bugs.launchpad.net/bugs/1466634.
+  * Add additional comments to logaritm and modulo 
+    to avoid confusion during translation. 
+    Fixes: https://bugs.launchpad.net/bugs/1465297.
+  * Fix display issue. 
+    Fixes: https://bugs.launchpad.net/bugs/1465996.
+
+  [ Nicholas Skaggs ]
+  * Fix testability for screen components.
+
+  [ Niklas Wenzel ]
+  * Use longer swipe in autopilot tests for revealing the scientific keyboard. 
+    Fixes: https://bugs.launchpad.net/bugs/1464571.
+  * Fix typing special characters on hardware keyboards. 
+    Fixes: https://bugs.launchpad.net/bugs/1449037.
+
+  [ Victor Thompson ]
+  * Change favorites translatable string. 
+    Fixes: https://bugs.launchpad.net/bugs/1464463.
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 24 Jul 2015 12:00:05 +0100
+
+ubuntu-calculator-app (2.0.182) vivid; urgency=medium
+  * Add haptic feedback to buttons
+  * Update math.js library. http://pad.lv/1439846
+  * Enable 'bug number' support to fix floating point math. 
+    http://pad.lv/1445152
+  * Modify splash screen. http://pad.lv/1377638
+  * Fix keyboard focus and disappearing cursor bug. http://pad.lv/1431548
+  * Fix directory layout for AP tests. http://pad.lv/1443680
+  * Modified layout to fit design
+  * Fix issue with building which corrupted translations
+  * Updated translations
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 15 Jun 2015 12:00:05 +0100
+
 ubuntu-calculator-app (0.1) vivid; urgency=low
 
   * Initial release
