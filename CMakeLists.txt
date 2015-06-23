@@ -31,9 +31,8 @@ set(APP_NAME                        ubuntu-calculator-app)
 set(APP_HARDCODE                    ubuntu-calculator-app)
 set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
-set(ICON                            "${APP_HARDCODE}.png")
+set(ICON_FILE                       "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
-set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(APP_VERSION                     2.0)
 
 if(CLICK_MODE)
@@ -41,8 +40,7 @@ if(CLICK_MODE)
   set(UBUNTU-CALCULATOR-APP_DIR    "${CMAKE_INSTALL_DATADIR}/qml")
 
   set(QT_IMPORTS_DIR "${CMAKE_INSTALL_LIBDIR}")
-  set(EXEC "qmlscene $@ ${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
-  set(MODULE_PATH ${QT_IMPORTS_DIR})
+  set(EXEC "qmlscene -qt5 $@ ${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
   if(NOT BZR_REVNO)
     execute_process(
       COMMAND bzr revno
@@ -76,8 +74,10 @@ if(CLICK_MODE)
   configure_file(${UBUNTU_MANIFEST_PATH} ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
   install(FILES "${APP_HARDCODE}.apparmor" DESTINATION ${CMAKE_INSTALL_PREFIX})
+  set(ICON ${ICON_FILE})
 else(CLICK_MODE)
-  set(EXEC "qmlscene $@ -I ${MODULE_PATH}  ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
+  set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${ICON_FILE})
+  set(EXEC "qmlscene -qt5 $@ ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${MAIN_QML}")
 endif(CLICK_MODE)
 
 file(GLOB_RECURSE I18N_SRC_FILES
