@@ -182,7 +182,8 @@ class MainTestCase(CalculatorAppTestCase):
 
         self.app.main_view.insert('===')
         self._assert_result_is(u'25')
-        count_three = self.app.main_view.get_history().get_history_entry_count()
+        count_three = self.app.main_view.get_history() \
+                          .get_history_entry_count()
         self.assertTrue(count_two == count_three)
 
     def test_divide_with_infinite_number_as_result(self):
