@@ -173,11 +173,18 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'0÷0=NaN')
 
     def test_equals_doesnt_change_numbers(self):
-        self.app.main_view.insert('125')
-        self._assert_result_is(u'125')
+        count_one = self.app.main_view.get_history().get_history_entry_count()
 
-        self.app.main_view.insert('=')
-        self._assert_result_is(u'125')
+        self.app.main_view.insert('5*5=')
+        self._assert_result_is(u'25')
+        count_two = self.app.main_view.get_history().get_history_entry_count()
+        self.assertTrue(count_one == count_two - 1)
+
+        self.app.main_view.insert('===')
+        self._assert_result_is(u'25')
+        count_three = self.app.main_view.get_history() \
+                          .get_history_entry_count()
+        self.assertTrue(count_two == count_three)
 
     def test_divide_with_infinite_number_as_result(self):
         self.app.main_view.insert('1/3=')
