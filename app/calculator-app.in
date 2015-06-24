@@ -1,0 +1,3 @@
+#!/bin/bash
+export QT_SELECT=qt5
+exec qmlscene @CMAKE_INSTALL_PREFIX@/@UBUNTU-CALCULATOR-APP_DIR@/@MAIN_QML@
