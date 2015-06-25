@@ -27,7 +27,7 @@ option(CLICK_MODE "Installs to a contained location" on)
 
 include(GNUInstallDirs)
 
-set(APP_NAME                        calculator-app)
+set(APP_NAME                        ubuntu-calculator-app)
 set(APP_HARDCODE                    ubuntu-calculator-app)
 set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
@@ -79,9 +79,9 @@ if(CLICK_MODE)
 else(CLICK_MODE)
   set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU-CALCULATOR-APP_DIR}/${ICON_FILE})
   set(EXEC ${APP_NAME})
-  configure_file(app/${APP_NAME}.in
-    ${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME})
-  install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}
+  configure_file(app/${APP_HARDCODE}.in
+    ${CMAKE_CURRENT_BINARY_DIR}/${APP_HARDCODE})
+  install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/${APP_HARDCODE}
     DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif(CLICK_MODE)
 
