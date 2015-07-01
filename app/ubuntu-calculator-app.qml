@@ -167,7 +167,7 @@ MainView {
             try {
                 shortFormula = formatBigNumber(mathJs.eval(shortFormula));
             } catch(exception) {
-                console.log("Error: math.js " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Debug: Temp result: " + exception.toString() + " engine formula:" + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -221,7 +221,6 @@ MainView {
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
                 deleteLastFormulaElement();
             }
-            console.log("Error: math.js " + exception.toString() + " engine formula:" + longFormula);
             errorAnimation.restart();
             return false;
         }
