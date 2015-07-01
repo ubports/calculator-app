@@ -200,7 +200,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'0.065')
         self._assert_history_contains(u'0.13×0.5=0.065')
         self.app.main_view.insert('.7')
-        self._assert_result_is(u'0.0657')
+        self._assert_result_is(u'0.7')
 
     def test_adding_comma_without_number_on_temp_result(self):
         self.app.main_view.insert('3+6*9')
