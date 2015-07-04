@@ -78,6 +78,7 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
+        isFormulaIsValidToCalculate = false;
         if (textInputField.cursorPosition === textInputField.length) {
             longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula)
         } else {
@@ -96,6 +97,7 @@ MainView {
      * Function to clear formula in input text field
      */
     function clearFormula() {
+        isFormulaIsValidToCalculate = false;
         shortFormula = "";
         longFormula = "";
         displayedInputText = "";
@@ -135,6 +137,7 @@ MainView {
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
         if ((!isNaN(visual) || (visual === ".")) && isLastCalculate) {
+            isFormulaIsValidToCalculate = false;
             longFormula = displayedInputText = shortFormula = "";
         }
         // Add zero when decimal separator is not after number
@@ -168,7 +171,7 @@ MainView {
             try {
                 shortFormula = formatBigNumber(mathJs.eval(shortFormula));
             } catch(exception) {
-                console.log("Debug: Temporarly result, " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Debug: Temp result: " + exception.toString() + " engine formula: " + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -222,7 +225,6 @@ MainView {
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
                 deleteLastFormulaElement();
             }
-            console.log("Debug: Missing brackets, " + exception.toString() + " engine formula:" + longFormula);
             errorAnimation.restart();
             return false;
         }
@@ -291,7 +293,9 @@ MainView {
                 id: calculationHistory
             }
 
-            Keys.onPressed: { //Some special keys like backspace captured in TextField below as they are for some reason not sent to the application but to the text input
+            // Some special keys like backspace captured in TextField,
+            // are for some reason not sent to the application but to the text input
+            Keys.onPressed: {                 
                 keyboardLoader.item.pressedKey = event.key;
                 keyboardLoader.item.pressedKeyText = event.text;
             }
@@ -634,9 +638,16 @@ MainView {
                             rightMargin: units.gu(1)
                         }
 
-                        Keys.onPressed: { //Need to capture special keys like backspace here as they are for some reason not sent to the application but to the text input
-                            keyboardLoader.item.pressedKey = event.key;
-                            keyboardLoader.item.pressedKeyText = event.text;
+                        // Need to capture special keys like backspace here,
+                        // as they are for some reason not sent to the application but to the text input
+                        Keys.onPressed: { 
+                            // Don't press calculator's visual keys, when modifiers are pressed
+                            // to allow work keyboard shortcuts (eg. Ctrl+C)
+                            if (event.modifiers & Qt.NoModifier) {
+                                
+                                keyboardLoader.item.pressedKey = event.key;
+                                keyboardLoader.item.pressedKeyText = event.text;
+                            }
                         }
 
                         Keys.onReleased: {
