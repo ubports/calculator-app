@@ -199,6 +199,27 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.insert('-1=')
         self._assert_result_is(u'0.666666666667')
 
+    def test_adding_comma_without_number(self):
+        # Validation of the decimal separator
+        # We are trying to add several commas into one number
+        # Only first comma in the number should be allowed
+        self.app.main_view.insert('..1.3*.*5.=')
+        self._assert_result_is(u'0.065')
+        self._assert_history_contains(u'0.13×0.5=0.065')
+        self.app.main_view.insert('.7')
+        self._assert_result_is(u'0.7')
+
+    def test_adding_comma_without_number_on_temp_result(self):
+        self.app.main_view.insert('3+6*9')
+        self._assert_result_is(u'3+6×9')
+        self.app.main_view.insert('+')
+        self._assert_result_is(u'57+')
+        self.app.main_view.insert('.0')
+        self._assert_result_is(u'57+0.0')
+        self.app.main_view.insert('=')
+        self._assert_history_contains(u'3+6×9+0.0=57')
+        self._assert_result_is(u'57')
+
     def test_square(self):
         self.app.main_view.insert('4')
         self.app.main_view.show_scientific_keyboard()

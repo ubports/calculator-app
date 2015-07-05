@@ -136,9 +136,13 @@ MainView {
         });
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
-        if (!isNaN(visual) && isLastCalculate) {
+        if ((!isNaN(visual) || (visual === ".")) && isLastCalculate) {
             isFormulaIsValidToCalculate = false;
             longFormula = displayedInputText = shortFormula = "";
+        }
+        // Add zero when decimal separator is not after number
+        if ((visual === ".") && ((isNaN(displayedInputText.slice(textInputField.cursorPosition - 1, textInputField.cursorPosition))) || (longFormula === ""))) {
+            visual = "0.";
         }
         isLastCalculate = false;
 
@@ -167,7 +171,7 @@ MainView {
             try {
                 shortFormula = formatBigNumber(mathJs.eval(shortFormula));
             } catch(exception) {
-                console.log("Debug: Temp result: " + exception.toString() + " engine formula:" + shortFormula);
+                console.log("Debug: Temp result: " + exception.toString() + " engine formula: " + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
