@@ -1,4 +1,4 @@
-ubuntu-calculator-app (2.0.197) UNRELEASED; urgency=low
+ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
 
   [ Bartosz Kosiorek ]
   * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
@@ -19,7 +19,12 @@ ubuntu-calculator-app (2.0.197) UNRELEASED; urgency=low
   [ Victor Thompson ]
   * Change favorites translatable string (LP: #1464463)
 
- -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 25 Jun 2015 19:56:42 +0200
+  [ Bartosz Kosiorek ]
+  * Fix calculator name in the store (LP: #1472559)
+  * Allow add comma without number (LP: #1465979)
+  * Fix confusing error messages (LP: #1469533)
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 09 Jul 2015 22:41:57 +0200
 
 ubuntu-calculator-app (2.0.182) vivid; urgency=medium
   * Add haptic feedback to buttons
