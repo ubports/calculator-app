@@ -13,6 +13,22 @@ class MainTestCase(CalculatorAppTestCase):
     def setUp(self):
         super(MainTestCase, self).setUp()
 
+    def test_simple_calculation_via_keyboard(self):
+        self.app.main_view.enter_text_via_keyboard('.9')
+        self._assert_result_is(u'0.9')
+
+        self.app.main_view.enter_text_via_keyboard('*9/')
+        self._assert_result_is(u'8.1÷')
+
+        self.app.main_view.enter_text_via_keyboard('.3=')
+        self._assert_result_is(u'27')
+        self._assert_history_contains(u'0.9×9÷0.3=27')
+
+        self.app.main_view.enter_text_via_keyboard('+3')
+        self.app.main_view.press_and_release_key('Enter')
+        self._assert_result_is(u'30')
+        self._assert_history_contains(u'0.9×9÷0.3=27')
+
     def test_add_operator_after_result(self):
         self.app.main_view.insert('9*9=')
 
