@@ -1,4 +1,4 @@
-ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
+ubuntu-calculator-app (2.0.209) UNRELEASED; urgency=low
 
   [ Bartosz Kosiorek ]
   * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
@@ -22,7 +22,7 @@ ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
   [ Bartosz Kosiorek ]
   * Add test for physical keyboard (LP: #1442794)
 
- -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 10 Jul 2015 23:06:05 +0200
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 10 Jul 2015 23:12:33 +0200
 
 ubuntu-calculator-app (2.0.182) vivid; urgency=medium
   * Add haptic feedback to buttons
