@@ -24,6 +24,34 @@ ubuntu-calculator-app (2.0.209) UNRELEASED; urgency=low
 
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 10 Jul 2015 23:12:33 +0200
 
+ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
+
+  [ Bartosz Kosiorek ]
+  * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
+  * Do not allow swiping in Landscape mode (LP: #1466635)
+  * Fix keyboard shortcuts (eg. Ctrl+C) (LP: #1466634)
+  * Add additional comments to logaritm and modulo 
+    to avoid confusion during translation (LP: #1465297)
+  * Fix display issue (LP: #1465996)
+
+  [ Nicholas Skaggs ]
+  * Fix testability for screen components.
+
+  [ Niklas Wenzel ]
+  * Use longer swipe in autopilot tests for 
+    revealing the scientific keyboard (LP: #1464571)
+  * Fix typing special characters on hardware keyboards (LP: #1449037)
+
+  [ Victor Thompson ]
+  * Change favorites translatable string (LP: #1464463)
+
+  [ Bartosz Kosiorek ]
+  * Fix calculator name in the store (LP: #1472559)
+  * Allow add comma without number (LP: #1465979)
+  * Fix confusing error messages (LP: #1469533)
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 09 Jul 2015 22:41:57 +0200
+
 ubuntu-calculator-app (2.0.182) vivid; urgency=medium
   * Add haptic feedback to buttons
   * Update math.js library (LP: #1439846)
