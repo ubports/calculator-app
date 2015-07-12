@@ -295,15 +295,8 @@ MainView {
 
             // Some special keys like backspace captured in TextField,
             // are for some reason not sent to the application but to the text input
-            Keys.onPressed: {                 
-                keyboardLoader.item.pressedKey = event.key;
-                keyboardLoader.item.pressedKeyText = event.text;
-            }
-
-            Keys.onReleased: {
-                keyboardLoader.item.pressedKey = -1;
-                keyboardLoader.item.pressedKeyText = "";
-            }
+            Keys.onPressed: textInputField.keyPress(event)
+            Keys.onReleased: textInputField.keyRelease(event)
 
             Header {
                 id: header
@@ -640,17 +633,70 @@ MainView {
 
                         // Need to capture special keys like backspace here,
                         // as they are for some reason not sent to the application but to the text input
-                        Keys.onPressed: { 
-                            // Don't press calculator's visual keys, when modifiers are pressed
-                            // to allow work keyboard shortcuts (eg. Ctrl+C)
-                            if (event.modifiers & Qt.NoModifier) {
-                                
+                        Keys.onPressed: keyPress(event)
+                        Keys.onReleased: keyRelease(event)
+
+                        function keyPress(event) {
+                            if (!(event.modifiers & Qt.ControlModifier || event.modifiers & Qt.AltModifier)) { // Shift needs to be passed through as it may be required for some special keys
                                 keyboardLoader.item.pressedKey = event.key;
                                 keyboardLoader.item.pressedKeyText = event.text;
+                            } else if (event.modifiers & Qt.ControlModifier) {
+                                if (event.key === Qt.Key_C) { // Copy action
+                                    var mimeData = Clipboard.newData();
+                                    mimeData.text = textInputField.selectedText;
+                                    Clipboard.push(mimeData);
+                                } else if (event.key === Qt.Key_V) { // Paste action
+                                    if (Clipboard.data.text && Clipboard.data.text !== "") {
+                                        var data = Clipboard.data.text;
+
+                                        // Get all accepted characters (i.e. those which can be entered) from the current keyboard
+                                        var acceptedBits = [];
+                                        for (var i = 0; i < keyboardLoader.item.children.length; i++) {
+                                            var model = keyboardLoader.item.children[i].keyboardModel;
+                                            if (model) {
+                                                for (var j = 0; j < model.length; j++) {
+                                                    var item = model[j];
+                                                    if (!item.action) {
+                                                        if (item.number)
+                                                            acceptedBits.push({ "chars": item.number, "push": item.number });
+                                                        if (item.pushText)
+                                                            acceptedBits.push({ "chars": item.pushText, "push": item.pushText }); // TODO: Accept both if different, brackets
+                                                        if (item.text)
+                                                            acceptedBits.push({ "chars": item.text, "push": item.pushText ? item.pushText : item.text });
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        // Extract the part of the clipboard data which can be pasted
+                                        var paste = "";
+                                        var pos = 0;
+                                        while (pos < data.length) {
+                                            // Check if the string starts with an accepted string
+                                            for (i = 0; i < acceptedBits.length; i++) {
+                                                if (data.substring(pos, pos + (acceptedBits[i].chars.length ? acceptedBits[i].chars.length : 1)) === acceptedBits[i].chars.toString()) {
+                                                    paste += acceptedBits[i].push;
+                                                    pos += acceptedBits[i].chars.length ? acceptedBits[i].chars.length : 1;
+                                                    break;
+                                                }
+                                            }
+                                            // Skip one char if it could not be found
+                                            if (i === acceptedBits.length)
+                                                pos++;
+                                        }
+
+                                        // Push the paste string
+                                        formulaPush(paste);
+                                    } else {
+                                        console.log("Debug: paste failed as the clipboard contains no text");
+                                    }
+
+                                    scrollableView.scrollToBottom();
+                                }
                             }
                         }
 
-                        Keys.onReleased: {
+                        function keyRelease(event) {
                             keyboardLoader.item.pressedKey = -1;
                             keyboardLoader.item.pressedKeyText = "";
                         }
