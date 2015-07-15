@@ -1,4 +1,4 @@
-ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
+ubuntu-calculator-app (2.0.210) vivid; urgency=medium
 
   [ Bartosz Kosiorek ]
   * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
@@ -23,6 +23,7 @@ ubuntu-calculator-app (2.0.197ubuntu1) UNRELEASED; urgency=low
   * Fix calculator name in the store (LP: #1472559)
   * Allow add comma without number (LP: #1465979)
   * Fix confusing error messages (LP: #1469533)
+  * Add test for physical keyboard (LP: #1442794)
 
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 09 Jul 2015 22:41:57 +0200
 

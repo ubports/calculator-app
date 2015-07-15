@@ -177,3 +177,19 @@ class MainView(ubuntuuitoolkit.MainView):
 
         # TODO: Find a better implementation to avoid this, if possible.
         sleep(2)
+
+    def enter_text_via_keyboard(self, textToEnter):
+        """Enter specific formula with keyboard
+
+        :param text: text to enter via keyboard
+
+        """
+        ubuntuuitoolkit.get_keyboard().type(textToEnter, delay=0.1)
+
+    def press_and_release_key(self, keyToPress):
+        """Press and release specific key
+
+        :param keyToPress: key to press
+
+        """
+        ubuntuuitoolkit.get_keyboard().press_and_release(keyToPress, delay=0.1)
