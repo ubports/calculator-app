@@ -4,7 +4,7 @@
     "description": "Powerful and easy to use calculator.",
     "framework": "ubuntu-sdk-14.10",
     "hooks": {
-        "@APP_HARDCODE@": {
+        "calculator": {
             "apparmor": "@APP_HARDCODE@.apparmor",
             "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
         }
