@@ -295,15 +295,8 @@ MainView {
 
             // Some special keys like backspace captured in TextField,
             // are for some reason not sent to the application but to the text input
-            Keys.onPressed: {                 
-                keyboardLoader.item.pressedKey = event.key;
-                keyboardLoader.item.pressedKeyText = event.text;
-            }
-
-            Keys.onReleased: {
-                keyboardLoader.item.pressedKey = -1;
-                keyboardLoader.item.pressedKeyText = "";
-            }
+            Keys.onPressed: textInputField.keyPress(event)
+            Keys.onReleased: textInputField.keyRelease(event)
 
             Header {
                 id: header
@@ -640,17 +633,23 @@ MainView {
 
                         // Need to capture special keys like backspace here,
                         // as they are for some reason not sent to the application but to the text input
-                        Keys.onPressed: { 
-                            // Don't press calculator's visual keys, when modifiers are pressed
-                            // to allow work keyboard shortcuts (eg. Ctrl+C)
-                            if (event.modifiers & Qt.NoModifier) {
-                                
+                        Keys.onPressed: keyPress(event)
+                        Keys.onReleased: keyRelease(event)
+
+                        function keyPress(event) {
+                            if (!(event.modifiers & Qt.ControlModifier || event.modifiers & Qt.AltModifier)) { // Shift needs to be passed through as it may be required for some special keys
                                 keyboardLoader.item.pressedKey = event.key;
                                 keyboardLoader.item.pressedKeyText = event.text;
+                            } else if (event.modifiers & Qt.ControlModifier) {
+                                if (event.key === Qt.Key_C) { // Copy action
+                                    var mimeData = Clipboard.newData();
+                                    mimeData.text = textInputField.selectedText;
+                                    Clipboard.push(mimeData);
+                                }
                             }
                         }
 
-                        Keys.onReleased: {
+                        function keyRelease(event) {
                             keyboardLoader.item.pressedKey = -1;
                             keyboardLoader.item.pressedKeyText = "";
                         }
