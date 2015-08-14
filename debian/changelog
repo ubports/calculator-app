@@ -1,4 +1,4 @@
-ubuntu-calculator-app (2.0.210) vivid; urgency=medium
+ubuntu-calculator-app (2.0.210) UNRELEASED; urgency=medium
 
   [ Bartosz Kosiorek ]
   * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
@@ -24,8 +24,9 @@ ubuntu-calculator-app (2.0.210) vivid; urgency=medium
   * Allow add comma without number (LP: #1465979)
   * Fix confusing error messages (LP: #1469533)
   * Add test for physical keyboard (LP: #1442794)
+  * Upgrade math.js to 2.1.1 to improve performance (LP: #1484851)
 
- -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 09 Jul 2015 22:41:57 +0200
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 14 Aug 2015 11:04:30 +0200
 
 ubuntu-calculator-app (2.0.182) vivid; urgency=medium
   * Add haptic feedback to buttons
