@@ -1,3 +1,11 @@
+// All edits done for the Ubuntu Calculator App are preceded by a comment that
+// starts with 'UCA:' and describes the edit
+
+// UCA: add a var to which we will refer to when we include the code in qml
+// in app/ubuntu-calculator-app.qml with import "engine/math.js" as MathJs and
+// then property var mathJs: MathJs.mathJs;
+var mathJs;
+
 /**
  * math.js
  * https://github.com/josdejong/mathjs
@@ -26,14 +34,8 @@
  */
 
 (function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["math"] = factory();
-	else
-		root["math"] = factory();
+    // UCA: we delete all exports, we don't need them, and we keep only our var
+    mathJs = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -6614,7 +6616,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        }
 
 	                        for ( b -= LOGBASE; i < b; ) {
-	                            x['c'].push( +n.slice( i, i += LOGBASE ) );
+                                // UCA: Fix left-to-right execution of function arguments
+                                // https://github.com/MikeMcl/decimal.js/issues/15#issuecomment-97339343
+                                var next = i + LOGBASE;
+                                x['c'].push( +n.slice( i, next ) );
+                                i = next;
 	                        }
 
 	                        n = n.slice(i);
