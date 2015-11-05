@@ -27,6 +27,7 @@ ubuntu-calculator-app (2.0.210) UNRELEASED; urgency=medium
   * Upgrade math.js to 2.1.1 to improve performance (LP: #1484851)
   * Upgrade math.js to 2.4.0 to resolve wrong calculation of sin and cos functions, 
     for values around multiples of tau (i.e. sin(7)) (LP: #1507799)
+  * Upgrade math.js to 2.4.1 to fix crash with factorial (LP: #1483600)
 
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Fri, 14 Aug 2015 11:04:30 +0200
 
