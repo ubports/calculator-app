@@ -146,16 +146,19 @@ MainView {
         }
         isLastCalculate = false;
 
-        if (visual === "()") {
-            visual = Formula.determineBracketTypeToAdd(longFormula)
-        }
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
+            if (visual === "()") {
+                visual = Formula.determineBracketTypeToAdd(longFormula)
+            }
             if (Formula.validateStringForAddingToFormula(longFormula, visual) === false) {
                 errorAnimation.restart();
                 return;
             }
         } else {
+            if (visual === "()") {
+                visual = Formula.determineBracketTypeToAdd(longFormula.slice(0, textInputField.cursorPosition))
+            }
             if (Formula.validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 errorAnimation.restart();
                 return;
@@ -189,8 +192,6 @@ MainView {
             displayedInputText = shortFormula;
             textInputField.cursorPosition = preservedCursorPosition + visual.length;
         }
-
-
 
         // Add here operators that have always priority
         if ((visual.toString() === "*") || (visual.toString() === ")")) {
