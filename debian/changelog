@@ -28,6 +28,7 @@ ubuntu-calculator-app (2.0.210) UNRELEASED; urgency=medium
   * Upgrade math.js to 2.4.0 to resolve wrong calculation of sin and cos functions, 
     for values around multiples of tau (i.e. sin(7)) (LP: #1507799)
   * Allow add brackets in middle of calculation (LP: #1510982)
+  * Upgrade math.js to 2.4.1 to fix crash with factorial (LP: #1483600)
 
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Wed, 28 Oct 2015 21:56:29 +0100
 
