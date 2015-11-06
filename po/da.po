@@ -7,49 +7,49 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-06-18 23:41+0200\n"
+"POT-Creation-Date: 2015-10-20 00:39+0200\n"
 "PO-Revision-Date: 2015-06-04 19:45+0000\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-08 06:24+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-11-06 05:47+0000\n"
+"X-Generator: Launchpad (build 17838)\n"
 
-#: ../app/engine/formula.js:168
+#: ../app/engine/formula.js:176
 msgid "NaN"
 msgstr "NaN"
 
-#: ../app/ubuntu-calculator-app.qml:255 ../app/ubuntu-calculator-app.qml:260
+#: ../app/ubuntu-calculator-app.qml:258 ../app/ubuntu-calculator-app.qml:263
 msgid "Favorite"
 msgstr "Foretrukne"
 
-#: ../app/ubuntu-calculator-app.qml:313
+#: ../app/ubuntu-calculator-app.qml:311
 msgid "Cancel"
 msgstr "Annullér"
 
-#: ../app/ubuntu-calculator-app.qml:327
+#: ../app/ubuntu-calculator-app.qml:325
 msgid "Select All"
 msgstr "Markér alt"
 
-#: ../app/ubuntu-calculator-app.qml:327
+#: ../app/ubuntu-calculator-app.qml:325
 msgid "Select None"
 msgstr "Fjern alle markeringer"
 
-#: ../app/ubuntu-calculator-app.qml:334 ../app/ubuntu-calculator-app.qml:405
+#: ../app/ubuntu-calculator-app.qml:332 ../app/ubuntu-calculator-app.qml:403
 msgid "Copy"
 msgstr "Kopiér"
 
-#: ../app/ubuntu-calculator-app.qml:342 ../app/ubuntu-calculator-app.qml:457
+#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:455
 msgid "Delete"
 msgstr "Slet"
 
-#: ../app/ubuntu-calculator-app.qml:418
+#: ../app/ubuntu-calculator-app.qml:416
 msgid "Edit"
 msgstr "Redigér"
 
-#: ../app/ubuntu-calculator-app.qml:434
+#: ../app/ubuntu-calculator-app.qml:432
 msgid "Add to favorites"
 msgstr "Tilføj til foretrukne"
 
@@ -59,7 +59,7 @@ msgstr "Tilføj til foretrukne"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:588 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:586 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
 msgstr "dd mmm åååå"
@@ -103,14 +103,14 @@ msgstr ""
 msgid "Yesterday"
 msgstr "I går"
 
-#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "Lommeregner"
 
-#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.4goee1X9XJ/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "matematik;plus;minus;gange;dividere;beregning;lommeregner;"

@@ -1,4 +1,4 @@
-# Georgian translation for ubuntu-calculator-app
+# Faroese translation for ubuntu-calculator-app
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the ubuntu-calculator-app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-10-20 00:39+0200\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Georgian <ka@li.org>\n"
+"PO-Revision-Date: 2015-11-04 22:51+0000\n"
+"Last-Translator: Angutivik Casper Rúnur Tausen Hansen <Unknown>\n"
+"Language-Team: Faroese <fo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,39 +19,39 @@ msgstr ""
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr ""
+msgstr "NaN"
 
 #: ../app/ubuntu-calculator-app.qml:258 ../app/ubuntu-calculator-app.qml:263
 msgid "Favorite"
-msgstr ""
+msgstr "Yndis"
 
 #: ../app/ubuntu-calculator-app.qml:311
 msgid "Cancel"
-msgstr ""
+msgstr "Angra"
 
 #: ../app/ubuntu-calculator-app.qml:325
 msgid "Select All"
-msgstr ""
+msgstr "Vel alt"
 
 #: ../app/ubuntu-calculator-app.qml:325
 msgid "Select None"
-msgstr ""
+msgstr "Vel einki"
 
 #: ../app/ubuntu-calculator-app.qml:332 ../app/ubuntu-calculator-app.qml:403
 msgid "Copy"
-msgstr ""
+msgstr "Avrita"
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:455
 msgid "Delete"
-msgstr ""
+msgstr "Strika"
 
 #: ../app/ubuntu-calculator-app.qml:416
 msgid "Edit"
-msgstr ""
+msgstr "Broyt"
 
 #: ../app/ubuntu-calculator-app.qml:432
 msgid "Add to favorites"
-msgstr ""
+msgstr "Skoyt uppí yndislutir"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -62,55 +62,57 @@ msgstr ""
 #: ../app/ubuntu-calculator-app.qml:586 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr ""
+msgstr "dd MM yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
-msgstr ""
+msgstr "Ongar yndislutir"
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
+"Skjót útrokningarnar til vinstru\n"
+"fyri at koyra í yndislutir"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:43
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:47
 msgid "mod"
-msgstr ""
+msgstr "mod"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr ""
+msgstr "Beint nú"
 
 #: ../app/ui/Screen.qml:39
 msgid "Today "
-msgstr ""
+msgstr "Í dag "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:43
 msgid "hh:mm"
-msgstr ""
+msgstr "hh:mm"
 
 #: ../app/ui/Screen.qml:45
 msgid "Yesterday"
-msgstr ""
+msgstr "Í gjár"
 
 #: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
-msgstr ""
+msgstr "Roknitól"
 
 #: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr ""
+msgstr "Eitt roknitól til Ubuntu."
 
 #: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr ""
+msgstr "støddfrøði;samanlegging;frádráttur;falding;býting"
