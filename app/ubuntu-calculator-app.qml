@@ -253,6 +253,8 @@ MainView {
         PageWithBottomEdge {
             id: calculatorPage
 
+            title: i18n.tr("Calculator")
+
             bottomEdgeTitle: i18n.tr("Favorite")
 
             bottomEdgePageComponent: FavouritePage {
@@ -275,6 +277,7 @@ MainView {
                     PropertyChanges {
                         target: calculatorPage.head
                         visible: false
+                        preset: ""
                     }
                 },
                 State {
@@ -286,6 +289,7 @@ MainView {
                     PropertyChanges {
                         target: calculatorPage.head
                         visible: true
+                        preset: "select"
                     }
                 }
             ]

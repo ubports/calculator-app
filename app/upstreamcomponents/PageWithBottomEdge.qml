@@ -105,7 +105,7 @@ Page {
             edgeLoader.item.active = true
             page.pageStack.push(edgeLoader.item)
             if (edgeLoader.item.flickable) {
-                edgeLoader.item.flickable.contentY = -page.header.height
+                //edgeLoader.item.flickable.contentY = -page.header.height
                 edgeLoader.item.flickable.returnToBounds()
             }
             if (edgeLoader.item.ready)
