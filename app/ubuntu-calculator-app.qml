@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Canonical Ltd
+ * Copyright (C) 2014-2015 Canonical Ltd
  *
  * This file is part of Ubuntu Calculator App
  *
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import QtQuick 2.3
-import Ubuntu.Components 1.1
-import Ubuntu.Components.Themes.Ambiance 0.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
+import Ubuntu.Components.Themes.Ambiance 1.3
 
 import "ui"
 import "upstreamcomponents"
@@ -31,8 +31,6 @@ MainView {
     objectName: "calculator";
     applicationName: "com.ubuntu.calculator";
 
-    // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false;
     automaticOrientation: true
     anchorToKeyboard: textInputField.visible ? false : true
 
@@ -124,7 +122,7 @@ MainView {
                 return bigNumberToFormat.toExponential();
             }
         } else {
-            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper, 
+            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper,
             // used by notation 'auto' to determine when to return exponential notation.
             return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}});
         }
@@ -248,7 +246,6 @@ MainView {
         id: mainStack
 
         Component.onCompleted: {
-
             push(calculatorPage);
             calculatorPage.forceActiveFocus();
         }
@@ -268,24 +265,27 @@ MainView {
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [
+
                 State {
                     name: "default"
-                    StateChangeScript {
-                        script: header.hide()
-                    }
                     PropertyChanges {
                         target: scrollableView
                         clip: false
                     }
+                    PropertyChanges {
+                        target: calculatorPage.head
+                        visible: false
+                    }
                 },
                 State {
                     name: "selection"
-                    StateChangeScript {
-                        script: header.show()
-                    }
                     PropertyChanges {
                         target: scrollableView
                         clip: true
+                    }
+                    PropertyChanges {
+                        target: calculatorPage.head
+                        visible: true
                     }
                 }
             ]
@@ -299,52 +299,45 @@ MainView {
             Keys.onPressed: textInputField.keyPress(event)
             Keys.onReleased: textInputField.keyRelease(event)
 
-            Header {
-                id: header
-                visible: true
-                useDeprecatedToolbar: false
-                property color dividerColor: "#babbbc"
-                property color panelColor: "white"
-                config: PageHeadConfiguration {
-                    backAction: Action {
-                        objectName: "cancelSelectionAction"
-                        iconName: "close"
-                        text: i18n.tr("Cancel")
-                        onTriggered: visualModel.cancelSelection()
-                    }
-                    actions: [
-                        Action {
-                            id: selectAllAction
-                            objectName: "selectAllAction"
-                            iconName: "select"
-                            // Until a select none icon  will be added to the theme we have to use
-                            // our own
-                            iconSource: visualModel.selectedItems.count < visualModel.items.count ?
-                                    Qt.resolvedUrl("graphics/select.svg") :
-                                    Qt.resolvedUrl("graphics/select_none.svg")
-                            text: visualModel.selectedItems.count < visualModel.items.count ?
-                                    i18n.tr("Select All") : i18n.tr("Select None")
-                            onTriggered: visualModel.selectAll()
-                        },
-                        Action {
-                            id: copySelectedAction
-                            objectName: "copySelectedAction"
-                            iconName: "edit-copy"
-                            text: i18n.tr("Copy")
-                            onTriggered: calculatorPage.copySelectedCalculations()
-                            enabled: visualModel.selectedItems.count > 0
-                        },
-                        Action {
-                            id: multiDeleteAction
-                            objectName: "multiDeleteAction"
-                            iconName: "delete"
-                            text: i18n.tr("Delete")
-                            onTriggered: calculatorPage.deleteSelectedCalculations()
-                            enabled: visualModel.selectedItems.count > 0
-                        }
-                    ]
-                }
+            head.visible: false
+            head.locked: true
+            head.backAction: Action {
+                objectName: "cancelSelectionAction"
+                iconName: "close"
+                text: i18n.tr("Cancel")
+                onTriggered: visualModel.cancelSelection()
             }
+            head.actions: [
+                Action {
+                    id: selectAllAction
+                    objectName: "selectAllAction"
+                    iconName: "select"
+                    // Until a select none icon  will be added to the theme we have to use
+                    // our own
+                    iconSource: visualModel.selectedItems.count < visualModel.items.count ?
+                            Qt.resolvedUrl("graphics/select.svg") :
+                            Qt.resolvedUrl("graphics/select_none.svg")
+                    text: visualModel.selectedItems.count < visualModel.items.count ?
+                            i18n.tr("Select All") : i18n.tr("Select None")
+                    onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: calculatorPage.copySelectedCalculations()
+                    enabled: visualModel.selectedItems.count > 0
+                },
+                Action {
+                    id: multiDeleteAction
+                    objectName: "multiDeleteAction"
+                    iconName: "delete"
+                    text: i18n.tr("Delete")
+                    onTriggered: calculatorPage.deleteSelectedCalculations()
+                    enabled: visualModel.selectedItems.count > 0
+                }
+            ]
 
             Component {
                 id: emptyDelegate
@@ -428,7 +421,7 @@ MainView {
                     Loader {
                         id: screenDelegateFavouriteAction
                         sourceComponent: Action {
-                            iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
+                            iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
@@ -540,11 +533,8 @@ MainView {
 
             ScrollableView {
                 anchors {
-                    top: header.bottom
-                    bottom: parent.bottom
+                    fill: parent
                     bottomMargin: textInputField.visible ? 0 : -keyboardLoader.height
-                    left: parent.left
-                    right: parent.right
                 }
                 id: scrollableView
                 objectName: "scrollableView"
@@ -748,4 +738,3 @@ MainView {
         }
     }
 }
-
