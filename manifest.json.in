@@ -2,7 +2,7 @@
     "name": "com.ubuntu.calculator",
     "architecture": "all",
     "description": "Powerful and easy to use calculator.",
-    "framework": "ubuntu-sdk-14.10",
+    "framework": "ubuntu-sdk-15.04.1-qml",
     "hooks": {
         "calculator": {
             "apparmor": "@APP_HARDCODE@.apparmor",
