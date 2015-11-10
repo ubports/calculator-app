@@ -254,6 +254,7 @@ MainView {
             id: calculatorPage
 
             title: i18n.tr("Calculator")
+            anchors.fill: parent
 
             bottomEdgeTitle: i18n.tr("Favorite")
 
@@ -267,7 +268,6 @@ MainView {
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [
-
                 State {
                     name: "default"
                     PropertyChanges {
