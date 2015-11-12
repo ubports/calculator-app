@@ -112,10 +112,10 @@ MainView {
         var NUMBER_LENGTH_LIMIT = 14;
         if (bigNumberToFormat.toString().length > NUMBER_LENGTH_LIMIT) {
             var resultLength = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
-                                            precision: NUMBER_LENGTH_LIMIT}).length;
+                                            precision: NUMBER_LENGTH_LIMIT}).toString().length;
 
             return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
-                                 precision: (NUMBER_LENGTH_LIMIT - resultLength + NUMBER_LENGTH_LIMIT)});
+                                 precision: (NUMBER_LENGTH_LIMIT - resultLength + NUMBER_LENGTH_LIMIT)}).toString();
         }
     }
 
@@ -220,6 +220,7 @@ MainView {
         }
 
         isLastCalculate = true;
+
         if (result === longFormula) {
             errorAnimation.restart();
             return;
