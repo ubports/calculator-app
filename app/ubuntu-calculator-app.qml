@@ -117,6 +117,7 @@ MainView {
             return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
                                  precision: (NUMBER_LENGTH_LIMIT - resultLength + NUMBER_LENGTH_LIMIT)}).toString();
         }
+        return bigNumberToFormat.toString()
     }
 
     function formulaPush(visual) {
