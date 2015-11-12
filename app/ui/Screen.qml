@@ -52,13 +52,14 @@ ListItemWithActions {
     }
 
     color: "white"
+    height: units.gu(11)
     Column {
         anchors.fill: parent
         Row {
             id: creationDateRow
             width: parent.width
+            height: units.gu(2.5)
             anchors.right: parent.right
-            spacing: units.gu(1)
 
             layoutDirection: Qt.RightToLeft
 
@@ -88,10 +89,12 @@ ListItemWithActions {
                 font.bold: true
             }
         }
+      
         Row {
             id: calculationRow
             objectName: "historyrow"
             width: parent.width
+            height: units.gu(4)
             anchors.right: parent.right
 
             layoutDirection: Qt.RightToLeft
@@ -100,8 +103,8 @@ ListItemWithActions {
             Text {
                 id: result
                 objectName: "result" + model.index
-
-                anchors.bottom: formula.bottom
+                visible: mainView.width > mainView.height
+                //anchors.bottom: formula.bottom
 
                 color: UbuntuColors.darkGrey
                 text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
@@ -111,25 +114,14 @@ ListItemWithActions {
             }
 
             Text {
-                id: equal
-                anchors.bottom: formula.bottom
-
-                color: UbuntuColors.darkGrey
-                text: " = "
-                font.pixelSize: units.gu(2.5)
-                lineHeight: units.gu(1) + 1
-                lineHeightMode: Text.FixedHeight
-            }
-
-            Text {
                 id: formula
                 objectName: "formula" + model.index
 
-                width: parent.width - equal.width - result.width
-                anchors.bottom: parent.bottom
+                //width: parent.width - result.width
+                //anchors.bottom: parent.bottom
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay(model.formula)
+                text: Formula.returnFormulaToDisplay(model.formula) + " ="
                 font.pixelSize: units.gu(2.5)
                 lineHeight: units.gu(1) + 1
                 lineHeightMode: Text.FixedHeight
@@ -138,5 +130,29 @@ ListItemWithActions {
                 horizontalAlignment: Text.AlignRight
             }
         }
+        Row {
+            objectName: "historyrow2"
+            width: parent.width
+            height: units.gu(4)
+            anchors.right: parent.right
+
+            layoutDirection: Qt.RightToLeft
+            spacing: units.gu(1)
+            Text {
+                id: result2
+                
+                objectName: "result" + model.index
+
+                //width: parent.width
+                anchors.right: parent.right
+ 
+                color: UbuntuColors.darkGrey
+                text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
+                font.pixelSize: units.gu(3.5)
+                lineHeight: units.gu(2)
+                lineHeightMode: Text.FixedHeight
+                horizontalAlignment: Text.AlignRight
+            }
+       }
     }
 }
