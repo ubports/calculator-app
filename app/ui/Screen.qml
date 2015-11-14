@@ -82,7 +82,6 @@ ListItemWithActions {
                 id: favouriteDescriptionText
                 color: UbuntuColors.orange
                 text: model.favouriteText
-                //width: creationDateRow.width - creationTimeText.width -favouriteIcon.width - units.gu(3)
                 width: paintedWidth + units.gu(3)
                 font.pixelSize: units.gu(1.5)
                 font.bold: true
@@ -104,7 +103,7 @@ ListItemWithActions {
                 anchors.bottom: formula.bottom
 
                 color: UbuntuColors.darkGrey
-                text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
+                text: Formula.returnFormulaToDisplay(model.result)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight
