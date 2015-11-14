@@ -658,10 +658,10 @@ MainView {
                                                 for (var j = 0; j < model.length; j++) {
                                                     var item = model[j];
                                                     if (!item.action) {
-                                                        if (item.number)
+                                                        if (item.number || item.forceNumber)
                                                             acceptedBits.push({ "chars": item.number, "push": item.number });
                                                         if (item.pushText)
-                                                            acceptedBits.push({ "chars": item.pushText, "push": item.pushText }); // TODO: Accept both if different, brackets
+                                                            acceptedBits.push({ "chars": item.pushText, "push": item.pushText });
                                                         if (item.text)
                                                             acceptedBits.push({ "chars": item.text, "push": item.pushText ? item.pushText : item.text });
                                                     }
