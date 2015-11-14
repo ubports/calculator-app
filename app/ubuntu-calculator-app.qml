@@ -38,6 +38,7 @@ MainView {
 
     width: units.gu(40);
     height: units.gu(70);
+
     focus: true
 
     // This is our engine
@@ -72,6 +73,8 @@ MainView {
     // By default we delete selected calculation from history.
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
+
+    property bool isLandscapeView: height < width;
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and

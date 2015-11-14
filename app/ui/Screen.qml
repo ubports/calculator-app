@@ -52,19 +52,20 @@ ListItemWithActions {
     }
 
     color: "white"
-    height: units.gu(11)
+    height: units.gu(7) + (mainView.isLandscapeView ? 0 : units.gu(3.7))
     Column {
         anchors.fill: parent
         Row {
             id: creationDateRow
             width: parent.width
-            height: units.gu(2.5)
+            height: units.gu(1.8)
             anchors.right: parent.right
 
             layoutDirection: Qt.RightToLeft
 
             Text {
                 id: creationTimeText
+                height: units.gu(1.8)
                 color: UbuntuColors.darkGrey
                 text: formatDate(model.date)
                 font.pixelSize: units.gu(1.5)
@@ -81,9 +82,9 @@ ListItemWithActions {
 
             Text {
                 id: favouriteDescriptionText
+                height: units.gu(1.8)
                 color: UbuntuColors.orange
                 text: model.favouriteText
-                //width: creationDateRow.width - creationTimeText.width -favouriteIcon.width - units.gu(3)
                 width: paintedWidth + units.gu(3)
                 font.pixelSize: units.gu(1.5)
                 font.bold: true
@@ -94,7 +95,7 @@ ListItemWithActions {
             id: calculationRow
             objectName: "historyrow"
             width: parent.width
-            height: units.gu(4)
+            height: units.gu(3.5)
             anchors.right: parent.right
 
             layoutDirection: Qt.RightToLeft
@@ -103,35 +104,32 @@ ListItemWithActions {
             Text {
                 id: result
                 objectName: "result" + model.index
-                visible: mainView.width > mainView.height
-                //anchors.bottom: formula.bottom
-
+                visible: mainView.isLandscapeView
+                height: units.gu(3.5)
+                //anchors.bottom: parent.bottom
                 color: UbuntuColors.darkGrey
-                text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
+                text: Formula.returnFormulaToDisplay(model.result)
                 font.pixelSize: units.gu(3.5)
-                lineHeight: units.gu(2)
-                lineHeightMode: Text.FixedHeight
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignRight
             }
 
             Text {
                 id: formula
                 objectName: "formula" + model.index
-
-                //width: parent.width - result.width
+                height: units.gu(3.5)
                 //anchors.bottom: parent.bottom
-
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.formula) + " ="
                 font.pixelSize: units.gu(2.5)
-                lineHeight: units.gu(1) + 1
-                lineHeightMode: Text.FixedHeight
 
-                elide: Text.ElideLeft
+                verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignRight
             }
         }
+
         Row {
-            objectName: "historyrow2"
+            objectName: "resultInPortraitView"
             width: parent.width
             height: units.gu(4)
             anchors.right: parent.right
@@ -139,15 +137,13 @@ ListItemWithActions {
             layoutDirection: Qt.RightToLeft
             spacing: units.gu(1)
             Text {
-                id: result2
-                
                 objectName: "result" + model.index
+                visible: !mainView.isLandscapeView
 
-                //width: parent.width
-                anchors.right: parent.right
+                height: units.gu(4)
  
                 color: UbuntuColors.darkGrey
-                text: isNaN(model.result) ? Formula.returnFormulaToDisplay(model.result) : Formula.returnFormulaToDisplay(mathJs.format(model.result))
+                text: Formula.returnFormulaToDisplay(model.result)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight
