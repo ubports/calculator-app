@@ -38,7 +38,6 @@ MainView {
 
     width: units.gu(40);
     height: units.gu(70);
-    focus: true
 
     // This is our engine
     property var mathJs: MathJs.mathJs;
