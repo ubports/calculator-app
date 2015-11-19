@@ -74,7 +74,7 @@ MainView {
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
-    property bool isLandscapeView: height < width;
+    property bool isLandscapeView: width > units.gu(60);
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
