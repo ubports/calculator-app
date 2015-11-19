@@ -202,9 +202,10 @@ function returnFormulaToDisplay(engineFormulaToConvert) {
 function couldAddOperator(formulaToCheck, operatorToAdd) {
     // No two operators one after other, except factorial operator
     if (isOperator(formulaToCheck.slice(-1)) && formulaToCheck.slice(-1) !== "!") {
-        // But a minus after a * or a / is allowed
-        if (!(operatorToAdd === "-" && (formulaToCheck.slice(-1) === "*" ||
-                                        formulaToCheck.slice(-1) === "/"))) {
+        // But a minus after every operator except + and - is allowed
+        if (!(operatorToAdd === "-" && 
+              formulaToCheck.slice(-1) !== "+" &&
+              formulaToCheck.slice(-1) !== "-")) {
             return false;
         }
     }

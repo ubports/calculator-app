@@ -272,10 +272,10 @@ class MainTestCase(CalculatorAppTestCase):
         self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('power')
         self.app.main_view.hide_scientific_keyboard()
-        self.app.main_view.insert('4=')
+        self.app.main_view.insert('-4=')
 
-        self._assert_result_is(u'16')
-        self._assert_history_contains(u'2^4=16')
+        self._assert_result_is(u'0.0625')
+        self._assert_history_contains(u'2^−4=0.0625')
 
     def test_loge(self):
         self.app.main_view.show_scientific_keyboard()
