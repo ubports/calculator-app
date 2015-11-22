@@ -250,6 +250,9 @@ MainView {
             calculatorPage.forceActiveFocus();
         }
 
+        onHeightChanged: scrollableView.scrollToBottom();
+        anchors.fill: parent
+
         PageWithBottomEdge {
             id: calculatorPage
 
