@@ -109,24 +109,14 @@ MainView {
 
         // Maximum length of the result number
         var NUMBER_LENGTH_LIMIT = 14;
+        if (bigNumberToFormat.toString().length > NUMBER_LENGTH_LIMIT) {
+            var resultLength = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                            precision: NUMBER_LENGTH_LIMIT}).toString().length;
 
-        if (mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}}).length > NUMBER_LENGTH_LIMIT) {
-            if (bigNumberToFormat.toExponential().length > NUMBER_LENGTH_LIMIT) {
-                // long format like: "1.2341322e+22"
-                var resultLenth = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
-                                                precision: NUMBER_LENGTH_LIMIT}).length;
-
-                return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
-                                                precision: (NUMBER_LENGTH_LIMIT - resultLenth + NUMBER_LENGTH_LIMIT)});
-            } else {
-                // short format like: "1e-10"
-                return bigNumberToFormat.toExponential();
-            }
-        } else {
-            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper, 
-            // used by notation 'auto' to determine when to return exponential notation.
-            return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}});
+            return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                 precision: (NUMBER_LENGTH_LIMIT - resultLength + NUMBER_LENGTH_LIMIT)}).toString();
         }
+        return bigNumberToFormat.toString()
     }
 
     function formulaPush(visual) {
@@ -230,6 +220,7 @@ MainView {
         }
 
         isLastCalculate = true;
+
         if (result === longFormula) {
             errorAnimation.restart();
             return;

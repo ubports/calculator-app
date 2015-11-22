@@ -345,6 +345,21 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'−66')
         self._assert_history_contains(u'66i×i=−66')
 
+    def test_formatting_long_complex_numbers(self):
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('3+4')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('i')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.press_universal_bracket()
+        self._assert_result_is(u'(3+4i)')
+        self.app.main_view.show_scientific_keyboard()
+        self.app.main_view.press('square')
+        self.app.main_view.hide_scientific_keyboard()
+        self.app.main_view.insert('=')
+        self._assert_result_is(u'−6.999999999999997+24i')
+        self._assert_history_contains(u'(3+4i)^2=−6.999999999999997+24i')
+
     def test_floating_point_round_error(self):
         self.app.main_view.insert('0.1+0.2=')
         self._assert_result_is(u'0.3')
