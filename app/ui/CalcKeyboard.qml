@@ -54,6 +54,7 @@ Rectangle {
             currentIndex = index;
             snapAnimation.to = index * (flickableKeyboard.width)
             snapAnimation.start()
+            textInputField.focus = true
         }
 
         UbuntuNumberAnimation {

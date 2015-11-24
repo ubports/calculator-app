@@ -79,9 +79,9 @@ class CalculationHistory(object):
             if 'result' in value.objectName:
                 result = value.text.strip()
             elif 'formula' in value.objectName:
-                formula = value.text.strip()
+                formula = value.text.replace(" ", "")
 
-        return formula + '=' + result
+        return formula + result
 
 
 class MainView(ubuntuuitoolkit.MainView):
