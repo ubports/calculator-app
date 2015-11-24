@@ -123,7 +123,7 @@ MainView {
                 return bigNumberToFormat.toExponential();
             }
         } else {
-            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper, 
+            // exponential: Object An object containing two parameters, {Number} lower and {Number} upper,
             // used by notation 'auto' to determine when to return exponential notation.
             return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10}});
         }
@@ -315,12 +315,8 @@ MainView {
                         Action {
                             id: selectAllAction
                             objectName: "selectAllAction"
-                            iconName: "select"
-                            // Until a select none icon  will be added to the theme we have to use
-                            // our own
-                            iconSource: visualModel.selectedItems.count < visualModel.items.count ?
-                                    Qt.resolvedUrl("graphics/select.svg") :
-                                    Qt.resolvedUrl("graphics/select_none.svg")
+                            iconName: visualModel.selectedItems.count < visualModel.items.count ?
+                                        "select" : "select-none"
                             text: visualModel.selectedItems.count < visualModel.items.count ?
                                     i18n.tr("Select All") : i18n.tr("Select None")
                             onTriggered: visualModel.selectAll()
@@ -747,4 +743,3 @@ MainView {
         }
     }
 }
-
