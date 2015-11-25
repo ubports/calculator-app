@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Canonical, Ltd.
+ * Copyright (C) 2014-2015 Canonical, Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,8 +62,8 @@
 
 */
 
-import QtQuick 2.2
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 Page {
     id: page
@@ -105,7 +105,6 @@ Page {
             edgeLoader.item.active = true
             page.pageStack.push(edgeLoader.item)
             if (edgeLoader.item.flickable) {
-                edgeLoader.item.flickable.contentY = -page.header.height
                 edgeLoader.item.flickable.returnToBounds()
             }
             if (edgeLoader.item.ready)
@@ -170,7 +169,7 @@ Page {
         z: 1
         width: tipLabel.paintedWidth + units.gu(6)
         height: bottomEdge.tipHeight + units.gu(1)
-        color: Theme.palette.normal.overlay
+        backgroundColor: Theme.palette.normal.overlay
         Label {
             id: tipLabel
 
