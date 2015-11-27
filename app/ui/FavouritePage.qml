@@ -76,8 +76,8 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Icon {
                     id: favouriteIcon
-                    height: parent.height - units.gu(2)
-                    width: height
+                    Layout.preferredHeight: parent.height - units.gu(2)
+                    Layout.preferredWidth: height
 
                     Layout.alignment: Qt.AlignVCenter
 
