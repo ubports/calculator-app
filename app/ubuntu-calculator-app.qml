@@ -34,8 +34,8 @@ MainView {
     automaticOrientation: true
     anchorToKeyboard: textInputField.visible ? false : true
 
-    width: units.gu(40);
-    height: units.gu(70);
+    width: units.gu(80);
+    height: units.gu(60);
 
     // This is our engine
     property var mathJs: MathJs.mathJs;
