@@ -34,8 +34,8 @@ MainView {
     automaticOrientation: true
     anchorToKeyboard: textInputField.visible ? false : true
 
-    width: units.gu(40);
-    height: units.gu(70);
+    width: units.gu(80);
+    height: units.gu(60);
 
     // This is our engine
     property var mathJs: MathJs.mathJs;
@@ -309,12 +309,8 @@ MainView {
                 Action {
                     id: selectAllAction
                     objectName: "selectAllAction"
-                    iconName: "select"
-                    // Until a select none icon  will be added to the theme we have to use
-                    // our own
-                    iconSource: visualModel.selectedItems.count < visualModel.items.count ?
-                            Qt.resolvedUrl("graphics/select.svg") :
-                            Qt.resolvedUrl("graphics/select_none.svg")
+                    iconName: visualModel.selectedItems.count < visualModel.items.count ?
+                                        "select" : "select-none"
                     text: visualModel.selectedItems.count < visualModel.items.count ?
                             i18n.tr("Select All") : i18n.tr("Select None")
                     onTriggered: visualModel.selectAll()

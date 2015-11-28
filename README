@@ -9,6 +9,7 @@ Default Calculator application for Ubuntu devices.
 
 # How to develop
 
+
 ## Calculation engine.
 
 Current calculation engine is math.js version 1.1.0. 
@@ -16,6 +17,7 @@ You could download latest version from webpage:
     http://mathjs.org
 
 The engine was sligtly modified to properly work with Ubuntu-Calculator-App.
+
 
 ## Style guide
 
@@ -32,6 +34,7 @@ More information about style guides, and why we need it:
 Curent style guide for ubuntu-calculator-app is:
     https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
 
+
 ## Clean/Beautiful Code
 
 When you creating code, every function/variable name should be meaningful and has easy to understand form. The names should reveal intent of creator. With good names you even do not need an comments. The code is documentting itself. We should avoid comments if it is not necessary.
@@ -40,6 +43,7 @@ If someone during review, ask you to add comment then you should check if names 
 More information about clean/beautiful code is available in books:
  * Clean Code: A Handbook of Agile Software Craftsmanship Paperback, by Robert C. Martin
  * Beautiful Code: Leading Programmers Explain How They Think, by Andy Oram
+
 
 ## Run the autopilot tests
 
@@ -50,3 +54,30 @@ Once the app has been built, you can go to the build directory and run:
 
     cd tests/autopilot
     autopilot run ubuntu_calculator_app
+
+
+## Profiling calculator
+
+To successfuly run profiler on your device, you must modify ubuntu-calculator-app.apparmor file,
+and add "networking" policy group:
+
+ "policy_groups": [
+    "networking"
+ ],
+
+The bug was already submitted at:
+https://bugs.launchpad.net/ubuntu-sdk-ide/+bug/1520551
+
+Next you will need follow instruction:
+
+ 1. Connect your device to PC and make sure it is unlocked, and Developer Mode is enable
+ 2. Run Ubuntu SDK IDE
+ 3. Open Calculator project and generate Unix Makefiles for Arm.
+ 4. Select Analyze > QML Profiler 
+ 5. Select the Start button to start Calculator from the QML Profiler.
+ 6. After reproduce issue you must press Stop button.
+
+More information about profiling is available at:
+http://doc.qt.io/qtcreator/creator-qml-performance-monitor.html
+
+
