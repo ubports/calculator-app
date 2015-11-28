@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 import "../upstreamcomponents"
 import "../engine/formula.js" as Formula
@@ -68,6 +68,7 @@ ListItemWithActions {
                 height: units.gu(1.8)
                 color: UbuntuColors.darkGrey
                 text: formatDate(model.date)
+                textFormat: Text.PlainText
                 font.pixelSize: units.gu(1.5)
                 font.italic: true
             }
@@ -85,6 +86,7 @@ ListItemWithActions {
                 height: units.gu(1.8)
                 color: UbuntuColors.orange
                 text: model.favouriteText
+                textFormat: Text.PlainText
                 width: paintedWidth + units.gu(3)
                 font.pixelSize: units.gu(1.5)
                 font.bold: true
@@ -109,17 +111,21 @@ ListItemWithActions {
                 //anchors.bottom: parent.bottom
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.result)
+                textFormat: Text.PlainText
                 font.pixelSize: units.gu(3.5)
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignRight
+                lineHeight: units.gu(2)
+                lineHeightMode: Text.FixedHeight
             }
 
             Text {
                 id: formula
                 objectName: "formula" + model.index
-                height: units.gu(3.5)
-                //anchors.bottom: parent.bottom
+
+                width: parent.width - result.width
+                anchors.bottom: parent.bottom
+
                 color: UbuntuColors.darkGrey
+                textFormat: Text.PlainText
                 text: Formula.returnFormulaToDisplay(model.formula) + " ="
                 font.pixelSize: units.gu(2.5)
 
