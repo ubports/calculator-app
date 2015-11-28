@@ -238,30 +238,24 @@ class MainTestCase(CalculatorAppTestCase):
 
     def test_square(self):
         self.app.main_view.insert('4')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('square')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'16')
         self._assert_history_contains(u'4^2=16')
 
     def test_adding_square_to_empty_formula(self):
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('square')
         self._assert_result_is(u'')
 
     def test_adding_square_after_operator(self):
         self.app.main_view.insert('6/')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('square')
         self._assert_result_is(u'6÷')
 
     def test_cube(self):
         self.app.main_view.insert('3')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('cube')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'27')
@@ -269,28 +263,22 @@ class MainTestCase(CalculatorAppTestCase):
 
     def test_power(self):
         self.app.main_view.insert('2')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('power')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('-4=')
 
         self._assert_result_is(u'0.0625')
         self._assert_history_contains(u'2^−4=0.0625')
 
     def test_loge(self):
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('log')
         self.app.main_view.press('e')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'1')
 
     def test_factorial(self):
         self.app.main_view.insert('4')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('!')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
 
         self._assert_result_is(u'24')
@@ -299,9 +287,7 @@ class MainTestCase(CalculatorAppTestCase):
     def test_factorial_with_brackets(self):
         self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('3')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('!')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('*2')
         self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('=')
@@ -310,18 +296,14 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'(3!×2)=12')
 
     def test_sin(self):
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('sin')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('0=')
 
         self._assert_result_is(u'0')
         self._assert_history_contains(u'sin(0)=0')
 
     def test_cos(self):
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('cos')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('0')
         self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('=')
@@ -331,16 +313,12 @@ class MainTestCase(CalculatorAppTestCase):
 
     def test_validation_complex_numbers(self):
         self.app.main_view.insert('66')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('i')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('*')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('i')
         self.app.main_view.press('i')
         self.app.main_view.press('i')
         self._assert_result_is(u'66i×i')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('33=')
         self._assert_result_is(u'−66')
         self._assert_history_contains(u'66i×i=−66')
@@ -348,14 +326,10 @@ class MainTestCase(CalculatorAppTestCase):
     def test_formatting_long_complex_numbers(self):
         self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('3+4')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('i')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.press_universal_bracket()
         self._assert_result_is(u'(3+4i)')
-        self.app.main_view.show_scientific_keyboard()
         self.app.main_view.press('square')
-        self.app.main_view.hide_scientific_keyboard()
         self.app.main_view.insert('=')
         self._assert_result_is(u'−6.999999999999997+24i')
         self._assert_history_contains(u'(3+4i)^2=−6.999999999999997+24i')
