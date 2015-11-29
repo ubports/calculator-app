@@ -3,6 +3,8 @@ ubuntu-calculator-app (2.1) UNRELEASED; urgency=medium
   [ Bartosz Kosiorek ]
   * Fix evaluation of long complex numbers (LP: #1515600)
   * Upgrade math.js to version 2.4.2 to fix complex numbers formatting 
+  * Improve performance of first calculation about 20% by compile math.js
+    with Google Closure (LP: #1520594)
   * Run Calculator in Landscape mode for Desktop (LP: #1468663)
   * Add instruction how to enable profiling (workaround for LP: #1520551) 
 
