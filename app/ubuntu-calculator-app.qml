@@ -182,7 +182,7 @@ MainView {
         }
 
         // Add here operators that have always priority
-        if ((visual.toString() === "*") || (visual.toString() === ")")) {
+        if (visual.toString() === ")") {
             isFormulaIsValidToCalculate = true;
         }
     }
