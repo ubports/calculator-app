@@ -648,6 +648,9 @@ MainView {
                                                             acceptedBits.push({ "chars": item.pushText, "push": item.pushText });
                                                         if (item.text)
                                                             acceptedBits.push({ "chars": item.text, "push": item.pushText ? item.pushText : item.text });
+                                                        if (item.pasteTexts)
+                                                            for (var pos = 0; pos < item.pasteTexts.length; pos++)
+                                                                acceptedBits.push({ "chars": item.pasteTexts[pos], "push": item.pasteTexts[pos] });
                                                     }
                                                 }
                                             }

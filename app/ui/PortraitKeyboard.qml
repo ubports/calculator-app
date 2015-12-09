@@ -43,7 +43,7 @@ CalcKeyboard {
             { text: "+", name: "plus" },
             { text: decimalPoint, name: "point", pushText: ".", textColor: "#DD4814" },
             { number: 0, name: "zero", textColor: "#DD4814", forceNumber: true },
-            { text: "( )", name: "universalBracket", pushText: "()", textColor: "#DD4814", kbdKeys: [Qt.Key_ParenLeft, Qt.Key_ParenRight, Qt.Key_BracketLeft, Qt.Key_BracketRight] },
+            { text: "( )", name: "universalBracket", pushText: "()", pasteTexts: ["(", ")"], textColor: "#DD4814", kbdKeys: [Qt.Key_ParenLeft, Qt.Key_ParenRight, Qt.Key_BracketLeft, Qt.Key_BracketRight] },
             { text: "=", name: "equals", action: "calculate", kbdKeys: [Qt.Key_Enter, Qt.Key_Return] }
         )
     }
