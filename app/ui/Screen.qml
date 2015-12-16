@@ -65,7 +65,8 @@ ListItemWithActions {
 
             Text {
                 id: creationTimeText
-                height: units.gu(1.8)
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 color: UbuntuColors.darkGrey
                 text: formatDate(model.date)
                 textFormat: Text.PlainText
@@ -75,7 +76,8 @@ ListItemWithActions {
 
             Icon {
                 id: favouriteIcon
-                height: units.gu(1.8)
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 width: height
                 name: model.isFavourite ? "starred" : "non-starred"
                 color: model.isFavourite ? UbuntuColors.orange : "white"
@@ -83,7 +85,8 @@ ListItemWithActions {
 
             Text {
                 id: favouriteDescriptionText
-                height: units.gu(1.8)
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 color: UbuntuColors.orange
                 text: model.favouriteText
                 textFormat: Text.PlainText
@@ -107,8 +110,8 @@ ListItemWithActions {
                 id: result
                 objectName: "result" + model.index
                 visible: mainView.isLandscapeView
-                height: units.gu(3.5)
-                //anchors.bottom: parent.bottom
+                anchors.top: parent.top
+
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.result)
                 textFormat: Text.PlainText
@@ -146,8 +149,9 @@ ListItemWithActions {
                 objectName: "result" + model.index
                 visible: !mainView.isLandscapeView
 
-                height: units.gu(4)
- 
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
+
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.result)
                 font.pixelSize: units.gu(3.5)
