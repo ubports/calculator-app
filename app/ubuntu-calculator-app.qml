@@ -379,14 +379,9 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item,
-                                        screenDelegateEditAction.item,
-                                        screenDelegateFavouriteAction.item ]
-                    leftSideAction: screenDelegateDeleteAction.item
-
-                    Loader {
-                        id: screenDelegateCopyAction
-                        sourceComponent: Action {
+                    rightSideActions: [
+                        Action {
+                            id: screenDelegateCopyAction
                             iconName: "edit-copy"
                             text: i18n.tr("Copy")
                             onTriggered: {
@@ -394,12 +389,9 @@ MainView {
                                 mimeData.text = model.formula + "=" + model.result;
                                 Clipboard.push(mimeData);
                             }
-                        }
-                    }
-
-                    Loader {
-                        id: screenDelegateEditAction
-                        sourceComponent: Action {
+                        },
+                        Action {
+                            id: screenDelegateEditAction
                             iconName: "edit"
                             text: i18n.tr("Edit")
                             onTriggered: {
@@ -410,11 +402,9 @@ MainView {
                                 previousVisual = "";
                                 scrollableView.scrollToBottom();
                             }
-                        }
-                    }
-                    Loader {
-                        id: screenDelegateFavouriteAction
-                        sourceComponent: Action {
+                        },
+                        Action {
+                            id: screenDelegateFavouriteAction
                             iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
                             text: i18n.tr("Add to favorites")
@@ -435,15 +425,13 @@ MainView {
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
-                    }
-                    Loader {
+                    ]
+                    leftSideAction: Action {
                         id: screenDelegateDeleteAction
-                        sourceComponent: Action {
-                            iconName: "delete"
-                            text: i18n.tr("Delete")
-                            onTriggered: {
-                                screenDelegate.remove();
-                            }
+                        iconName: "delete"
+                        text: i18n.tr("Delete")
+                        onTriggered: {
+                            screenDelegate.remove();
                         }
                     }
 
@@ -727,6 +715,7 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
+                    asynchronous: true
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
