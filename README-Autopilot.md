@@ -17,7 +17,7 @@ Prerequisites
 
 Install the following autopilot packages required to run the tests,
 
-    $ sudo apt-get install ubuntu-ui-toolkit-autopilo
+    $ sudo apt-get install ubuntu-ui-toolkit-autopilot
 
 Running tests on the desktop
 ============================
@@ -40,8 +40,7 @@ Using terminal:
 
     $ autopilot3 list ubuntu_calculator_app
 
- * To run only one test (for instance: ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero
-)
+ * To run only one test (for instance: ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero)
 
     $ autopilot3 run -vv ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero
 
@@ -61,7 +60,7 @@ Running tests on device or emulator:
 
 Using autopkg:
 
-*  Branch the CAlculator app code, for example,
+*  Branch the Calculator app code, for example,
 
     $ bzr branch lp:ubuntu-calculator-app
 

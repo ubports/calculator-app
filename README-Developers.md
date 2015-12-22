@@ -20,15 +20,13 @@ If the tests fail, you will have to fix them before your bug fix can be
 approved and merged into trunk. If the tests pass then commit and push your
 code by,
 
-   
-
     $ bzr commit -m "Implemented bug fix" --fixes lp:bug-number
     $ bzr push lp:~launchpadid/ubuntu-calculator-app/branch-name
 
 Running Tests
 =============
 
-Please check README-Autopilot.md and README-Unittest.md on how to run the tests.
+Please check `README-Autopilot.md` and `README-Unittest.md` on how to run the tests.
 They are quite explanatory and will help you get started.
 
 Code Style
@@ -49,7 +47,7 @@ Object Declarations, Grouped Properties and Lists.
 Debugging
 =========
  
-GDB allows one to see what is going on `inside' another program while it executes, 
+GDB allows one to see what is going on `inside` another program while it executes, 
 or what another program was doing at the moment it crashed. It is a pretty niffty tool which allows you 
 to get the crash log that can help a developer pin point the cause of the crash.
 Before reproducing crash it is good to create symbols table for gdb, by using command:
