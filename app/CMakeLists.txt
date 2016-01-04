@@ -4,13 +4,12 @@ if(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
 endif(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
 
 if(CLICK_MODE)
-  set(ICON ${ICON})
-  install(FILES graphics/${ICON} DESTINATION ${CMAKE_INSTALL_PREFIX})
+  install(FILES ${ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX})
+else (CLICK_MODE)
+  install(FILES ${ICON_FILE} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR})
 endif(CLICK_MODE)
-
 install(FILES ${MAIN_QML} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR})
 
 add_subdirectory(engine)
-add_subdirectory(graphics)
 add_subdirectory(ui)
 add_subdirectory(upstreamcomponents)

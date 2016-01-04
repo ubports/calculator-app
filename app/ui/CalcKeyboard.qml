@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Canonical Ltd
+ * Copyright (C) 2014-2015 Canonical Ltd
  *
  * This file is part of Ubuntu Calculator App
  *
@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 Rectangle {
     id: virtualKeyboard
@@ -30,11 +30,12 @@ Rectangle {
     Flickable {
         id: flickableKeyboard
         anchors { left: parent.left; bottom: parent.bottom; right: parent.right }
+        boundsBehavior: Flickable.DragOverBounds
         flickableDirection: Flickable.HorizontalFlick
         contentWidth: virtualKeyboard.width * keyboardsRow.children.length
         contentHeight: keyboardsRow.height + units.gu(1)
         height: contentHeight
-        boundsBehavior: Flickable.DragOverBounds
+        interactive: keyboardsRow.children.length === 1 ? false : true
 
         property int currentIndex: 0
 
@@ -53,6 +54,7 @@ Rectangle {
             currentIndex = index;
             snapAnimation.to = index * (flickableKeyboard.width)
             snapAnimation.start()
+            textInputField.focus = true
         }
 
         UbuntuNumberAnimation {

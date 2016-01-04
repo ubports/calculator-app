@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Canonical Ltd.
+ * Copyright 2013, 2015 Canonical Ltd.
  *
  * This file is part of ubuntu-calculator-app.
  *
@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 AbstractButton {
     id: buttonRect
@@ -45,7 +45,7 @@ AbstractButton {
     Rectangle {
         anchors.fill: parent
         border.color: "#d0d0d0"
-        border.width: units.dp(2)
+        border.width: units.dp(0.5)
         color: buttonRect.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
 
         Behavior on color {
@@ -60,7 +60,6 @@ AbstractButton {
         anchors.centerIn: parent
         color: "#5a5a5c"
         font.pixelSize: 0.5 * parent.height
-        font.bold: true
 
         styleColor: "gray"
     }

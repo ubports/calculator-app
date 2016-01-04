@@ -15,10 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import QtQuick 2.3
+import QtQuick 2.4
 import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import Ubuntu.Components 1.3
+import Ubuntu.Components.ListItems 1.3 as ListItem
 
 import "../engine"
 import "../upstreamcomponents"
@@ -39,8 +39,8 @@ Page {
     }
 
     EmptyState {
-        title: i18n.tr("No favourites")
-        subTitle: i18n.tr("Swipe calculations to the left\nto mark as favourites")
+        title: i18n.tr("No favorites")
+        subTitle: i18n.tr("Swipe calculations to the left\nto mark as favorites")
         iconName: "starred"
         anchors.centerIn: parent
         visible: calculationHistory.numberOfFavourites == 0;
@@ -76,8 +76,8 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Icon {
                     id: favouriteIcon
-                    height: parent.height - units.gu(2)
-                    width: height
+                    Layout.preferredHeight: parent.height - units.gu(2)
+                    Layout.preferredWidth: height
 
                     Layout.alignment: Qt.AlignVCenter
 

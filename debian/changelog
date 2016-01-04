@@ -1,3 +1,62 @@
+ubuntu-calculator-app (2.1) UNRELEASED; urgency=medium
+
+  [ Bartosz Kosiorek ]
+  * Fix evaluation of long complex numbers (LP: #1515600)
+  * Upgrade math.js to version 2.4.2 to fix complex numbers formatting 
+  * Improve performance of first calculation about 20% by compile math.js
+    with Google Closure (LP: #1520594)
+  * Run Calculator in Landscape mode for Desktop (LP: #1468663)
+  * Add instruction how to enable profiling (workaround for LP: #1520551) 
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 12 Nov 2015 13:28:29 +0100
+
+ubuntu-calculator-app (2.0.233) vivid; urgency=medium
+
+  [ Bartosz Kosiorek ]
+  * Fixes in creating .deb package (LP: #1466518) (LP: #1466530) (LP: #1468385)
+  * Do not allow swiping in Landscape mode (LP: #1466635)
+  * Fix keyboard shortcuts (eg. Ctrl+C) (LP: #1466634)
+  * Add additional comments to logaritm and modulo 
+    to avoid confusion during translation (LP: #1465297)
+  * Fix display issue (LP: #1465996)
+
+  [ Nicholas Skaggs ]
+  * Fix testability for screen components.
+
+  [ Niklas Wenzel ]
+  * Use longer swipe in autopilot tests for 
+    revealing the scientific keyboard (LP: #1464571)
+  * Fix typing special characters on hardware keyboards (LP: #1449037)
+
+  [ Victor Thompson ]
+  * Change favorites translatable string (LP: #1464463)
+
+  [ Bartosz Kosiorek ]
+  * Fix calculator name in the store (LP: #1472559)
+  * Allow add comma without number (LP: #1465979)
+  * Fix confusing error messages (LP: #1469533)
+  * Add test for physical keyboard (LP: #1442794)
+  * Upgrade math.js to 2.1.1 to improve performance (LP: #1484851)
+  * Upgrade math.js to 2.4.0 to resolve wrong calculation of sin and cos functions, 
+    for values around multiples of tau (i.e. sin(7)) (LP: #1507799)
+  * Allow add brackets in middle of calculation (LP: #1510982)
+  * Upgrade math.js to 2.4.1 to fix crash with factorial (LP: #1483600)
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Wed, 28 Oct 2015 21:56:29 +0100
+
+ubuntu-calculator-app (2.0.182) vivid; urgency=medium
+  * Add haptic feedback to buttons
+  * Update math.js library (LP: #1439846)
+  * Enable 'bug number' support to fix floating point math (LP: #1445152)
+  * Modify splash screen. (LP: #1377638)
+  * Fix keyboard focus and disappearing cursor bug. (LP: #1431548)
+  * Fix directory layout for AP tests. (LP: #1443680)
+  * Modified layout to fit design
+  * Fix issue with building which corrupted translations
+  * Updated translations
+
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 15 Jun 2015 12:00:05 +0100
+
 ubuntu-calculator-app (0.1) vivid; urgency=low
 
   * Initial release

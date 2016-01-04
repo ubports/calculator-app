@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Canonical Ltd
+ * Copyright (C) 2014-2015 Canonical Ltd
  *
  * This file is part of Ubuntu Calculator App
  *
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import QtQuick 2.3
-import Ubuntu.Components 1.1
-import Ubuntu.Components.Themes.Ambiance 0.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
+import Ubuntu.Components.Themes.Ambiance 1.3
 
 import "ui"
 import "upstreamcomponents"
@@ -32,14 +32,11 @@ MainView {
     objectName: "calculator";
     applicationName: "com.ubuntu.calculator";
 
-    // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false;
     automaticOrientation: true
     anchorToKeyboard: textInputField.visible ? false : true
 
-    width: units.gu(40);
-    height: units.gu(70);
-    focus: true
+    width: units.gu(80);
+    height: units.gu(60);
 
     // This is our engine
     property var mathJs: MathJs.mathJs;
@@ -84,6 +81,7 @@ MainView {
      * place the result in right vars
      */
     function deleteLastFormulaElement() {
+        isFormulaIsValidToCalculate = false;
         if (textInputField.cursorPosition === textInputField.length) {
             longFormula = Formula.deleteLastFormulaElement(isLastCalculate, longFormula)
         } else {
@@ -102,29 +100,59 @@ MainView {
      * Function to clear formula in input text field
      */
     function clearFormula() {
+        isFormulaIsValidToCalculate = false;
         shortFormula = "";
         longFormula = "";
         displayedInputText = "";
     }
 
+    /**
+     * Format bigNumber
+     */
+    function formatBigNumber(bigNumberToFormat) {
+
+        // Maximum length of the result number
+        var NUMBER_LENGTH_LIMIT = 14;
+
+        if (bigNumberToFormat.toString().length > NUMBER_LENGTH_LIMIT) {
+            var resultLength = mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                            precision: NUMBER_LENGTH_LIMIT}).toString().length;
+
+            return mathJs.format(bigNumberToFormat, {exponential: {lower: 1e-10, upper: 1e10},
+                                 precision: (NUMBER_LENGTH_LIMIT - resultLength + NUMBER_LENGTH_LIMIT)}).toString();
+        }
+        return bigNumberToFormat.toString()
+    }
+
     function formulaPush(visual) {
+        mathJs.config({
+                number: 'bignumber'
+        });
         // If the user press a number after the press of "=" we start a new
         // formula, otherwise we continue with the old one
-        if (!isNaN(visual) && isLastCalculate) {
+        if ((!isNaN(visual) || (visual === ".")) && isLastCalculate) {
+            isFormulaIsValidToCalculate = false;
             longFormula = displayedInputText = shortFormula = "";
+        }
+        // Add zero when decimal separator is not after number
+        if ((visual === ".") && ((isNaN(displayedInputText.slice(textInputField.cursorPosition - 1, textInputField.cursorPosition))) || (longFormula === ""))) {
+            visual = "0.";
         }
         isLastCalculate = false;
 
-        if (visual === "()") {
-            visual = Formula.determineBracketTypeToAdd(longFormula)
-        }
         // Validate whole longFormula if the cursor is at the end of string
         if (textInputField.cursorPosition === textInputField.length) {
+            if (visual === "()") {
+                visual = Formula.determineBracketTypeToAdd(longFormula)
+            }
             if (Formula.validateStringForAddingToFormula(longFormula, visual) === false) {
                 errorAnimation.restart();
                 return;
             }
         } else {
+            if (visual === "()") {
+                visual = Formula.determineBracketTypeToAdd(longFormula.slice(0, textInputField.cursorPosition))
+            }
             if (Formula.validateStringForAddingToFormula(longFormula.slice(0, textInputField.cursorPosition), visual) === false) {
                 errorAnimation.restart();
                 return;
@@ -138,9 +166,9 @@ MainView {
         // we display a temporary result instead the all operation
         if (isNaN(visual) && (visual.toString() !== ".") && isFormulaIsValidToCalculate) {
             try {
-                shortFormula = mathJs.eval(shortFormula);
+                shortFormula = formatBigNumber(mathJs.eval(shortFormula));
             } catch(exception) {
-                console.log("[LOG]: Unable to create short formula from: \"" + longFormula + "\", math.js: " + exception.toString());
+                console.log("Debug: Temp result: " + exception.toString() + " engine formula: " + shortFormula);
             }
 
             isFormulaIsValidToCalculate = false;
@@ -150,22 +178,25 @@ MainView {
         if (textInputField.cursorPosition === textInputField.length ) {
             longFormula += visual.toString();
             shortFormula += visual.toString();
+            displayedInputText = shortFormula;
         } else {
             longFormula = longFormula.slice(0, textInputField.cursorPosition) + visual.toString() + longFormula.slice(textInputField.cursorPosition, longFormula.length);
             shortFormula = longFormula;
+            var preservedCursorPosition = textInputField.cursorPosition;
+            displayedInputText = shortFormula;
+            textInputField.cursorPosition = preservedCursorPosition + visual.length;
         }
 
-        var preservedCursorPosition = textInputField.cursorPosition;
-        displayedInputText = shortFormula;
-        textInputField.cursorPosition = preservedCursorPosition + visual.length;
-
         // Add here operators that have always priority
-        if ((visual.toString() === "*") || (visual.toString() === ")")) {
+        if (visual.toString() === ")") {
             isFormulaIsValidToCalculate = true;
         }
     }
 
     function calculate() {
+        mathJs.config({
+                number: 'bignumber'
+        });
         if ((longFormula === '') || (isLastCalculate === true)) {
             errorAnimation.restart();
             return;
@@ -181,19 +212,22 @@ MainView {
 
         try {
             var result = mathJs.eval(longFormula);
+
+            result = formatBigNumber(result)
+
         } catch(exception) {
             // If the formula isn't right and we added brackets, we remove them
             for (var i = 0; i < numberOfOpenedBrackets; i++) {
                 deleteLastFormulaElement();
             }
             console.log("[LOG]: Unable to calculate formula : \"" + longFormula + "\", math.js: " + exception.toString());
+
             errorAnimation.restart();
             return false;
         }
 
-        result = result.toString()
-
         isLastCalculate = true;
+
         if (result === longFormula) {
             errorAnimation.restart();
             return;
@@ -221,9 +255,14 @@ MainView {
             }
         }
 
+        onHeightChanged: scrollableView.scrollToBottom();
+        anchors.fill: parent
+
         PageWithBottomEdge {
             id: calculatorPage
-            visible: false
+            title: i18n.tr("Calculator")
+            anchors.fill: parent
+
             bottomEdgeTitle: i18n.tr("Favorite")
 
             bottomEdgePageComponent: FavouritePage {
@@ -238,22 +277,26 @@ MainView {
             states: [
                 State {
                     name: "default"
-                    StateChangeScript {
-                        script: header.hide()
-                    }
                     PropertyChanges {
                         target: scrollableView
                         clip: false
                     }
+                    PropertyChanges {
+                        target: calculatorPage.head
+                        visible: false
+                        preset: ""
+                    }
                 },
                 State {
                     name: "selection"
-                    StateChangeScript {
-                        script: header.show()
-                    }
                     PropertyChanges {
                         target: scrollableView
                         clip: true
+                    }
+                    PropertyChanges {
+                        target: calculatorPage.head
+                        visible: true
+                        preset: "select"
                     }
                 }
             ]
@@ -262,62 +305,46 @@ MainView {
                 id: calculationHistory
             }
 
-            Keys.onPressed: {
-                keyboardLoader.item.pressedKey = event.key;
-                keyboardLoader.item.pressedKeyText = event.text;
-            }
+            // Some special keys like backspace captured in TextField,
+            // are for some reason not sent to the application but to the text input
+            Keys.onPressed: textInputField.keyPress(event)
+            Keys.onReleased: textInputField.keyRelease(event)
 
-            Keys.onReleased: {
-                keyboardLoader.item.pressedKey = -1;
-                keyboardLoader.item.pressedKeyText = "";
+            head.visible: false
+            head.locked: true
+            head.backAction: Action {
+                objectName: "cancelSelectionAction"
+                iconName: "close"
+                text: i18n.tr("Cancel")
+                onTriggered: visualModel.cancelSelection()
             }
-
-            Header {
-                id: header
-                visible: true
-                useDeprecatedToolbar: false
-                property color dividerColor: "#babbbc"
-                property color panelColor: "white"
-                config: PageHeadConfiguration {
-                    backAction: Action {
-                        objectName: "cancelSelectionAction"
-                        iconName: "close"
-                        text: i18n.tr("Cancel")
-                        onTriggered: visualModel.cancelSelection()
-                    }
-                    actions: [
-                        Action {
-                            id: selectAllAction
-                            objectName: "selectAllAction"
-                            iconName: "select"
-                            // Until a select none icon  will be added to the theme we have to use
-                            // our own
-                            iconSource: visualModel.selectedItems.count < visualModel.items.count ?
-                                    Qt.resolvedUrl("graphics/select.svg") :
-                                    Qt.resolvedUrl("graphics/select_none.svg")
-                            text: visualModel.selectedItems.count < visualModel.items.count ?
-                                    i18n.tr("Select All") : i18n.tr("Select None")
-                            onTriggered: visualModel.selectAll()
-                        },
-                        Action {
-                            id: copySelectedAction
-                            objectName: "copySelectedAction"
-                            iconName: "edit-copy"
-                            text: i18n.tr("Copy")
-                            onTriggered: calculatorPage.copySelectedCalculations()
-                            enabled: visualModel.selectedItems.count > 0
-                        },
-                        Action {
-                            id: multiDeleteAction
-                            objectName: "multiDeleteAction"
-                            iconName: "delete"
-                            text: i18n.tr("Delete")
-                            onTriggered: calculatorPage.deleteSelectedCalculations()
-                            enabled: visualModel.selectedItems.count > 0
-                        }
-                    ]
+            head.actions: [
+                Action {
+                    id: selectAllAction
+                    objectName: "selectAllAction"
+                    iconName: visualModel.selectedItems.count < visualModel.items.count ?
+                                        "select" : "select-none"
+                    text: visualModel.selectedItems.count < visualModel.items.count ?
+                            i18n.tr("Select All") : i18n.tr("Select None")
+                    onTriggered: visualModel.selectAll()
+                },
+                Action {
+                    id: copySelectedAction
+                    objectName: "copySelectedAction"
+                    iconName: "edit-copy"
+                    text: i18n.tr("Copy")
+                    onTriggered: calculatorPage.copySelectedCalculations()
+                    enabled: visualModel.selectedItems.count > 0
+                },
+                Action {
+                    id: multiDeleteAction
+                    objectName: "multiDeleteAction"
+                    iconName: "delete"
+                    text: i18n.tr("Delete")
+                    onTriggered: calculatorPage.deleteSelectedCalculations()
+                    enabled: visualModel.selectedItems.count > 0
                 }
-            }
+            ]
 
             Component {
                 id: emptyDelegate
@@ -365,14 +392,9 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item,
-                                        screenDelegateEditAction.item,
-                                        screenDelegateFavouriteAction.item ]
-                    leftSideAction: screenDelegateDeleteAction.item
-
-                    Loader {
-                        id: screenDelegateCopyAction
-                        sourceComponent: Action {
+                    rightSideActions: [
+                        Action {
+                            id: screenDelegateCopyAction
                             iconName: "edit-copy"
                             text: i18n.tr("Copy")
                             onTriggered: {
@@ -380,12 +402,9 @@ MainView {
                                 mimeData.text = model.formula + "=" + model.result;
                                 Clipboard.push(mimeData);
                             }
-                        }
-                    }
-
-                    Loader {
-                        id: screenDelegateEditAction
-                        sourceComponent: Action {
+                        },
+                        Action {
+                            id: screenDelegateEditAction
                             iconName: "edit"
                             text: i18n.tr("Edit")
                             onTriggered: {
@@ -396,12 +415,10 @@ MainView {
                                 previousVisual = "";
                                 scrollableView.scrollToBottom();
                             }
-                        }
-                    }
-                    Loader {
-                        id: screenDelegateFavouriteAction
-                        sourceComponent: Action {
-                            iconName: (editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
+                        },
+                        Action {
+                            id: screenDelegateFavouriteAction
+                            iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
                             text: i18n.tr("Add to favorites")
                             onTriggered: {
@@ -421,15 +438,13 @@ MainView {
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
-                    }
-                    Loader {
+                    ]
+                    leftSideAction: Action {
                         id: screenDelegateDeleteAction
-                        sourceComponent: Action {
-                            iconName: "delete"
-                            text: i18n.tr("Delete")
-                            onTriggered: {
-                                screenDelegate.remove();
-                            }
+                        iconName: "delete"
+                        text: i18n.tr("Delete")
+                        onTriggered: {
+                            screenDelegate.remove();
                         }
                     }
 
@@ -513,11 +528,8 @@ MainView {
 
             ScrollableView {
                 anchors {
-                    top: header.bottom
-                    bottom: parent.bottom
+                    fill: parent
                     bottomMargin: textInputField.visible ? 0 : -keyboardLoader.height
-                    left: parent.left
-                    right: parent.right
                 }
                 id: scrollableView
                 objectName: "scrollableView"
@@ -570,9 +582,9 @@ MainView {
                             textInputField.forceActiveFocus();
                             if (editedCalculationIndex >= 0) {
                                 calculationHistory.updateCalculationInDatabase(editedCalculationIndex,
-                                 calculationHistory.getContents().get(editedCalculationIndex).dbId,
-                                 true,
-                                 favouriteTextField.text);
+                                  calculationHistory.getContents().get(editedCalculationIndex).dbId,
+                                  true,
+                                  favouriteTextField.text);
                                 favouriteTextField.text = "";
                                 editedCalculationIndex = -1;
                             }
@@ -603,6 +615,79 @@ MainView {
                         anchors {
                             right: parent.right
                             rightMargin: units.gu(1)
+                        }
+
+                        // Need to capture special keys like backspace here,
+                        // as they are for some reason not sent to the application but to the text input
+                        Keys.onPressed: keyPress(event)
+                        Keys.onReleased: keyRelease(event)
+
+                        function keyPress(event) {
+                            if (!(event.modifiers & Qt.ControlModifier || event.modifiers & Qt.AltModifier)) { // Shift needs to be passed through as it may be required for some special keys
+                                keyboardLoader.item.pressedKey = event.key;
+                                keyboardLoader.item.pressedKeyText = event.text;
+                            } else if (event.modifiers & Qt.ControlModifier) {
+                                if (event.key === Qt.Key_C) { // Copy action
+                                    var mimeData = Clipboard.newData();
+                                    mimeData.text = textInputField.selectedText;
+                                    Clipboard.push(mimeData);
+                                } else if (event.key === Qt.Key_V) { // Paste action
+                                    if (Clipboard.data.text && Clipboard.data.text !== "") {
+                                        var data = Clipboard.data.text;
+
+                                        // Get all accepted characters (i.e. those which can be entered) from the current keyboard
+                                        var acceptedBits = [];
+                                        for (var i = 0; i < keyboardLoader.item.children.length; i++) {
+                                            var model = keyboardLoader.item.children[i].keyboardModel;
+                                            if (model) {
+                                                for (var j = 0; j < model.length; j++) {
+                                                    var item = model[j];
+                                                    if (!item.action) {
+                                                        if (item.number || item.forceNumber)
+                                                            acceptedBits.push({ "chars": item.number, "push": item.number });
+                                                        if (item.pushText)
+                                                            acceptedBits.push({ "chars": item.pushText, "push": item.pushText });
+                                                        if (item.text)
+                                                            acceptedBits.push({ "chars": item.text, "push": item.pushText ? item.pushText : item.text });
+                                                        if (item.pasteTexts)
+                                                            for (var pos = 0; pos < item.pasteTexts.length; pos++)
+                                                                acceptedBits.push({ "chars": item.pasteTexts[pos], "push": item.pasteTexts[pos] });
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        // Extract the part of the clipboard data which can be pasted
+                                        var paste = "";
+                                        var pos = 0;
+                                        while (pos < data.length) {
+                                            // Check if the string starts with an accepted string
+                                            for (i = 0; i < acceptedBits.length; i++) {
+                                                if (data.substring(pos, pos + (acceptedBits[i].chars.length ? acceptedBits[i].chars.length : 1)) === acceptedBits[i].chars.toString()) {
+                                                    paste += acceptedBits[i].push;
+                                                    pos += acceptedBits[i].chars.length ? acceptedBits[i].chars.length : 1;
+                                                    break;
+                                                }
+                                            }
+                                            // Skip one char if it could not be found
+                                            if (i === acceptedBits.length)
+                                                pos++;
+                                        }
+
+                                        // Push the paste string
+                                        formulaPush(paste);
+                                    } else {
+                                        console.log("Debug: paste failed as the clipboard contains no text");
+                                    }
+
+                                    scrollableView.scrollToBottom();
+                                }
+                            }
+                        }
+
+                        function keyRelease(event) {
+                            keyboardLoader.item.pressedKey = -1;
+                            keyboardLoader.item.pressedKeyText = "";
                         }
 
                         readOnly: true
@@ -645,10 +730,9 @@ MainView {
                     width: parent.width
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
-                            (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                             (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
                 }
             }
         }
     }
 }
-

@@ -1,0 +1,116 @@
+# Afar translation for ubuntu-calculator-app
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the ubuntu-calculator-app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubuntu-calculator-app\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-10-20 00:39+0200\n"
+"PO-Revision-Date: 2015-04-25 14:44+0000\n"
+"Last-Translator: Charif AYFARAH <ayfarah@ymail.com>\n"
+"Language-Team: Afar <aa@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-12-27 05:30+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
+
+#: ../app/engine/formula.js:176
+msgid "NaN"
+msgstr "NaN"
+
+#: ../app/ubuntu-calculator-app.qml:258 ../app/ubuntu-calculator-app.qml:263
+msgid "Favorite"
+msgstr "Assakat"
+
+#: ../app/ubuntu-calculator-app.qml:311
+msgid "Cancel"
+msgstr "Bayis"
+
+#: ../app/ubuntu-calculator-app.qml:325
+msgid "Select All"
+msgstr "Inkih meex"
+
+#: ../app/ubuntu-calculator-app.qml:325
+msgid "Select None"
+msgstr "Meextem mattu"
+
+#: ../app/ubuntu-calculator-app.qml:332 ../app/ubuntu-calculator-app.qml:403
+msgid "Copy"
+msgstr "Korraaqis"
+
+#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:455
+msgid "Delete"
+msgstr "Dug"
+
+#: ../app/ubuntu-calculator-app.qml:416
+msgid "Edit"
+msgstr "Faku"
+
+#: ../app/ubuntu-calculator-app.qml:432
+msgid "Add to favorites"
+msgstr "Assakootut osis"
+
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+#. valid expressions
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
+#. expressions
+#: ../app/ubuntu-calculator-app.qml:586 ../app/ui/FavouritePage.qml:89
+#: ../app/ui/Screen.qml:51
+msgid "dd MMM yyyy"
+msgstr "dd MMM yyyy"
+
+#: ../app/ui/FavouritePage.qml:42
+msgid "No favorites"
+msgstr ""
+
+#: ../app/ui/FavouritePage.qml:43
+msgid ""
+"Swipe calculations to the left\n"
+"to mark as favorites"
+msgstr ""
+
+#. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:43
+msgid "log"
+msgstr "langi"
+
+#. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:47
+msgid "mod"
+msgstr "mod"
+
+#: ../app/ui/Screen.qml:37
+msgid "Just now"
+msgstr "Taway"
+
+#: ../app/ui/Screen.qml:39
+msgid "Today "
+msgstr "Asaaku "
+
+#. TRANSLATORS: this is a time formatting string, see
+#. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
+#. valid expressions
+#: ../app/ui/Screen.qml:43
+msgid "hh:mm"
+msgstr "hh:mm"
+
+#: ../app/ui/Screen.qml:45
+msgid "Yesterday"
+msgstr "Kimaala"
+
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:1
+msgid "Calculator"
+msgstr "Cisaabeyná"
+
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:2
+msgid "A calculator for Ubuntu."
+msgstr "Ubuntu cisaabeyná"
+
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:3
+msgid "math;addition;subtraction;multiplication;division;"
+msgstr "cisab;ossa;kalti;agra;kura;"

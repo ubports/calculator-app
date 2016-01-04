@@ -7,51 +7,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-14 21:20+0200\n"
-"PO-Revision-Date: 2015-01-23 07:39+0000\n"
-"Last-Translator: Данило Шеган <Unknown>\n"
+"POT-Creation-Date: 2015-10-20 00:39+0200\n"
+"PO-Revision-Date: 2015-09-07 20:34+0000\n"
+"Last-Translator: Bojan Bogdanović <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-15 05:52+0000\n"
-"X-Generator: Launchpad (build 17428)\n"
+"X-Launchpad-Export-Date: 2015-12-27 05:31+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
-#: ../app/engine/formula.js:168
+#: ../app/engine/formula.js:176
 msgid "NaN"
 msgstr "НиБ"
 
-#: ../app/ubuntu-calculator-app.qml:215 ../app/ubuntu-calculator-app.qml:220
+#: ../app/ubuntu-calculator-app.qml:258 ../app/ubuntu-calculator-app.qml:263
 msgid "Favorite"
-msgstr ""
+msgstr "Омиљено"
 
-#: ../app/ubuntu-calculator-app.qml:273
+#: ../app/ubuntu-calculator-app.qml:311
 msgid "Cancel"
 msgstr "Откажи"
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:325
 msgid "Select All"
 msgstr "Изабери све"
 
-#: ../app/ubuntu-calculator-app.qml:287
+#: ../app/ubuntu-calculator-app.qml:325
 msgid "Select None"
-msgstr ""
+msgstr "Поништи избор"
 
-#: ../app/ubuntu-calculator-app.qml:294 ../app/ubuntu-calculator-app.qml:365
+#: ../app/ubuntu-calculator-app.qml:332 ../app/ubuntu-calculator-app.qml:403
 msgid "Copy"
-msgstr "Умножи"
+msgstr "Копирај"
 
-#: ../app/ubuntu-calculator-app.qml:302 ../app/ubuntu-calculator-app.qml:417
+#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:455
 msgid "Delete"
 msgstr "Обриши"
 
-#: ../app/ubuntu-calculator-app.qml:378
+#: ../app/ubuntu-calculator-app.qml:416
 msgid "Edit"
-msgstr ""
+msgstr "Уреди"
 
-#: ../app/ubuntu-calculator-app.qml:394
+#: ../app/ubuntu-calculator-app.qml:432
 msgid "Add to favorites"
-msgstr ""
+msgstr "Додај у омиљене"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -59,56 +59,60 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:548 ../app/ui/FavouritePage.qml:89
-#: ../app/ui/Screen.qml:50
+#: ../app/ubuntu-calculator-app.qml:586 ../app/ui/FavouritePage.qml:89
+#: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd. MMM yyyy."
+msgstr "dd MMM yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
-msgid "No favourites"
-msgstr ""
+msgid "No favorites"
+msgstr "Нема омиљених"
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
 "Swipe calculations to the left\n"
-"to mark as favourites"
+"to mark as favorites"
 msgstr ""
+"Превуци израчунавање на лево\n"
+"да означие као омиљено"
 
-#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:42
+#. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
+#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:43
 msgid "log"
 msgstr "log"
 
-#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:45
+#. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
+#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:47
 msgid "mod"
 msgstr "mod"
 
-#: ../app/ui/Screen.qml:36
+#: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr "Малопре"
+msgstr "Управо сада"
 
-#: ../app/ui/Screen.qml:38
+#: ../app/ui/Screen.qml:39
 msgid "Today "
 msgstr "Данас "
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
-#: ../app/ui/Screen.qml:42
+#: ../app/ui/Screen.qml:43
 msgid "hh:mm"
 msgstr "hh:mm"
 
-#: ../app/ui/Screen.qml:44
+#: ../app/ui/Screen.qml:45
 msgid "Yesterday"
 msgstr "Јуче"
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "Калкулатор"
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Калкулатор за Убунту."
 
-#: /tmp/tmp.bqhJAJqEmH/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "математика;сабирање;одузимање;множење;дељење;рачунање;дигитрон;"
+msgstr "математика;сабирање;одузимање;множење;дељење;"

@@ -1,6 +1,6 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #
-# Copyright (C) 2013, 2014 Canonical Ltd
+# Copyright (C) 2013-2015 Canonical Ltd
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 3 as
@@ -19,6 +19,7 @@
 import os
 import shutil
 import logging
+import fixtures
 
 import ubuntu_calculator_app
 
@@ -65,7 +66,7 @@ class CalculatorAppTestCase(AutopilotTestCase):
         # Unset the current locale to ensure locale-specific data
         # (day and month names, first day of the week, …) doesn’t get
         # in the way of test expectations.
-        self.patch_environment('LC_ALL', 'C')
+        self.useFixture(fixtures.EnvironmentVariable('LC_ALL', 'C'))
         self.app = ubuntu_calculator_app.CalculatorApp(self.launcher(),
                                                        self.test_type)
 
@@ -96,7 +97,7 @@ class CalculatorAppTestCase(AutopilotTestCase):
             os.path.expanduser('~'),
             '.local',
             'share',
-            'com.ubuntu.calculator_reboot'
+            'com.ubuntu.calculator'
         )
 
         if os.path.exists(calculator_database_path):
