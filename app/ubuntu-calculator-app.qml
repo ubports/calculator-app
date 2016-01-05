@@ -262,6 +262,7 @@ MainView {
             id: calculatorPage
             title: i18n.tr("Calculator")
             anchors.fill: parent
+            visible: false
 
             bottomEdgeTitle: i18n.tr("Favorite")
 
