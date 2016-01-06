@@ -32,7 +32,7 @@ Component {
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
             }
-            source: Qt.resolvedUrl("../ubuntu-calculator-app.png")
+            source: Qt.resolvedUrl("../graphics/ubuntu-calculator-app.png")
             fillMode: Image.PreserveAspectFit
             antialiasing: true
         }

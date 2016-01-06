@@ -11,5 +11,7 @@ endif(CLICK_MODE)
 install(FILES ${MAIN_QML} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR})
 
 add_subdirectory(engine)
+add_subdirectory(graphics)
 add_subdirectory(ui)
 add_subdirectory(upstreamcomponents)
+add_subdirectory(welcomewizard)
