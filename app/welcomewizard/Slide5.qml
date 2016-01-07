@@ -18,30 +18,14 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import "../ui"
 
-// Initial Walkthrough tutorial
-Walkthrough {
-    id: walkthrough
-    appName: "Calculator"
-    onFinished: {
-        console.log("[LOG]: Welcome tour complete")
-        settings.firstRun = false
-        mainStack.pop()
-        mainStack.push(calculatorPage)
-        calculatorPage.forceActiveFocus();
+// Slide 5
+Component {
+    id: slide5
+
+    SlideBase {
+        slideTitle: i18n.tr("Delete several items from calculation history")
+        slideDescription: i18n.tr("You could delete multiple calculations from Calculation history, by long pressing Calculation. After that near every calculation the check-box will appear. After selecting you could select 'Delete' option from drop-down menu")
+        slideImage: "../graphics/select-multiple-item-from-history.png"
     }
-    model: [
-        Slide1{},
-        Slide2{},
-        Slide3{},
-        Slide4{},
-        Slide5{},
-        Slide6{},
-        Slide7{},
-        Slide8{},
-        Slide9{},
-        Slide10{},
-        Slide11{}
-    ]
 }

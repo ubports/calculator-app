@@ -33,6 +33,9 @@ Page {
     // Property to store the slides shown in the walkthrough (Each slide is a component defined in a separate file for simplicity)
     property list<Component> model
 
+    // Property to get device orientation
+    property bool isLandscape: width > height
+
     // Property to set the color of bottom cirle to indicate the user's progress
     property color completeColor: "green"
 

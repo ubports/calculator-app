@@ -19,62 +19,13 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 6
+// Slide 3
 Component {
-    id: slide6
-    Item {
-        id: slide1Container
+    id: slide3
 
-        Image {
-            anchors {
-                top: parent.top
-                bottom: introductionText.top
-                bottomMargin: units.gu(6)
-                horizontalCenter: parent.horizontalCenter
-            }
-            fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/gift.png")
-        }
-
-        Label {
-            id: introductionText
-            anchors.centerIn: parent
-            elide: Text.ElideRight
-            fontSize: "x-large"
-            maximumLineCount: 2
-            text: i18n.tr("Enjoy")
-            horizontalAlignment: Text.AlignHCenter
-            width: parent.width
-            wrapMode: Text.WordWrap
-        }
-
-        Label {
-            id: finalMessage
-            anchors {
-                top: introductionText.bottom
-                bottom: continueButton.top
-                left: parent.left
-                right: parent.right
-                margins: units.gu(1)
-                topMargin: units.gu(4)
-            }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("We hope you enjoy using Calculator!")
-            wrapMode: Text.WordWrap
-        }
-
-        Button {
-            id: continueButton
-            anchors {
-                bottom: parent.bottom
-                bottomMargin: units.gu(3)
-                horizontalCenter: parent.horizontalCenter
-            }
-            height: units.gu(6)
-            width: parent.width/1.3
-            color: UbuntuColors.green
-            text: i18n.tr("Finish")
-            onClicked: finished()
-        }
+    SlideBase {
+        slideTitle: i18n.tr("Scientific View")
+        slideDescription: i18n.tr("You could rotate you device display to get access to Scientific view")
+        slideImage: "../graphics/rotate-keyboard.png"
     }
 }

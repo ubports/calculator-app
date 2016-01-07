@@ -22,45 +22,10 @@ import Ubuntu.Components 1.3
 // Slide 2
 Component {
     id: slide2
-    Item {
-        id: slide1Container
 
-        Image {
-            anchors {
-                top: parent.top
-                bottom: introductionText.top
-                bottomMargin: units.gu(6)
-                horizontalCenter: parent.horizontalCenter
-            }
-            fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/rotate.png")
-        }
-
-        Label {
-            id: introductionText
-            anchors.centerIn: parent
-            elide: Text.ElideRight
-            fontSize: "x-large"
-            maximumLineCount: 2
-            text: i18n.tr("Discover Scientific Calculator")
-            horizontalAlignment: Text.AlignHCenter
-            width: parent.width
-            wrapMode: Text.WordWrap
-        }
-
-        Label {
-            id: finalMessage
-            anchors {
-                top: introductionText.bottom
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-                margins: units.gu(1)
-                topMargin: units.gu(4)
-            }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("You can rotate for the Scientific Calculator")
-            wrapMode: Text.WordWrap
-        }
+    SlideBase {
+        slideTitle: i18n.tr("Scientific keyboard")
+        slideDescription: i18n.tr("If you are in Basic view, you could access to Scientific options, by swiping left Calculator's keyboard")
+        slideImage: "../graphics/access-sci-keyboard.png"
     }
 }

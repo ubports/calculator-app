@@ -18,30 +18,14 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import "../ui"
 
-// Initial Walkthrough tutorial
-Walkthrough {
-    id: walkthrough
-    appName: "Calculator"
-    onFinished: {
-        console.log("[LOG]: Welcome tour complete")
-        settings.firstRun = false
-        mainStack.pop()
-        mainStack.push(calculatorPage)
-        calculatorPage.forceActiveFocus();
+// Slide 10
+Component {
+    id: slide10
+
+    SlideBase {
+        slideTitle: i18n.tr("Copy formula")
+        slideDescription: i18n.tr("You could copy formula by long pressing on formula (on Phone and Tablet), or by right mouse click (on Desktop), and selecting 'Copy' option from menu")
+        slideImage: "../graphics/FIXME.png"
     }
-    model: [
-        Slide1{},
-        Slide2{},
-        Slide3{},
-        Slide4{},
-        Slide5{},
-        Slide6{},
-        Slide7{},
-        Slide8{},
-        Slide9{},
-        Slide10{},
-        Slide11{}
-    ]
 }

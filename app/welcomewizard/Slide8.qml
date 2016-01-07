@@ -18,30 +18,14 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import "../ui"
 
-// Initial Walkthrough tutorial
-Walkthrough {
-    id: walkthrough
-    appName: "Calculator"
-    onFinished: {
-        console.log("[LOG]: Welcome tour complete")
-        settings.firstRun = false
-        mainStack.pop()
-        mainStack.push(calculatorPage)
-        calculatorPage.forceActiveFocus();
+// Slide 8
+Component {
+    id: slide8
+
+    SlideBase {
+        slideTitle: i18n.tr("Add new favourite")
+        slideDescription: i18n.tr("You could add item to favourites from calculation history by swiping left calculation, and pressing Star button")
+        slideImage: "../graphics/fav-item-from-history.png"
     }
-    model: [
-        Slide1{},
-        Slide2{},
-        Slide3{},
-        Slide4{},
-        Slide5{},
-        Slide6{},
-        Slide7{},
-        Slide8{},
-        Slide9{},
-        Slide10{},
-        Slide11{}
-    ]
 }
