@@ -26,6 +26,6 @@ Component {
     SlideBase {
         slideTitle: i18n.tr("Delete whole formula at once")
         slideDescription: i18n.tr("You could delete whole currently edited formula, by long pressing Clear button '←'")
-        slideImage: "../graphics/delete-formula.svg"
+        slideImage: "../graphics/delete-formula.png"
     }
 }

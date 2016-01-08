@@ -26,6 +26,6 @@ Component {
     SlideBase {
         slideTitle: i18n.tr("Edit item from calculation history")
         slideDescription: i18n.tr("You could edit item from calculation history by swiping left calculation, and pressing Edit button")
-        slideImage: "../graphics/edit-item-from-history.svg"
+        slideImage: "../graphics/edit-item-from-history.png"
     }
 }
