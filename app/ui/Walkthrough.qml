@@ -17,9 +17,8 @@
  */
 
 
-import QtQuick 2.3
-import Ubuntu.Components 1.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 Page {
     id: walkthrough
@@ -37,7 +36,7 @@ Page {
     property bool isLandscape: width > height
 
     // Property to set the color of bottom cirle to indicate the user's progress
-    property color completeColor: "green"
+    property color completeColor: UbuntuColors.orange
 
     // Property to set the color of the bottom circle to indicate the slide still left to cover
     property color inCompleteColor: "lightgrey"
@@ -47,6 +46,10 @@ Page {
 
     // Property to signal walkthrough completion
     signal finished
+
+    // Hide page header
+    head.locked: true
+    head.visible: false
 
     // ListView to show the slides
     ListView {
@@ -61,7 +64,7 @@ Page {
         model: walkthrough.model
         snapMode: ListView.SnapOneItem
         orientation: Qt.Horizontal
-        highlightMoveDuration: UbuntuAnimation.FastDuration
+        highlightMoveDuration: UbuntuAnimation.BriskDuration
         highlightRangeMode: ListView.StrictlyEnforceRange
         highlightFollowsCurrentItem: true
 
@@ -75,7 +78,6 @@ Page {
                     fill: parent
                     margins: units.gu(2)
                 }
-
                 sourceComponent: modelData
             }
         }
@@ -92,23 +94,7 @@ Page {
         horizontalAlignment: Text.AlignRight
 
         anchors {
-            top: parent.top/*
- * Copyright (C) 2014 Canonical Ltd
- *
- * This file is part of Ubuntu Calculator App
- *
- * Ubuntu Calculator App is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3 as
- * published by the Free Software Foundation.
- *
- * Ubuntu Calculator App is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+            top: parent.top
             left: parent.left
             right: parent.right
             margins: units.gu(2)
@@ -123,31 +109,23 @@ Page {
     // Indicator element to represent the current slide of the walkthrough
     Row {
         id: slideIndicator
+
         height: units.gu(6)
-        spacing: units.gu(2)
+        spacing: 0
         anchors {
+            left: leftchevron.right
+            right: rightchevron.left
             bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
         }
 
         Repeater {
             model: walkthrough.model.length
             delegate: Rectangle {
-                height: width
-                radius: width/2
-                width: units.gu(2)
-                antialiasing: true
-                border.width: listView.currentIndex == index ? units.gu(0.2) : units.gu(0)
-                border.color: completeColor
+                width: slideIndicator.width/walkthrough.model.length
+                height: 4
                 anchors.verticalCenter: parent.verticalCenter
-                color: listView.currentIndex == index ? "White"
-                                                      : listView.currentIndex >= index ? completeColor
-                                                                                       : inCompleteColor
-                Behavior on color {
-                    ColorAnimation {
-                        duration: UbuntuAnimation.FastDuration
-                    }
-                }
+                color: listView.currentIndex >= index ? completeColor
+                                                      : inCompleteColor
             }
         }
     }
