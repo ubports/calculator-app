@@ -70,7 +70,9 @@ MainView {
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
-    property bool isLandscapeView: width > units.gu(60);
+    // Var used to display calculation in multiline mode
+    // if width is not enough to display in one line
+    property bool isScreenIsWide: width > units.gu(60);
 
     /**
      * The function calls the Formula.deleteLastFormulaElement function and

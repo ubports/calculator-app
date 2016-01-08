@@ -52,7 +52,7 @@ ListItemWithActions {
     }
 
     color: "white"
-    height: units.gu(7) + (mainView.isLandscapeView ? 0 : units.gu(3.7))
+    height: units.gu(7) + (mainView.isScreenIsWide ? 0 : units.gu(3.7))
     Column {
         anchors.fill: parent
         Row {
@@ -109,7 +109,7 @@ ListItemWithActions {
             Text {
                 id: result
                 objectName: "result" + model.index
-                visible: mainView.isLandscapeView
+                visible: mainView.isScreenIsWide
                 anchors.top: parent.top
 
                 color: UbuntuColors.darkGrey
@@ -147,7 +147,7 @@ ListItemWithActions {
             spacing: units.gu(1)
             Text {
                 objectName: "result" + model.index
-                visible: !mainView.isLandscapeView
+                visible: !mainView.isScreenIsWide
 
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom 
