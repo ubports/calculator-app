@@ -44,7 +44,7 @@ Item {
             height: isLandscape ? slideBase.height : slideBase.height/2
 
             Image {
-                width: parent.width
+                width: Math.min(parent.width, parent.height)
                 anchors.centerIn: parent
                 source: Qt.resolvedUrl(slideImage)
                 fillMode: Image.PreserveAspectFit
@@ -60,7 +60,7 @@ Item {
 
             Flickable {
                 anchors.fill: parent
-                contentHeight:  textColumn.height + units.gu(2)
+                contentHeight: textColumn.height
                 clip: true
 
                 Column {
@@ -71,6 +71,7 @@ Item {
                         top: parent.top
                         left: parent.left
                         right: parent.right
+                        topMargin: units.gu(2)
                         leftMargin: units.gu(2)
                         rightMargin: units.gu(2)
                     }

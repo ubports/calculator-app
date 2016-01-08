@@ -19,9 +19,9 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 6
+// Slide 11
 Component {
-    id: slide6
+    id: slide11
     Item {
         id: slide1Container
 

@@ -26,6 +26,6 @@ Component {
     SlideBase {
         slideTitle: i18n.tr("Delete several items from calculation history")
         slideDescription: i18n.tr("You could delete multiple calculations from Calculation history, by long pressing Calculation. After that near every calculation the check-box will appear. After selecting you could select 'Delete' option from drop-down menu")
-        slideImage: "../graphics/select-multiple-item-from-history.png"
+        slideImage: "../graphics/select-multiple-item-from-history.svg"
     }
 }

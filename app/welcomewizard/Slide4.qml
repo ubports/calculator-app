@@ -26,6 +26,6 @@ Component {
     SlideBase {
         slideTitle: i18n.tr("Delete item from calculation history")
         slideDescription: i18n.tr("You could delete item from calculation history by swiping right calculation, and pressing Trash button")
-        slideImage: "../graphics/delete-item-from-history.png"
+        slideImage: "../graphics/delete-item-from-history.svg"
     }
 }

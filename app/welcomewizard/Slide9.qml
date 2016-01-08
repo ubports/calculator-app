@@ -26,6 +26,6 @@ Component {
     SlideBase {
         slideTitle: i18n.tr("Edit formula")
         slideDescription: i18n.tr("You could edit formula by clicking any part of formula. The cursor will appear there and you could modify formula in that place")
-        slideImage: "../graphics/FIXME.png"
+        slideImage: "../graphics/edit-formula.svg"
     }
 }
