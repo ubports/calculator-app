@@ -48,15 +48,14 @@ Item {
                 anchors.centerIn: parent
                 source: Qt.resolvedUrl(slideImage)
                 fillMode: Image.PreserveAspectFit
-                antialiasing: true
             }
         }
 
         Item {
             id: textContainer
 
-            width: isLandscape ? slideBase.width/2 : slideBase.width
-            height: isLandscape ? slideBase.height : slideBase.height/2
+            width: imageContainer.width
+            height: imageContainer.height
 
             Flickable {
                 anchors.fill: parent

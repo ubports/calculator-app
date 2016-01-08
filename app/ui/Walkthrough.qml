@@ -64,14 +64,13 @@ Page {
         model: walkthrough.model
         snapMode: ListView.SnapOneItem
         orientation: Qt.Horizontal
-        highlightMoveDuration: UbuntuAnimation.BriskDuration
+        highlightMoveDuration: UbuntuAnimation.FastDuration
         highlightRangeMode: ListView.StrictlyEnforceRange
         highlightFollowsCurrentItem: true
 
         delegate: Item {
             width: listView.width
             height: listView.height
-            clip: true
 
             Loader {
                 anchors {
@@ -87,6 +86,8 @@ Page {
     Label {
         id: skipLabel
 
+        visible: enabled
+        enabled: listView.currentIndex !== listView.count-1
         color: skipTextColor
         fontSize: "small"
         wrapMode: Text.WordWrap

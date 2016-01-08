@@ -22,59 +22,91 @@ import Ubuntu.Components 1.3
 // Slide 11
 Component {
     id: slide11
-    Item {
-        id: slide1Container
 
-        Image {
-            anchors {
-                top: parent.top
-                bottom: introductionText.top
-                bottomMargin: units.gu(6)
-                horizontalCenter: parent.horizontalCenter
+    Flow {
+        id: flow
+
+        width: parent.width
+        spacing: 0
+
+        Item {
+            id: imageContainer
+
+            width: isLandscape ? slide11.width/2 : slide11.width
+            height: isLandscape ? slide11.height : slide11.height/2
+
+            Image {
+                width: Math.min(parent.width, parent.height)
+                anchors.centerIn: parent
+                source: Qt.resolvedUrl("../graphics/gift.png")
+                fillMode: Image.PreserveAspectFit
             }
-            fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/gift.png")
         }
 
-        Label {
-            id: introductionText
-            anchors.centerIn: parent
-            elide: Text.ElideRight
-            fontSize: "x-large"
-            maximumLineCount: 2
-            text: i18n.tr("Enjoy")
-            horizontalAlignment: Text.AlignHCenter
-            width: parent.width
-            wrapMode: Text.WordWrap
-        }
+        Item {
+            id: textContainer
 
-        Label {
-            id: finalMessage
-            anchors {
-                top: introductionText.bottom
-                bottom: continueButton.top
-                left: parent.left
-                right: parent.right
-                margins: units.gu(1)
-                topMargin: units.gu(4)
-            }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("We hope you enjoy using Calculator!")
-            wrapMode: Text.WordWrap
-        }
+            width: imageContainer.width
+            height: imageContainer.height
 
-        Button {
-            id: continueButton
-            anchors {
-                bottom: parent.bottom
-                bottomMargin: units.gu(3)
-                horizontalCenter: parent.horizontalCenter
+            Flickable {
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                    bottom: continueButton.top
+                    bottomMargin: units.gu(2)
+                }
+
+                contentHeight: textColumn.height
+                clip: true
+
+                Column {
+                    id: textColumn
+
+                    spacing: units.gu(2)
+                    anchors {
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
+                        topMargin: units.gu(2)
+                        leftMargin: units.gu(2)
+                        rightMargin: units.gu(2)
+                    }
+
+                    Label {
+                        id: introductionText
+                        text: i18n.tr("Enjoy")
+                        textSize: Label.XLarge
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.WordWrap
+                        width: parent.width
+                    }
+
+                    Label {
+                        id: bodyText
+                        text: i18n.tr("We hope you enjoy using Calculator!")
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        width: parent.width
+                    }
+                }
             }
-            height: units.gu(6)
-            width: parent.width/1.3
-            color: UbuntuColors.green
-            text: i18n.tr("Finish")
-            onClicked: finished()
+
+            Button {
+                id: continueButton
+                anchors {
+                    bottom: parent.bottom
+                    bottomMargin: units.gu(3)
+                    horizontalCenter: parent.horizontalCenter
+                }
+                height: units.gu(6)
+                width: parent.width/1.3
+                color: UbuntuColors.green
+                text: i18n.tr("Finish")
+                onClicked: finished()
+            }
         }
     }
+
 }
