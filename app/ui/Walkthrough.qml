@@ -61,10 +61,11 @@ Page {
             bottom: slideIndicator.top
         }
 
+        cacheBuffer: listView.width
         model: walkthrough.model
         snapMode: ListView.SnapOneItem
         orientation: Qt.Horizontal
-        highlightMoveDuration: UbuntuAnimation.FastDuration
+        highlightMoveDuration: UbuntuAnimation.BriskDuration
         highlightRangeMode: ListView.StrictlyEnforceRange
         highlightFollowsCurrentItem: true
 

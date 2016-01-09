@@ -59,7 +59,7 @@ Item {
 
             Flickable {
                 anchors.fill: parent
-                contentHeight: textColumn.height
+                contentHeight: textColumn.height + units.gu(2)
                 clip: true
 
                 Column {
