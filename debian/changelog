@@ -8,6 +8,9 @@ ubuntu-calculator-app (2.1) UNRELEASED; urgency=medium
   * Run Calculator in Landscape mode for Desktop (LP: #1468663)
   * Add instruction how to enable profiling (workaround for LP: #1520551) 
 
+  [ Andrew Hayzen ]
+  * Add skip label to walkthrough, and skip when running tests
+
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 12 Nov 2015 13:28:29 +0100
 
 ubuntu-calculator-app (2.0.233) vivid; urgency=medium

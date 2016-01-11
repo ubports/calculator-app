@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Canonical Ltd
+ * Copyright (C) 2015, 2016 Canonical Ltd
  *
  * This file is part of Ubuntu Calculator App
  *
@@ -24,6 +24,7 @@ import "../ui"
 Walkthrough {
     id: walkthrough
     appName: "Calculator"
+    objectName: "walkthroughPage"
     onFinished: {
         console.log("[LOG]: Welcome tour complete")
         settings.firstRun = false

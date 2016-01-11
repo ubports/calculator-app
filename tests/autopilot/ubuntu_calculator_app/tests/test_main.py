@@ -4,7 +4,6 @@
 
 from autopilot.matchers import Eventually
 from testtools.matchers import Equals
-
 from ubuntu_calculator_app.tests import CalculatorAppTestCase
 
 
@@ -12,6 +11,8 @@ class MainTestCase(CalculatorAppTestCase):
 
     def setUp(self):
         super(MainTestCase, self).setUp()
+
+        self.app.main_view.get_walkthrough_page().skip()
 
     def test_simple_calculation_via_keyboard(self):
         self.app.main_view.enter_text_via_keyboard('.9')

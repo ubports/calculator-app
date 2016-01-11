@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Nekhelesh Ramananthan (UCS)
+ * Copyright 2015, 2016 Nekhelesh Ramananthan (UCS)
  *
  * This file is part of Ubuntu Calculator App
  *
@@ -86,6 +86,7 @@ Page {
     // Label to skip the walkthrough. Only visible on the first slide
     Label {
         id: skipLabel
+        objectName: "skipLabel"
 
         visible: enabled
         enabled: listView.currentIndex !== listView.count-1
