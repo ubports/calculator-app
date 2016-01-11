@@ -219,7 +219,6 @@ class Walkthrough(Page):
         super(Walkthrough, self).__init__(*args)
 
         self.visible.wait_for(True)
-        sleep(0.5)
 
     @click_object
     def skip(self):
