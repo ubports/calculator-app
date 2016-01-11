@@ -4,6 +4,7 @@
 
 from autopilot.matchers import Eventually
 from testtools.matchers import Equals
+
 from ubuntu_calculator_app.tests import CalculatorAppTestCase
 
 
