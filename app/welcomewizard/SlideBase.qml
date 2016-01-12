@@ -78,7 +78,7 @@ Item {
                     Label {
                         id: introductionText
                         text: slideTitle
-                        textSize: Label.XLarge
+                        fontSize: "x-large"
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.WordWrap
                         width: parent.width

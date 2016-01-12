@@ -77,7 +77,7 @@ Component {
                     Label {
                         id: introductionText
                         text: i18n.tr("Enjoy")
-                        textSize: Label.XLarge
+                        fontSize: "x-large"
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.WordWrap
                         width: parent.width
