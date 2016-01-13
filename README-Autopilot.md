@@ -17,7 +17,7 @@ Prerequisites
 
 Install the following autopilot packages required to run the tests,
 
-    $ sudo apt-get install ubuntu-ui-toolkit-autopilot
+    $ sudo apt-get install ubuntu-ui-toolkit-autopilot xserver-xephyr ratpoison xvfb
 
 Running tests on the desktop
 ============================
@@ -32,19 +32,19 @@ Using terminal:
 
     $ cd ubuntu-calculator-app/tests/autopilot
 
-*  run all tests.
+*  Run all tests.
 
     $ autopilot3 run -vv ubuntu_calculator_app
 
-* to list all tests:
+*  To list all tests:
 
     $ autopilot3 list ubuntu_calculator_app
 
- * To run only one test (for instance: ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero)
+*  To run only one test (for instance: ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero)
 
     $ autopilot3 run -vv ubuntu_calculator_app.tests.test_main.MainTestCase.test_divide_by_zero
 
-* Debugging tests using autopilot vis
+*  Debugging tests using autopilot vis
 
     $ autopilot3 launch -i Qt qmlscene app/ubuntu-calculator-app.qml
 
@@ -54,6 +54,15 @@ Running tests using Ubuntu SDK
 ==============================
 
 Refer this [tutorial](https://developer.ubuntu.com/en/start/platform/guides/running-autopilot-tests/) to run tests on Ubuntu SDK: 
+
+Running tests within virtual environment
+========================================
+
+Warning: Running virtual environment is not working with proprietary NVidia drivers.
+
+To run all tests from sandbox, run following command from tests/autopilot:
+
+    $ autopilot3-sandbox-run -X —windowmanager ratpoison -s 400x600x24 ubuntu_calculator_app/
 
 Running tests on device or emulator:
 ====================================
