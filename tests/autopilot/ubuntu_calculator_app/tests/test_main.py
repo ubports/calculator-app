@@ -6,13 +6,16 @@ from autopilot.matchers import Eventually
 from testtools.matchers import Equals
 
 from ubuntu_calculator_app.tests import CalculatorAppTestCase
-
+from autopilot.platform import model
+import unittest
 
 class MainTestCase(CalculatorAppTestCase):
 
     def setUp(self):
         super(MainTestCase, self).setUp()
 
+    @unittest.skipIf(model() is not 'Desktop',
+                     "Keyboard test is supported only on Desktop")
     def test_simple_calculation_via_keyboard(self):
         self.app.main_view.enter_text_via_keyboard('.9')
         self._assert_result_is(u'0.9')
