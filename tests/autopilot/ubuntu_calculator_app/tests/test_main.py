@@ -18,7 +18,7 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'0.9')
 
         self.app.main_view.enter_text_via_keyboard('*9/')
-        self._assert_result_is(u'8.1÷')
+        self._assert_result_is(u'0.9×9÷')
 
         self.app.main_view.enter_text_via_keyboard('.3=')
         self._assert_result_is(u'27')
@@ -55,13 +55,16 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_history_contains(u'2+3=5')
 
     def test_temporarly_result(self):
-        self.app.main_view.insert('2450.1*369+')
 
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('2450.1*369')
+        self.app.main_view.press_universal_bracket()
+        self.app.main_view.insert('+')
         self._assert_result_is(u'904086.9+')
         self.app.main_view.insert('3.1=')
 
         self._assert_result_is(u'904090')
-        self._assert_history_contains(u'2450.1×369+3.1=904090')
+        self._assert_history_contains(u'(2450.1×369)+3.1=904090')
 
     def test_addding_operator_after_calculation(self):
         self.app.main_view.insert('8*8.1=')
@@ -226,15 +229,18 @@ class MainTestCase(CalculatorAppTestCase):
         self._assert_result_is(u'0.7')
 
     def test_adding_comma_without_number_on_temp_result(self):
+
+        self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('3+6*9')
-        self._assert_result_is(u'3+6×9')
+        self._assert_result_is(u'(3+6×9')
+        self.app.main_view.press_universal_bracket()
         self.app.main_view.insert('+')
         self._assert_result_is(u'57+')
-        self.app.main_view.insert('.0')
-        self._assert_result_is(u'57+0.0')
+        self.app.main_view.insert('.1')
+        self._assert_result_is(u'57+0.1')
         self.app.main_view.insert('=')
-        self._assert_history_contains(u'3+6×9+0.0=57')
-        self._assert_result_is(u'57')
+        self._assert_history_contains(u'(3+6×9)+0.1=57.1')
+        self._assert_result_is(u'57.1')
 
     def test_square(self):
         self.app.main_view.insert('4')
