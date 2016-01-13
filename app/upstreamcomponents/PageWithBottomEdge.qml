@@ -229,7 +229,7 @@ Page {
             bottom: parent.bottom
 
         }
-        height: bottomEdge.tipHeight
+        height: bottomEdge.tipHeight - units.gu(1.5)
         z: 1
 
         onReleased: {

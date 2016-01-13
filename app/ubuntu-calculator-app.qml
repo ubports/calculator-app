@@ -186,7 +186,7 @@ MainView {
         }
 
         // Add here operators that have always priority
-        if ((visual.toString() === "*") || (visual.toString() === ")")) {
+        if (visual.toString() === ")") {
             isFormulaIsValidToCalculate = true;
         }
     }
@@ -383,14 +383,9 @@ MainView {
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [ screenDelegateCopyAction.item,
-                                        screenDelegateEditAction.item,
-                                        screenDelegateFavouriteAction.item ]
-                    leftSideAction: screenDelegateDeleteAction.item
-
-                    Loader {
-                        id: screenDelegateCopyAction
-                        sourceComponent: Action {
+                    rightSideActions: [
+                        Action {
+                            id: screenDelegateCopyAction
                             iconName: "edit-copy"
                             text: i18n.tr("Copy")
                             onTriggered: {
@@ -398,12 +393,9 @@ MainView {
                                 mimeData.text = model.formula + "=" + model.result;
                                 Clipboard.push(mimeData);
                             }
-                        }
-                    }
-
-                    Loader {
-                        id: screenDelegateEditAction
-                        sourceComponent: Action {
+                        },
+                        Action {
+                            id: screenDelegateEditAction
                             iconName: "edit"
                             text: i18n.tr("Edit")
                             onTriggered: {
@@ -414,11 +406,9 @@ MainView {
                                 previousVisual = "";
                                 scrollableView.scrollToBottom();
                             }
-                        }
-                    }
-                    Loader {
-                        id: screenDelegateFavouriteAction
-                        sourceComponent: Action {
+                        },
+                        Action {
+                            id: screenDelegateFavouriteAction
                             iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
                             text: i18n.tr("Add to favorites")
@@ -439,15 +429,13 @@ MainView {
                                 model.isFavourite = !model.isFavourite;
                             }
                         }
-                    }
-                    Loader {
+                    ]
+                    leftSideAction: Action {
                         id: screenDelegateDeleteAction
-                        sourceComponent: Action {
-                            iconName: "delete"
-                            text: i18n.tr("Delete")
-                            onTriggered: {
-                                screenDelegate.remove();
-                            }
+                        iconName: "delete"
+                        text: i18n.tr("Delete")
+                        onTriggered: {
+                            screenDelegate.remove();
                         }
                     }
 
@@ -641,6 +629,9 @@ MainView {
                                                             acceptedBits.push({ "chars": item.pushText, "push": item.pushText });
                                                         if (item.text)
                                                             acceptedBits.push({ "chars": item.text, "push": item.pushText ? item.pushText : item.text });
+                                                        if (item.pasteTexts)
+                                                            for (var pos = 0; pos < item.pasteTexts.length; pos++)
+                                                                acceptedBits.push({ "chars": item.pasteTexts[pos], "push": item.pasteTexts[pos] });
                                                     }
                                                 }
                                             }

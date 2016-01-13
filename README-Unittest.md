@@ -1,0 +1,36 @@
+Running QML Unit Tests
+======================
+
+QML Unit Tests help with testing the internal working of components while
+autopilot tests help with testing the UI workflow as experience by the user.
+Running QML tests is quite simple and very fast.
+
+If you are submitting your bugfix/patch to the calculator app, please follow the
+following steps below to check whether that all tests pass before proposing a
+merge request.
+   
+Running all unit test at once
+=============================
+
+* If you want to run all tests, then run the following command,
+
+   $ ctest --output-on-failure
+   
+* If you want more verbose output, then run,
+
+   $ ctest -VV
+
+Running individual test cases,
+==============================
+
+If you want to run testcases individually, you can do so by navigating to the
+unit tests folder by,
+
+* Navigate to the tests/unit directory
+
+   $ cd tests/unit
+   
+* Run the test by providing their filenames
+
+   $ qmltestrunner tst_hellocomponent.qml
+
