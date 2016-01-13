@@ -17,7 +17,7 @@ Prerequisites
 
 Install the following autopilot packages required to run the tests,
 
-    $ sudo apt-get install ubuntu-ui-toolkit-autopilot xserver-xephyr ratpoison
+    $ sudo apt-get install ubuntu-ui-toolkit-autopilot xserver-xephyr ratpoison xvfb
 
 Running tests on the desktop
 ============================
@@ -57,6 +57,8 @@ Refer this [tutorial](https://developer.ubuntu.com/en/start/platform/guides/runn
 
 Running tests within virtual environment
 ========================================
+
+Warning: Running virtual environment is not working with proprietary NVidia drivers.
 
 To run all tests from sandbox, run following command from tests/autopilot:
 
