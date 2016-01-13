@@ -13,6 +13,7 @@ class MainTestCase(CalculatorAppTestCase):
 
     def setUp(self):
         super(MainTestCase, self).setUp()
+        self.app.main_view.get_walkthrough_page().skip()
 
     @unittest.skipIf(model() is not 'Desktop',
                      "Keyboard test is supported only on Desktop")
