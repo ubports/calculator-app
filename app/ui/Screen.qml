@@ -52,18 +52,21 @@ ListItemWithActions {
     }
 
     color: "white"
+    height: units.gu(7) + (mainView.isScreenIsWide ? 0 : units.gu(3.7))
     Column {
         anchors.fill: parent
         Row {
             id: creationDateRow
             width: parent.width
+            height: units.gu(1.8)
             anchors.right: parent.right
-            spacing: units.gu(1)
 
             layoutDirection: Qt.RightToLeft
 
             Text {
                 id: creationTimeText
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 color: UbuntuColors.darkGrey
                 text: formatDate(model.date)
                 textFormat: Text.PlainText
@@ -73,7 +76,8 @@ ListItemWithActions {
 
             Icon {
                 id: favouriteIcon
-                height: units.gu(1.8)
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 width: height
                 name: model.isFavourite ? "starred" : "non-starred"
                 color: model.isFavourite ? UbuntuColors.orange : "white"
@@ -81,6 +85,8 @@ ListItemWithActions {
 
             Text {
                 id: favouriteDescriptionText
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
                 color: UbuntuColors.orange
                 text: model.favouriteText
                 textFormat: Text.PlainText
@@ -89,10 +95,12 @@ ListItemWithActions {
                 font.bold: true
             }
         }
+      
         Row {
             id: calculationRow
             objectName: "historyrow"
             width: parent.width
+            height: units.gu(3.5)
             anchors.right: parent.right
 
             layoutDirection: Qt.RightToLeft
@@ -101,8 +109,8 @@ ListItemWithActions {
             Text {
                 id: result
                 objectName: "result" + model.index
-
-                anchors.bottom: formula.bottom
+                visible: mainView.isScreenIsWide
+                anchors.top: parent.top
 
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.result)
@@ -123,12 +131,34 @@ ListItemWithActions {
                 textFormat: Text.PlainText
                 text: Formula.returnFormulaToDisplay(model.formula) + " ="
                 font.pixelSize: units.gu(2.5)
-                lineHeight: units.gu(1) + 1
-                lineHeightMode: Text.FixedHeight
 
-                elide: Text.ElideLeft
+                verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignRight
             }
         }
+
+        Row {
+            objectName: "resultInPortraitView"
+            width: parent.width
+            height: units.gu(4)
+            anchors.right: parent.right
+
+            layoutDirection: Qt.RightToLeft
+            spacing: units.gu(1)
+            Text {
+                objectName: "result" + model.index
+                visible: !mainView.isScreenIsWide
+
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom 
+
+                color: UbuntuColors.darkGrey
+                text: Formula.returnFormulaToDisplay(model.result)
+                font.pixelSize: units.gu(3.5)
+                lineHeight: units.gu(2)
+                lineHeightMode: Text.FixedHeight
+                horizontalAlignment: Text.AlignRight
+            }
+       }
     }
 }

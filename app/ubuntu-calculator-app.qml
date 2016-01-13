@@ -70,6 +70,10 @@ MainView {
     // If it is set to false, then editing will be invoked
     property bool deleteSelectedCalculation: true;
 
+    // Var used to display calculation in multiline mode
+    // if width is not enough to display in one line
+    property bool isScreenIsWide: width > units.gu(60);
+
     /**
      * The function calls the Formula.deleteLastFormulaElement function and
      * place the result in right vars
@@ -498,17 +502,6 @@ MainView {
                         width: parent.width
                         height: model.dbId !== -1 ? item.height : 0;
                         sourceComponent: screenDelegateComponent
-                        opacity: ((y + height) >= scrollableView.contentY) && (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
-                        onOpacityChanged: {
-                            if (this.hasOwnProperty('item') && this.item !== null) {
-                                if (opacity > 0) {
-                                    sourceComponent = screenDelegateComponent;
-                                } else {
-                                    this.item.visible = false;
-                                    sourceComponent = emptyDelegate;
-                                }
-                            }
-                        }
                     }
                 }
             }
