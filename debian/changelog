@@ -7,11 +7,13 @@ ubuntu-calculator-app (2.1) UNRELEASED; urgency=medium
     with Google Closure (LP: #1520594)
   * Run Calculator in Landscape mode for Desktop (LP: #1468663)
   * Add instruction how to enable profiling (workaround for LP: #1520551) 
+  * Change position of the formula in history, according to screen weight (LP: #1446808)
+  * Fix pressing of the bottom row buttons (LP: #1444564)
 
-  [ Andrew Hayzen ]
+  [ Andrew Hayzen ]  
   * Add skip label to walkthrough, and skip when running tests
 
- -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 12 Nov 2015 13:28:29 +0100
+ -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 14 Jan 2016 00:07:59 +0100
 
 ubuntu-calculator-app (2.0.233) vivid; urgency=medium
 
