@@ -164,7 +164,7 @@ class MainView(ubuntuuitoolkit.MainView):
                                        objectName='textInputField').displayText
 
     def get_walkthrough_page(self):
-        return self.wait_select_single(Walkthrough,
+        return self.wait_select_single('Walkthrough',
                                        objectName="walkthroughPage")
 
     def show_scientific_keyboard(self):
