@@ -257,7 +257,6 @@ MainView {
                 push(calculatorPage);
                 calculatorPage.forceActiveFocus();
             }
-            push(Qt.resolvedUrl("welcomewizard/WelcomeWizard.qml"))
         }
 
         onHeightChanged: scrollableView.scrollToBottom();
