@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-14 00:37+0100\n"
+"POT-Creation-Date: 2016-01-19 21:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,40 +21,40 @@ msgstr ""
 msgid "NaN"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:268
-#: /tmp/tmp.gT9jAgqIR0/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: ../app/ubuntu-calculator-app.qml:267
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:272 ../app/ubuntu-calculator-app.qml:277
+#: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:324
+#: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:334
+#: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:334
+#: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:341 ../app/ubuntu-calculator-app.qml:405
+#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:349 ../app/ubuntu-calculator-app.qml:451
+#: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:415
+#: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
 msgstr ""
 
-#: ../app/ubuntu-calculator-app.qml:429
+#: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgstr ""
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:567 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
 msgstr ""
@@ -221,10 +221,10 @@ msgid ""
 "appear there and you could modify formula in that place"
 msgstr ""
 
-#: /tmp/tmp.gT9jAgqIR0/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr ""
 
-#: /tmp/tmp.gT9jAgqIR0/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""

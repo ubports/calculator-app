@@ -1,3 +1,3 @@
-#if(NOT CLICK_MODE)
+if(NOT CLICK_MODE)
     add_subdirectory(autopilot)
-#endif(NOT CLICK_MODE)
+endif(NOT CLICK_MODE)
