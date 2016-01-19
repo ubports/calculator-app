@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Scientific keyboard")
-        slideDescription: i18n.tr("If you are in Basic view, you could access to Scientific options, by swiping left Calculator's keyboard")
+        slideDescription: i18n.tr("Access scientific functions with a left swipe on the numeric keypad")
         slideImage: "../graphics/access-sci-keyboard.png"
     }
 }

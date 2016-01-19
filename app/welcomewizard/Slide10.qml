@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Copy formula")
-        slideDescription: i18n.tr("You could copy formula by long pressing on formula (on Phone and Tablet), or by right mouse click (on Desktop), and selecting 'Copy' option from menu")
+        slideDescription: i18n.tr("Long press to copy part or all of a formula to the clipboard")
         slideImage: "../graphics/copy-formula.png"
     }
 }

@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Scientific View")
-        slideDescription: i18n.tr("You could rotate you device display to get access to Scientific view")
+        slideDescription: i18n.tr("Rotate device to show numeric and scientific functions together")
         slideImage: "../graphics/rotate-keyboard.png"
     }
 }

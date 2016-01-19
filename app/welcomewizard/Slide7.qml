@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Edit item from calculation history")
-        slideDescription: i18n.tr("You could edit item from calculation history by swiping left calculation, and pressing Edit button")
+        slideDescription: i18n.tr("Swipe left and press pencil to edit calculation")
         slideImage: "../graphics/edit-item-from-history.png"
     }
 }

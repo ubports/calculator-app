@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Welcome to Calculator")
-        slideDescription: i18n.tr("Enjoy the power of math by using Calculator.")
+        slideDescription: i18n.tr("Enjoy the power of math by using Calculator")
         slideImage: "../graphics/ubuntu-calculator-app.png"
     }
 }

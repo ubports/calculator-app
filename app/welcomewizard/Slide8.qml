@@ -25,7 +25,7 @@ Component {
 
     SlideBase {
         slideTitle: i18n.tr("Add new favourite")
-        slideDescription: i18n.tr("You could add item to favourites from calculation history by swiping left calculation, and pressing Star button")
+        slideDescription: i18n.tr("Swipe left and press star to add calculations to favourites view")
         slideImage: "../graphics/fav-item-from-history.png"
     }
 }
