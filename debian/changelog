@@ -11,7 +11,10 @@ ubuntu-calculator-app (2.1) UNRELEASED; urgency=medium
   * Fix pressing of the bottom row buttons (LP: #1444564)
 
   [ Andrew Hayzen ]  
-  * Add skip label to walkthrough, and skip when running tests
+  * Add skip label to walkthrough, and skip when running tests (LP: #1442804)
+
+  [ Michal Predotka ]
+  * Add graphics and improve layout of walkthrough (LP: #1442804)
 
  -- Bartosz Kosiorek <gang65@poczta.onet.pl>  Thu, 14 Jan 2016 00:07:59 +0100
 
