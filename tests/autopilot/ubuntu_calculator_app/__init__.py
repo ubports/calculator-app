@@ -1,6 +1,6 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #
-# Copyright (C) 2013 Canonical Ltd.
+# Copyright (C) 2013, 2016 Canonical Ltd.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -18,6 +18,14 @@
 
 from time import sleep
 import ubuntuuitoolkit
+
+
+def click_object(func):
+    """Wrapper which clicks the returned object"""
+    def func_wrapper(self, *args, **kwargs):
+        return self.pointing_device.click_object(func(self, *args, **kwargs))
+
+    return func_wrapper
 
 
 class CalculatorApp(object):
@@ -155,6 +163,10 @@ class MainView(ubuntuuitoolkit.MainView):
         return self.wait_select_single('TextField',
                                        objectName='textInputField').displayText
 
+    def get_walkthrough_page(self):
+        return self.wait_select_single('Walkthrough',
+                                       objectName="walkthroughPage")
+
     def show_scientific_keyboard(self):
         self._scientific_keyboard()
 
@@ -193,3 +205,21 @@ class MainView(ubuntuuitoolkit.MainView):
 
         """
         ubuntuuitoolkit.get_keyboard().press_and_release(keyToPress, delay=0.1)
+
+
+class Page(ubuntuuitoolkit.UbuntuUIToolkitCustomProxyObjectBase):
+    """Autopilot helper for Pages."""
+    def __init__(self, *args):
+        super(Page, self).__init__(*args)
+
+
+class Walkthrough(Page):
+    """ Autopilot helper for the walkthrough page """
+    def __init__(self, *args):
+        super(Walkthrough, self).__init__(*args)
+
+        self.visible.wait_for(True)
+
+    @click_object
+    def skip(self):
+        return self.wait_select_single("UCLabel", objectName="skipLabel")

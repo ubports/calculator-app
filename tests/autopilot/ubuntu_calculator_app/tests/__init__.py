@@ -62,6 +62,15 @@ class CalculatorAppTestCase(AutopilotTestCase):
         super(CalculatorAppTestCase, self).setUp()
         self.clear_calculator_database()
         self.launcher, self.test_type = self.get_launcher_and_type()
+        if self.test_type is 'click':
+            # just use home for now on devices
+            temp_dir = os.environ.get('HOME')
+
+            # before each test, remove the app's settings
+            local_dir = os.path.join(temp_dir, '.config/com.ubuntu.calculator')
+
+            if (os.path.exists(local_dir)):
+                shutil.rmtree(local_dir)
 
         # Unset the current locale to ensure locale-specific data
         # (day and month names, first day of the week, …) doesn’t get
