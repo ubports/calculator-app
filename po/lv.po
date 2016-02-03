@@ -7,49 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-10-20 00:39+0200\n"
+"POT-Creation-Date: 2016-01-19 21:37+0100\n"
 "PO-Revision-Date: 2015-11-21 19:17+0000\n"
 "Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-27 05:30+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
 msgstr "NS"
 
-#: ../app/ubuntu-calculator-app.qml:258 ../app/ubuntu-calculator-app.qml:263
+#: ../app/ubuntu-calculator-app.qml:267
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:1
+msgid "Calculator"
+msgstr "Kalkulators"
+
+#: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
 msgstr "Iecienītais"
 
-#: ../app/ubuntu-calculator-app.qml:311
+#: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: ../app/ubuntu-calculator-app.qml:325
+#: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
 msgstr "Izvēlēties visu"
 
-#: ../app/ubuntu-calculator-app.qml:325
+#: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
 msgstr "Neizvēlēties nevienu"
 
-#: ../app/ubuntu-calculator-app.qml:332 ../app/ubuntu-calculator-app.qml:403
+#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
 msgstr "Kopēt"
 
-#: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:455
+#: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
 msgstr "Dzēst"
 
-#: ../app/ubuntu-calculator-app.qml:416
+#: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: ../app/ubuntu-calculator-app.qml:432
+#: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
 msgstr "Pievienot izlasei"
 
@@ -59,7 +64,7 @@ msgstr "Pievienot izlasei"
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid
 #. expressions
-#: ../app/ubuntu-calculator-app.qml:586 ../app/ui/FavouritePage.qml:89
+#: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
 msgstr "dd. MMM, yyyy."
@@ -77,12 +82,12 @@ msgstr ""
 "lai tos pievienotu izlasei"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
-#: ../app/ui/LandscapeKeyboard.qml:19 ../app/ui/PortraitKeyboard.qml:43
+#: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
 msgid "log"
 msgstr "log"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
-#: ../app/ui/LandscapeKeyboard.qml:26 ../app/ui/PortraitKeyboard.qml:47
+#: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
 msgstr "mod"
 
@@ -105,14 +110,123 @@ msgstr "hh.mm"
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:1
-msgid "Calculator"
-msgstr "Kalkulators"
+#: ../app/ui/Walkthrough.qml:96
+msgid "Skip"
+msgstr ""
 
-#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: ../app/welcomewizard/Slide1.qml:27
+msgid "Welcome to Calculator"
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:28
+msgid "Enjoy the power of math by using Calculator."
+msgstr ""
+
+#: ../app/welcomewizard/Slide10.qml:27
+msgid "Copy formula"
+msgstr ""
+
+#: ../app/welcomewizard/Slide10.qml:28
+msgid ""
+"You could copy formula by long pressing on formula (on Phone and Tablet), or "
+"by right mouse click (on Desktop), and selecting 'Copy' option from menu"
+msgstr ""
+
+#: ../app/welcomewizard/Slide11.qml:79
+msgid "Enjoy"
+msgstr ""
+
+#: ../app/welcomewizard/Slide11.qml:88
+msgid "We hope you enjoy using Calculator!"
+msgstr ""
+
+#: ../app/welcomewizard/Slide11.qml:106
+msgid "Finish"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:27
+msgid "Scientific keyboard"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:28
+msgid ""
+"If you are in Basic view, you could access to Scientific options, by swiping "
+"left Calculator's keyboard"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:27
+msgid "Scientific View"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:28
+msgid "You could rotate you device display to get access to Scientific view"
+msgstr ""
+
+#: ../app/welcomewizard/Slide4.qml:27
+msgid "Delete item from calculation history"
+msgstr ""
+
+#: ../app/welcomewizard/Slide4.qml:28
+msgid ""
+"You could delete item from calculation history by swiping right calculation, "
+"and pressing Trash button"
+msgstr ""
+
+#: ../app/welcomewizard/Slide5.qml:27
+msgid "Delete several items from calculation history"
+msgstr ""
+
+#: ../app/welcomewizard/Slide5.qml:28
+msgid ""
+"You could delete multiple calculations from Calculation history, by long "
+"pressing Calculation. After that near every calculation the check-box will "
+"appear. After selecting you could select 'Delete' option from drop-down menu"
+msgstr ""
+
+#: ../app/welcomewizard/Slide6.qml:27
+msgid "Delete whole formula at once"
+msgstr ""
+
+#: ../app/welcomewizard/Slide6.qml:28
+msgid ""
+"You could delete whole currently edited formula, by long pressing Clear "
+"button '←'"
+msgstr ""
+
+#: ../app/welcomewizard/Slide7.qml:27
+msgid "Edit item from calculation history"
+msgstr ""
+
+#: ../app/welcomewizard/Slide7.qml:28
+msgid ""
+"You could edit item from calculation history by swiping left calculation, "
+"and pressing Edit button"
+msgstr ""
+
+#: ../app/welcomewizard/Slide8.qml:27
+msgid "Add new favourite"
+msgstr ""
+
+#: ../app/welcomewizard/Slide8.qml:28
+msgid ""
+"You could add item to favourites from calculation history by swiping left "
+"calculation, and pressing Star button"
+msgstr ""
+
+#: ../app/welcomewizard/Slide9.qml:27
+msgid "Edit formula"
+msgstr ""
+
+#: ../app/welcomewizard/Slide9.qml:28
+msgid ""
+"You could edit formula by clicking any part of formula. The cursor will "
+"appear there and you could modify formula in that place"
+msgstr ""
+
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Ubuntu kalkulators"
 
-#: /tmp/tmp.PtmhCGoY3S/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "matematika;saskaitīt;atņemt;reizināt;dalīt;"
