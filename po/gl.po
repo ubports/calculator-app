@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-06-14 13:34+0000\n"
+"PO-Revision-Date: 2016-02-04 05:16+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Launchpad-Export-Date: 2016-02-04 06:18+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -112,19 +112,19 @@ msgstr "Onte"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Benvido á Calculadora"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgstr "Goce das matemáticas usando a Calculadora."
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Copiar fórmula"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid ""
@@ -134,19 +134,19 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Goce"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Esperamos que goce coa Calculadora."
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Rematar"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Teclado científico"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid ""
@@ -156,7 +156,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Vista científica"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Eliminar o elemento do historial dos cálculos"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid ""
@@ -185,13 +185,14 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Eliminar a fórmula completa dunha vez"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid ""
 "You could delete whole currently edited formula, by long pressing Clear "
 "button '←'"
 msgstr ""
+"Pode eliminar a fórmua editada completa premendo un intre no botón Limpar «←»"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -205,7 +206,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Engadir novo favorito"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid ""
@@ -215,7 +216,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Editar a fórmula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid ""

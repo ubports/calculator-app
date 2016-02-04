@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-06-18 20:44+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2016-02-03 12:03+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Launchpad-Export-Date: 2016-02-04 06:18+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -112,69 +112,75 @@ msgstr "Yesterday"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Skip"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Welcome to Calculator"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgstr "Enjoy the power of maths by using Calculator."
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Copy formula"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid ""
 "You could copy formula by long pressing on formula (on Phone and Tablet), or "
 "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 msgstr ""
+"You could copy formula by long pressing on formula (on Phone and Tablet), or "
+"by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Enjoy"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "We hope you enjoy using Calculator!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Finish"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Scientific keyboard"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid ""
 "If you are in Basic view, you could access to Scientific options, by swiping "
 "left Calculator's keyboard"
 msgstr ""
+"If you are in Basic view, you could access to Scientific options, by swiping "
+"left Calculator's keyboard"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Scientific View"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgstr "You can rotate your device display to get access to Scientific view"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Delete item from calculation history"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid ""
 "You could delete item from calculation history by swiping right calculation, "
 "and pressing Trash button"
 msgstr ""
+"You can delete an item from calculation history by swiping right "
+"calculation, and pressing Delete button"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Delete several items from the calculation history"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid ""
@@ -182,46 +188,57 @@ msgid ""
 "pressing Calculation. After that near every calculation the check-box will "
 "appear. After selecting you could select 'Delete' option from drop-down menu"
 msgstr ""
+"You could delete multiple calculations from the Calculation history, by long "
+"pressing Calculation. After that near every calculation the check-box will "
+"appear. After selecting you could select 'Delete' option from drop-down menu"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Delete whole formula at once"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid ""
 "You could delete whole currently edited formula, by long pressing Clear "
 "button '←'"
 msgstr ""
+"You can delete whole currently edited formula, by long pressing Clear button "
+"'←'"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Edit item from the calculation history"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid ""
 "You could edit item from calculation history by swiping left calculation, "
 "and pressing Edit button"
 msgstr ""
+"You can edit an item from the calculation history by swiping left "
+"calculation, and pressing Edit button"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Add new favourite"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid ""
 "You could add item to favourites from calculation history by swiping left "
 "calculation, and pressing Star button"
 msgstr ""
+"You can add an item to favourites from calculation history by swiping left "
+"calculation, and pressing Star button"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Edit formula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid ""
 "You could edit formula by clicking any part of formula. The cursor will "
 "appear there and you could modify formula in that place"
 msgstr ""
+"You can edit a formula by clicking any part of formula. The cursor will "
+"appear there and you could modify formula in that place"
 
 #: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."

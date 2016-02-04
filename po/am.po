@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-06-12 13:59+0000\n"
+"PO-Revision-Date: 2016-02-03 19:01+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:04+0000\n"
+"X-Launchpad-Export-Date: 2016-02-04 06:18+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -112,69 +112,73 @@ msgstr "ትናንትና"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "መዝለያ"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "እንኳን ደህና መጡ ወደ ማስሊያ"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgstr "በ ሂሳብ ሀይል በማስላት ይደሰቱ"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "መቀመሪያ ኮፒ ማድረጊያ"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid ""
 "You could copy formula by long pressing on formula (on Phone and Tablet), or "
 "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 msgstr ""
+"እርስዎ መቀመሪያ ኮፒ ማድረግ ይችላሉ ለ ረጅም ጊዜ ተጭነው በ መያዝ (በ ስልክ ላይ እና በ ታብሌት ላይ) ወይንም በ "
+"ቀኝ የ አይጥ ቁልፍ በ መጫን (በ ዴስክቶፕ ላይ) እና በ መምረጥ 'ኮፒ' ከ ዝርዝር ውስጥ"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "ይደሰቱ"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "በማስሊያ እንደሚደሰቱ ተስፋ እናደርጋለን"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "መጨረሻ"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "ሳይንሳዊ የ ፊደል ገበታ"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid ""
 "If you are in Basic view, you could access to Scientific options, by swiping "
 "left Calculator's keyboard"
 msgstr ""
+"እርስዎ አሁን በ መሰረታዊ መመልከቻ ላይ ከሆኑ እና ሳይንሳዊ የ ፊደል ገበታ ምርጫ ማየት ከፈለጉ ወደ ግራ ይጥረጉ የ "
+"ፊደል ገበታውን"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "ሳይንሳዊ መመልከቻ"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgstr "እርስዎ ማዞር ይችላሉ የ እርስዎን አካል የ ሳይንሳዊ መመልከቻ ጋር ለ መድረስ"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "እቃዎች ከ ማስሊያው ታሪክ ላይ ማጥፊያ"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid ""
 "You could delete item from calculation history by swiping right calculation, "
 "and pressing Trash button"
-msgstr ""
+msgstr "እርስዎ ማጥፋት ይችላሉ ከ ማስሊያ ታሪክ ውስጥ ወደ ቀኝ በ መጫን ማስሊያውን: እና የ ቆሻሻ ቁልፍ በ መጫን"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "በርካታ እቃዎች ከ ማስሊያው ታሪክ ላይ ማጥፊያ"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid ""
@@ -185,7 +189,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "ጠቅላላ መቀመሪያውን ባንድ ጊዜ ማጥፊያ"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid ""
@@ -195,7 +199,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "ከ ማስሊያው ታሪክ ውስጥ እቃዎች ማረሚያ"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid ""
@@ -205,7 +209,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "አዲስ የምወዳቸው መጨመሪያ"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid ""
@@ -215,7 +219,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "መቀመሪያ ማረሚያ"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid ""
