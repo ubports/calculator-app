@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-06-12 11:42+0000\n"
+"PO-Revision-Date: 2016-02-04 12:40+0000\n"
 "Last-Translator: Åka Sikrom <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Launchpad-Export-Date: 2016-02-05 06:49+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -112,69 +112,75 @@ msgstr "I går"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Hopp over"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Velkommen til Kalkulator"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgstr "Løs matteproblemer enkelt med Kalkulator."
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Kopier formler"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid ""
 "You could copy formula by long pressing on formula (on Phone and Tablet), or "
 "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 msgstr ""
+"Du kan kopiere formler ved å trykke lenge på formler (på telefon og brett), "
+"eller ved å høyreklikke (på skrivebord) og velge «Kopier» i menyen"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Kos deg"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Vi håper du får nytte av kalkulatoren."
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Ferdig"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Vitenskapelig tastatur"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid ""
 "If you are in Basic view, you could access to Scientific options, by swiping "
 "left Calculator's keyboard"
 msgstr ""
+"Dra kalkulator-tastaturet til venstre for å bytte fra enkel til "
+"vitenskapelig visning"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Vitenskapelig visning"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgstr "Roter enhetsskjermen for å få tilgang til vitenskapelig visning"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Slett element fra utregningshistorikk"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid ""
 "You could delete item from calculation history by swiping right calculation, "
 "and pressing Trash button"
 msgstr ""
+"Dra en utregning mot høyre og trykk Slett for å slette et element fra "
+"utregningshistorikken"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Slett flere elementer fra utregningshistorikk"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid ""
@@ -182,46 +188,54 @@ msgid ""
 "pressing Calculation. After that near every calculation the check-box will "
 "appear. After selecting you could select 'Delete' option from drop-down menu"
 msgstr ""
+"Trykk lenge på en utregning for å slette flere utregninger fra historikken. "
+"Du kan nå markere flere utregninger, og trykke «Slett» på menyen"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Slett hel formel på én gang"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid ""
 "You could delete whole currently edited formula, by long pressing Clear "
 "button '←'"
-msgstr ""
+msgstr "Trykk lenge på Tøm-knappen «←» for å slette alt i gjeldende formel"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Rediger element i utregningshistorikk"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid ""
 "You could edit item from calculation history by swiping left calculation, "
 "and pressing Edit button"
 msgstr ""
+"Dra en utregning mot venstre og trykk Rediger for å redigere et element i "
+"utregningshistorikken"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Legg til ny favoritt"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid ""
 "You could add item to favourites from calculation history by swiping left "
 "calculation, and pressing Star button"
 msgstr ""
+"Dra en utregning mot venstre og trykk på stjerneknappen for å legge til et "
+"element som favoritt"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Rediger formel"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid ""
 "You could edit formula by clicking any part of formula. The cursor will "
 "appear there and you could modify formula in that place"
 msgstr ""
+"Trykk på en del av en formel for å redigere den. Pekeren legger seg der du "
+"trykker, og lar deg redigere formelen"
 
 #: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."

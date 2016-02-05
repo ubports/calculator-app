@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-06-18 23:11+0000\n"
+"PO-Revision-Date: 2016-02-04 22:03+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Launchpad-Export-Date: 2016-02-05 06:49+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -112,69 +112,74 @@ msgstr "دیروز"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "پرش"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "به ماشین‌حساب خوش آمدید"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgstr "با استفاده از ماشین‌حساب، از قدرت ریاضی لذّت ببرید."
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "رونوشت از فرمول"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid ""
 "You could copy formula by long pressing on formula (on Phone and Tablet), or "
 "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 msgstr ""
+"می‌توانید با نگه داشتن طولانی روی فرمول (روی تلفن و رایانک)، یا با کلیک راست "
+"موشی (روی میزکار) و گزینش انتخاب «رونوشت» از فهرست، از آن رونوشت بگیرید."
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "لذّت ببرید"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "امیداوریم از استفاده از ماشین‌حساب لذّت ببرید!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "پایان"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "صفحه‌کلید مهندسی"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid ""
 "If you are in Basic view, you could access to Scientific options, by swiping "
 "left Calculator's keyboard"
 msgstr ""
+"اگر در نمای پایه هستید، می‌توانید با کشیدن صفحه‌کلید ماشین‌حساب به چپ، به "
+"انتخاب‌های مهندسی دسترسی پیدا کنید"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "نمای مهندسی"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgstr "برای دسترسی به نمای مهندسی می‌توانید نمایشگرتان را بگردانید"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "حذف مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid ""
 "You could delete item from calculation history by swiping right calculation, "
 "and pressing Trash button"
 msgstr ""
+"می‌توانستید با کشیدن محاسبه به راست و فشردن دکمهٔ زباله‌دان، مورد را حذف کنید"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "حذف چند مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid ""
@@ -182,46 +187,54 @@ msgid ""
 "pressing Calculation. After that near every calculation the check-box will "
 "appear. After selecting you could select 'Delete' option from drop-down menu"
 msgstr ""
+"می‌توانستید با نگه داشتن طولانی روی محاسبه، چند مورد را حذف کنید. با این "
+"کار،‌ جعبهٔ انتخابی کنار هر محاسبه ظاهر خواهد شد. پس از گزینش می توانید "
+"«حذف» را از فهرست انتخاب کنید"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "حذف یک‌بارهٔ تمام فرمول"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid ""
 "You could delete whole currently edited formula, by long pressing Clear "
 "button '←'"
-msgstr ""
+msgstr "می‌توانستید با فشردن طولانی دکمهٔ «←»، تمام فرمول جاری را حذف کنید"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "ویرایش مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid ""
 "You could edit item from calculation history by swiping left calculation, "
 "and pressing Edit button"
 msgstr ""
+"می‌توانستید با کشیدن محاسبه به چپ و فشردن دکمهٔ ویرایش، مورد را ویرایش کنید"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "افزودن مورد دلخواه جدید"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid ""
 "You could add item to favourites from calculation history by swiping left "
 "calculation, and pressing Star button"
 msgstr ""
+"می‌توانید با کشیدن مورد به سمت چپ در تاریخچهٔ محاسبه و فشردن دکمهٔ ستاره، آن "
+"را به موارد دلخواه بیفزایید"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "ویرایش فرمول"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid ""
 "You could edit formula by clicking any part of formula. The cursor will "
 "appear there and you could modify formula in that place"
 msgstr ""
+"می‌توانستید با کلیک روی هر بخشی از فرمول، آن را ویرایش کنید. نشانگر در آن‌جا "
+"ظاهر شده و می‌توانید فرمول را در آن موقعیت ویرایش کنید."
 
 #: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2016-02-04 05:16+0000\n"
+"PO-Revision-Date: 2016-02-04 14:52+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-04 06:18+0000\n"
+"X-Launchpad-Export-Date: 2016-02-05 06:49+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -131,6 +131,9 @@ msgid ""
 "You could copy formula by long pressing on formula (on Phone and Tablet), or "
 "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
 msgstr ""
+"Pode copiar unha fórmula premendo un chisco na fórmula (móbiles e tabletas), "
+"facendo clic dereito (escritorio) e seleccionando a opción de «Copiar» no "
+"menú."
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -153,6 +156,8 @@ msgid ""
 "If you are in Basic view, you could access to Scientific options, by swiping "
 "left Calculator's keyboard"
 msgstr ""
+"Se está nunha vista Básica, acceda ás opcións científicas esvarando cara á "
+"esquerda o teclado da calculadora"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -160,7 +165,7 @@ msgstr "Vista científica"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgstr "Pode rotar a pantalla do dispositivo para acceder á vista científica"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -171,10 +176,12 @@ msgid ""
 "You could delete item from calculation history by swiping right calculation, "
 "and pressing Trash button"
 msgstr ""
+"Pode eliminar elementos do historial dos cálculos esvarando o cálculo cara á "
+"dereita e premendo no botón do lixo"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Eliminar varios elementos do historial dos cálculos"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid ""
@@ -182,6 +189,9 @@ msgid ""
 "pressing Calculation. After that near every calculation the check-box will "
 "appear. After selecting you could select 'Delete' option from drop-down menu"
 msgstr ""
+"Pode eliminar múltiples cálculos do historial premendo un chisco nun "
+"cálculo. Aparecerá unha cadro de comprobación en cada cálculo. Despois de "
+"marcalos pode seleccionar a opción «Eliminar» no menú despregábel."
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -196,13 +206,15 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Editar un elemento do historial dos cálculos"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid ""
 "You could edit item from calculation history by swiping left calculation, "
 "and pressing Edit button"
 msgstr ""
+"Pode editar elementos do historial dos cálculos esvarando o cálculo cara á "
+"esquerda e premendo no botón Editar"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -213,6 +225,8 @@ msgid ""
 "You could add item to favourites from calculation history by swiping left "
 "calculation, and pressing Star button"
 msgstr ""
+"Pode engadir elementos aos favoritos desde o historial dos cálculos "
+"esvarando o cálculo cara á esquerda e premendo no botón da estrela"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -223,6 +237,8 @@ msgid ""
 "You could edit formula by clicking any part of formula. The cursor will "
 "appear there and you could modify formula in that place"
 msgstr ""
+"Pode editar unha fórmula premendo en calquera parte dela. O cursor situarase "
+"aí para modificala."
 
 #: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
