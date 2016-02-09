@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 21:37+0100\n"
-"PO-Revision-Date: 2015-07-03 18:18+0000\n"
+"POT-Creation-Date: 2016-02-08 16:37+0100\n"
+"PO-Revision-Date: 2016-02-08 19:14+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-03 06:05+0000\n"
+"X-Launchpad-Export-Date: 2016-02-09 06:05+0000\n"
 "X-Generator: Launchpad (build 17908)\n"
 
 #: ../app/engine/formula.js:176
@@ -22,7 +22,7 @@ msgid "NaN"
 msgstr "Не число"
 
 #: ../app/ubuntu-calculator-app.qml:267
-#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:1
+#: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
 msgstr "Калькулятор"
 
@@ -112,122 +112,113 @@ msgstr "Вчора"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Пропустити"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Вітаємо у Калькуляторі"
 
 #: ../app/welcomewizard/Slide1.qml:28
-msgid "Enjoy the power of math by using Calculator."
-msgstr ""
+msgid "Enjoy the power of math by using Calculator"
+msgstr "Відчуйте усю потужність математики за допомогою Калькулятора"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Копіювати формулу"
 
 #: ../app/welcomewizard/Slide10.qml:28
-msgid ""
-"You could copy formula by long pressing on formula (on Phone and Tablet), or "
-"by right mouse click (on Desktop), and selecting 'Copy' option from menu"
+msgid "Long press to copy part or all of a formula to the clipboard"
 msgstr ""
+"Натисніть і потримайте, щоб скопіювати частину або усю формулу до буфера "
+"обміну"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Насолоджуйтеся"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Сподіваємося вам сподобалася робота у Калькуляторі!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Завершити"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Інженерна клавіатура"
 
 #: ../app/welcomewizard/Slide2.qml:28
-msgid ""
-"If you are in Basic view, you could access to Scientific options, by swiping "
-"left Calculator's keyboard"
+msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Отримайте доступ до інженерних функцій за допомогою руху пальцем ліворуч на "
+"панелі цифрових клавіш"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Інженерний режим"
 
 #: ../app/welcomewizard/Slide3.qml:28
-msgid "You could rotate you device display to get access to Scientific view"
-msgstr ""
+msgid "Rotate device to show numeric and scientific functions together"
+msgstr "Поверніть пристрій, щоб побачити числові і інженерні функції разом"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Вилучити запис із журналу обчислень"
 
 #: ../app/welcomewizard/Slide4.qml:28
-msgid ""
-"You could delete item from calculation history by swiping right calculation, "
-"and pressing Trash button"
-msgstr ""
+msgid "Swipe right to delete items from calculator history"
+msgstr "Проведіть пальцем праворуч, щоб вилучити записи із журналу обчислень"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Вилучити декілька записів із журналу обчислень"
 
 #: ../app/welcomewizard/Slide5.qml:28
-msgid ""
-"You could delete multiple calculations from Calculation history, by long "
-"pressing Calculation. After that near every calculation the check-box will "
-"appear. After selecting you could select 'Delete' option from drop-down menu"
-msgstr ""
+msgid "Long press to select multiple calculations for deletion"
+msgstr "Натисніть і потримайте, щоб позначити декілька записів для вилучення"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Вилучити усю формулу одразу"
 
 #: ../app/welcomewizard/Slide6.qml:28
-msgid ""
-"You could delete whole currently edited formula, by long pressing Clear "
-"button '←'"
+msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Натисніть і утримуйте кнопку «←», щоб вилучити усі формули із рядка введення"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Редагувати запис із журналу калькулятора"
 
 #: ../app/welcomewizard/Slide7.qml:28
-msgid ""
-"You could edit item from calculation history by swiping left calculation, "
-"and pressing Edit button"
+msgid "Swipe left and press pencil to edit calculation"
 msgstr ""
+"Проведіть пальцем ліворуч і натисніть олівець, щоб внести зміни до обчислень"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Додати нове вибране"
 
 #: ../app/welcomewizard/Slide8.qml:28
-msgid ""
-"You could add item to favourites from calculation history by swiping left "
-"calculation, and pressing Star button"
+msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Проведіть пальцем ліворуч і натисніть зірку, щоб додати обчислення до списку "
+"вибраних"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Змінити формулу"
 
 #: ../app/welcomewizard/Slide9.qml:28
-msgid ""
-"You could edit formula by clicking any part of formula. The cursor will "
-"appear there and you could modify formula in that place"
-msgstr ""
+msgid "Click in the middle of a formula to edit in place"
+msgstr "Натисніть місце у формулі, щоб почати редагування з нього"
 
-#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:2
+#: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
 msgstr "Калькулятор Ubuntu."
 
-#: /tmp/tmp.8iWifz44WO/po/ubuntu-calculator-app.desktop.in.in.h:3
+#: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
 "math;addition;subtraction;multiplication;division;математика;додавання;віднім"
