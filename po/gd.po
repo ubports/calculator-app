@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-09 00:16+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2016-02-09 22:54+0000\n"
+"Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-09 06:03+0000\n"
-"X-Generator: Launchpad (build 17908)\n"
+"X-Launchpad-Export-Date: 2016-02-10 05:44+0000\n"
+"X-Generator: Launchpad (build 17923)\n"
 "Language: gd\n"
 
 #: ../app/engine/formula.js:176
@@ -121,7 +121,7 @@ msgstr "Fàilte dhan àireamhair"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Faigh tlachd à cumhachd a' mhatamataig leis an àireamhair"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -130,6 +130,8 @@ msgstr "Dèan lethbhreac dhe dh'fhoirmle"
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
 msgstr ""
+"Dèan brùthadh fada gus lethbhreac dhen fhoirmle shlàn no pàirt dhith a chur "
+"dhan stòr-bhòrd"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -150,6 +152,7 @@ msgstr "Meur-chlàr saidheansail"
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Inntrig foincseanan saidheansail le grad-shlaighdeadh clì air a' mheur-chlàr"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -158,6 +161,8 @@ msgstr "Sealladh saidheansail"
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
+"Cuairtich an t-inneal gus foincseanan àireamhail is saidheansail a "
+"shealltainn còmhla"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -166,6 +171,7 @@ msgstr "Sguab às nì o eachdraidh an àireamhachaidh"
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
 msgstr ""
+"Grad-shlaighd gu deas gus nithean a sguabadh às o eachdraidh an àireamhair"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -174,6 +180,7 @@ msgstr "Sguab às iomadh nì o eachdraidh an àireamhachaidh"
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
 msgstr ""
+"Dèan brùthadh fada gus iomadh àireamhachadh ri sguabadh às a thaghadh"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -182,6 +189,8 @@ msgstr "Sguab às foirmle shlàn"
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Dèan brùthadh fada air a' phutan \"←\" gus a h-uile foirmle a thoirt air "
+"falbh o bhàr an ion-chuir"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -190,6 +199,8 @@ msgstr "Deasaich às nì ann an eachdraidh an àireamhachaidh"
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
 msgstr ""
+"Grad-shlaighd gu clì is brùth air a' pheansail gus an t-àireamhachadh a "
+"dheasachadh"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -198,6 +209,8 @@ msgstr "Cuir ris annsachd ùr"
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Grad-shlaighd gu clì is brùth air an rionnag gus àireamhachaidhean a chur ri "
+"sealladh nan annsachdan"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -205,7 +218,7 @@ msgstr "Deasaich foirmle"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Briog air meadhan foirmle gus a dheasachadh ann"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
@@ -216,76 +229,3 @@ msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
 "math;addition;subtraction;multiplication;division;matamataig;roinneadh;toirt "
 "air falbh;cur ris;iomadadh"
-
-#~ msgid "Enjoy the power of math by using Calculator."
-#~ msgstr "Faigh tlachd à cumhachd a' mhatamataig leis an àireamhair."
-
-#~ msgid ""
-#~ "You could copy formula by long pressing on formula (on Phone and Tablet), or "
-#~ "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
-#~ msgstr ""
-#~ "'S urrainn dhut lethbhreac a dhèanamh dhe fhoirmle 's tu a' brùthadh gu fada "
-#~ "air an fhoirmle (air fòn no tablaid) no a' dèanamh briogadh deas na luchaige "
-#~ "(air desktop) agus a' taghadh \"Dèan lethbhreac\" an uairsin."
-
-#~ msgid ""
-#~ "If you are in Basic view, you could access to Scientific options, by swiping "
-#~ "left Calculator's keyboard"
-#~ msgstr ""
-#~ "Ma tha thu san t-sealladh bhunasach, gheibh thu inntrigeadh dha na "
-#~ "roghainnean saidheansail le grad-shlaighdeadh gu clì air meur-chlàr an "
-#~ "àireamhair"
-
-#~ msgid "You could rotate you device display to get access to Scientific view"
-#~ msgstr ""
-#~ "Cuairtich uidheam-taisbeanaidh an uidheim agad gus an sealladh saidheansail "
-#~ "inntrigeadh"
-
-#~ msgid ""
-#~ "You could delete item from calculation history by swiping right calculation, "
-#~ "and pressing Trash button"
-#~ msgstr ""
-#~ "'S urrainn dhut nì a sguabadh às o eachdraidh an àireamhachaidh 's tu a' "
-#~ "dèanamh grad-shlaighdeadh gu deas air an àireamhachadh 's a' brùthadh air "
-#~ "putan an sgudail"
-
-#~ msgid ""
-#~ "You could delete multiple calculations from Calculation history, by long "
-#~ "pressing Calculation. After that near every calculation the check-box will "
-#~ "appear. After selecting you could select 'Delete' option from drop-down menu"
-#~ msgstr ""
-#~ "'S urrainn dhut iomadh àireamhachadh a sguabadh às o eachdraidh an "
-#~ "àireamhachaidh le brùthadh fada air an àireamhachadh. Nochdaidh bogsa-"
-#~ "cromaige ri taobh gach àireamhachaidh an uairsin. Cuir cromag sna "
-#~ "bogsaichean is tagh \"Sguab às\" on chlàr-taice teàrnaidh"
-
-#~ msgid ""
-#~ "You could delete whole currently edited formula, by long pressing Clear "
-#~ "button '←'"
-#~ msgstr ""
-#~ "Gus an fhoirmle a tha thu a' deasachadh a sguabadh às gu slàn, dèan brùthadh "
-#~ "fada air putan an fhalamhachaidh \"←\""
-
-#~ msgid ""
-#~ "You could edit item from calculation history by swiping left calculation, "
-#~ "and pressing Edit button"
-#~ msgstr ""
-#~ "'S urrainn dhut nì a dheasachadh ann an eachdraidh an àireamhachaidh 's tu "
-#~ "a' dèanamh grad-shlaighdeadh gu clì air an àireamhachadh 's a' brùthadh air "
-#~ "putan an deasachaidh"
-
-#~ msgid ""
-#~ "You could add item to favourites from calculation history by swiping left "
-#~ "calculation, and pressing Star button"
-#~ msgstr ""
-#~ "'S urrainn dhut nì a cur ris na h-annsachdan o eachdraidh an àireamhachaidh "
-#~ "'s tu a' dèanamh grad-shlaighdeadh gu clì air an àireamhachadh 's a' "
-#~ "brùthadh air putan na rionnaige"
-
-#~ msgid ""
-#~ "You could edit formula by clicking any part of formula. The cursor will "
-#~ "appear there and you could modify formula in that place"
-#~ msgstr ""
-#~ "'S urrainn dhut foirmle a dheasachadh 's tu a' briogadh air pàirt sam bith "
-#~ "dhen fhoirmle. Nochdaidh an cùrsair far an do bhriog thu agus 's urrainn "
-#~ "dhut an fhoirmle a dheasachadh ann"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-09 00:19+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2016-02-09 13:18+0000\n"
+"Last-Translator: Jose Luis Tirado <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-09 06:05+0000\n"
-"X-Generator: Launchpad (build 17908)\n"
+"X-Launchpad-Export-Date: 2016-02-10 05:44+0000\n"
+"X-Generator: Launchpad (build 17923)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -71,7 +71,7 @@ msgstr "dd MMM yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
-msgstr "Sin favaoritos"
+msgstr "Sin favoritos"
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
@@ -120,7 +120,7 @@ msgstr "Bienvenido a la Calculadora"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Disfrute de la potencia de las matemáticas usando la Calculadora"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -129,6 +129,8 @@ msgstr "Copiar fórmula"
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
 msgstr ""
+"Haga una pulsación prolongada para copiar parte o toda una fórmula al "
+"portapapeles"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -149,6 +151,8 @@ msgstr "Teclado científico"
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Acceda a funciones científicas deslizando hacia la izquierda en el teclado "
+"numérico"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -157,6 +161,8 @@ msgstr "Vista científica"
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
+"Gire el dispositivo para mostrar las funciones numéricas y científicas a la "
+"vez"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -165,6 +171,8 @@ msgstr "Borrar elemento del historial de cálculos"
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
 msgstr ""
+"Deslice hacia la derecha para eliminar elementos del historial de la "
+"calculadora"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -173,6 +181,7 @@ msgstr "Borrar varios elementos del historial de cálculos"
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
 msgstr ""
+"Realice una pulsación prolongada para seleccionar varios cálculos a eliminar"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -181,6 +190,8 @@ msgstr "Borrar la fórmula completa de una sola vez"
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Una pulsación prolongada del botón '←' borra todas las fórmulas de la barra "
+"de entrada"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -188,7 +199,7 @@ msgstr "Editar elemento del historial de cálculos"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Deslice hacia la izquierda y pulse el lápiz para editar un cálculo"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -197,6 +208,8 @@ msgstr "Añadir favorito"
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Deslice hacia la izquierda y pulse la estrella para añadir los cálculos a la "
+"vista de favoritos"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -204,7 +217,7 @@ msgstr "Editar fórmula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Pulse en mitad de una fórmula para editarla"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
@@ -213,69 +226,3 @@ msgstr "Una calculadora para Ubuntu."
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "matemática;suma;resta;multiplicación;división;"
-
-#~ msgid "Enjoy the power of math by using Calculator."
-#~ msgstr "Disfrute de la matemática usando la Calculadora."
-
-#~ msgid ""
-#~ "You could copy formula by long pressing on formula (on Phone and Tablet), or "
-#~ "by right mouse click (on Desktop), and selecting 'Copy' option from menu"
-#~ msgstr ""
-#~ "Puede copiar una fórmula haciendo una presión larga (en el teléfono y en la "
-#~ "tableta), o usando el botón derecho del ratón (en el escritorio) y "
-#~ "seleccionado la opción 'Copiar' del menú"
-
-#~ msgid ""
-#~ "If you are in Basic view, you could access to Scientific options, by swiping "
-#~ "left Calculator's keyboard"
-#~ msgstr ""
-#~ "Si está en la vista Básica, podrá acceder a las opciones científiccas "
-#~ "deslizando hacia la izquierda el teclado de la Calculadora."
-
-#~ msgid "You could rotate you device display to get access to Scientific view"
-#~ msgstr ""
-#~ "Puede rotar la pantalla del dispositivo para mostrar la vista científica."
-
-#~ msgid ""
-#~ "You could delete item from calculation history by swiping right calculation, "
-#~ "and pressing Trash button"
-#~ msgstr ""
-#~ "Puede borrar un elemento del historial de cálculos deslizándolo a la derecha "
-#~ "y presionando el botón de eliminar."
-
-#~ msgid ""
-#~ "You could delete multiple calculations from Calculation history, by long "
-#~ "pressing Calculation. After that near every calculation the check-box will "
-#~ "appear. After selecting you could select 'Delete' option from drop-down menu"
-#~ msgstr ""
-#~ "Puede borrar varios elementos del historial de cálculos haciendo una presión "
-#~ "larga en los cálculos. Aparecen casillas junto a cada cálculo. Después de "
-#~ "seleccionarlos, seleccione la opción 'Borrar' del menú desplegable."
-
-#~ msgid ""
-#~ "You could delete whole currently edited formula, by long pressing Clear "
-#~ "button '←'"
-#~ msgstr ""
-#~ "Puede borrar la fórmula en edición al completo haciendo una presión larga al "
-#~ "botón Limpiar '←'."
-
-#~ msgid ""
-#~ "You could edit item from calculation history by swiping left calculation, "
-#~ "and pressing Edit button"
-#~ msgstr ""
-#~ "Puede editar un elemento del historial de cálculos deslizándolo a la "
-#~ "izquierda y presionando el botón Editar"
-
-#~ msgid ""
-#~ "You could add item to favourites from calculation history by swiping left "
-#~ "calculation, and pressing Star button"
-#~ msgstr ""
-#~ "Puede añadir un nuevo elemento favorito al historial de cálculos "
-#~ "deslizándolo a la izquierda y presionando el botón de la estrella."
-
-#~ msgid ""
-#~ "You could edit formula by clicking any part of formula. The cursor will "
-#~ "appear there and you could modify formula in that place"
-#~ msgstr ""
-#~ "Puede editar una fórmula haciendo clic en cualquier parte de una fórmula. El "
-#~ "cursor aparecerá ahí y podrá modificarla en dicho lugar."
