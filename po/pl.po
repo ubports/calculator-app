@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-12 08:55+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2016-02-13 17:26+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-13 05:39+0000\n"
+"X-Launchpad-Export-Date: 2016-02-14 06:13+0000\n"
 "X-Generator: Launchpad (build 17925)\n"
 
 #: ../app/engine/formula.js:176
@@ -78,7 +78,7 @@ msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"Przesuń obłiczenie w lewo,\n"
+"Przesuń obliczenie w lewo,\n"
 "aby oznaczyć je jako ulubione"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
@@ -181,8 +181,7 @@ msgstr "Usuń wiele elementów z historii działań kalkulatora"
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
 msgstr ""
-"Długie naciśnięcie obliczeń, pozwala na zaznaczenie i skasowanie wielu "
-"obliczeń"
+"Długie naciśnięcie obliczeń pozwala na zaznaczenie i usunięcie wielu obliczeń"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -191,7 +190,7 @@ msgstr "Usuń naraz całą formułę"
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
-"Długie przytrzymanie klawisza '←' powoduje skasowanie całego wyrażenia w "
+"Długie przytrzymanie klawisza '←' powoduje usunięcie całego wyrażenia w "
 "pasku wprowadzania tekstu"
 
 #: ../app/welcomewizard/Slide7.qml:27
@@ -209,7 +208,7 @@ msgstr "Dodaj nową zakładkę"
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
-"Przeciągnięcie obliczenia w lewą stronę i naciśnięcie gwiazdki, umożliwia "
+"Przeciągnięcie obliczenia w lewą stronę i naciśnięcie gwiazdki umożliwia "
 "dodanie obliczenia do ulubionych"
 
 #: ../app/welcomewizard/Slide9.qml:27
@@ -218,7 +217,7 @@ msgstr "Modyfikuj formułę"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "Kliknięcie w środek wyrażenia, umożliwia edycję w tym miejscu"
+msgstr "Kliknięcie w środek wyrażenia umożliwia edycję w tym miejscu"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."

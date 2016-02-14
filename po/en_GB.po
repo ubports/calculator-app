@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-09 00:18+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2016-02-13 23:22+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-10 05:44+0000\n"
-"X-Generator: Launchpad (build 17923)\n"
+"X-Launchpad-Export-Date: 2016-02-14 06:13+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -120,7 +120,7 @@ msgstr "Welcome to Calculator"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Enjoy the power of maths by using Calculator"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -128,7 +128,7 @@ msgstr "Copy formula"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "Long press to copy part or all of a formula to the clipboard"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -148,7 +148,7 @@ msgstr "Scientific keyboard"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr ""
+msgstr "Access scientific functions with a left swipe on the numeric keypad"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -156,7 +156,7 @@ msgstr "Scientific View"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr ""
+msgstr "Rotate device to show numeric and scientific functions together"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -164,7 +164,7 @@ msgstr "Delete item from calculation history"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr ""
+msgstr "Swipe right to delete items from calculator history"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -172,7 +172,7 @@ msgstr "Delete several items from the calculation history"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Long press to select multiple calculations for deletion"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -180,7 +180,7 @@ msgstr "Delete whole formula at once"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
+msgstr "Long press '←' button to clear all formulas from input bar"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -188,7 +188,7 @@ msgstr "Edit item from the calculation history"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Swipe left and press pencil to edit calculation"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -196,7 +196,7 @@ msgstr "Add new favourite"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr ""
+msgstr "Swipe left and press star to add calculations to favourites view"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -204,7 +204,7 @@ msgstr "Edit formula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Click in the middle of a formula to edit in place"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
