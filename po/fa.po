@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-09 00:19+0000\n"
+"PO-Revision-Date: 2016-02-27 20:12+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-10 05:44+0000\n"
-"X-Generator: Launchpad (build 17923)\n"
+"X-Launchpad-Export-Date: 2016-02-28 05:48+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -120,7 +120,7 @@ msgstr "به ماشین‌حساب خوش آمدید"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "با استفاده از اشین‌حساب، از قدرت ریاضی لذّت ببرید"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -128,7 +128,7 @@ msgstr "رونوشت از فرمول"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "برای رونوشت تمام یا بخشی از فرمول به حافظه، نگه دارید"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -148,7 +148,7 @@ msgstr "صفحه‌کلید مهندسی"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr ""
+msgstr "با کشیدن به چپ روی صفحه شماره، به تابع‌های مهندسی دسترسی پیدا کتید"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -156,7 +156,7 @@ msgstr "نمای مهندسی"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr ""
+msgstr "برای نمایش هم‌زمان عددها و تابع‌های مهندسی، افزار را بچرخانید"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -164,7 +164,7 @@ msgstr "حذف مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr ""
+msgstr "برای حذف موارد از تاریخچهٔ ماشین‌حساب، به راست بکشید"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -172,7 +172,7 @@ msgstr "حذف چند مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "برای گزینش چند محاسبه به منظور حذف، نگه دارید"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -180,7 +180,7 @@ msgstr "حذف یک‌بارهٔ تمام فرمول"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
+msgstr "برای پاک سازی تمام فرمول‌ها از نوار ورودی، دکمهٔ «←» را نگه دارید"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -188,7 +188,7 @@ msgstr "ویرایش مورد از تاریخچهٔ محاسبه"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "برای ویرایش محاسبه، به چپ کشیده و مداد را بزنید"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -196,7 +196,7 @@ msgstr "افزودن مورد دلخواه جدید"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr ""
+msgstr "برای افزودن محاسبه‌ها به نمای بزگزیده، به چپ کشیده و ستاره را بزنید"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -204,7 +204,7 @@ msgstr "ویرایش فرمول"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "برای ویرایش درجای یک فرمول، در وسط آن کلیک کنید"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
