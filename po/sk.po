@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-29 18:08+0000\n"
-"Last-Translator: Milos Sramek <milos.sramek@oeaw.ac.at>\n"
+"PO-Revision-Date: 2016-03-11 05:45+0000\n"
+"Last-Translator: P_E_T_O <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-09 06:01+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-03-11 05:56+0000\n"
+"X-Generator: Launchpad (build 17939)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -112,99 +112,102 @@ msgstr "Včera"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Preskočiť"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Vitajte v Kalkulačke"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Užite si silu matematiky pomocou Kalkulačky"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Kopírovať vzorec"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "Dlhým stlačením kopírovať časť alebo celý vzorec do schránky"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Užite si to"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Veríme, že si užívate používanie Kalkulačky!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Dokončiť"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Vedecká klávesnica"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Prístupte k vedeckým funkciám potiahnutím doľava na numerickej klávesnici"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Vedecký pohľad"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
+"Otočte zariadenie pre zobrazenie číselných a vedeckých funkcií dohromady"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Zmazať záznam z histórie výpočtov"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr ""
+msgstr "Potiahnuť doprava pre vymazanie záznamu z histórie kalkulačky"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Odstrániť niekoľko záznamov z histórie výpočtov"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Dlhým stlačením možno vybrať viac výpočtov pre vymazanie"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Zmazať celý vzorec naraz"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Dlhé stlačenie '←' pre vymazanie všetkých vzorcov zo vstupného panelu"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Upraviť záznam z histórie výpočtov"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Potiahnite doľava a stlačte ceruzku na úpravu výpočtu"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Pridať nové obľúbené"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr ""
+msgstr "Potiahnite doľava a stlačte hviezdičku pre obľúbené"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Upraviť vzorec"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Stlačte stred vzorca pre úpravu"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
