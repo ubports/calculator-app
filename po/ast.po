@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-03-17 18:58+0000\n"
+"PO-Revision-Date: 2016-04-17 16:46+0000\n"
 "Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-18 06:11+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-04-18 06:00+0000\n"
+"X-Generator: Launchpad (build 17995)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -120,7 +120,7 @@ msgstr "Bienllegaos a Calculator"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Esfruta la fuerza de les matemátiques usando Calculator"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -128,15 +128,15 @@ msgstr "Copiar formula"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "Calcáu llargu pa copiar parte o tola formula al cartafueyu"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Esfruta"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "¡Esperamos qu'esfrutes usando Calculator!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
@@ -149,62 +149,69 @@ msgstr "Tecláu científicu"
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Entra nes funciones científiques con un barríu a la izquierda nel tecláu "
+"numbéricu"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Vista científica"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
+"Xira'l preséu p'amosar xuntes les funciones numbériques y científiques"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Desaniciar un elementu del historial de cálculos"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
 msgstr ""
+"Barre a la drecha pa desaniciar elementos del historial de la calculadora"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Desaniciar dellos elementos del historial de la calculadora"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Calcáu llargu pa esbillar múltiples cálculos pa desaniciar"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Desaniciar tola fórmula nel intre"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Calcáu llargu nel botón '←' pa llimpiar toles formules de la barra d'entrada"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Editar un elementu del historial de cálculos"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Barrer a la izquierda y calcar nel llápiz pa editar un cálculu"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Amestar un nuevu favorritu"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Barrer a la izquierda y calcar na estrella p'amestar cálculos a la vista de "
+"favoritos"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Editar fórmula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Fai click nel mediu d'una fórmula pa editar nesi llugar"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
