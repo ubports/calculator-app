@@ -1,2 +1,6 @@
 *.user
 builddir
+stage
+prime
+parts
+ubuntu-calculator-app_*.snap
