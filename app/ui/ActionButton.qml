@@ -37,5 +37,6 @@ AbstractButton {
         height: width
         anchors.centerIn: parent
         color:  UbuntuColors.orange
+        asynchronous: true
     }
 }

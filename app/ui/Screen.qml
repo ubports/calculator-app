@@ -81,6 +81,7 @@ ListItemWithActions {
                 width: height
                 name: model.isFavourite ? "starred" : "non-starred"
                 color: model.isFavourite ? UbuntuColors.orange : "white"
+                asynchronous: true
             }
 
             Text {

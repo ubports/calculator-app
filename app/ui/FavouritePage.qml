@@ -82,6 +82,7 @@ Page {
                     Layout.alignment: Qt.AlignVCenter
 
                     name: "starred"
+                    asynchronous: true
                 }
 
                 Text {

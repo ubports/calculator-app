@@ -40,6 +40,7 @@ Component {
                 anchors.centerIn: parent
                 source: Qt.resolvedUrl("../graphics/gift.png")
                 fillMode: Image.PreserveAspectFit
+                asynchronous: true
             }
         }
 
