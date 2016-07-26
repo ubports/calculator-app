@@ -63,12 +63,16 @@ Grid {
     //Space between the buttons
     spacing: 0
 
+    property bool completed: false
     Component.onCompleted: {
         buildModel();
+        completed = true;
     }
 
     onKeyboardModelChanged: {
-        buildModel();
+        if (completed) {
+            buildModel();
+        }
     }
 
     function buildModel() {
