@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import QtQuick 2.4
+import QtQuick.Window 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Themes.Ambiance 1.3
 
@@ -722,6 +723,13 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
+                    // FIXME: this works around the fact that the final size
+                    // of keyboardLoader (and of mainView) is only set by the window
+                    // manager quite late; this avoids unnecessary reloads of the
+                    // source
+                    active: false
+                    property bool sizeReady: Window.active
+                    onSizeReadyChanged: if (sizeReady) keyboardLoader.active = true
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
