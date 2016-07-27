@@ -603,7 +603,7 @@ MainView {
                             }
                         }
 
-                        text: Formula.returnFormulaToDisplay(displayedInputText)
+                        text: Formula.returnFormulaToDisplay(displayedInputText, i18n, decimalPoint)
                         font.pixelSize: height * 0.7
                         horizontalAlignment: TextInput.AlignRight
                         anchors {

@@ -115,7 +115,7 @@ ListItem {
                 anchors.top: parent.top
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay(model.result)
+                text: Formula.returnFormulaToDisplay(model.result, i18n, mainView.decimalPoint)
                 textFormat: Text.PlainText
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
@@ -131,7 +131,7 @@ ListItem {
 
                 color: UbuntuColors.darkGrey
                 textFormat: Text.PlainText
-                text: Formula.returnFormulaToDisplay(model.formula) + " ="
+                text: Formula.returnFormulaToDisplay(model.formula, i18n, mainView.decimalPoint) + " ="
                 font.pixelSize: units.gu(2.5)
 
                 verticalAlignment: Text.AlignVCenter
@@ -155,7 +155,7 @@ ListItem {
                 anchors.bottom: parent.bottom 
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay(model.result)
+                text: Formula.returnFormulaToDisplay(model.result, i18n, mainView.decimalPoint)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight

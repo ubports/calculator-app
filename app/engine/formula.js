@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+.pragma library
+
 /**
  * Function which will delete last element in the formula
  * It could be literal, operator, const (eg. "pi") or function (eg. "sin(" )
@@ -165,7 +167,7 @@ function determineBracketTypeToAdd(formulaToCheck) {
  * @param string engineFormulaToConvert: the string where we have to replace chars
  * @return a string based on param with changes in chars
  */
-function returnFormulaToDisplay(engineFormulaToConvert) {
+function returnFormulaToDisplay(engineFormulaToConvert, i18n, decimalPoint) {
     // The deletion of " is necessary for MathJs.format function - it returns a
     // string surrounded by ", and they're useless, so we remove them
     var engineToVisualMap = {
