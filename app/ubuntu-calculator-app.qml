@@ -265,18 +265,11 @@ MainView {
 
         PageWithBottomEdge {
             id: calculatorPage
-            title: i18n.tr("Calculator")
             anchors.fill: parent
             visible: false
 
             bottomEdgeTitle: i18n.tr("Favorite")
-
-            bottomEdgePageComponent: FavouritePage {
-                anchors.fill: parent
-
-                title: i18n.tr("Favorite")
-            }
-
+            bottomEdgePageSource: "ui/FavouritePage.qml"
             bottomEdgeEnabled: textInputField.visible
 
             state: visualModel.isInSelectionMode ? "selection" : "default"

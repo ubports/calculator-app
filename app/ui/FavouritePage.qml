@@ -25,6 +25,7 @@ import "../upstreamcomponents"
 
 Page {
     anchors.fill: parent
+    title: i18n.tr("Favorite")
 
     property var removedFavourites: []
 
