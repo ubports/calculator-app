@@ -37,7 +37,7 @@ MouseArea {
 
     onKbdPressedChanged: {
         if (!kbdPressed) {
-            buttonRect.clicked();
+            buttonRect.clicked(null);
         }
     }
 
