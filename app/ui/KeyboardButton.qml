@@ -23,7 +23,6 @@ MouseArea {
     id: buttonRect
     objectName: modelname + "Button"
 
-    property real baseSize: 1
     property alias text: buttonText.text
     property string buttonColor: "#eeeeee"
     property string pressedColor: "#E2E1E4"
@@ -46,7 +45,7 @@ MouseArea {
         anchors.fill: parent
         border.color: "#d0d0d0"
         border.width: units.dp(0.5)
-        color: buttonRect.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
+        color: buttonRect.pressed || buttonRect.kbdPressed ? "#E2E1E4" : "#eeeeee"
 
         Behavior on color {
             ColorAnimation {

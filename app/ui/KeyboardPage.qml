@@ -144,7 +144,6 @@ Grid {
                         text: model.text
                         textColor: model.textColor
                         objectName: model.objectName
-                        baseSize: repeater.height
                         onClicked: {
                             //If key pressed then scroll down
 
