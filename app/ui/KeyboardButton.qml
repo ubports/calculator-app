@@ -61,5 +61,6 @@ MouseArea {
         font.pixelSize: 0.5 * parent.height
 
         styleColor: "gray"
+        opacity: enabled ? 1.0 : 0.5
     }
 }

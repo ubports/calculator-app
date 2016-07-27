@@ -44,7 +44,7 @@ MainView {
         id: mathJsLoader
         source: "engine/MathJs.qml"
         asynchronous: true
-        active: false
+        active: keyboardLoader.active
     }
 
     // Long form of formula, which are saved in the storage/history
@@ -722,6 +722,7 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
+                    enabled: mathJs != null
                     // FIXME: this works around the fact that the final size
                     // of keyboardLoader (and of mainView) is only set by the window
                     // manager quite late; this avoids unnecessary reloads of the
@@ -732,7 +733,6 @@ MainView {
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
-                    onLoaded: mathJsLoader.active = true
                 }
             }
         }
