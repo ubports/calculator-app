@@ -44,6 +44,7 @@ MainView {
         id: mathJsLoader
         source: "engine/MathJs.qml"
         asynchronous: true
+        active: false
     }
 
     // Long form of formula, which are saved in the storage/history
@@ -729,6 +730,7 @@ MainView {
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                    onLoaded: mathJsLoader.active = true
                 }
             }
         }
