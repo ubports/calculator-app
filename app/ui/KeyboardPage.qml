@@ -128,6 +128,7 @@ Grid {
 
         Loader {
             sourceComponent: model.text ? buttonComponent : undefined
+            asynchronous: true
 
             height: Math.min(width * keyboardRoot.buttonRatio, keyboardRoot.buttonMaxHeight)
             width: keyboardRoot.width / keyboardRoot.columns - keyboardRoot.spacing
