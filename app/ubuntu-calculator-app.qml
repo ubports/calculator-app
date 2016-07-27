@@ -364,7 +364,7 @@ MainView {
                     property var model: itemModel
                     visible: model.dbId !== -1
 
-                    selectionMode: visualModel.isInSelectionMode
+                    selectMode: visualModel.isInSelectionMode
                     selected: visualModel.isSelected(visualDelegate)
 
                     property var removalAnimation
@@ -375,15 +375,11 @@ MainView {
                     // parent is the loader component
                     property var visualDelegate: parent ? parent : null
 
-                    onSwippingChanged: {
+                    onSwipedChanged: {
                         visualModel.updateSwipeState(screenDelegate);
                     }
 
-                    onSwipeStateChanged: {
-                        visualModel.updateSwipeState(screenDelegate);
-                    }
-
-                    onItemClicked: {
+                    onClicked: {
                         if (visualModel.isInSelectionMode) {
                             if (!visualModel.selectItem(visualDelegate)) {
                                 visualModel.deselectItem(visualDelegate);
@@ -391,65 +387,71 @@ MainView {
                         }
                     }
 
-                    onItemPressAndHold: {
+                    onPressAndHold: {
                         visualModel.startSelection();
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [
-                        Action {
-                            id: screenDelegateCopyAction
-                            iconName: "edit-copy"
-                            text: i18n.tr("Copy")
-                            onTriggered: {
-                                var mimeData = Clipboard.newData();
-                                mimeData.text = model.formula + "=" + model.result;
-                                Clipboard.push(mimeData);
+                    leadingActions: ListItemActions {
+                        actions: [
+                            Action {
+                                id: screenDelegateDeleteAction
+                                iconName: "delete"
+                                text: i18n.tr("Delete")
+                                onTriggered: {
+                                    screenDelegate.remove();
+                                }
                             }
-                        },
-                        Action {
-                            id: screenDelegateEditAction
-                            iconName: "edit"
-                            text: i18n.tr("Edit")
-                            onTriggered: {
-                                longFormula = model.formula;
-                                shortFormula =  model.result;
-                                displayedInputText = model.formula;
-                                isLastCalculate = false;
-                                previousVisual = "";
-                                scrollableView.scrollToBottom();
-                            }
-                        },
-                        Action {
-                            id: screenDelegateFavouriteAction
-                            iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
-
-                            text: i18n.tr("Add to favorites")
-                            onTriggered: {
-
-                                if (model.isFavourite) {
-                                    calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
-                                    editedCalculationIndex = -1;
-                                    textInputField.visible = true;
-                                    textInputField.forceActiveFocus();
-                                } else {
-                                    editedCalculationIndex = model.index;
-                                    textInputField.visible = false;
-                                    favouriteTextField.forceActiveFocus();
+                        ]
+                    }
+                    trailingActions: ListItemActions {
+                        actions: [
+                            Action {
+                                id: screenDelegateCopyAction
+                                iconName: "edit-copy"
+                                text: i18n.tr("Copy")
+                                onTriggered: {
+                                    var mimeData = Clipboard.newData();
+                                    mimeData.text = model.formula + "=" + model.result;
+                                    Clipboard.push(mimeData);
+                                }
+                            },
+                            Action {
+                                id: screenDelegateEditAction
+                                iconName: "edit"
+                                text: i18n.tr("Edit")
+                                onTriggered: {
+                                    longFormula = model.formula;
+                                    shortFormula =  model.result;
+                                    displayedInputText = model.formula;
+                                    isLastCalculate = false;
+                                    previousVisual = "";
                                     scrollableView.scrollToBottom();
                                 }
+                            },
+                            Action {
+                                id: screenDelegateFavouriteAction
+                                iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
-                                model.isFavourite = !model.isFavourite;
+                                text: i18n.tr("Add to favorites")
+                                onTriggered: {
+
+                                    if (model.isFavourite) {
+                                        calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
+                                        editedCalculationIndex = -1;
+                                        textInputField.visible = true;
+                                        textInputField.forceActiveFocus();
+                                    } else {
+                                        editedCalculationIndex = model.index;
+                                        textInputField.visible = false;
+                                        favouriteTextField.forceActiveFocus();
+                                        scrollableView.scrollToBottom();
+                                    }
+
+                                    model.isFavourite = !model.isFavourite;
+                                }
                             }
-                        }
-                    ]
-                    leftSideAction: Action {
-                        id: screenDelegateDeleteAction
-                        iconName: "delete"
-                        text: i18n.tr("Delete")
-                        onTriggered: {
-                            screenDelegate.remove();
-                        }
+                        ]
                     }
 
                     removalAnimation: SequentialAnimation {

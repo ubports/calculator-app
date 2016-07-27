@@ -21,7 +21,7 @@ import Ubuntu.Components 1.3
 import "../upstreamcomponents"
 import "../engine/formula.js" as Formula
 
-ListItemWithActions {
+ListItem {
     id: root
     objectName: "screenroot" + model.index
 
@@ -53,6 +53,7 @@ ListItemWithActions {
 
     color: "white"
     height: units.gu(7) + (mainView.isScreenIsWide ? 0 : units.gu(3.7))
+    divider.visible: false
     Column {
         anchors.fill: parent
         Row {
