@@ -23,7 +23,6 @@ import Ubuntu.Components.Themes.Ambiance 1.3
 import "ui"
 import "upstreamcomponents"
 import "engine"
-import "engine/math.js" as MathJs
 import "engine/formula.js" as Formula
 import Qt.labs.settings 1.0
 
@@ -40,7 +39,12 @@ MainView {
     height: units.gu(60);
 
     // This is our engine
-    property var mathJs: MathJs.mathJs;
+    property var mathJs: mathJsLoader.item ? mathJsLoader.item.mathJs : null;
+    Loader {
+        id: mathJsLoader
+        source: "engine/MathJs.qml"
+        asynchronous: true
+    }
 
     // Long form of formula, which are saved in the storage/history
     property string longFormula: "";
