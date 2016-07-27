@@ -527,6 +527,7 @@ MainView {
                 }
                 id: scrollableView
                 objectName: "scrollableView"
+                visible: keyboardLoader.status == Loader.Ready
 
                 Component.onCompleted: {
                     // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
