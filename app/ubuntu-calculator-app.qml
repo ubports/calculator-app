@@ -504,13 +504,12 @@ MainView {
                     }
                 }
 
-                delegate: Component {
-                    Loader {
-                        property var itemModel: model
-                        width: parent.width
-                        height: model.dbId !== -1 ? item.height : 0;
-                        sourceComponent: screenDelegateComponent
-                    }
+                delegate: Loader {
+                    property var itemModel: model
+                    width: parent.width
+                    height: model.dbId !== -1 ? item.height : 0;
+                    sourceComponent: screenDelegateComponent
+                    asynchronous: true
                 }
             }
 
