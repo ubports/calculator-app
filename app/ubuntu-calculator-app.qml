@@ -64,6 +64,9 @@ MainView {
     // Var used to save favourite calcs
     property bool isFavourite: false
 
+    // Var used to store calculation history position
+    property var historyPosition: calculationHistory.getContents().count;
+
     // Var used to store currently edited calculation history item
     property int editedCalculationIndex: -1
 
@@ -312,7 +315,7 @@ MainView {
 
             // Some special keys like backspace captured in TextField,
             // are for some reason not sent to the application but to the text input
-            Keys.onPressed: textInputField.keyPress(event)
+            Keys.onPressed: {event.accepted = true; textInputField.keyPress(event)}
             Keys.onReleased: textInputField.keyRelease(event)
 
             head.visible: false
@@ -618,6 +621,19 @@ MainView {
 
                         function keyPress(event) {
                             if (!(event.modifiers & Qt.ControlModifier || event.modifiers & Qt.AltModifier)) { // Shift needs to be passed through as it may be required for some special keys
+                                if((event.key === Qt.Key_Up || event.key === Qt.Key_Down) && event.accepted) {
+                                    if(event.key === Qt.Key_Up && historyPosition > 1)
+                                        historyPosition--;
+                                    if(event.key === Qt.Key_Down && historyPosition < calculationHistory.getContents().count)
+                                        historyPosition++;
+                                    if(historyPosition !== calculationHistory.getContents().count) {
+                                        clearFormula();
+                                        formulaPush(calculationHistory.getContents().get(historyPosition).formula);
+                                    }
+                                    else
+                                        clearFormula();
+                                }
+
                                 keyboardLoader.item.pressedKey = event.key;
                                 keyboardLoader.item.pressedKeyText = event.text;
                             } else if (event.modifiers & Qt.ControlModifier) {
