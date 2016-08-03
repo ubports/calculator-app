@@ -67,6 +67,12 @@ MainView {
     // Var used to store calculation history position
     property var historyPosition: calculationHistory.getContents().count;
 
+    // Var used to save if user is using history.
+    property bool isUsingHistory: false;
+
+    // Var used to store the last formula which is being written.
+    property string lastWrittenFormula: "";
+
     // Var used to store currently edited calculation history item
     property int editedCalculationIndex: -1
 
@@ -627,11 +633,16 @@ MainView {
                                     if(event.key === Qt.Key_Down && historyPosition < calculationHistory.getContents().count)
                                         historyPosition++;
                                     if(historyPosition !== calculationHistory.getContents().count) {
+                                        isUsingHistory = true;
                                         clearFormula();
                                         formulaPush(calculationHistory.getContents().get(historyPosition).formula);
                                     }
-                                    else
+                                    else if(isUsingHistory)
+                                    {
                                         clearFormula();
+                                        formulaPush(lastWrittenFormula);
+                                        isUsingHistory = false;
+                                    }
                                 }
 
                                 keyboardLoader.item.pressedKey = event.key;
@@ -712,6 +723,12 @@ MainView {
                             } else {
                                 displayedInputText = shortFormula;
                             }
+
+                        onTextChanged: {
+                            if(! isUsingHistory) {
+                                lastWrittenFormula = textInputField.text;
+                            }
+                        }
 
                         SequentialAnimation {
                             id: errorAnimation
