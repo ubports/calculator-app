@@ -24,8 +24,6 @@ MouseArea {
     objectName: modelname + "Button"
 
     property alias text: buttonText.text
-    property string buttonColor: "#eeeeee"
-    property string pressedColor: "#E2E1E4"
     property alias textColor: buttonText.color
 
     readonly property bool kbdPressed: JSON.parse(model.kbdKeys).indexOf(pressedKey) > -1 || (pressedKeyText == text)
