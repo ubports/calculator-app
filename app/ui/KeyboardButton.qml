@@ -19,14 +19,11 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-AbstractButton {
+MouseArea {
     id: buttonRect
     objectName: modelname + "Button"
 
-    property real baseSize: 1
     property alias text: buttonText.text
-    property string buttonColor: "#eeeeee"
-    property string pressedColor: "#E2E1E4"
     property alias textColor: buttonText.color
 
     readonly property bool kbdPressed: JSON.parse(model.kbdKeys).indexOf(pressedKey) > -1 || (pressedKeyText == text)
@@ -38,7 +35,7 @@ AbstractButton {
 
     onKbdPressedChanged: {
         if (!kbdPressed) {
-            buttonRect.clicked();
+            buttonRect.clicked(null);
         }
     }
 
@@ -46,7 +43,7 @@ AbstractButton {
         anchors.fill: parent
         border.color: "#d0d0d0"
         border.width: units.dp(0.5)
-        color: buttonRect.pressed || buttonRect.kbdPressed ? pressedColor : buttonColor
+        color: buttonRect.pressed || buttonRect.kbdPressed ? "#E2E1E4" : "#eeeeee"
 
         Behavior on color {
             ColorAnimation {
@@ -62,5 +59,6 @@ AbstractButton {
         font.pixelSize: 0.5 * parent.height
 
         styleColor: "gray"
+        opacity: enabled ? 1.0 : 0.5
     }
 }

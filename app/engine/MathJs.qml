@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2015 Canonical, Ltd.
+ * Copyright (C) 2014-2015 Canonical, Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,12 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.4
-import Ubuntu.Components 1.3
+import QtQml 2.0
+import "math.js" as MathJs
 
-CheckBox {
-    checked: root.selected
-    width: implicitWidth
-    // disable item mouse area to avoid conflicts with parent mouse area
-    __mouseArea.enabled: false
+QtObject {
+    property var mathJs: MathJs.mathJs;
 }

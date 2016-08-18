@@ -48,6 +48,7 @@ Item {
                 anchors.centerIn: parent
                 source: Qt.resolvedUrl(slideImage)
                 fillMode: Image.PreserveAspectFit
+                asynchronous: true
             }
         }
 

@@ -16,13 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import QtQuick 2.4
+import QtQuick.Window 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Themes.Ambiance 1.3
 
 import "ui"
 import "upstreamcomponents"
 import "engine"
-import "engine/math.js" as MathJs
 import "engine/formula.js" as Formula
 import Qt.labs.settings 1.0
 
@@ -39,7 +39,13 @@ MainView {
     height: units.gu(60);
 
     // This is our engine
-    property var mathJs: MathJs.mathJs;
+    property var mathJs: mathJsLoader.item ? mathJsLoader.item.mathJs : null;
+    Loader {
+        id: mathJsLoader
+        source: "engine/MathJs.qml"
+        asynchronous: true
+        active: keyboardLoader.active
+    }
 
     // Long form of formula, which are saved in the storage/history
     property string longFormula: "";
@@ -269,13 +275,7 @@ MainView {
             visible: false
 
             bottomEdgeTitle: i18n.tr("Favorite")
-
-            bottomEdgePageComponent: FavouritePage {
-                anchors.fill: parent
-
-                title: i18n.tr("Favorite")
-            }
-
+            bottomEdgePageSource: "ui/FavouritePage.qml"
             bottomEdgeEnabled: textInputField.visible
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
@@ -365,7 +365,7 @@ MainView {
                     property var model: itemModel
                     visible: model.dbId !== -1
 
-                    selectionMode: visualModel.isInSelectionMode
+                    selectMode: visualModel.isInSelectionMode
                     selected: visualModel.isSelected(visualDelegate)
 
                     property var removalAnimation
@@ -376,15 +376,11 @@ MainView {
                     // parent is the loader component
                     property var visualDelegate: parent ? parent : null
 
-                    onSwippingChanged: {
+                    onSwipedChanged: {
                         visualModel.updateSwipeState(screenDelegate);
                     }
 
-                    onSwipeStateChanged: {
-                        visualModel.updateSwipeState(screenDelegate);
-                    }
-
-                    onItemClicked: {
+                    onClicked: {
                         if (visualModel.isInSelectionMode) {
                             if (!visualModel.selectItem(visualDelegate)) {
                                 visualModel.deselectItem(visualDelegate);
@@ -392,65 +388,71 @@ MainView {
                         }
                     }
 
-                    onItemPressAndHold: {
+                    onPressAndHold: {
                         visualModel.startSelection();
                         visualModel.selectItem(visualDelegate);
                     }
 
-                    rightSideActions: [
-                        Action {
-                            id: screenDelegateCopyAction
-                            iconName: "edit-copy"
-                            text: i18n.tr("Copy")
-                            onTriggered: {
-                                var mimeData = Clipboard.newData();
-                                mimeData.text = model.formula + "=" + model.result;
-                                Clipboard.push(mimeData);
+                    leadingActions: ListItemActions {
+                        actions: [
+                            Action {
+                                id: screenDelegateDeleteAction
+                                iconName: "delete"
+                                text: i18n.tr("Delete")
+                                onTriggered: {
+                                    screenDelegate.remove();
+                                }
                             }
-                        },
-                        Action {
-                            id: screenDelegateEditAction
-                            iconName: "edit"
-                            text: i18n.tr("Edit")
-                            onTriggered: {
-                                longFormula = model.formula;
-                                shortFormula =  model.result;
-                                displayedInputText = model.formula;
-                                isLastCalculate = false;
-                                previousVisual = "";
-                                scrollableView.scrollToBottom();
-                            }
-                        },
-                        Action {
-                            id: screenDelegateFavouriteAction
-                            iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
-
-                            text: i18n.tr("Add to favorites")
-                            onTriggered: {
-
-                                if (model.isFavourite) {
-                                    calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
-                                    editedCalculationIndex = -1;
-                                    textInputField.visible = true;
-                                    textInputField.forceActiveFocus();
-                                } else {
-                                    editedCalculationIndex = model.index;
-                                    textInputField.visible = false;
-                                    favouriteTextField.forceActiveFocus();
+                        ]
+                    }
+                    trailingActions: ListItemActions {
+                        actions: [
+                            Action {
+                                id: screenDelegateCopyAction
+                                iconName: "edit-copy"
+                                text: i18n.tr("Copy")
+                                onTriggered: {
+                                    var mimeData = Clipboard.newData();
+                                    mimeData.text = model.formula + "=" + model.result;
+                                    Clipboard.push(mimeData);
+                                }
+                            },
+                            Action {
+                                id: screenDelegateEditAction
+                                iconName: "edit"
+                                text: i18n.tr("Edit")
+                                onTriggered: {
+                                    longFormula = model.formula;
+                                    shortFormula =  model.result;
+                                    displayedInputText = model.formula;
+                                    isLastCalculate = false;
+                                    previousVisual = "";
                                     scrollableView.scrollToBottom();
                                 }
+                            },
+                            Action {
+                                id: screenDelegateFavouriteAction
+                                iconName: (mainView.editedCalculationIndex == model.index || model.isFavourite) ? "starred" : "non-starred"
 
-                                model.isFavourite = !model.isFavourite;
+                                text: i18n.tr("Add to favorites")
+                                onTriggered: {
+
+                                    if (model.isFavourite) {
+                                        calculationHistory.updateCalculationInDatabase(model.index, model.dbId, !model.isFavourite, "");
+                                        editedCalculationIndex = -1;
+                                        textInputField.visible = true;
+                                        textInputField.forceActiveFocus();
+                                    } else {
+                                        editedCalculationIndex = model.index;
+                                        textInputField.visible = false;
+                                        favouriteTextField.forceActiveFocus();
+                                        scrollableView.scrollToBottom();
+                                    }
+
+                                    model.isFavourite = !model.isFavourite;
+                                }
                             }
-                        }
-                    ]
-                    leftSideAction: Action {
-                        id: screenDelegateDeleteAction
-                        iconName: "delete"
-                        text: i18n.tr("Delete")
-                        onTriggered: {
-                            screenDelegate.remove();
-                        }
+                        ]
                     }
 
                     removalAnimation: SequentialAnimation {
@@ -510,13 +512,12 @@ MainView {
                     }
                 }
 
-                delegate: Component {
-                    Loader {
-                        property var itemModel: model
-                        width: parent.width
-                        height: model.dbId !== -1 ? item.height : 0;
-                        sourceComponent: screenDelegateComponent
-                    }
+                delegate: Loader {
+                    property var itemModel: model
+                    width: parent.width
+                    height: model.dbId !== -1 ? item.height : 0;
+                    sourceComponent: screenDelegateComponent
+                    asynchronous: true
                 }
             }
 
@@ -527,6 +528,7 @@ MainView {
                 }
                 id: scrollableView
                 objectName: "scrollableView"
+                visible: keyboardLoader.status == Loader.Ready
 
                 Component.onCompleted: {
                     // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
@@ -603,7 +605,7 @@ MainView {
                             }
                         }
 
-                        text: Formula.returnFormulaToDisplay(displayedInputText)
+                        text: Formula.returnFormulaToDisplay(displayedInputText, i18n, decimalPoint)
                         font.pixelSize: height * 0.7
                         horizontalAlignment: TextInput.AlignRight
                         anchors {
@@ -722,6 +724,14 @@ MainView {
                 Loader {
                     id: keyboardLoader
                     width: parent.width
+                    enabled: mathJs != null
+                    // FIXME: this works around the fact that the final size
+                    // of keyboardLoader (and of mainView) is only set by the window
+                    // manager quite late; this avoids unnecessary reloads of the
+                    // source
+                    active: false
+                    property bool sizeReady: Window.active
+                    onSizeReadyChanged: if (sizeReady) keyboardLoader.active = true
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0

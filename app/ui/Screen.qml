@@ -21,7 +21,7 @@ import Ubuntu.Components 1.3
 import "../upstreamcomponents"
 import "../engine/formula.js" as Formula
 
-ListItemWithActions {
+ListItem {
     id: root
     objectName: "screenroot" + model.index
 
@@ -53,6 +53,7 @@ ListItemWithActions {
 
     color: "white"
     height: units.gu(7) + (mainView.isScreenIsWide ? 0 : units.gu(3.7))
+    divider.visible: false
     Column {
         anchors.fill: parent
         Row {
@@ -81,6 +82,7 @@ ListItemWithActions {
                 width: height
                 name: model.isFavourite ? "starred" : "non-starred"
                 color: model.isFavourite ? UbuntuColors.orange : "white"
+                asynchronous: true
             }
 
             Text {
@@ -113,7 +115,7 @@ ListItemWithActions {
                 anchors.top: parent.top
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay(model.result)
+                text: Formula.returnFormulaToDisplay(model.result, i18n, mainView.decimalPoint)
                 textFormat: Text.PlainText
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
@@ -129,7 +131,7 @@ ListItemWithActions {
 
                 color: UbuntuColors.darkGrey
                 textFormat: Text.PlainText
-                text: Formula.returnFormulaToDisplay(model.formula) + " ="
+                text: Formula.returnFormulaToDisplay(model.formula, i18n, mainView.decimalPoint) + " ="
                 font.pixelSize: units.gu(2.5)
 
                 verticalAlignment: Text.AlignVCenter
@@ -153,7 +155,7 @@ ListItemWithActions {
                 anchors.bottom: parent.bottom 
 
                 color: UbuntuColors.darkGrey
-                text: Formula.returnFormulaToDisplay(model.result)
+                text: Formula.returnFormulaToDisplay(model.result, i18n, mainView.decimalPoint)
                 font.pixelSize: units.gu(3.5)
                 lineHeight: units.gu(2)
                 lineHeightMode: Text.FixedHeight
