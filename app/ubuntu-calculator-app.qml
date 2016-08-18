@@ -270,6 +270,7 @@ MainView {
 
         PageWithBottomEdge {
             id: calculatorPage
+            title: i18n.tr("Calculator")
             anchors.fill: parent
             visible: false
 
