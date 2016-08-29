@@ -130,8 +130,8 @@ function couldAddCloseBracket(formulaToCheck) {
     }
 
     // Calculate how many brackets are opened
-    var numberOfOpenedBrackets = (longFormula.match(/\(/g) || []).length -
-                                (longFormula.match(/\)/g) || []).length;
+    var numberOfOpenedBrackets = (formulaToCheck.match(/\(/g) || []).length -
+                                (formulaToCheck.match(/\)/g) || []).length;
 
     if (numberOfOpenedBrackets < 1) {
         return false;
@@ -150,7 +150,7 @@ function determineBracketTypeToAdd(formulaToCheck) {
     if (formulaToCheck === '') {
         return "(";
     }
-    var lastChar = longFormula.substring(formulaToCheck.length - 1, formulaToCheck.length);
+    var lastChar = formulaToCheck.substring(formulaToCheck.length - 1, formulaToCheck.length);
 
     if (isNaN(lastChar) && lastChar !== ")" && lastChar !== "i" && lastChar !== "E"  && lastChar !== "!") {
         return "(";
