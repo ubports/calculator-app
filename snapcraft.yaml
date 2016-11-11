@@ -28,8 +28,6 @@ parts:
             - python3
             - qtbase5-dev
             - qtdeclarative5-dev
-        stage-packages:
-            - qtubuntu-desktop
         snap:
           - -usr/share/doc
           - -usr/include
