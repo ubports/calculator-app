@@ -47,7 +47,7 @@ MainView {
         active: keyboardLoader.active
         onLoaded: {
             mathJs.config({
-                    number: 'bignumber'
+                    number: 'BigNumber'
             });
         }
     }
