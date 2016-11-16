@@ -4,6 +4,7 @@ summary: Ubuntu Calculator app
 description: The calculator app for all Ubuntu devices.
 confinement: strict
 grade: stable
+architectures: [all]
 
 apps:
     ubuntu-calculator-app:
