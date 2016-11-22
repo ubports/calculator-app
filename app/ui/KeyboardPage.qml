@@ -157,6 +157,7 @@ Grid {
                                 break;
                             case "calculate":
                                 calculate();
+                                historyPosition = calculationHistory.getContents().count;
                                 scrollableView.scrollToBottom();
                                 break;
                             }
