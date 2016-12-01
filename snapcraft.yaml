@@ -1,15 +1,15 @@
 name: ubuntu-calculator-app
-version: 2.3
+version: 2.3.1
 summary: Ubuntu Calculator app
 description: The calculator app for all Ubuntu devices.
-confinement: strict
+confinement: devmode
 grade: stable
 architectures: [all]
 
 apps:
     ubuntu-calculator-app:
         command: desktop-launch qmlscene --desktop_file_hint=unity8 $SNAP/usr/share/ubuntu-calculator-app/ubuntu-calculator-app.qml
-        plugs: [opengl, platform, unity7]
+        plugs: [opengl, platform, unity7, unity8]
 
 plugs:
     platform:
