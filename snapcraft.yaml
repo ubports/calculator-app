@@ -17,6 +17,11 @@ plugs:
         content: ubuntu-app-platform1
         target: ubuntu-app-platform
 
+    testability:
+        interface: content
+        content: testability
+        target: testability
+
 parts:
     ubuntu-calculator-app:
         plugin: cmake
