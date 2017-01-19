@@ -2,7 +2,7 @@ name: ubuntu-calculator-app
 version: 2.3.1
 summary: Ubuntu Calculator app
 description: The calculator app for all Ubuntu devices.
-confinement: devmode
+confinement: strict
 grade: stable
 architectures: [all]
 
@@ -16,6 +16,11 @@ plugs:
         interface: content
         content: ubuntu-app-platform1
         target: ubuntu-app-platform
+
+    testability:
+        interface: content
+        content: testability
+        target: testability
 
 parts:
     ubuntu-calculator-app:
