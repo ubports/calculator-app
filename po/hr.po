@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-12-20 09:04+0000\n"
-"Last-Translator: Kristijan Žic  <kristijan.zic@gmail.com>\n"
+"PO-Revision-Date: 2017-01-20 23:01+0000\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-21 05:37+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-01-21 06:52+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -40,7 +40,7 @@ msgstr "Odaberi sve"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
-msgstr "Bez odabira"
+msgstr "Ukloni odabir"
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
@@ -56,7 +56,7 @@ msgstr "Uredi"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
-msgstr "Dodaj među omiljene"
+msgstr "Dodaj u omiljeno"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
