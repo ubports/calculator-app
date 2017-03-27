@@ -9,7 +9,7 @@ architectures: [all]
 apps:
     ubuntu-calculator-app:
         command: desktop-launch qmlscene "$@" $SNAP/usr/share/ubuntu-calculator-app/ubuntu-calculator-app.qml
-        plugs: [opengl, platform, unity7, unity8, mir]
+        plugs: [opengl, platform, unity7, unity8, mir, mir-libs]
 
 plugs:
     platform:
@@ -22,6 +22,12 @@ plugs:
         interface: content
         content: testability
         target: testability
+
+    mir-libs:
+        interface: content
+        content: mir0
+        target: mir-libs
+        default-provider: mir-libs
 
 parts:
     ubuntu-calculator-app:
