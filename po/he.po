@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-04-18 09:21+0000\n"
-"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <he@li.org>\n"
+"PO-Revision-Date: 2017-07-01 14:39+0000\n"
+"Last-Translator: Eran <etherpulse@gmail.com>\n"
+"Language-Team: Hebrew <https://ubpweblate.tnvcomp.com/projects/ubports"
+"/calculator-app/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -74,10 +77,13 @@ msgid "No favorites"
 msgstr "אין מועדפים"
 
 #: ../app/ui/FavouritePage.qml:43
+#, fuzzy
 msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
+"החלקת חישובים שמאלה\n"
+"תסמן אותם כמעודפים"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
@@ -125,8 +131,9 @@ msgid "Copy formula"
 msgstr "העתקת נוסחה"
 
 #: ../app/welcomewizard/Slide10.qml:28
+#, fuzzy
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "לחיצה ארוכה תעתיק חלק או את כל הנוסחא לקליפ בורד"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -178,7 +185,7 @@ msgstr "מחיקת נוסחה שלמה בבת אחת"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
+msgstr "לחיצה ארוכה על כפתור ה '←' תנקה את כל הנוסחאות משורת הקלט"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
