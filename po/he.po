@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-03 19:14+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2017-07-03 19:17+0000\n"
+"Last-Translator: Eran <etherpulse@gmail.com>\n"
 "Language-Team: Hebrew <https://ubpweblate.tnvcomp.com/projects/ubports"
 "/calculator-app/he/>\n"
 "Language: he\n"
@@ -77,12 +77,11 @@ msgid "No favorites"
 msgstr "אין מועדפים"
 
 #: ../app/ui/FavouritePage.qml:43
-#, fuzzy
 msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"החלקת חישובים שמאלה\n"
+"גרירת חישובים שמאלה\n"
 "תסמן אותם כמעודפים"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
@@ -193,7 +192,7 @@ msgstr "עריכת פריט בהיסטוריית החישובים"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "גרירה שמאלה ולחיצה על העיפרון תערוך את החישוב."
+msgstr "גרירה שמאלה ולחיצה על העיפרון תערוך את החישוב"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -201,7 +200,7 @@ msgstr "הוספת מועדף חדש"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr "גרירה שמאלה וחליצה על הכוכב תוסיף את את החישוב למעודפים"
+msgstr "גרירה שמאלה ולחיצה על הכוכב תוסיף את את החישוב למעודפים"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
