@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-06 14:26+0000\n"
+"PO-Revision-Date: 2017-07-06 16:58+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://ubpweblate.tnvcomp.com/projects/ubports"
 "/calculator-app/cs/>\n"
@@ -81,13 +81,13 @@ msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"K označení oblíbených\n"
-"přetáhněte výpočty doleva"
+"K označení oblíbených výpočtů \n"
+"přetáhněte je doleva"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
 msgid "log"
-msgstr "záznam"
+msgstr "log"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
@@ -151,7 +151,7 @@ msgstr "Vědecká klávesnice"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr "K použítí vědeckých funkcí popotáhněte numerickou klávesnici doleva"
+msgstr "K použítí vědeckých funkcí přetáhněte numerickou klávesnici doleva"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -167,7 +167,7 @@ msgstr "Vymazat záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr "Tažením doprava vymažte záznam z historie výpočtů"
+msgstr "Přetažením doprava vymažete záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -175,7 +175,7 @@ msgstr "Odstranit více záznamů z historie výpočtů"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr "Delší stisk ro výběr většího množství záznamů ke smazání"
+msgstr "Delší stisk pro výběr většího množství záznamů ke smazání"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -191,7 +191,7 @@ msgstr "Upravit záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Pro úpravu výpočtu táhněte doleva a vyberte tužku"
+msgstr "Pro úpravu výpočtu přetáhněte doleva a vyberte tužku"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -199,7 +199,7 @@ msgstr "Přidat do oblíbených"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr "Pro přidání do oblíbených táhněte doleva a vyberte hvězdičku"
+msgstr "Pro přidání do oblíbených přetáhněte doleva a vyberte hvězdičku"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -207,11 +207,11 @@ msgstr "Upravit vzorec"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "Pro úpravu klikněte uprostřed vzorce"
+msgstr "Pro úpravu vzorce klikněte uprostřed vzorce"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Kalkulátor pro Ubuntu."
+msgstr "Kalkulačka pro Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
