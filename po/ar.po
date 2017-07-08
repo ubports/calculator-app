@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-05 20:49+0000\n"
+"PO-Revision-Date: 2017-07-08 15:22+0000\n"
 "Last-Translator: Ahmed Suliman <ahmedselaman@gmail.com>\n"
 "Language-Team: Arabic <https://ubpweblate.tnvcomp.com/projects/ubports"
 "/calculator-app/ar/>\n"
@@ -70,7 +70,6 @@ msgstr "إضافة الي المفضلات"
 #. expressions
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
-#, fuzzy
 msgid "dd MMM yyyy"
 msgstr "dd MMM yyyy"
 
@@ -88,15 +87,13 @@ msgstr ""
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
-#, fuzzy
 msgid "log"
-msgstr "log"
+msgstr "اللوغاريتم"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
-#, fuzzy
 msgid "mod"
-msgstr "mod"
+msgstr "باقي القسمة"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -110,7 +107,6 @@ msgstr "اليوم "
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:43
-#, fuzzy
 msgid "hh:mm"
 msgstr "hh:mm"
 
@@ -184,39 +180,39 @@ msgstr "الضغط الطويل لإختيار عمليات حسابية متع�
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "حذف كامل الصيغة بالمرة"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
+msgstr "الضغط المستمر '←' على الزر لمسح كل الصيغ من شريط الادخال"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "تحرير العنصر من سجل العمليات الحسابية"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "تمرير يسار والضغط علي القلم لتحرير العملية الحسابية"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "إضافة مفضلة جديدة"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr ""
+msgstr "تمريرة يسار والضغط على النجمة لإضافة العمليات الحسابية لعرض المفضلات"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "تحرير الصيغة"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "انقر في الوسط لتحرير الصيغة في نفس المكان"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr ""
+msgstr "الحاسبة لابونتو."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
