@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-08 15:22+0000\n"
+"PO-Revision-Date: 2017-07-08 15:25+0000\n"
 "Last-Translator: Ahmed Suliman <ahmedselaman@gmail.com>\n"
 "Language-Team: Arabic <https://ubpweblate.tnvcomp.com/projects/ubports"
 "/calculator-app/ar/>\n"
@@ -56,7 +56,7 @@ msgstr "حذف"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr "تعديل"
+msgstr "تحرير"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
