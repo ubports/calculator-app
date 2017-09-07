@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
 "PO-Revision-Date: 2017-09-07 21:53+0000\n"
 "Last-Translator: Peter Valachovič <peter.valachovic@gmail.com>\n"
-"Language-Team: Slovak <https://translate.ubports.com/projects/ubports"
-"/calculator-app/sk/>\n"
+"Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
+"calculator-app/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -185,8 +185,7 @@ msgstr "Zmazať celý vzorec naraz"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
-"Dlhé stlačenie '←' pre vymazanie všetkých vzorcov zo vstupného panelu"
+msgstr "Dlhé stlačenie '←' pre vymazanie všetkých vzorcov zo vstupného panelu"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
