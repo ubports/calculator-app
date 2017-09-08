@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-08 13:57+0000\n"
+"PO-Revision-Date: 2017-09-08 16:03+0000\n"
 "Last-Translator: Jeff <jeffi27@live.at>\n"
 "Language-Team: Albanian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/sq/>\n"
@@ -54,7 +54,7 @@ msgstr "Fshijë"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr "Ndrysho"
+msgstr "Redakto"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
