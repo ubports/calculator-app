@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-03 19:17+0000\n"
+"PO-Revision-Date: 2017-09-15 23:24+0000\n"
 "Last-Translator: Eran <etherpulse@gmail.com>\n"
-"Language-Team: Hebrew <https://ubpweblate.tnvcomp.com/projects/ubports"
+"Language-Team: Hebrew <https://translate.ubports.com/projects/ubports"
 "/calculator-app/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "ביטול"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "בחירת הכול"
+msgstr "בחירת הכל"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
