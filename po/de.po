@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-17 12:52+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2017-09-17 12:56+0000\n"
+"Last-Translator: Twinkybot <me@twinkybot.org>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports"
 "/calculator-app/de/>\n"
 "Language: de\n"
@@ -96,7 +96,7 @@ msgstr "mod"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr "Gerade eben"
+msgstr "Vor Kurzem"
 
 #: ../app/ui/Screen.qml:39
 msgid "Today "
