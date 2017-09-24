@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-07-14 14:34+0000\n"
-"Last-Translator: Andrzej Stamburski <stambur@wp.pl>\n"
-"Language-Team: Polish <https://ubpweblate.tnvcomp.com/projects/ubports"
+"PO-Revision-Date: 2017-09-24 22:11+0000\n"
+"Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
+"Language-Team: Polish <https://translate.ubports.com/projects/ubports"
 "/calculator-app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgstr "Kliknięcie w środek wyrażenia umożliwia edycję w tym miejscu"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Kalkulator dla Ubuntu"
+msgstr "Kalkulator dla Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
