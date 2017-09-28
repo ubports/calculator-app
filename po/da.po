@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-09 09:24+0000\n"
-"Last-Translator: Folmer Fredslund <Unknown>\n"
-"Language-Team: Danish <da@li.org>\n"
+"PO-Revision-Date: 2017-09-28 20:18+0000\n"
+"Last-Translator: Henrik Holm <hbir@post10.tele.dk>\n"
+"Language-Team: Danish <https://translate.ubports.com/projects/ubports"
+"/calculator-app/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -36,7 +39,7 @@ msgstr "Annullér"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Markér alt"
+msgstr "Vælg alle"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
