@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-08-29 21:39+0000\n"
-"Last-Translator: Aurelio Cilia <spacedriver88@gmail.com>\n"
-"Language-Team: Italian <https://ubpweblate.tnvcomp.com/projects/ubports"
+"PO-Revision-Date: 2017-09-28 07:22+0000\n"
+"Last-Translator: Stefano Melchior <stefano.melchior@me.com>\n"
+"Language-Team: Italian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Calcolatrice"
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
-msgstr "Preferiti"
+msgstr "Preferito"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
@@ -39,7 +39,7 @@ msgstr "Annulla"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Seleziona tutto"
+msgstr "Seleziona tutti"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
