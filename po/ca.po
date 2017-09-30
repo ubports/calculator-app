@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-07 16:43+0000\n"
-"Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
-"Language-Team: Catalan <https://ubpweblate.tnvcomp.com/projects/ubports"
+"PO-Revision-Date: 2017-09-30 18:52+0000\n"
+"Last-Translator: Stefano Melchior <stefano.melchior@me.com>\n"
+"Language-Team: Catalan <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "Copia"
 
 #: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
-msgstr "Suprimeix-lo"
+msgstr "Suprimeix"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
