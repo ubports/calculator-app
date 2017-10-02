@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-18 19:27+0000\n"
+"PO-Revision-Date: 2017-10-02 08:45+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports"
 "/calculator-app/cs/>\n"
@@ -139,7 +139,7 @@ msgstr "Užijte si to"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr "Věříme, že se Vám používání kalkulačky líbí!"
+msgstr "Věříme, že se vám používání kalkulačky líbí!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
@@ -151,7 +151,7 @@ msgstr "Vědecká klávesnice"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr "K použítí vědeckých funkcí přetáhněte numerickou klávesnici doleva"
+msgstr "K použití vědeckých funkcí přetáhněte numerickou klávesnici doleva"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -163,15 +163,15 @@ msgstr "Pro zobrazení číselných i vědeckých funkcí zároveň otočte zař
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr "Vymazat záznam z historie výpočtů"
+msgstr "Smazat záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr "Přetažením doprava vymažete záznam z historie výpočtů"
+msgstr "Přetažením doprava smažete záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr "Odstranit více záznamů z historie výpočtů"
+msgstr "Smazat více záznamů z historie výpočtů"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
@@ -191,7 +191,7 @@ msgstr "Upravit záznam z historie výpočtů"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Pro úpravu výpočtu přetáhněte doleva a vyberte tužku"
+msgstr "Pro úpravu výpočtu přetáhněte doleva a stiskněte tužku"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -199,7 +199,7 @@ msgstr "Přidat do oblíbených"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr "Pro přidání do oblíbených přetáhněte doleva a vyberte hvězdičku"
+msgstr "Pro přidání do oblíbených přetáhněte doleva a stiskněte hvězdičku"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
