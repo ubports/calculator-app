@@ -1,22 +1,18 @@
 {
     "name": "com.ubuntu.calculator",
     "architecture": "all",
-    "description": "Powerful and easy to use calculator.",
-    "framework": "ubuntu-sdk-15.04.1-qml",
+    "description": "Powerful and easy to use calculator",
+    "framework": "ubuntu-sdk-15.04.6",
     "hooks": {
         "calculator": {
             "apparmor": "@APP_HARDCODE@.apparmor",
             "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
         }
     },
-    "maintainer": "Ubuntu App Cats <ubuntu-touch-coreapps@lists.launchpad.net>",
+    "maintainer": "Brian Douglass <brian@ubports.com>",
     "title": "@APP_NAME@",
     "icon": "@ICON@",
-    "version": "@APP_VERSION@.@BZR_REVNO@",
-    "x-source": {
-        "vcs-bzr": "@BZR_SOURCE@",
-        "vcs-bzr-revno": "@BZR_REVNO@"
-    },
+    "version": "@APP_VERSION@",
     "x-test": {
         "autopilot": "@AUTOPILOT_DIR@"
     }
