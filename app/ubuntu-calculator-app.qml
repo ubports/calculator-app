@@ -276,15 +276,11 @@ MainView {
         onHeightChanged: scrollableView.scrollToBottom();
         anchors.fill: parent
 
-        PageWithBottomEdge {
+        Page {
             id: calculatorPage
             title: i18n.tr("Calculator")
             anchors.fill: parent
             visible: false
-
-            bottomEdgeTitle: i18n.tr("Favorite")
-            bottomEdgePageSource: "ui/FavouritePage.qml"
-            bottomEdgeEnabled: textInputField.visible
 
             state: visualModel.isInSelectionMode ? "selection" : "default"
             states: [
@@ -767,6 +763,27 @@ MainView {
                     source: scrollableView.width > scrollableView.height ? "ui/LandscapeKeyboard.qml" : "ui/PortraitKeyboard.qml"
                     opacity: ((y + height) >= scrollableView.contentY) &&
                              (y <= (scrollableView.contentY + scrollableView.height)) ? 1 : 0
+                }
+            }
+
+            BottomEdge {
+                id: bottomEdge
+
+                height: parent.height
+                contentUrl: Qt.resolvedUrl("ui/FavouritePage.qml")
+                enabled: textInputField.visible
+                hint.text: i18n.tr("Favorite")
+                hint.visible: enabled
+
+                // delay loading bottom edge until after the first frame
+                // is drawn to save on startup time
+                preloadContent: false
+
+                Timer {
+                    interval: 1
+                    repeat: false
+                    running: true
+                    onTriggered: bottomEdge.preloadContent = true
                 }
             }
         }

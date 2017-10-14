@@ -33,7 +33,7 @@ Rectangle {
         boundsBehavior: Flickable.DragOverBounds
         flickableDirection: Flickable.HorizontalFlick
         contentWidth: virtualKeyboard.width * keyboardsRow.children.length
-        contentHeight: keyboardsRow.height + units.gu(1)
+        contentHeight: keyboardsRow.height
         height: contentHeight
         interactive: keyboardsRow.children.length === 1 ? false : true
 
