@@ -55,7 +55,12 @@ ListItem {
     height: units.gu(7) + (mainView.isScreenIsWide ? 0 : units.gu(3.7))
     divider.visible: false
     Column {
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            rightMargin: units.gu(1)
+            leftMargin: units.gu(1)
+        }
+
         Row {
             id: creationDateRow
             width: parent.width
@@ -67,7 +72,7 @@ ListItem {
             Text {
                 id: creationTimeText
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom 
+                anchors.bottom: parent.bottom
                 color: UbuntuColors.darkGrey
                 text: formatDate(model.date)
                 textFormat: Text.PlainText
@@ -78,7 +83,7 @@ ListItem {
             Icon {
                 id: favouriteIcon
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom 
+                anchors.bottom: parent.bottom
                 width: height
                 name: model.isFavourite ? "starred" : "non-starred"
                 color: model.isFavourite ? UbuntuColors.orange : "white"
@@ -88,7 +93,7 @@ ListItem {
             Text {
                 id: favouriteDescriptionText
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom 
+                anchors.bottom: parent.bottom
                 color: UbuntuColors.orange
                 text: model.favouriteText
                 textFormat: Text.PlainText
@@ -97,7 +102,7 @@ ListItem {
                 font.bold: true
             }
         }
-      
+
         Row {
             id: calculationRow
             objectName: "historyrow"
@@ -152,7 +157,7 @@ ListItem {
                 visible: !mainView.isScreenIsWide
 
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom 
+                anchors.bottom: parent.bottom
 
                 color: UbuntuColors.darkGrey
                 text: Formula.returnFormulaToDisplay(model.result, i18n, mainView.decimalPoint)
