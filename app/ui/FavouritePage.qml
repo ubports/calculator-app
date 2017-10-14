@@ -24,32 +24,56 @@ import "../engine"
 import "../upstreamcomponents"
 
 Page {
-    anchors.fill: parent
-    title: i18n.tr("Favorite")
+    width: bottomEdge.width
+    height: bottomEdge.height
 
     property var removedFavourites: []
 
-    head.backAction: Action {
-        iconName: "back"
-        onTriggered: {
-            if (removedFavourites.length > 0) {
-                calculationHistory.removeFavourites(removedFavourites);
-            }
-            mainStack.pop();
+    header: PageHeader {
+        id: pageHeader
+
+        title: i18n.tr("Favorite")
+
+        leadingActionBar {
+            id: leadingBar
+            actions: [
+                Action {
+                    iconName: "down"
+                    onTriggered: {
+                        if (removedFavourites.length > 0) {
+                            calculationHistory.removeFavourites(removedFavourites);
+                        }
+                        bottomEdge.collapse();
+                    }
+                }
+            ]
         }
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: Theme.palette.normal.background
+    }
+
     EmptyState {
+        anchors {
+            fill: parent
+            topMargin: pageHeader.height
+            centerIn: parent
+        }
+
         title: i18n.tr("No favorites")
         subTitle: i18n.tr("Swipe calculations to the left\nto mark as favorites")
         iconName: "starred"
-        anchors.centerIn: parent
         visible: calculationHistory.numberOfFavourites == 0;
     }
 
     ListView {
         id: favouriteListview
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            topMargin: pageHeader.height
+        }
         model: calculationHistory.getContents();
 
         delegate: ListItem.Empty {
