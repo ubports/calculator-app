@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-30 14:51+0000\n"
-"Last-Translator: Nelly Simkova <stylinsonnelly@gmail.com>\n"
+"PO-Revision-Date: 2017-10-15 10:16+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
 "Language: ru\n"
@@ -132,9 +132,8 @@ msgid "Copy formula"
 msgstr "Скопировать формулу"
 
 #: ../app/welcomewizard/Slide10.qml:28
-#, fuzzy
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr "Зажмите, чтобы скопировать часть или всю формулу в буфер обмена"
+msgstr "Удерживайте, чтобы скопировать часть или всю формулу в буфер обмена"
 
 #: ../app/welcomewizard/Slide11.qml:79
 #, fuzzy
