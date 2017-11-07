@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-10-29 12:24+0000\n"
+"PO-Revision-Date: 2017-11-07 23:32+0000\n"
 "Last-Translator: Brînzariu Cristian <info@ebeton.ro>\n"
 "Language-Team: Romanian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ro/>\n"
@@ -28,7 +28,7 @@ msgstr "NeN"
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
-msgstr "Calculator"
+msgstr "Aplicația calculator"
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
@@ -71,7 +71,7 @@ msgstr "Adaugă la favorite"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr "dd MM yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
@@ -93,7 +93,7 @@ msgstr "jurnal"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "modulo"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -116,7 +116,7 @@ msgstr "Ieri"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr "Sari peste"
+msgstr "Omite"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
@@ -222,7 +222,7 @@ msgstr "Apasă în locul unde doreşti pentru a edita"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Un calculator pentru Ubuntu"
+msgstr "Un calculator pentru Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
