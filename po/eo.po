@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-01-17 16:30+0000\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
-"Language-Team: Esperanto <eo@li.org>\n"
+"PO-Revision-Date: 2017-11-20 11:59+0000\n"
+"Last-Translator: Pablo Foche <pablo.foche@gmail.com>\n"
+"Language-Team: Esperanto <https://translate.ubports.com/projects/ubports"
+"/calculator-app/eo/>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -28,7 +31,7 @@ msgstr "Kalkulilo"
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
-msgstr ""
+msgstr "Legosignoj"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
@@ -36,7 +39,7 @@ msgstr "Nuligi"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Elekti ĉion"
+msgstr "Selekti ĉiujn"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
@@ -56,7 +59,7 @@ msgstr "Redakti"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
-msgstr ""
+msgstr "Aldoni al legosignoj"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -67,22 +70,24 @@ msgstr ""
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr ""
+msgstr "tt MMM jjjj"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
-msgstr ""
+msgstr "Sen legosignoj"
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
+"Ŝovumu kalkulojn maldekstre\n"
+"por marki kiel legosignojn"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
 msgid "log"
-msgstr "log"
+msgstr "protokolo"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
@@ -91,7 +96,7 @@ msgstr "mod"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr "ĵus"
+msgstr "Nun"
 
 #: ../app/ui/Screen.qml:39
 msgid "Today "
@@ -110,99 +115,101 @@ msgstr "Hieraŭ"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Preterpaŝi"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Bonvenon al Kalkulilo"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Ĝuu la potencon de la matematiko per la uzado de la Kalkulilo"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Kopii formulon"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr ""
+msgstr "Longtempa premo por kopii tuton aŭ parton de la formulo al la tondujo"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Ĝuu"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Ni deziras ke vi ĝuu la uzadon de la Kalkulilo!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Fini"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Scienca klavaro"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr ""
+msgstr "Aliru sciencajn funkciojn ŝovumante maldekstren sur la cifera klavaro"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Scienca vido"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr ""
+msgstr "Turnu la aparaton por montri ciferajn kaj sciencajn funkciojn kune"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Forigi eron el la kalkula historio"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr ""
+msgstr "Ŝovumu dekstren por forigi erojn el la kalkula historio"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Forigi plurajn erojn el la kalkula historio"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Longtempa premo por selekti plurajn forigotajn kalkulojn"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Forigi la tutan formulon per unu fojo"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Longtempa premo de la butono '←' por vakigi ĉiujn formulojn el la eniga strio"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Redakti eron de la kalkula historio"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Ŝovumu maldekstren kaj premu la krajonon por redakti kalkulon"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Aldoni legosignon"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Ŝovumu maldekstre kaj premu stelon por aldoni kalkulojn al via legosigna vido"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Redakti formulon"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Klaku sur la mezo de formulo por redakti ĝin"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
@@ -210,4 +217,4 @@ msgstr "Kalkulilo por Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr ""
+msgstr "matematiko;sumo; subtraho;multipliko;divido;"
