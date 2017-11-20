@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-10-15 10:17+0000\n"
-"Last-Translator: Ivan Semkin <ivan@semkin.ru>\n"
+"PO-Revision-Date: 2017-11-20 22:32+0000\n"
+"Last-Translator: Alexey Balmashnov <a.balmashnov@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
 "Language: ru\n"
@@ -36,7 +36,7 @@ msgstr "Избранное"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Отменить"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
@@ -123,7 +123,6 @@ msgid "Welcome to Calculator"
 msgstr "Добро пожаловать в Калькулятор!"
 
 #: ../app/welcomewizard/Slide1.qml:28
-#, fuzzy
 msgid "Enjoy the power of math by using Calculator"
 msgstr "Почувствуйте силу математики, используя Калькулятор"
 
@@ -140,9 +139,8 @@ msgid "Enjoy"
 msgstr "Наслаждайтесь"
 
 #: ../app/welcomewizard/Slide11.qml:88
-#, fuzzy
 msgid "We hope you enjoy using Calculator!"
-msgstr "Мы надеемся, что Вам понравится использовать Калькулятор!"
+msgstr "Надеемся вам понравится использовать Калькулятор!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
@@ -170,14 +168,12 @@ msgid "Delete item from calculation history"
 msgstr "Удалить из истории калькулятора"
 
 #: ../app/welcomewizard/Slide4.qml:28
-#, fuzzy
 msgid "Swipe right to delete items from calculator history"
 msgstr "Проведите вправо, чтобы удалить пример из истории калькулятора"
 
 #: ../app/welcomewizard/Slide5.qml:27
-#, fuzzy
 msgid "Delete several items from calculation history"
-msgstr "Удалить несколько примеров из истории калькулятора"
+msgstr "Удалить несколько выражений из истории калькулятора"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
