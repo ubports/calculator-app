@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-11-22 00:59+0000\n"
+"PO-Revision-Date: 2017-11-22 23:38+0000\n"
 "Last-Translator: Alexey Balmashnov <a.balmashnov@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
@@ -82,7 +82,7 @@ msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"Смахните вычисления влево\n"
+"Проведите по вычислениям влево\n"
 "чтобы добавить в избранное"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
@@ -132,7 +132,8 @@ msgstr "Скопировать формулу"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr "Удерживайте, чтобы скопировать часть или всю формулу в буфер обмена"
+msgstr ""
+"Нажмите и удерживайте, чтобы скопировать часть или всю формулу в буфер обмена"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -152,7 +153,9 @@ msgstr "Научная клавиатура"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr "Получите доступ к научной клавиатуре по свайпу влево"
+msgstr ""
+"Получите доступ к научным функциям, проведя влево по числовому блоку "
+"клавиатуры"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -195,7 +198,7 @@ msgstr "Изменить пример из истории калькулятор
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Сдвиньте влево и нажмите на карандаш для изменения примера"
+msgstr "Проведите влево и нажмите на карандаш для изменения примера"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
