@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-11-20 22:32+0000\n"
+"PO-Revision-Date: 2017-11-22 00:59+0000\n"
 "Last-Translator: Alexey Balmashnov <a.balmashnov@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
@@ -177,7 +177,9 @@ msgstr "Удалить несколько выражений из истории
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr "Зажмите, чтобы выбрать несколько примеров для удаления из истории"
+msgstr ""
+"Для удаления из истории нескольких примеров используйте выбор с помощью "
+"длинного нажатия"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -185,7 +187,7 @@ msgstr "Удалить всю формулу разом"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr "Зажмите кнопку '←' , чтобы очистить строку ввода"
+msgstr "Длинное нажатие на кнопку '←' очистит строку ввода"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -193,15 +195,16 @@ msgstr "Изменить пример из истории калькулятор
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Свайпните влево и нажмите на карандаш, чтобы изменить пример"
+msgstr "Сдвиньте влево и нажмите на карандаш для изменения примера"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr "Добавить в Избранное"
+msgstr "Добавить в избранное"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr "Свайпните вправо и нажмите на звезду, чтобы добавить пример в Избранное"
+msgstr ""
+"Сдвиньте вправо и нажмите на звездочку, чтобы добавить пример в избранное"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
@@ -217,4 +220,4 @@ msgstr "Калькулятор для Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "математика;сложение;умножение;деление;"
+msgstr "математика;сложение;вычитание;умножение;деление;"
