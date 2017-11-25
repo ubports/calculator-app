@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2015-11-10 06:50+0000\n"
-"Last-Translator: Mutlu Can YILMAZ <mtlcnylmz@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"PO-Revision-Date: 2017-11-25 19:00+0000\n"
+"Last-Translator: Taka Turgut <takaturgut@gmail.com>\n"
+"Language-Team: Turkish <https://translate.ubports.com/projects/ubports"
+"/calculator-app/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -112,11 +115,11 @@ msgstr "Dün"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Geç"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Hesap Makinesi'ne Hoş Geldiniz"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
