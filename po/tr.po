@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-11-25 22:05+0000\n"
-"Last-Translator: Mevlüt Erdem Güven <merdem2002@yandex.com>\n"
+"PO-Revision-Date: 2017-11-25 22:07+0000\n"
+"Last-Translator: Arda Canbolat <oardacn@gmail.com>\n"
 "Language-Team: Turkish <https://translate.ubports.com/projects/ubports"
 "/calculator-app/tr/>\n"
 "Language: tr\n"
@@ -217,6 +217,5 @@ msgid "A calculator for Ubuntu."
 msgstr "Ubuntu için bir hesap makinesi."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
-#, fuzzy
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "matematik, ekleme, çıkarma, çarpma, bölme;"
+msgstr "matematik;ekleme;çıkarma;çarpma;bölme;"
