@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-11-13 11:23+0000\n"
+"PO-Revision-Date: 2018-01-03 12:37+0000\n"
 "Last-Translator: Peter Nerlich <peter.nerlich+ubports@googlemail.com>\n"
-"Language-Team: German <https://translate.ubports.com/projects/ubports/"
-"calculator-app/de/>\n"
+"Language-Team: German <https://translate.ubports.com/projects/ubports"
+"/calculator-app/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,12 +192,11 @@ msgstr "Lösche die gesamte Formel"
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
-"Lange auf den '←'-Button tippen, um sämtliche Formeln aus dem Eingabefeld zu "
-"löschen"
+"Den '←'-Button halten, um sämtliche Formeln aus dem Eingabefeld zu löschen"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr "Ein Element aus dem Berechnungsverlauf bearbeiten"
+msgstr "Element aus dem Berechnungsverlauf bearbeiten"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
