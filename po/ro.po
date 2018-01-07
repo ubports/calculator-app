@@ -6,16 +6,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2015-06-23 16:57+0000\n"
-"Last-Translator: Meriuță Cornel <meriutacornel@neacornel.eu>\n"
-"Language-Team: Romanian <ro@li.org>\n"
+"PO-Revision-Date: 2017-11-07 23:32+0000\n"
+"Last-Translator: Brînzariu Cristian <info@ebeton.ro>\n"
+"Language-Team: Romanian <https://translate.ubports.com/projects/ubports/"
+"calculator-app/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -24,7 +28,7 @@ msgstr "NeN"
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
-msgstr "Calculator"
+msgstr "Aplicația calculator"
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
@@ -32,27 +36,27 @@ msgstr "Favorit"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
-msgstr "Anulați"
+msgstr "Anulează"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Selectați tot"
+msgstr "Selectează tot"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
-msgstr "Deselectare totală"
+msgstr "Anulaţi selecţia"
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
-msgstr "Copiaţi"
+msgstr "Copiază"
 
 #: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
-msgstr "Ştergeţi"
+msgstr "Șterge"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr "Editaţi"
+msgstr "Editare"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
@@ -67,7 +71,7 @@ msgstr "Adaugă la favorite"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr "dd MM yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
@@ -89,7 +93,7 @@ msgstr "jurnal"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "modulo"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -112,104 +116,114 @@ msgstr "Ieri"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Omite"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Bine ai venit la aplicaţia Calculator"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Bucurăte de puterea matematicii folosind Calculator"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Copiază formula"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
 msgstr ""
+"Apasă lung pentru a copia o parte sau toată formula în memoria clipboard"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Distracţie plăcută"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Sperăm că te vei distra folosind Calculator!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Termină"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Tastatură ştiinţifică"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
 msgstr ""
+"Accesează funcţiile ştiinţifice trăgând de la stânga la dreapta pe tastatura "
+"numerică"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Vizualizare ştiinţifică"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
+"Roteşte dispozitivul pentru a vedea atât funcţiile numerice cât şi pe cele "
+"ştiinţifice"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Şterge articolul din istoricul de calcule"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
 msgstr ""
+"Trage spre dreapta pentru a şterge articole din istoricul calculatorului"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Şterge mai multe articole din istoricul calculatorului"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Apasă lung pentru a selecta mai multe articole pentru ştergere"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Şterge toată formula odată"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
+"Apasă lung butonul '←' pentru a şterge întreaga formulă din bara de "
+"introducere"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Modifică articol din istoricul de calcule"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr ""
+msgstr "Trage spre stânga şi apasă pe creion pentru a edita calculul"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Adaugă un nou favorit"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Trage spre stânga şi apasă pe stea pentru a adăuga calcule la ecranul "
+"favoritelor"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Modifică formula"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Apasă în locul unde doreşti pentru a edita"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Un calculator pentru Ubuntu"
+msgstr "Un calculator pentru Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "matematică;adunare;scădere;înmulțire;împărțire"
+msgstr "matematică;adunare;scădere;înmulțire;împărțire;"

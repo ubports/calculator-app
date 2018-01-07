@@ -6,20 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2015-11-10 06:50+0000\n"
-"Last-Translator: Mutlu Can YILMAZ <mtlcnylmz@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"PO-Revision-Date: 2017-11-25 22:07+0000\n"
+"Last-Translator: Arda Canbolat <oardacn@gmail.com>\n"
+"Language-Team: Turkish <https://translate.ubports.com/projects/ubports/"
+"calculator-app/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr "Sayı Değil"
+msgstr "Bilinmeyen"
 
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
@@ -56,7 +59,7 @@ msgstr "Düzenle"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
-msgstr "Sık kullanılanlara ekle"
+msgstr "Favorilere ekle"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -67,7 +70,7 @@ msgstr "Sık kullanılanlara ekle"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr "gg AAA yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
@@ -79,7 +82,7 @@ msgid ""
 "to mark as favorites"
 msgstr ""
 "Favori olarak işaretlemek için\n"
-"hesaplamaları sola kaydırın"
+"hesaplamaları sola doğru kaydırın"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
@@ -89,7 +92,7 @@ msgstr "log"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "modülo"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -104,7 +107,7 @@ msgstr "Bugün "
 #. valid expressions
 #: ../app/ui/Screen.qml:43
 msgid "hh:mm"
-msgstr "hh:mm"
+msgstr "ss:dd"
 
 #: ../app/ui/Screen.qml:45
 msgid "Yesterday"
@@ -112,99 +115,103 @@ msgstr "Dün"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Atla"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr ""
+msgstr "Hesap Makinesine Hoş Geldiniz"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr ""
+msgstr "Hesap Makinesini kullanarak matematiğin gücünden faydalanın"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr ""
+msgstr "Formülü kopyala"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
 msgstr ""
+"Bir formülün bir kısmını veya tamamını panoya kopyalamak için uzun basın"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr ""
+msgstr "Eğlen"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr ""
+msgstr "Umarız Hesap Makinesi kullanmayı seversiniz!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr ""
+msgstr "Bitiş"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr ""
+msgstr "Bilimsel Hesaplama"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr ""
+msgstr "Sayısal tuş takımında sola kaydırarak bilimsel işlevlere erişin"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr ""
+msgstr "Bilimsel Görüş"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr ""
+msgstr "Sayısal ve bilimsel işlevleri birlikte göstermek için cihazı döndürün"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr ""
+msgstr "Öğeyi hesaplama geçmişinden sil"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr ""
+msgstr "Hesap makinesinin geçmişinden öğeleri silmek için sağa hızlıca kaydır"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr ""
+msgstr "Birkaç öğeyi hesaplama geçmişinden sil"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
+msgstr "Silinmek üzere birden çok hesaplama seçmek için uzun süre üstüne basın"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr ""
+msgstr "Bütün formülü bir kerede sil"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
+msgstr "Tüm formülleri girdi çubuğundan silmek için '←' düğmesine uzun basın"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr ""
+msgstr "Hesaplama geçmişinden öğeyi düzenle"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
 msgstr ""
+"Hesaplamayı düzenlemek için sola hızlıca kaydırın ve kalem tuşuna basın"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr ""
+msgstr "Yeni favori ekle"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
+"Hesaplamaları sık kullanılanlara eklemek için sola hızlıca kaydırın ve "
+"yıldız tuşuna basın"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr ""
+msgstr "Formülü düzenle"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr ""
+msgstr "Yerinde düzenlemek için bir formülün ortasına tıklayın"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
@@ -212,4 +219,4 @@ msgstr "Ubuntu için bir hesap makinesi."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "matematik;ekleme;çıkarma;çarpma;bölme;toplama"
+msgstr "matematik;ekleme;çıkarma;çarpma;bölme;"

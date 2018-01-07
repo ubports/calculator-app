@@ -6,20 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-03-11 05:45+0000\n"
-"Last-Translator: P_E_T_O <Unknown>\n"
-"Language-Team: Slovak <sk@li.org>\n"
+"PO-Revision-Date: 2017-09-07 21:53+0000\n"
+"Last-Translator: Peter Valachovič <peter.valachovic@gmail.com>\n"
+"Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
+"calculator-app/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr "NaN"
+msgstr "Nie je číslo"
 
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
@@ -52,7 +55,7 @@ msgstr "Vymazať"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr "Zmeniť"
+msgstr "Upraviť"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
@@ -78,8 +81,8 @@ msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"Pre označenie výpočtov ako\n"
-"obľúbené, potiahnite ich doľava."
+"Potiahnutím výpočtov vľavo\n"
+"budú označené ako obľúbené"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
@@ -89,7 +92,7 @@ msgstr "log"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "modulo"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -182,8 +185,7 @@ msgstr "Zmazať celý vzorec naraz"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
-"Dlhé stlačenie '←' pre vymazanie všetkých vzorcov zo vstupného panelu"
+msgstr "Dlhé stlačenie '←' pre vymazanie všetkých vzorcov zo vstupného panelu"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -211,7 +213,7 @@ msgstr "Stlačte stred vzorca pre úpravu"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Kalkulačka pre Ubuntu"
+msgstr "Kalkulačka pre Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"

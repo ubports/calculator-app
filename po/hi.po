@@ -6,16 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2015-01-20 02:00+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Hindi <hi@li.org>\n"
+"PO-Revision-Date: 2017-10-28 07:56+0000\n"
+"Last-Translator: Aayush Gupta <Aayushgupta219@gmail.com>\n"
+"Language-Team: Hindi <https://translate.ubports.com/projects/ubports/"
+"calculator-app/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -28,35 +31,35 @@ msgstr "कैलकुलेटर"
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
-msgstr ""
+msgstr "पसंदीदा"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
-msgstr ""
+msgstr "रद्द"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr ""
+msgstr "सभी का चयन करे"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
-msgstr ""
+msgstr "किसी का चयन न करें"
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
-msgstr ""
+msgstr "प्रतिलिपि"
 
 #: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
-msgstr ""
+msgstr "हटा दें"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr ""
+msgstr "संपादित करें"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
-msgstr ""
+msgstr "पसंदीदा में जोड़े"
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for

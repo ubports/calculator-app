@@ -6,20 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-08-24 08:22+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2017-07-12 16:45+0000\n"
+"Last-Translator: Sami Törmänen <tormanen.sami@gmail.com>\n"
+"Language-Team: Finnish <https://ubpweblate.tnvcomp.com/projects/ubports/"
+"calculator-app/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr "NaN"
+msgstr "Epäluku"
 
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
@@ -89,7 +92,7 @@ msgstr "log"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "Jakojäännös"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -212,10 +215,10 @@ msgstr "Napsauta kaavan keskiosaa muokataksesi sitä"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Laskin Ubuntulle"
+msgstr "Laskin Ubuntulle."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr ""
-"math;addition;subtraction;multiplication;division;matematiikka;lisäys;vähenny"
-"s;kertaus;jakaminen;"
+"math;addition;subtraction;multiplication;division;matematiikka;lisäys;"
+"vähennys;kertaus;jakaminen;"

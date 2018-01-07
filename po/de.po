@@ -6,16 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-07-02 17:23+0000\n"
-"Last-Translator: schuko24 <gerdsaenger@t-online.de>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2018-01-03 12:37+0000\n"
+"Last-Translator: Peter Nerlich <peter.nerlich+ubports@googlemail.com>\n"
+"Language-Team: German <https://translate.ubports.com/projects/ubports"
+"/calculator-app/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -36,7 +39,7 @@ msgstr "Abbrechen"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Alles auswählen"
+msgstr "Alle auswählen"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
@@ -67,7 +70,7 @@ msgstr "Zu Favoriten hinzufügen"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr "dd.MM.yyyy"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
@@ -79,7 +82,7 @@ msgid ""
 "to mark as favorites"
 msgstr ""
 "Wischen Sie Berechnungen nach links,\n"
-"um sie als Favoriten zu markieren."
+"um sie als Favoriten zu markieren"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
@@ -93,7 +96,7 @@ msgstr "mod"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr "Gerade eben"
+msgstr "Vor Kurzem"
 
 #: ../app/ui/Screen.qml:39
 msgid "Today "
@@ -112,7 +115,7 @@ msgstr "Gestern"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr "überspringen"
+msgstr "Überspringen"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
@@ -121,7 +124,8 @@ msgstr "Willkommen im Taschenrechner"
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
 msgstr ""
-"Genießen Sie die Macht der Mathematik, indem Sie den Taschenrechner benutzen"
+"Erfreuen Sie sich mit diesem Taschenrechner an den Möglichkeiten der "
+"Mathematik"
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
@@ -143,7 +147,7 @@ msgstr "Wir hoffen, dass Sie viel Freude mit diesem Taschenrechner haben!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr "Fertig"
+msgstr "Beenden"
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
@@ -188,12 +192,11 @@ msgstr "Lösche die gesamte Formel"
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
-"Lange auf den '←'-Button tippen, um sämtliche Formeln aus dem Eingabefeld zu "
-"löschen."
+"Den '←'-Button halten, um sämtliche Formeln aus dem Eingabefeld zu löschen"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr "Ein Element aus dem Berechnungsverlauf bearbeiten"
+msgstr "Element aus dem Berechnungsverlauf bearbeiten"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
@@ -220,8 +223,8 @@ msgstr "In die Mitte einer Formel klicken, um sie dort zu bearbeiten"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Ein Taschenrechner für Ubuntu"
+msgstr "Ein Taschenrechner für Ubuntu."
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "Mathe;Mathematik;Multiplikation;Subtraktion;Addition;Division;"
+msgstr "Mathematik;Multiplikation;Subtraktion;Addition;Division;"
