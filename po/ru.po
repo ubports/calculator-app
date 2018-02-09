@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
 "PO-Revision-Date: 2018-02-09 18:05+0000\n"
-"Last-Translator: Ivan Semkin <ivan@semkin.ru>\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
 "Language: ru\n"
@@ -210,11 +210,11 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr "Изменить формулу"
+msgstr "Редактировать формулу"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "Нажмите в середину формулы, чтобы изменить ее в каком-либо месте"
+msgstr "Нажмите в середине формулы чтобы редактировать ее"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
