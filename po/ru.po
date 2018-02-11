@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-11-22 23:38+0000\n"
-"Last-Translator: Alexey Balmashnov <a.balmashnov@gmail.com>\n"
-"Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
-"calculator-app/ru/>\n"
+"PO-Revision-Date: 2018-02-09 18:05+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Russian <https://translate.ubports.com/projects/ubports"
+"/calculator-app/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
 
@@ -120,7 +120,7 @@ msgstr "Пропустить"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr "Добро пожаловать в Калькулятор!"
+msgstr "Добро пожаловать в Калькулятор"
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
@@ -172,7 +172,7 @@ msgstr "Удалить из истории калькулятора"
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr "Проведите вправо, чтобы удалить пример из истории калькулятора"
+msgstr "Проведите вправо, чтобы удалить выражение из истории калькулятора"
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
@@ -180,25 +180,24 @@ msgstr "Удалить несколько выражений из истории
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr ""
-"Для удаления из истории нескольких примеров используйте выбор с помощью "
-"длинного нажатия"
+msgstr "Зажмите, чтобы выбрать несколько выражений для удаления"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
 msgstr "Удалить всю формулу разом"
 
 #: ../app/welcomewizard/Slide6.qml:28
+#, fuzzy
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr "Длинное нажатие на кнопку '←' очистит строку ввода"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr "Изменить пример из истории калькулятора"
+msgstr "Изменить выражение из истории калькулятора"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Проведите влево и нажмите на карандаш для изменения примера"
+msgstr "Проведите влево и нажмите на карандаш для изменения выражения"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
@@ -211,11 +210,11 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr "Изменить формулу"
+msgstr "Редактировать формулу"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "Нажмите в середину формулы, чтобы изменить ее в каком-либо месте"
+msgstr "Нажмите в середине формулы чтобы редактировать ее"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
