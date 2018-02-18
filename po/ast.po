@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
 "PO-Revision-Date: 2016-04-17 16:46+0000\n"
 "Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
+"Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -158,8 +159,7 @@ msgstr "Vista científica"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr ""
-"Xira'l preséu p'amosar xuntes les funciones numbériques y científiques"
+msgstr "Xira'l preséu p'amosar xuntes les funciones numbériques y científiques"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"

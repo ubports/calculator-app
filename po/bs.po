@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
 "PO-Revision-Date: 2016-03-20 14:04+0000\n"
 "Last-Translator: Kenan Gutić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -182,8 +183,7 @@ msgstr "Obrišite odjednom cijelu formulu"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr ""
-"Koristite dugi dodir '←' za brisanje svih formula iz prostora za unos"
+msgstr "Koristite dugi dodir '←' za brisanje svih formula iz prostora za unos"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
