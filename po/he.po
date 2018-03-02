@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2017-09-18 16:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
-"calculator-app/he/>\n"
+"PO-Revision-Date: 2018-03-02 09:46+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <https://translate.ubports.com/projects/ubports"
+"/calculator-app/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgstr "ביטול"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "בחירת הכל"
+msgstr "בחירת הכול"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
@@ -92,7 +92,7 @@ msgstr "log"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "שארית"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -131,7 +131,7 @@ msgstr "העתקת נוסחה"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr "לחץ לחיצה ארוכה כדי להעתיק חלק או את כל הנוסחה ללוח"
+msgstr "יש ללחוץ לחיצה ארוכה כדי להעתיק חלק או את כל הנוסחה ללוח הגזירים"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -183,7 +183,7 @@ msgstr "מחיקת נוסחה שלמה בבת אחת"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr "לחיצה ארוכה על כפתור ה '←' תנקה את כל הנוסחאות משורת הקלט"
+msgstr "לחיצה ארוכה על הכפתור ‚←’ תנקה את כל הנוסחאות משורת הקלט"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
