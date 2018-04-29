@@ -1,65 +1,65 @@
-# Galician translation for ubuntu-calculator-app
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
-# This file is distributed under the same license as the ubuntu-calculator-app package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Canonical Ltd.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ubuntu-calculator-app\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-03-31 21:28+0000\n"
-"Last-Translator: marcos lans <marcoslansgarza@gmail.com>\n"
-"Language-Team: Galician <https://translate.ubports.com/projects/ubports"
-"/calculator-app/gl/>\n"
-"Language: gl\n"
+"PO-Revision-Date: 2018-04-27 13:38+0000\n"
+"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
+"Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
+"/calculator-app/sc/>\n"
+"Language: sc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.15\n"
-"X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr "NaN"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
 msgid "Calculator"
-msgstr "Calculadora"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:271 ../app/ubuntu-calculator-app.qml:276
 msgid "Favorite"
-msgstr "Favorito"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Annulla"
 
 #: ../app/ubuntu-calculator-app.qml:333
+#, fuzzy
 msgid "Select All"
-msgstr "Seleccionar todo"
+msgstr "Seletziona totus"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
-msgstr "Non seleccionar nada"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
-msgstr "Copiar"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
-msgstr "Eliminar"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr "Editar"
+msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
-msgstr "Engadir a favoritos"
+msgstr ""
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
@@ -70,154 +70,147 @@ msgstr "Engadir a favoritos"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr ""
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
-msgstr "Non hai favoritos"
+msgstr ""
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
 "Swipe calculations to the left\n"
 "to mark as favorites"
 msgstr ""
-"Esvare os cálculos cara á esquerda\n"
-"para marcalos como favoritos"
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
 msgid "log"
-msgstr "log"
+msgstr ""
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod."
+msgstr ""
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
-msgstr "Neste intre"
+msgstr ""
 
 #: ../app/ui/Screen.qml:39
 msgid "Today "
-msgstr "Hoxe "
+msgstr ""
 
 #. TRANSLATORS: this is a time formatting string, see
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:43
 msgid "hh:mm"
-msgstr "hh:mm"
+msgstr ""
 
 #: ../app/ui/Screen.qml:45
 msgid "Yesterday"
-msgstr "Onte"
+msgstr ""
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr "Saltar"
+msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
-msgstr "Benvido á Calculadora"
+msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:28
 msgid "Enjoy the power of math by using Calculator"
-msgstr "Goza das matemáticas coa Calculadora"
+msgstr ""
 
 #: ../app/welcomewizard/Slide10.qml:27
 msgid "Copy formula"
-msgstr "Copiar fórmula"
+msgstr ""
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr "Prema un intre para copiar parte ou toda unha fórmula ao portapapeis"
+msgstr ""
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
-msgstr "Goce"
+msgstr ""
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr "Esperamos que goce coa Calculadora."
+msgstr ""
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
-msgstr "Rematar"
+msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:27
 msgid "Scientific keyboard"
-msgstr "Teclado científico"
+msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr "Acceda ás funcións científicas esvarando á esquerda o teclado numérico"
+msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
-msgstr "Vista científica"
+msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
 msgstr ""
-"Rotar o dispositivo para mostrar xuntas as funcións científicas e numéricas"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
-msgstr "Eliminar o elemento do historial dos cálculos"
+msgstr ""
 
 #: ../app/welcomewizard/Slide4.qml:28
 msgid "Swipe right to delete items from calculator history"
-msgstr "Esvare á dereita para eliminar elementos do historial"
+msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:27
 msgid "Delete several items from calculation history"
-msgstr "Eliminar varios elementos do historial dos cálculos"
+msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr "Prema un intre para seleccionar varios cálculos que borrar"
+msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr "Eliminar a fórmula completa dunha vez"
+msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr ""
-"Faga unha presión longa no botón «←» para borrar todas as fórmulas da barra "
-"de entrada"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
-msgstr "Editar un elemento do historial dos cálculos"
+msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "Esvare á esquerda e prema no lápiz para editar un cálculo"
+msgstr ""
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr "Engadir novo favorito"
+msgstr ""
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
 msgstr ""
-"Esvare á esquerda e prema na estrela para engadir cálculos á vista de "
-"favoritos"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr "Editar a fórmula"
+msgstr ""
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "Prema no medio dunha fórmula para editala in situ"
+msgstr ""
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
-msgstr "Calculadora para Ubuntu."
+msgstr ""
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "matemáticas;suma;resta;multiplicación;división;"
+msgstr ""
