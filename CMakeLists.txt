@@ -33,7 +33,7 @@ set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 set(MAIN_QML                        ${APP_HARDCODE}.qml)
 set(ICON_FILE                       "${APP_HARDCODE}.png")
 set(DESKTOP_FILE                    "${APP_HARDCODE}.desktop")
-set(APP_VERSION                     2.3.4)
+set(APP_VERSION                     2.3.5)
 set(AUTOPILOT_DIR                   ubuntu_calculator_app)
 
 if(CLICK_MODE)
