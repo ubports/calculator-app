@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-04-27 13:38+0000\n"
+"PO-Revision-Date: 2018-05-06 12:19+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/sc/>\n"
@@ -37,7 +37,6 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: ../app/ubuntu-calculator-app.qml:333
-#, fuzzy
 msgid "Select All"
 msgstr "Seletziona totus"
 
@@ -47,15 +46,15 @@ msgstr ""
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
-msgstr ""
+msgstr "Còpia"
 
 #: ../app/ubuntu-calculator-app.qml:348 ../app/ubuntu-calculator-app.qml:450
 msgid "Delete"
-msgstr ""
+msgstr "Cantzella"
 
 #: ../app/ubuntu-calculator-app.qml:414
 msgid "Edit"
-msgstr ""
+msgstr "Modìfica"
 
 #: ../app/ubuntu-calculator-app.qml:428
 msgid "Add to favorites"
@@ -105,15 +104,15 @@ msgstr ""
 #. valid expressions
 #: ../app/ui/Screen.qml:43
 msgid "hh:mm"
-msgstr ""
+msgstr "hh:mm"
 
 #: ../app/ui/Screen.qml:45
 msgid "Yesterday"
-msgstr ""
+msgstr "Eris"
 
 #: ../app/ui/Walkthrough.qml:96
 msgid "Skip"
-msgstr ""
+msgstr "Brinca"
 
 #: ../app/welcomewizard/Slide1.qml:27
 msgid "Welcome to Calculator"
