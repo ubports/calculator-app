@@ -9,7 +9,7 @@
             "desktop": "@CMAKE_INSTALL_DATADIR@/applications/ubuntu-calculator-app.desktop"
         }
     },
-    "maintainer": "Brian Douglass <brian@ubports.com>",
+    "maintainer": "UBports <dev@ubports.com>",
     "title": "@APP_NAME@",
     "icon": "@ICON@",
     "version": "@APP_VERSION@",
