@@ -32,8 +32,8 @@ Component {
         Item {
             id: imageContainer
 
-            width: isLandscape ? slide11.width/2 : slide11.width
-            height: isLandscape ? slide11.height : slide11.height/2
+            width: isLandscape ? parent.width/2 : parent.width
+            height: isLandscape ? parent.height : parent.height/2
 
             Image {
                 width: Math.min(parent.width, parent.height)
