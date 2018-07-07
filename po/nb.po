@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2016-02-11 13:39+0000\n"
-"Last-Translator: Åka Sikrom <Unknown>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2018-06-12 17:43+0000\n"
+"Last-Translator: Ari Börde Kröyer <ari.kroyer@online.no>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://translate.ubports.com/projects/ubports/calculator-app/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
@@ -138,7 +140,7 @@ msgstr "Kos deg"
 
 #: ../app/welcomewizard/Slide11.qml:88
 msgid "We hope you enjoy using Calculator!"
-msgstr "Vi håper du får nytte av kalkulatoren."
+msgstr "Vi håper du får nytte av kalkulatoren!"
 
 #: ../app/welcomewizard/Slide11.qml:106
 msgid "Finish"
