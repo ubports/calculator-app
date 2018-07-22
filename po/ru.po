@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-02-09 18:05+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2018-07-21 08:24+0000\n"
+"Last-Translator: ierihon <idekovets@mail.ru>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports"
 "/calculator-app/ru/>\n"
 "Language: ru\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.17\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:42+0000\n"
 
 #: ../app/engine/formula.js:176
 msgid "NaN"
-msgstr "NaN"
+msgstr "не число"
 
 #: ../app/ubuntu-calculator-app.qml:267
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:1
@@ -71,7 +71,7 @@ msgstr "Добавить в избранное"
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
 msgid "dd MMM yyyy"
-msgstr "dd MMM yyyy"
+msgstr "дд МММ гггг"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
@@ -93,7 +93,7 @@ msgstr "log"
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "модуль"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -187,7 +187,6 @@ msgid "Delete whole formula at once"
 msgstr "Удалить всю формулу разом"
 
 #: ../app/welcomewizard/Slide6.qml:28
-#, fuzzy
 msgid "Long press '←' button to clear all formulas from input bar"
 msgstr "Длинное нажатие на кнопку '←' очистит строку ввода"
 
