@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-09-01 19:04+0000\n"
-"Last-Translator: Øjvind Fritjof Arnfred <fritjofarnfred@protonmail.com>\n"
+"PO-Revision-Date: 2018-09-16 20:21+0000\n"
+"Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "calculator-app/da/>\n"
 "Language: da\n"
@@ -35,7 +35,7 @@ msgstr "Foretrukne"
 
 #: ../app/ubuntu-calculator-app.qml:323
 msgid "Cancel"
-msgstr "Annuller"
+msgstr "Annullér"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
@@ -107,7 +107,7 @@ msgstr "I dag "
 #. valid expressions
 #: ../app/ui/Screen.qml:43
 msgid "hh:mm"
-msgstr "hh:mm"
+msgstr "tt:mm"
 
 #: ../app/ui/Screen.qml:45
 msgid "Yesterday"
