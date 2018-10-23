@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-10-23 11:34+0000\n"
+"PO-Revision-Date: 2018-10-25 10:24+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/calculator-app/zh_Hant/>\n"
@@ -42,6 +42,7 @@ msgid "Select All"
 msgstr "全選"
 
 #: ../app/ubuntu-calculator-app.qml:333
+#, fuzzy
 msgid "Select None"
 msgstr "全不選"
 
@@ -69,6 +70,7 @@ msgstr "加入收藏"
 #. expressions
 #: ../app/ubuntu-calculator-app.qml:566 ../app/ui/FavouritePage.qml:89
 #: ../app/ui/Screen.qml:51
+#, fuzzy
 msgid "dd MMM yyyy"
 msgstr "yyyy MMM dd"
 
@@ -86,13 +88,14 @@ msgstr ""
 
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
+#, fuzzy
 msgid "log"
 msgstr "log"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
 msgid "mod"
-msgstr "mod"
+msgstr "取模"
 
 #: ../app/ui/Screen.qml:37
 msgid "Just now"
@@ -106,6 +109,7 @@ msgstr "今天 "
 #. http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for
 #. valid expressions
 #: ../app/ui/Screen.qml:43
+#, fuzzy
 msgid "hh:mm"
 msgstr "hh:mm"
 
@@ -214,5 +218,6 @@ msgid "A calculator for Ubuntu."
 msgstr "Ubuntu 計算機。"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
+#, fuzzy
 msgid "math;addition;subtraction;multiplication;division;"
 msgstr "math;addition;subtraction;multiplication;division;數學;加;減;乘;除;"
