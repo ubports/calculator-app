@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-10-25 10:24+0000\n"
-"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"PO-Revision-Date: 2018-10-25 11:05+0000\n"
+"Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/calculator-app/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -87,7 +87,7 @@ msgstr ""
 #. TRANSLATORS Natural logarithm symbol (logarithm to the base e)
 #: ../app/ui/LandscapeKeyboard.qml:37 ../app/ui/PortraitKeyboard.qml:60
 msgid "log"
-msgstr "log"
+msgstr "日誌"
 
 #. TRANSLATORS Modulo operation: Finds the remainder after division of one number by another
 #: ../app/ui/LandscapeKeyboard.qml:44 ../app/ui/PortraitKeyboard.qml:64
@@ -175,7 +175,7 @@ msgstr "從歷史紀錄中刪除多個項目"
 
 #: ../app/welcomewizard/Slide5.qml:28
 msgid "Long press to select multiple calculations for deletion"
-msgstr "長按來選擇多個欲刪除的計算結果"
+msgstr "長按來選擇多個想要刪除的計算結果"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
@@ -215,4 +215,4 @@ msgstr "Ubuntu 計算機。"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:3
 msgid "math;addition;subtraction;multiplication;division;"
-msgstr "math;addition;subtraction;multiplication;division;數學;加;減;乘;除;"
+msgstr "數學;加;減;乘;除;"
