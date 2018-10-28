@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-10-28 19:57+0000\n"
-"Last-Translator: Sergio Reyes <vincentshergio@gmail.com>\n"
+"PO-Revision-Date: 2018-10-30 14:44+0000\n"
+"Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "calculator-app/es/>\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr "Cancelar"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select All"
-msgstr "Seleccionar todos"
+msgstr "Seleccionar todo"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
