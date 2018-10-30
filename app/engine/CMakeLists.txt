@@ -5,3 +5,4 @@ add_custom_target(ubuntu-calculator-app_engine_QMlFiles ALL SOURCES ${ENGINE_QML
 
 install(FILES ${ENGINE_QML_JS_FILES} DESTINATION ${UBUNTU-CALCULATOR-APP_DIR}/engine)
 
+install(FILES ../../node_modules/mathjs/dist/math.min.js DESTINATION ${UBUNTU-CALCULATOR-APP_DIR}/engine)

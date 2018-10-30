@@ -15,7 +15,7 @@
  */
 
 import QtQml 2.0
-import "math.js" as MathJs
+import "math.min.js" as MathJs
 
 QtObject {
     property var mathJs: MathJs.math;
