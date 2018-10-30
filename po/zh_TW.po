@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ubuntu-calculator-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-08 16:37+0100\n"
-"PO-Revision-Date: 2018-10-25 11:05+0000\n"
+"PO-Revision-Date: 2018-10-30 14:44+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/calculator-app/zh_Hant/>\n"
@@ -43,7 +43,7 @@ msgstr "全選"
 
 #: ../app/ubuntu-calculator-app.qml:333
 msgid "Select None"
-msgstr "全不選"
+msgstr "沒有選取"
 
 #: ../app/ubuntu-calculator-app.qml:340 ../app/ubuntu-calculator-app.qml:404
 msgid "Copy"
@@ -74,7 +74,7 @@ msgstr "yyyy MMM dd"
 
 #: ../app/ui/FavouritePage.qml:42
 msgid "No favorites"
-msgstr "沒有收藏的算式"
+msgstr "沒有收藏的運算公式"
 
 #: ../app/ui/FavouritePage.qml:43
 msgid ""
@@ -131,7 +131,7 @@ msgstr "複製公式"
 
 #: ../app/welcomewizard/Slide10.qml:28
 msgid "Long press to copy part or all of a formula to the clipboard"
-msgstr "長按來複製部份或全部公式到剪貼簿"
+msgstr "長按來複製部份或全部的運算公式到剪貼簿"
 
 #: ../app/welcomewizard/Slide11.qml:79
 msgid "Enjoy"
@@ -151,7 +151,7 @@ msgstr "科學計算鍵盤"
 
 #: ../app/welcomewizard/Slide2.qml:28
 msgid "Access scientific functions with a left swipe on the numeric keypad"
-msgstr "在數字鍵盤上向左滑動來使用科學運算式"
+msgstr "在數字鍵盤上向左滑動來使用科學運算公式"
 
 #: ../app/welcomewizard/Slide3.qml:27
 msgid "Scientific View"
@@ -159,7 +159,7 @@ msgstr "科學運算模式"
 
 #: ../app/welcomewizard/Slide3.qml:28
 msgid "Rotate device to show numeric and scientific functions together"
-msgstr "旋轉你的裝置以便同時顯示數字與科學運算式"
+msgstr "旋轉你的裝置以便同時顯示數字與科學運算公式"
 
 #: ../app/welcomewizard/Slide4.qml:27
 msgid "Delete item from calculation history"
@@ -179,11 +179,11 @@ msgstr "長按來選擇多個想要刪除的計算結果"
 
 #: ../app/welcomewizard/Slide6.qml:27
 msgid "Delete whole formula at once"
-msgstr "一次刪除整條運算式"
+msgstr "一次刪除整條運算公式"
 
 #: ../app/welcomewizard/Slide6.qml:28
 msgid "Long press '←' button to clear all formulas from input bar"
-msgstr "長按「←」按鈕來清除輸入欄的所有運算式"
+msgstr "長按「←」按鈕來清除輸入欄的所有運算公式"
 
 #: ../app/welcomewizard/Slide7.qml:27
 msgid "Edit item from calculation history"
@@ -191,23 +191,23 @@ msgstr "從歷史紀錄中編輯項目"
 
 #: ../app/welcomewizard/Slide7.qml:28
 msgid "Swipe left and press pencil to edit calculation"
-msgstr "向左滑動並按下鉛筆符號來編輯計算式"
+msgstr "向左滑動並按下鉛筆符號來編輯運算公式"
 
 #: ../app/welcomewizard/Slide8.qml:27
 msgid "Add new favourite"
-msgstr "將算式加入收藏"
+msgstr "將運算公式加入收藏"
 
 #: ../app/welcomewizard/Slide8.qml:28
 msgid "Swipe left and press star to add calculations to favourites view"
-msgstr "向左滑動並按下星號來將計算式加入收藏"
+msgstr "向左滑動並按下星號來將運算公式加入收藏"
 
 #: ../app/welcomewizard/Slide9.qml:27
 msgid "Edit formula"
-msgstr "編輯運算式"
+msgstr "編輯運算公式"
 
 #: ../app/welcomewizard/Slide9.qml:28
 msgid "Click in the middle of a formula to edit in place"
-msgstr "點擊一條運算式的中間來進行編輯"
+msgstr "點擊一條運算公式的中間來進行編輯"
 
 #: /tmp/tmp.WzlPraBXv6/po/ubuntu-calculator-app.desktop.in.in.h:2
 msgid "A calculator for Ubuntu."
